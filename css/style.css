@@ -726,7 +726,7 @@ a.article-title:hover {
   float: right;
 }
 .article-comment-link:before {
-  content: "\f075";
+  content: "comment";
   font-family: FontAwesome;
   padding-right: 8px;
 }
