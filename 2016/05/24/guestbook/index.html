@@ -11,13 +11,13 @@
 <meta property="og:url" content="http://fenlan.github.io/2016/05/24/guestbook/index.html">
 <meta property="og:site_name" content="fenlan">
 <meta property="og:description" content="在添加留言板时意外收获到了我想要的外部链接，但不知道适不适用与除主页上的menu以外的地方。假设一个场景，就是你要在主页上的某个地方添加一个超链接，使点击事件发生后跳到另外一个界面，设置如下：">
-<meta property="og:image" content="http://fenlan.github.io/f:/我的照片/1.png">
-<meta property="og:image" content="http://fenlan.github.io/f:/我的照片/2.png">
-<meta property="og:updated_time" content="2016-05-24T04:26:13.197Z">
+<meta property="og:image" content="http://fenlan.github.io/file:///f:/我的照片/1.png">
+<meta property="og:image" content="http://fenlan.github.io/file:///f:/我的照片/2.png">
+<meta property="og:updated_time" content="2016-05-24T04:31:40.468Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="通过留言板的添加所得到的tip">
 <meta name="twitter:description" content="在添加留言板时意外收获到了我想要的外部链接，但不知道适不适用与除主页上的menu以外的地方。假设一个场景，就是你要在主页上的某个地方添加一个超链接，使点击事件发生后跳到另外一个界面，设置如下：">
-<meta name="twitter:image" content="http://fenlan.github.io/f:/我的照片/1.png">
+<meta name="twitter:image" content="http://fenlan.github.io/file:///f:/我的照片/1.png">
   
     <link rel="alternate" href="/atom.xml" title="fenlan" type="application/atom+xml">
   
@@ -59,9 +59,9 @@
       </nav>
       <nav id="sub-nav">
         
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS"></a>
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Buscar"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://fenlan.github.io"></form>
@@ -92,14 +92,23 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <font face="黑体"><br>在添加留言板时意外收获到了我想要的外部链接，但不知道适不适用与除主页上的menu以外的地方。假设一个场景，就是你要在主页上的某个地方添加一个超链接，使点击事件发生后跳到另外一个界面，设置如下：<br><br><a id="more"></a><br><br>先找到themes目录下的_config.yml这个文件打开，这个文件是themes设置文件，你可以在里面设置themes属性<br><br><img src="f:/我的照片/1.png" alt="1"><br><br>这里面有layout布局，比如menu,content,sidebar等设置，我的留言板是在menu里面的，所以我在menu里面添加了这行代码：<br><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Guestbook: /guestbook</span><br></pre></td></tr></table></figure><br><br>解释一下，Guestbook是在Header的menu中显示，效果如下<br><br><img src="f:/我的照片/2.png" alt="2"><br><br>后面的guestbook是在你博客主目录下的source中的一个界面名字。ok，就这样就ok了。<br></font>
+        <p>在添加留言板时意外收获到了我想要的外部链接，但不知道适不适用与除主页上的menu以外的地方。假设一个场景，就是你要在主页上的某个地方添加一个超链接，使点击事件发生后跳到另外一个界面，设置如下：</p>
+<a id="more"></a>
+<p>先找到themes目录下的_config.yml这个文件打开，这个文件是themes设置文件，你可以在里面设置themes属性</p>
+<p><img src="file:///f:/我的照片/1.png" alt="1"></p>
+<p>这里面有layout布局，比如menu,content,sidebar等设置，我的留言板是在menu里面的，所以我在menu里面添加了这行代码：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Guestbook: /guestbook</span><br></pre></td></tr></table></figure>
+<p>解释一下，Guestbook是在Header的menu中显示，效果如下</p>
+<p><img src="file:///f:/我的照片/2.png" alt="2"></p>
+<p>后面的guestbook是在你博客主目录下的source中的一个界面名字。ok，就这样就ok了。</p>
+
       
     </div>
 
     <footer class="article-footer">
-      <a data-url="http://fenlan.github.io/2016/05/24/guestbook/" data-id="ciokxw6qm00006wuosbmjznmi" class="article-share-link">Compartir</a>
+      <a data-url="http://fenlan.github.io/2016/05/24/guestbook/" data-id="ciokxw6qm00006wuosbmjznmi" class="article-share-link">Share</a>
       
-        <a href="http://fenlan.github.io/2016/05/24/guestbook/#disqus_thread" class="article-comment-link">Comentarios</a>
+        <a href="http://fenlan.github.io/2016/05/24/guestbook/#disqus_thread" class="article-comment-link">Comments</a>
       
       
     </footer>
@@ -110,7 +119,7 @@
   
   
     <a href="/2016/05/23/duoshuo/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Viejo</strong>
+      <strong class="article-nav-caption">Older</strong>
       <div class="article-nav-title">hexo评论框部署</div>
     </a>
   
@@ -152,7 +161,7 @@ var duoshuoQuery = {short_name:"fenlan"};
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Archivos</h3>
+    <h3 class="widget-title">Archives</h3>
     <div class="widget">
       <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a></li></ul>
     </div>
@@ -162,7 +171,7 @@ var duoshuoQuery = {short_name:"fenlan"};
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Posts recientes</h3>
+    <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
         
@@ -201,7 +210,7 @@ var duoshuoQuery = {short_name:"fenlan"};
   <div class="outer">
     <div id="footer-info" class="inner">
       &copy; 2016 Gao Jie<br>
-      Construido por <a href="http://hexo.io/" target="_blank">Hexo</a>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
       <br>
 	<span id="busuanzi_container_site_pv">
     viewer：<span id="busuanzi_value_site_pv"></span>
