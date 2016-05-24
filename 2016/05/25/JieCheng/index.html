@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>计算两个大数乘积巧算法 | fenlan</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="最近遇到了一个编程上的小问题，编程题目是这样的，计算一个数的阶乘，我当时就在想，这不是很简单吗，然后我随手写了串代码，如下">
+<meta property="og:type" content="article">
+<meta property="og:title" content="计算两个大数乘积巧算法">
+<meta property="og:url" content="http://fenlan.github.io/2016/05/25/JieCheng/index.html">
+<meta property="og:site_name" content="fenlan">
+<meta property="og:description" content="最近遇到了一个编程上的小问题，编程题目是这样的，计算一个数的阶乘，我当时就在想，这不是很简单吗，然后我随手写了串代码，如下">
+<meta property="og:updated_time" content="2016-05-24T17:55:44.899Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="计算两个大数乘积巧算法">
+<meta name="twitter:description" content="最近遇到了一个编程上的小问题，编程题目是这样的，计算一个数的阶乘，我当时就在想，这不是很简单吗，然后我随手写了串代码，如下">
+  
+    <link rel="alternate" href="/atom.xml" title="fenlan" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">fenlan</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Everything is funny, if you can laugh at it</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/guestbook">Guestbook</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://fenlan.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-JieCheng" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/05/25/JieCheng/" class="article-date">
+  <time datetime="2016-05-24T17:55:44.775Z" itemprop="datePublished">2016-05-25</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      计算两个大数乘积巧算法
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong>最近遇到了一个编程上的小问题，编程题目是这样的，计算一个数的阶乘，我当时就在想，这不是很简单吗，然后我随手写了串代码，如下</strong></p>
+<a id="more"></a>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">double Jie_Cheng(int i)</span><br><span class="line">&#123;</span><br><span class="line">	double the_output_number = 1;</span><br><span class="line">	int j = 1;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span> (j=1;j&lt;=i;j++)    the_output_number *= j;</span><br><span class="line">	<span class="built_in">return</span> the_output_number;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>但是有人提醒我这串代码在有些编译器中只能算1-13的阶乘，我就意思到这样的代码会有溢出数据范围，然后自己想了些法子去实现，然后又去网上找别人写的代码，看了一些不太好的代码，代码多又复杂，所以没兴趣看，然后突然找到了如下代码，我认真地看着</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">const int max = 3000;</span><br><span class="line">int f[max] = &#123;0&#125;;</span><br><span class="line">int <span class="function"><span class="title">main</span></span> ()</span><br><span class="line">&#123;</span><br><span class="line">	int i, j, number;</span><br><span class="line">    scanf(<span class="string">"%d"</span>,&amp;number);</span><br><span class="line">    </span><br><span class="line">    f[0] = 1;</span><br><span class="line">    <span class="keyword">for</span> (i=2;i&lt;=n;i++)</span><br><span class="line">    &#123;</span><br><span class="line">    	int left = 0;                   //下面要用的余数</span><br><span class="line">        <span class="keyword">for</span> (j=0;j&lt;max;j++)</span><br><span class="line">        &#123;</span><br><span class="line">        	int sum = f[j] * i + left;</span><br><span class="line">            //一个数乘以另一个数的每一项</span><br><span class="line">            f[j] = sum % 10;</span><br><span class="line">            left = sum / 10;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>大概代码就是这些，代码本身不难看懂，只是这个实现的方法是我没有想过的。这个算法设计很巧，所以有必要记录一下</strong></p>
+<p><strong>代码翻译成计算过程如下，举个乘积例子：1213 * 325，自己动手计算一下，我的老实计算步骤是这样的：</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">    1213</span><br><span class="line"> *   325</span><br><span class="line">------------</span><br><span class="line">    6065</span><br><span class="line">   2426</span><br><span class="line">  3639</span><br><span class="line">------------</span><br><span class="line">  394225</span><br></pre></td></tr></table></figure>
+<p><strong>那么代码怎么实现这两个数的计算的呢？首先用5 <em> 1213 然后将最后一位的5落下来，将剩下的 606 加在第二次用 2 </em> 1213 的结果上，再将6落下来，同样的道理一直到计算完。这是从计算本身的角度去设计代码，简单易懂，也便于设计代码，那么再大的数也可以实现阶乘计算了，所以最后完成的代码如下：</strong><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line">//本程序有待完善</span><br><span class="line"><span class="comment"># include &lt;stdio.h&gt;</span></span><br><span class="line"><span class="comment"># include &lt;stdlib.h&gt;</span></span><br><span class="line"></span><br><span class="line">const int max = 3000;     //该最大值为数据的最大位数1000位</span><br><span class="line"></span><br><span class="line">void JieCheng (int );</span><br><span class="line">/*计算大数阶乘</span><br><span class="line"> *</span><br><span class="line"> */</span><br><span class="line">int <span class="function"><span class="title">main</span></span> ()</span><br><span class="line">&#123;</span><br><span class="line">	int number = 0;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">while</span> (1)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"Please input a integer no more than 1000\n"</span>);</span><br><span class="line">		scanf(<span class="string">"%d"</span>, &amp;number);</span><br><span class="line"></span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"The result is:"</span>);</span><br><span class="line">		JieCheng(number);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	system(<span class="string">"pause"</span>);</span><br><span class="line">	<span class="built_in">return</span> 0;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void JieCheng (int number)</span><br><span class="line">&#123;</span><br><span class="line">	int f[3000] = &#123;0&#125;;       //待完善</span><br><span class="line">	int i, j;</span><br><span class="line"></span><br><span class="line">	f[0] = 1;</span><br><span class="line">	<span class="keyword">for</span> (i=1;i&lt;=number;i++)</span><br><span class="line">    //迭代求阶乘，从2到所求数</span><br><span class="line">	&#123;</span><br><span class="line">		int left = 0;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">for</span> (j=0;j&lt;max;j++)</span><br><span class="line">        //数组表示所求阶乘大数的每一分数位，如个位是f[0],十位是f[1]</span><br><span class="line">		&#123;</span><br><span class="line">			int sum = f[j] * i + left;        </span><br><span class="line">            //具体求法在博客上</span><br><span class="line">			f[j] = sum % 10;</span><br><span class="line">			left = sum / 10;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span> (i=max-1;;i--)    <span class="keyword">if</span> (f[i]!=0)   <span class="built_in">break</span>;</span><br><span class="line">	<span class="keyword">for</span> (j=i;j&gt;=0;j--)   <span class="built_in">printf</span>(<span class="string">"%d"</span>, f[j]);</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"\n"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+
+    <footer class="article-footer">
+      <a data-url="http://fenlan.github.io/2016/05/25/JieCheng/" data-id="ciolqua4v0000ukuo2w80yrau" class="article-share-link">Share</a>
+      
+        <a href="http://fenlan.github.io/2016/05/25/JieCheng/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2016/05/24/guestbook/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">通过留言板的添加所得到的tip</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+<section id="comment">
+<div class="ds-thread" data-thread-key=2016/05/25/JieCheng/ data-title=计算两个大数乘积巧算法 data-url=http://fenlan.github.io/2016/05/25/JieCheng/></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"fenlan"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0]
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+    </section>
+    </section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2016/05/25/JieCheng/">计算两个大数乘积巧算法</a>
+          </li>
+        
+          <li>
+            <a href="/2016/05/24/guestbook/">通过留言板的添加所得到的tip</a>
+          </li>
+        
+          <li>
+            <a href="/2016/05/23/duoshuo/">hexo评论框部署</a>
+          </li>
+        
+          <li>
+            <a href="/2016/05/22/my-note2/">发个牢骚</a>
+          </li>
+        
+          <li>
+            <a href="/2016/05/22/blog/">搭建博客的大致流程</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+<footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 Gao Jie<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      <br>
+	<span id="busuanzi_container_site_pv">
+    viewer：<span id="busuanzi_value_site_pv"></span>
+</span>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/guestbook" class="mobile-nav-link">Guestbook</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>
