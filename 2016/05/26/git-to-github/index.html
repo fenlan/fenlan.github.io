@@ -11,7 +11,7 @@
 <meta property="og:url" content="http://fenlan.github.io/2016/05/26/git-to-github/index.html">
 <meta property="og:site_name" content="fenlan">
 <meta property="og:description" content="我想想，这个东西好像是上个学期寝室大神告诉我的，然而我现在才知道怎么使用它，主要是之前没接触到这个东西，不知道这东西是干嘛用的，在建blog时接触到了，对于如此难堪的水平的我来说有必要记录一下。想想感觉不应该写在blog上，觉得好好的博客怎么写这些东西了，不过尽管如此，我还是决心写一下">
-<meta property="og:updated_time" content="2016-05-26T07:06:39.555Z">
+<meta property="og:updated_time" content="2016-05-26T07:08:32.114Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="git to gihub">
 <meta name="twitter:description" content="我想想，这个东西好像是上个学期寝室大神告诉我的，然而我现在才知道怎么使用它，主要是之前没接触到这个东西，不知道这东西是干嘛用的，在建blog时接触到了，对于如此难堪的水平的我来说有必要记录一下。想想感觉不应该写在blog上，觉得好好的博客怎么写这些东西了，不过尽管如此，我还是决心写一下">
@@ -91,9 +91,9 @@
       
         <p><strong>我想想，这个东西好像是上个学期寝室大神告诉我的，然而我现在才知道怎么使用它，主要是之前没接触到这个东西，不知道这东西是干嘛用的，在建blog时接触到了，对于如此难堪的水平的我来说有必要记录一下。想想感觉不应该写在blog上，觉得好好的博客怎么写这些东西了，不过尽管如此，我还是决心写一下</strong></p>
 <a id="more"></a>
-<h4 id="注册github账号"><a href="#注册github账号" class="headerlink" title="注册github账号"></a>注册github账号</h4><p><strong>这个步骤省略。。。。。</strong></p>
-<h4 id="新建repositories"><a href="#新建repositories" class="headerlink" title="新建repositories"></a>新建repositories</h4><p><strong>继续省略。。。。。。</strong></p>
-<h4 id="本地配置"><a href="#本地配置" class="headerlink" title="本地配置"></a>本地配置</h4><p><strong>最好新建一个目录，比如Mycode，然后将你要放在github的代码放在这个目录中如果第一次用git，需要表明你的身份，我的理解是这样的，命令行如下：</strong></p>
+<h3 id="注册github账号"><a href="#注册github账号" class="headerlink" title="注册github账号"></a>注册github账号</h3><p><strong>这个步骤省略。。。。。</strong></p>
+<h3 id="新建repositories"><a href="#新建repositories" class="headerlink" title="新建repositories"></a>新建repositories</h3><p><strong>继续省略。。。。。。</strong></p>
+<h3 id="本地配置"><a href="#本地配置" class="headerlink" title="本地配置"></a>本地配置</h3><p><strong>最好新建一个目录，比如Mycode，然后将你要放在github的代码放在这个目录中如果第一次用git，需要表明你的身份，我的理解是这样的，命令行如下：</strong></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git config --global user.name <span class="string">"yourname"</span></span><br><span class="line">$ git config --global user.email <span class="string">"youremail"</span></span><br><span class="line">$ git config --global color.ui auto</span><br></pre></td></tr></table></figure>
 <p><strong>然后继续：</strong></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> Mycode</span><br><span class="line">$ git init</span><br><span class="line">$ git status</span><br><span class="line">$ git add 要放在github的文件</span><br><span class="line">$ git status</span><br><span class="line">$ git commit -m <span class="string">"c-program"</span></span><br><span class="line">$ git status</span><br><span class="line">$ git <span class="built_in">log</span></span><br><span class="line">$ git remote add origin https://......</span><br><span class="line">$ git push -u origin master</span><br><span class="line">$ git push -u origin</span><br></pre></td></tr></table></figure>
