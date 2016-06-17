@@ -3,18 +3,21 @@
 <head>
   <meta charset="utf-8">
   
-  <title>发个牢骚 | fenlan</title>
+  <title>Android Handler学习记录 | fenlan</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="今天不知道一不小心把那个代码改了，直接导致每篇博文下面的comment前面的图标不见了。室友说这点小细节不要在意，然而对于我这种患强迫症的人来说就是烦，想着去改，结果没改好，导致我的留言板也没做好。所以今天整个人都不好了。。。。最后决定以补补高数算了，晚上慢慢再找找这个小bug.">
+  <meta name="description" content="这个需要学习四节课程，这是第一节，多的不说，直接放代码
+12345678910111213141516171819202122232425262728293031323334353637383940414243package com.example.administrator.handler;import android.os.Handler;import android.os.Message;i">
 <meta property="og:type" content="article">
-<meta property="og:title" content="发个牢骚">
-<meta property="og:url" content="http://fenlan.github.io/2016/05/22/my-note2/index.html">
+<meta property="og:title" content="Android Handler学习记录">
+<meta property="og:url" content="http://fenlan.github.io/2016/06/17/android-handler/index.html">
 <meta property="og:site_name" content="fenlan">
-<meta property="og:description" content="今天不知道一不小心把那个代码改了，直接导致每篇博文下面的comment前面的图标不见了。室友说这点小细节不要在意，然而对于我这种患强迫症的人来说就是烦，想着去改，结果没改好，导致我的留言板也没做好。所以今天整个人都不好了。。。。最后决定以补补高数算了，晚上慢慢再找找这个小bug.">
-<meta property="og:updated_time" content="2016-05-23T08:13:57.218Z">
+<meta property="og:description" content="这个需要学习四节课程，这是第一节，多的不说，直接放代码
+12345678910111213141516171819202122232425262728293031323334353637383940414243package com.example.administrator.handler;import android.os.Handler;import android.os.Message;i">
+<meta property="og:updated_time" content="2016-06-17T13:11:16.557Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="发个牢骚">
-<meta name="twitter:description" content="今天不知道一不小心把那个代码改了，直接导致每篇博文下面的comment前面的图标不见了。室友说这点小细节不要在意，然而对于我这种患强迫症的人来说就是烦，想着去改，结果没改好，导致我的留言板也没做好。所以今天整个人都不好了。。。。最后决定以补补高数算了，晚上慢慢再找找这个小bug.">
+<meta name="twitter:title" content="Android Handler学习记录">
+<meta name="twitter:description" content="这个需要学习四节课程，这是第一节，多的不说，直接放代码
+12345678910111213141516171819202122232425262728293031323334353637383940414243package com.example.administrator.handler;import android.os.Handler;import android.os.Message;i">
   
     <link rel="alternate" href="/atom.xml" title="fenlan" type="application/atom+xml">
   
@@ -67,10 +70,10 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-my-note2" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-android-handler" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2016/05/22/my-note2/" class="article-date">
-  <time datetime="2016-05-22T15:54:11.362Z" itemprop="datePublished">2016-05-22</time>
+    <a href="/2016/06/17/android-handler/" class="article-date">
+  <time datetime="2016-06-17T13:11:16.310Z" itemprop="datePublished">2016-06-17</time>
 </a>
     
   </div>
@@ -81,7 +84,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      发个牢骚
+      Android Handler学习记录
     </h1>
   
 
@@ -89,36 +92,29 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>今天不知道一不小心把那个代码改了，直接导致每篇博文下面的comment前面的图标不见了。室友说这点小细节不要在意，然而对于我这种患强迫症的人来说就是烦，想着去改，结果没改好，导致我的留言板也没做好。所以今天整个人都不好了。。。。最后决定以补补高数算了，晚上慢慢再找找这个小bug.</p>
-
+        <p><strong>这个需要学习四节课程，这是第一节，多的不说，直接放代码</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">package com.example.administrator.handler;</span><br><span class="line"></span><br><span class="line">import android.os.Handler;</span><br><span class="line">import android.os.Message;</span><br><span class="line">import android.provider.Settings;</span><br><span class="line">import android.support.v7.app.AppCompatActivity;</span><br><span class="line">import android.os.Bundle;</span><br><span class="line">import android.view.View;</span><br><span class="line">import android.widget.Button;</span><br><span class="line"></span><br><span class="line">public class MainActivity extends AppCompatActivity &#123;</span><br><span class="line"></span><br><span class="line">    private Button button;</span><br><span class="line">    private Handler handler;</span><br><span class="line">    @Override</span><br><span class="line">    protected void onCreate(Bundle savedInstanceState) &#123;</span><br><span class="line">        super.onCreate(savedInstanceState);</span><br><span class="line">        <span class="built_in">set</span>ContentView(R.layout.activity_main);</span><br><span class="line"></span><br><span class="line">        button = (Button)findViewById(R.id.Button);</span><br><span class="line">        button.setOnClickListener(new ButtonListener());</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    class ButtonListener implements View.OnClickListener&#123;</span><br><span class="line">        @Override</span><br><span class="line">        public void onClick(View view)&#123;</span><br><span class="line">            Message message = handler.obtainMessage();</span><br><span class="line">            message.what = 2;</span><br><span class="line">            handler.sendMessage(message);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    class FirstHandler extends Handler&#123;</span><br><span class="line">        @Override</span><br><span class="line">        public void handleMessage(Message message)&#123;</span><br><span class="line">            int what = message.what;</span><br><span class="line">            System.out.println(<span class="string">"what = "</span> + what);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">**附上参考地址**</span><br><span class="line">https://developer.android.com/reference/android/os/Handler.html</span><br></pre></td></tr></table></figure>
       
     </div>
 
     <footer class="article-footer">
-      <a data-url="http://fenlan.github.io/2016/05/22/my-note2/" data-id="ciostl752000a7suonxa59w6k" class="article-share-link">Share</a>
+      <a data-url="http://fenlan.github.io/2016/06/17/android-handler/" data-id="cipjr8n4v00002kuo0v780ae1" class="article-share-link">Share</a>
       
-        <a href="http://fenlan.github.io/2016/05/22/my-note2/#disqus_thread" class="article-comment-link">Comments</a>
+        <a href="http://fenlan.github.io/2016/06/17/android-handler/#disqus_thread" class="article-comment-link">Comments</a>
       
       
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android-Handler/">Android Handler</a></li></ul>
+
     </footer>
   </div>
   
     
 <nav id="article-nav">
   
-    <a href="/2016/05/23/duoshuo/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          hexo评论框部署
-        
-      </div>
-    </a>
   
-  
-    <a href="/2016/05/22/blog/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2016/06/17/android-ProgressBarAndThread/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">搭建博客的大致流程</div>
+      <div class="article-nav-title">android中ProgressBar和线程学习记录</div>
     </a>
   
 </nav>
@@ -130,7 +126,7 @@
 
 
 <section id="comment">
-<div class="ds-thread" data-thread-key=2016/05/22/my-note2/ data-title=发个牢骚 data-url=http://fenlan.github.io/2016/05/22/my-note2/></div>
+<div class="ds-thread" data-thread-key=2016/06/17/android-handler/ data-title=Android Handler学习记录 data-url=http://fenlan.github.io/2016/06/17/android-handler/></div>
 <!-- 多说评论框 end -->
 <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 <script type="text/javascript">
