@@ -11,7 +11,7 @@
 <meta property="og:url" content="http://fenlan.github.io/2016/08/10/ubuntu安装与配置/index.html">
 <meta property="og:site_name" content="fenlan">
 <meta property="og:description" content="想了一下，最终还是将电脑安成windows10 + ubuntu16双系统，以后多用用ubuntu试试。我选择的安装方式使用u盘安装，在安装ubuntu时一直没有选对启动盘制作工具，之前安装windows10的时候使用的是UltraIso，这个安windows没什么问题，但是安装ubuntu时，安不上，后面上网查了很多次，也用了其他的软件，比如linuxLive USB Creator,Unive">
-<meta property="og:updated_time" content="2016-08-10T02:13:55.010Z">
+<meta property="og:updated_time" content="2016-08-10T02:18:11.503Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ubuntu安装配置">
 <meta name="twitter:description" content="想了一下，最终还是将电脑安成windows10 + ubuntu16双系统，以后多用用ubuntu试试。我选择的安装方式使用u盘安装，在安装ubuntu时一直没有选对启动盘制作工具，之前安装windows10的时候使用的是UltraIso，这个安windows没什么问题，但是安装ubuntu时，安不上，后面上网查了很多次，也用了其他的软件，比如linuxLive USB Creator,Unive">
@@ -56,9 +56,9 @@
       </nav>
       <nav id="sub-nav">
         
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Buscar"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://fenlan.github.io"></form>
@@ -91,26 +91,26 @@
       
         <p><strong>想了一下，最终还是将电脑安成windows10 + ubuntu16双系统，以后多用用ubuntu试试。我选择的安装方式使用u盘安装，在安装ubuntu时一直没有选对启动盘制作工具，之前安装windows10的时候使用的是UltraIso，这个安windows没什么问题，但是安装ubuntu时，安不上，后面上网查了很多次，也用了其他的软件，比如linuxLive USB Creator,Universal-USB-Installer等等，其中Universal-usb-installer还是ubuntu推荐的软件，但是仍然不行，就这我折腾了两天还是没成功，后来在qq上的一个业余群里面，有人叫我用USBwriter，结果就成功安装上了。</strong></p>
 <a id="more"></a>
-<h3 id="ubuntu有线联网"><a href="#ubuntu有线联网" class="headerlink" title="ubuntu有线联网"></a>ubuntu有线联网</h3><p><strong>感觉每一项都挺折腾的，百度google都查了很多，这一步我是在终端完成的</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo pppoeconf</span><br></pre></td></tr></table></figure></p>
+<h2 id="ubuntu有线联网"><a href="#ubuntu有线联网" class="headerlink" title="ubuntu有线联网"></a>ubuntu有线联网</h2><p><strong>感觉每一项都挺折腾的，百度google都查了很多，这一步我是在终端完成的</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo pppoeconf</span><br></pre></td></tr></table></figure></p>
 <p><strong>然后根据提示输入用户名和密码就行了</strong></p>
-<h3 id="Chrome安装"><a href="#Chrome安装" class="headerlink" title="Chrome安装"></a>Chrome安装</h3><p><strong>很抱歉，我有google强迫症，没它不行，所以直接在官网下载软件包，然后再终端安装</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo dpkg -i 软件包名</span><br></pre></td></tr></table></figure></p>
+<h2 id="Chrome安装"><a href="#Chrome安装" class="headerlink" title="Chrome安装"></a>Chrome安装</h2><p><strong>很抱歉，我有google强迫症，没它不行，所以直接在官网下载软件包，然后再终端安装</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo dpkg -i 软件包名</span><br></pre></td></tr></table></figure></p>
 <p><strong>其实有很多安装方式，百度google多问一下就行了</strong></p>
-<h3 id="安装软件出现未满足依赖"><a href="#安装软件出现未满足依赖" class="headerlink" title="安装软件出现未满足依赖"></a>安装软件出现未满足依赖</h3><p><strong>方法就是软件更新器更新，也有这个命令</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get install -f</span><br><span class="line">$ sudo apt-get update</span><br></pre></td></tr></table></figure></p>
+<h2 id="安装软件出现未满足依赖"><a href="#安装软件出现未满足依赖" class="headerlink" title="安装软件出现未满足依赖"></a>安装软件出现未满足依赖</h2><p><strong>方法就是软件更新器更新，也有这个命令</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get install -f</span><br><span class="line">$ sudo apt-get update</span><br></pre></td></tr></table></figure></p>
 <p><strong>我上面的命令都不管用了，因为我下载了android studio，然后就出问题了，出现没有满足依赖，后来把android studio卸载了才能更新软件包的</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get remove android-studio</span><br></pre></td></tr></table></figure></p>
 <p><strong>系统软件包更新后仍然没有安上android studio</strong></p>
-<h3 id="安装jdk"><a href="#安装jdk" class="headerlink" title="安装jdk"></a>安装jdk</h3><p><strong>跟安装chrome一样，不过要配置环境</strong><br><strong>这里就不浪费时间，直接引用</strong><br><a href="http://http://blog.csdn.net/sunlovefly2012/article/details/42747929" target="_blank" rel="external">Ubuntu 11.04,14.04 下安装配置 JDK 7,JDK 8</a><br><strong>具体根据自己的情况去设置</strong></p>
-<h3 id="chrome翻墙"><a href="#chrome翻墙" class="headerlink" title="chrome翻墙"></a>chrome翻墙</h3><p><strong>这里有写得很好的博客关于翻墙的</strong><br><a href="https://aitanlu.com/ubuntu-shadowsocks-ke-hu-duan-pei-zhi.html#comment-3874" target="_blank" rel="external">linux-ubuntu使用shadowsocks客户端配置</a></p>
+<h2 id="安装jdk"><a href="#安装jdk" class="headerlink" title="安装jdk"></a>安装jdk</h2><p><strong>跟安装chrome一样，不过要配置环境</strong><br><strong>这里就不浪费时间，直接引用</strong><br><a href="http://blog.csdn.net/sunlovefly2012/article/details/42747929" target="_blank" rel="external">Ubuntu 11.04,14.04 下安装配置 JDK 7,JDK 8</a><br><strong>具体根据自己的情况去设置</strong></p>
+<h2 id="chrome翻墙"><a href="#chrome翻墙" class="headerlink" title="chrome翻墙"></a>chrome翻墙</h2><p><strong>这里有写得很好的博客关于翻墙的</strong><br><a href="https://aitanlu.com/ubuntu-shadowsocks-ke-hu-duan-pei-zhi.html#comment-3874" target="_blank" rel="external">linux-ubuntu使用shadowsocks客户端配置</a></p>
 <p><strong>里面全部都有，很详细。</strong></p>
-<h3 id="git安装"><a href="#git安装" class="headerlink" title="git安装"></a>git安装</h3><p><strong>这个我的博客里有，还有hexo和博客关联都有</strong></p>
-<h3 id="安装android-studio"><a href="#安装android-studio" class="headerlink" title="安装android studio"></a>安装android studio</h3><p><strong>还在努力中。。。。。</strong></p>
+<h2 id="git安装"><a href="#git安装" class="headerlink" title="git安装"></a>git安装</h2><p><strong>这个我的博客里有，还有hexo和博客关联都有</strong></p>
+<h2 id="安装android-studio"><a href="#安装android-studio" class="headerlink" title="安装android studio"></a>安装android studio</h2><p><strong>还在努力中。。。。。</strong></p>
 
       
     </div>
 
     <footer class="article-footer">
-      <a data-url="http://fenlan.github.io/2016/08/10/ubuntu安装与配置/" data-id="ciro9jlkh0000i8uozhwk1mj6" class="article-share-link">Share</a>
+      <a data-url="http://fenlan.github.io/2016/08/10/ubuntu安装与配置/" data-id="ciro9jlkh0000i8uozhwk1mj6" class="article-share-link">Compartir</a>
       
-        <a href="http://fenlan.github.io/2016/08/10/ubuntu安装与配置/#disqus_thread" class="article-comment-link">Comments</a>
+        <a href="http://fenlan.github.io/2016/08/10/ubuntu安装与配置/#disqus_thread" class="article-comment-link">Comentarios</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ubuntu/">ubuntu</a></li></ul>
@@ -123,7 +123,7 @@
   
   
     <a href="/2016/07/23/数据结构/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
+      <strong class="article-nav-caption">Viejo</strong>
       <div class="article-nav-title">数据结构c++</div>
     </a>
   
@@ -170,7 +170,7 @@ var duoshuoQuery = {short_name:"fenlan"};
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Tag Cloud</h3>
+    <h3 class="widget-title">Nube de Tags</h3>
     <div class="widget tagcloud">
       <a href="/tags/Android-Handler/" style="font-size: 10px;">Android Handler</a> <a href="/tags/Android-数据传输/" style="font-size: 10px;">Android 数据传输</a> <a href="/tags/andriod/" style="font-size: 10px;">andriod</a> <a href="/tags/android-Intent/" style="font-size: 10px;">android-Intent</a> <a href="/tags/android-Progress-And-Thread/" style="font-size: 10px;">android-Progress And Thread</a> <a href="/tags/apache-php-mysql/" style="font-size: 10px;">apache php mysql</a> <a href="/tags/java-Thread/" style="font-size: 10px;">java-Thread</a> <a href="/tags/ubuntu/" style="font-size: 10px;">ubuntu</a> <a href="/tags/数据结构/" style="font-size: 10px;">数据结构</a> <a href="/tags/服务器/" style="font-size: 10px;">服务器</a> <a href="/tags/爬虫/" style="font-size: 10px;">爬虫</a>
     </div>
@@ -179,7 +179,7 @@ var duoshuoQuery = {short_name:"fenlan"};
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
+    <h3 class="widget-title">Archivos</h3>
     <div class="widget">
       <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">July 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a></li></ul>
     </div>
@@ -189,7 +189,7 @@ var duoshuoQuery = {short_name:"fenlan"};
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
+    <h3 class="widget-title">Posts recientes</h3>
     <div class="widget">
       <ul>
         
@@ -228,7 +228,7 @@ var duoshuoQuery = {short_name:"fenlan"};
   <div class="outer">
     <div id="footer-info" class="inner">
       &copy; 2016 Gao Jie<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      Construido por <a href="http://hexo.io/" target="_blank">Hexo</a>
       <br>
 	<span id="busuanzi_container_site_pv">
     viewer：<span id="busuanzi_value_site_pv"></span>
