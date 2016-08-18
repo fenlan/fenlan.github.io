@@ -11,7 +11,7 @@
 <meta property="og:url" content="http://fenlan.github.io/2016/08/10/ubuntu安装与配置/index.html">
 <meta property="og:site_name" content="fenlan">
 <meta property="og:description" content="想了一下，最终还是将电脑安成windows10 + ubuntu16双系统，以后多用用ubuntu试试。我选择的安装方式使用u盘安装，在安装ubuntu时一直没有选对启动盘制作工具，之前安装windows10的时候使用的是UltraIso，这个安windows没什么问题，但是安装ubuntu时，安不上，后面上网查了很多次，也用了其他的软件，比如linuxLive USB Creator,Unive">
-<meta property="og:updated_time" content="2016-08-13T15:00:54.951Z">
+<meta property="og:updated_time" content="2016-08-18T17:55:31.742Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ubuntu安装配置">
 <meta name="twitter:description" content="想了一下，最终还是将电脑安成windows10 + ubuntu16双系统，以后多用用ubuntu试试。我选择的安装方式使用u盘安装，在安装ubuntu时一直没有选对启动盘制作工具，之前安装windows10的时候使用的是UltraIso，这个安windows没什么问题，但是安装ubuntu时，安不上，后面上网查了很多次，也用了其他的软件，比如linuxLive USB Creator,Unive">
@@ -105,6 +105,7 @@
 <h2 id="安装android-studio"><a href="#安装android-studio" class="headerlink" title="安装android studio"></a>安装android studio</h2><p><strong>还在努力中。。。。。</strong><br><strong>已经完成了，不过并不想写。哎，太懒了，其实也没有多难，只是要配好java环境,然后我的android studio是用命令打开，打开一个后缀是.sh的文件就行</strong></p>
 <h2 id="vim配置"><a href="#vim配置" class="headerlink" title="vim配置"></a>vim配置</h2><p><strong>主要是两个文件夹，一个是/etc/vim,一个是~/.vim,具体的还是要多google，我到现在也没弄清楚</strong></p>
 <p><strong>经过我不懈的努力，终于比较完善了，有代码高亮，自动补全，错误检测，还有nerdtree功能，这些都可以用bundle安装，先安装bundle，然后再在vimrc文件中配置Plugin + 插件，完成后重新打开vim，输入命令PluginInstall就ok。总结一下我用的vim的插件：syntastic(实现代码检测功能)、YouCompleteMe(自动补全最好的插件，没有之一，我这么觉得的)、nerdtree(可以在vim的左侧显示文件目录)，其他的我有点忘了，不过弄好这三个我已经满意了，以后试着有vim,不过讲真，vim还是不太适合写较大的程序，我这么觉得的</strong></p>
+<h2 id="gcc编译器问题"><a href="#gcc编译器问题" class="headerlink" title="gcc编译器问题"></a>gcc编译器问题</h2><p><strong>最近我自己写了一些代码，有自己定义的头文件，在ubuntu中用gcc编译器编译时总是出现许多对‘XXX’未定义的引用，我疑惑了很久，后来意外的解决了，一个原因是要编译多个源文件的程序时，所有的源文件都要放在一起编译，还有就是用math.h头文件时要在命令最后加上-lm,还有用ncurses.h头文件时也要用-lcurses,什么原因要是要google搜搜，最后吐槽一下自己，发现自己已经在c这门语言的路上越走越远，我并不想这样，感觉写什么程序都要被迫用c，我想学用python,java。然而到目前为止，我仍然对他们很陌生，好苦逼</strong></p>
 
       
     </div>
