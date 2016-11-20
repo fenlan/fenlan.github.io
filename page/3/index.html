@@ -38,7 +38,7 @@
       </h1>
       
         <h2 id="subtitle-wrap">
-          <a href="/" id="subtitle">Everything is funny, if you can laugh at it</a>
+          <a href="/" id="subtitle">Everything gonna be fine in the end, if it&#39;s not fine, it&#39;s not the end.</a>
         </h2>
       
     </div>
@@ -67,6 +67,52 @@
 </header>
       <div class="outer">
         <section id="main">
+  
+    <article id="post-git-install" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/05/21/git-install/" class="article-date">
+  <time datetime="2016-05-20T16:30:36.045Z" itemprop="datePublished">2016-05-21</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/05/21/git-install/">Git install and setting</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="git-install-and-setting"><a href="#git-install-and-setting" class="headerlink" title="git install and setting:"></a>git install and setting:</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git config --global user.name <span class="string">"name"</span></span><br><span class="line">$ git config --global user.email <span class="string">"email"</span></span><br><span class="line">$ git config --global color.ui auto</span><br></pre></td></tr></table></figure>
+<h3 id="and-then-create-a-new-directory-as-tutorial"><a href="#and-then-create-a-new-directory-as-tutorial" class="headerlink" title="and then create a new directory as tutorial"></a>and then create a new directory as tutorial</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ mkdir tutorial</span><br><span class="line">$ <span class="built_in">cd</span> tutorial</span><br><span class="line">$ git init</span><br></pre></td></tr></table></figure>
+<h3 id="then-create-a-new-file-as-text-txt"><a href="#then-create-a-new-file-as-text-txt" class="headerlink" title="then create a new file as text.txt"></a>then create a new file as text.txt</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ git status</span><br><span class="line">$ git add text.txt</span><br><span class="line">$ git status</span><br><span class="line">$ git commit -m <span class="string">"text"</span></span><br><span class="line">$ git status</span><br><span class="line">$ git <span class="built_in">log</span></span><br></pre></td></tr></table></figure>
+<h3 id="next-to-rename-the-“https-……-”-as-origin"><a href="#next-to-rename-the-“https-……-”-as-origin" class="headerlink" title="next to rename the “https://…….” as origin"></a>next to rename the “https://…….” as origin</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git remote add origin https://.........(<span class="keyword">do</span> this only the first time)</span><br><span class="line">$ git push -u origin master(the first time)</span><br><span class="line">$ git push -u origin(<span class="keyword">do</span> this the next time)</span><br></pre></td></tr></table></figure>
+<h3 id="do-clone-the-date-base-数据库，不知道是不是这个词"><a href="#do-clone-the-date-base-数据库，不知道是不是这个词" class="headerlink" title="do clone the date-base(数据库，不知道是不是这个词)"></a>do clone the date-base(数据库，不知道是不是这个词)</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="built_in">clone</span> https://....... tutorial2(a new directory)</span><br></pre></td></tr></table></figure>
+<h3 id="do-pull-file-in-your-date-base"><a href="#do-pull-file-in-your-date-base" class="headerlink" title="do pull file in your date-base"></a>do pull file in your date-base</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git pull origin master</span><br><span class="line">$ git <span class="built_in">log</span></span><br></pre></td></tr></table></figure>
+<p>finally do another setting to make it better,but I meet a problem.<br>So I stop it temporarily,continue it if I have time.</p>
+
+      
+    </div>
+
+    <footer class="article-footer">
+      <a data-url="http://fenlan.github.io/2016/05/21/git-install/" data-id="cipsa71ei00086kuoc1e67890" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
   
     <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
@@ -144,7 +190,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">July 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">July 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a></li></ul>
     </div>
   </div>
 
@@ -155,6 +201,10 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2016/11/20/流水账/">(no title)</a>
+          </li>
         
           <li>
             <a href="/2016/08/10/ubuntu安装与配置/">ubuntu安装配置</a>
@@ -170,10 +220,6 @@
         
           <li>
             <a href="/2016/06/27/test/">教训</a>
-          </li>
-        
-          <li>
-            <a href="/2016/06/20/爬虫/">再次挖坑</a>
           </li>
         
       </ul>
