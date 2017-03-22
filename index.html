@@ -68,6 +68,53 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-nmap_mac" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/03/22/nmap_mac/" class="article-date">
+  <time datetime="2017-03-22T06:27:38.000Z" itemprop="datePublished">2017-03-22</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/22/nmap_mac/">获取局域网连接设备mac地址</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="使用工具"><a href="#使用工具" class="headerlink" title="使用工具"></a>使用工具</h1><p><strong>nmap: 也就是Network Mapper,最早是linux下的网络扫描和嗅探工具包</strong><br><strong>nmap是一个网络连接端扫描软件，用来扫描网上电脑开放的网络端口。确定哪些服务运行在哪些连接端，并且推断计算机运行哪个操作系统。他是网络管理员比用的软件之一，以及用以评估网络系统安全。</strong></p>
+<h1 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h1><h3 id="1-通过nmap扫描出连接同一局域网的设备的ip-地址以及-mac-地址，扫描完成再以xml-文件形式储存起来。具体命令如下："><a href="#1-通过nmap扫描出连接同一局域网的设备的ip-地址以及-mac-地址，扫描完成再以xml-文件形式储存起来。具体命令如下：" class="headerlink" title="1.通过nmap扫描出连接同一局域网的设备的ip 地址以及 mac 地址，扫描完成再以xml 文件形式储存起来。具体命令如下："></a>1.通过nmap扫描出连接同一局域网的设备的ip 地址以及 mac 地址，扫描完成再以xml 文件形式储存起来。具体命令如下：</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># nmap -sP -oX myscan.xml 192.168.1.0/24</span></span><br></pre></td></tr></table></figure>
+<p><strong>需要注意的问题： 如果要获取mac 地址，需要操作系统的管理者权限，对于Linux来说就是root 权限；另外，由于是通过发包探测，如果遇上有防火墙的路由器，会比较麻烦。</strong><br><strong>缺点： 在扫描设备多的情况下，时间会偏长，亲试最长时间21秒，这根被扫描设备的状态有关。</strong></p>
+<h3 id="2-使用python-获取xml-文件中的mac-地址存入指定文件："><a href="#2-使用python-获取xml-文件中的mac-地址存入指定文件：" class="headerlink" title="2.使用python 获取xml 文件中的mac 地址存入指定文件："></a>2.使用python 获取xml 文件中的mac 地址存入指定文件：</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># readxml.py</span></span><br><span class="line"><span class="keyword">from</span> xml.dom <span class="keyword">import</span> minidom</span><br><span class="line"></span><br><span class="line">f = open(<span class="string">"maclist.txt"</span>, <span class="string">'wb'</span>)   <span class="comment"># 存入mac 地址的目标文件</span></span><br><span class="line">xmldoc = minidom.parse(<span class="string">'myscan.xml'</span>)    <span class="comment"># 获取 nmap 导出的 xml 文件</span></span><br><span class="line"></span><br><span class="line">addrlist = xmldoc.getElementsByTagName(<span class="string">'address'</span>)</span><br><span class="line">len = (len(addrlist)<span class="number">-1</span>) / <span class="number">2</span>  <span class="comment"># 计算连接设备数量</span></span><br><span class="line"><span class="comment"># 在addrlist 中有 IP 地址 和 mac 地址，因此要减半</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">print</span> <span class="string">"len :"</span>, len</span><br><span class="line">f.write(str(len))</span><br><span class="line">f.write(<span class="string">"\n"</span>)</span><br><span class="line"><span class="keyword">for</span> s <span class="keyword">in</span> addrlist :</span><br><span class="line">	<span class="keyword">if</span> s.attributes[<span class="string">'addrtype'</span>].value == <span class="string">"mac"</span> :</span><br><span class="line">    	f.write(s.attributes[<span class="string">'addr'</span>].value)</span><br><span class="line">        f.write(<span class="string">"\n"</span>)</span><br><span class="line">        </span><br><span class="line">f.close()</span><br></pre></td></tr></table></figure>
+<h3 id="3-将两个命令写在一个脚本里面："><a href="#3-将两个命令写在一个脚本里面：" class="headerlink" title="3.将两个命令写在一个脚本里面："></a>3.将两个命令写在一个脚本里面：</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span><br><span class="line"></span></span><br><span class="line">nmap <span class="_">-s</span>P -oX myscan.xml 192.168.1.0/24</span><br><span class="line">python readxml.py</span><br></pre></td></tr></table></figure>
+<h3 id="4-运行脚本搞定"><a href="#4-运行脚本搞定" class="headerlink" title="4.运行脚本搞定"></a>4.运行脚本搞定</h3><h1 id="截图"><a href="#截图" class="headerlink" title="截图"></a>截图</h1><p><img src="http://github.com/fenlan/fenlan.github.io/blob/master/images/nmap_mac1.jpg" alt="nmap_mac"><br><img src="http://github.com/fenlan/fenlan.github.io/blob/master/images/nmap_mac2.jpg" alt="nmap_mac"></p>
+
+      
+    </div>
+
+    <footer class="article-footer">
+      <a data-url="http://fenlan.github.io/2017/03/22/nmap_mac/" data-id="cj0km9ydp0000g8uol6ta25ln" class="article-share-link">Share</a>
+      
+        <a href="http://fenlan.github.io/2017/03/22/nmap_mac/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+  
     <article id="post-流水账" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2016/11/20/流水账/" class="article-date">
@@ -492,58 +539,6 @@
 
 
   
-    <article id="post-android-Intent" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/06/17/android-Intent/" class="article-date">
-  <time datetime="2016-06-17T04:43:15.975Z" itemprop="datePublished">2016-06-17</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/06/17/android-Intent/">Intent对象使用</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="使用Intent对象专递数据"><a href="#使用Intent对象专递数据" class="headerlink" title="使用Intent对象专递数据"></a>使用Intent对象专递数据</h3><ol>
-<li>在Activity之间可以通过Intent对象传递数据</li>
-<li>使用putExtra()系列方法向Intent对象当中储存数据</li>
-<li>使用getXXXExtra()系列方法从Intent对象当中取出数据</li>
-</ol>
-        
-          <p class="article-more-link">
-            <a href="/2016/06/17/android-Intent/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-
-    <footer class="article-footer">
-      <a data-url="http://fenlan.github.io/2016/06/17/android-Intent/" data-id="cipsa71e300066kuo7tjyu9kz" class="article-share-link">Share</a>
-      
-        <a href="http://fenlan.github.io/2016/06/17/android-Intent/#disqus_thread" class="article-comment-link">Comments</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android-Intent/">android-Intent</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-
-  
 
 
   <nav id="page-nav">
@@ -581,7 +576,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">July 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">July 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a></li></ul>
     </div>
   </div>
 
@@ -592,6 +587,10 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2017/03/22/nmap_mac/">获取局域网连接设备mac地址</a>
+          </li>
         
           <li>
             <a href="/2016/11/20/流水账/">许久没有更新的流水账</a>
@@ -609,10 +608,6 @@
             <a href="/2016/06/30/Android数据传输/">Android在不同Activity之间传输数据</a>
           </li>
         
-          <li>
-            <a href="/2016/06/27/test/">教训</a>
-          </li>
-        
       </ul>
     </div>
   </div>
@@ -627,7 +622,7 @@
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; 2016 Gao Jie<br>
+      &copy; 2017 Gao Jie<br>
       Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
       <br>
 	<span id="busuanzi_container_site_pv">
