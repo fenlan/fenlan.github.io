@@ -205,7 +205,7 @@ git install and setting:$ git config –global user.name “name”$ git config 
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Startseite
+            Home
           </a>
         </li>
       
@@ -215,7 +215,7 @@ git install and setting:$ git config –global user.name “name”$ git config 
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archiv
+            Archives
           </a>
         </li>
       
@@ -274,6 +274,13 @@ git install and setting:$ git config –global user.name “name”$ git config 
           
   <div class="comments" id="comments">
     
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
   </div>
 
 
@@ -312,7 +319,7 @@ git install and setting:$ git config –global user.name “name”$ git config 
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
                 <span class="site-state-item-count">24</span>
-                <span class="site-state-item-name">Artikel</span>
+                <span class="site-state-item-name">posts</span>
               </a>
             </div>
           
@@ -325,7 +332,7 @@ git install and setting:$ git config –global user.name “name”$ git config 
             <div class="site-state-item site-state-tags">
               
                 <span class="site-state-item-count">12</span>
-                <span class="site-state-item-name">Tags</span>
+                <span class="site-state-item-name">tags</span>
               
             </div>
           
@@ -375,7 +382,7 @@ git install and setting:$ git config –global user.name “name”$ git config 
 
 
 <div class="powered-by">
-  Erstellt mit  <a class="theme-link" href="https://hexo.io">Hexo</a>
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
 </div>
 
 <div class="theme-info">
@@ -479,16 +486,32 @@ git install and setting:$ git config –global user.name “name”$ git config 
 
   
 
+    
+      <script id="dsq-count-scr" src="https://fenlan1.disqus.com/count.js" async></script>
+    
 
-
-
-
-
-
-
-
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://fenlan.github.io/git-install/index.html';
+          this.page.identifier = 'git-install/index.html';
+          this.page.title = '';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://fenlan1.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
 
   
+
+
+
+
+
+
+
 
 
 
