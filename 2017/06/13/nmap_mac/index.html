@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>获取局域网连接设备mac地址 | fenlan</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="使用工具nmap: 也就是Network Mapper,最早是linux下的网络扫描和嗅探工具包nmap是一个网络连接端扫描软件，用来扫描网上电脑开放的网络端口。确定哪些服务运行在哪些连接端，并且推断计算机运行哪个操作系统。他是网络管理员比用的软件之一，以及用以评估网络系统安全。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="获取局域网连接设备mac地址">
+<meta property="og:url" content="http://fenlan.github.io/2017/06/13/nmap_mac/index.html">
+<meta property="og:site_name" content="fenlan">
+<meta property="og:description" content="使用工具nmap: 也就是Network Mapper,最早是linux下的网络扫描和嗅探工具包nmap是一个网络连接端扫描软件，用来扫描网上电脑开放的网络端口。确定哪些服务运行在哪些连接端，并且推断计算机运行哪个操作系统。他是网络管理员比用的软件之一，以及用以评估网络系统安全。">
+<meta property="og:updated_time" content="2017-03-22T07:21:50.831Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="获取局域网连接设备mac地址">
+<meta name="twitter:description" content="使用工具nmap: 也就是Network Mapper,最早是linux下的网络扫描和嗅探工具包nmap是一个网络连接端扫描软件，用来扫描网上电脑开放的网络端口。确定哪些服务运行在哪些连接端，并且推断计算机运行哪个操作系统。他是网络管理员比用的软件之一，以及用以评估网络系统安全。">
+  
+    <link rel="alternate" href="/atom.xml" title="fenlan" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">fenlan</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Everything gonna be fine in the end, if it&#39;s not fine, it&#39;s not the end.</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/guestbook">Guestbook</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://fenlan.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-nmap_mac" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/06/13/nmap_mac/" class="article-date">
+  <time datetime="2017-06-13T12:16:45.509Z" itemprop="datePublished">2017-06-13</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      获取局域网连接设备mac地址
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="使用工具"><a href="#使用工具" class="headerlink" title="使用工具"></a>使用工具</h1><p><strong>nmap: 也就是Network Mapper,最早是linux下的网络扫描和嗅探工具包</strong><br><strong>nmap是一个网络连接端扫描软件，用来扫描网上电脑开放的网络端口。确定哪些服务运行在哪些连接端，并且推断计算机运行哪个操作系统。他是网络管理员比用的软件之一，以及用以评估网络系统安全。</strong><br><a id="more"></a></p>
+<h1 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h1><h3 id="1-通过nmap扫描出连接同一局域网的设备的ip-地址以及-mac-地址，扫描完成再以xml-文件形式储存起来。具体命令如下："><a href="#1-通过nmap扫描出连接同一局域网的设备的ip-地址以及-mac-地址，扫描完成再以xml-文件形式储存起来。具体命令如下：" class="headerlink" title="1.通过nmap扫描出连接同一局域网的设备的ip 地址以及 mac 地址，扫描完成再以xml 文件形式储存起来。具体命令如下："></a>1.通过nmap扫描出连接同一局域网的设备的ip 地址以及 mac 地址，扫描完成再以xml 文件形式储存起来。具体命令如下：</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># nmap -sP -oX myscan.xml 192.168.1.0/24</span></span><br></pre></td></tr></table></figure>
+<p><strong>需要注意的问题： 如果要获取mac 地址，需要操作系统的管理者权限，对于Linux来说就是root 权限；另外，由于是通过发包探测，如果遇上有防火墙的路由器，会比较麻烦。</strong><br><strong>缺点： 在扫描设备多的情况下，时间会偏长，亲试最长时间21秒，这根被扫描设备的状态有关。</strong></p>
+<h3 id="2-使用python-获取xml-文件中的mac-地址存入指定文件："><a href="#2-使用python-获取xml-文件中的mac-地址存入指定文件：" class="headerlink" title="2.使用python 获取xml 文件中的mac 地址存入指定文件："></a>2.使用python 获取xml 文件中的mac 地址存入指定文件：</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># readxml.py</span></span><br><span class="line"><span class="keyword">from</span> xml.dom <span class="keyword">import</span> minidom</span><br><span class="line"></span><br><span class="line">f = open(<span class="string">"maclist.txt"</span>, <span class="string">'wb'</span>)   <span class="comment"># 存入mac 地址的目标文件</span></span><br><span class="line">xmldoc = minidom.parse(<span class="string">'myscan.xml'</span>)    <span class="comment"># 获取 nmap 导出的 xml 文件</span></span><br><span class="line"></span><br><span class="line">addrlist = xmldoc.getElementsByTagName(<span class="string">'address'</span>)</span><br><span class="line">len = (len(addrlist)<span class="number">-1</span>) / <span class="number">2</span>  <span class="comment"># 计算连接设备数量</span></span><br><span class="line"><span class="comment"># 在addrlist 中有 IP 地址 和 mac 地址，因此要减半</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">print</span> <span class="string">"len :"</span>, len</span><br><span class="line">f.write(str(len))</span><br><span class="line">f.write(<span class="string">"\n"</span>)</span><br><span class="line"><span class="keyword">for</span> s <span class="keyword">in</span> addrlist :</span><br><span class="line">	<span class="keyword">if</span> s.attributes[<span class="string">'addrtype'</span>].value == <span class="string">"mac"</span> :</span><br><span class="line">    	f.write(s.attributes[<span class="string">'addr'</span>].value)</span><br><span class="line">        f.write(<span class="string">"\n"</span>)</span><br><span class="line">        </span><br><span class="line">f.close()</span><br></pre></td></tr></table></figure>
+<h3 id="3-将两个命令写在一个脚本里面："><a href="#3-将两个命令写在一个脚本里面：" class="headerlink" title="3.将两个命令写在一个脚本里面："></a>3.将两个命令写在一个脚本里面：</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span><br><span class="line"></span></span><br><span class="line">nmap <span class="_">-s</span>P -oX myscan.xml 192.168.1.0/24</span><br><span class="line">python readxml.py</span><br></pre></td></tr></table></figure>
+<h3 id="4-运行脚本搞定"><a href="#4-运行脚本搞定" class="headerlink" title="4.运行脚本搞定"></a>4.运行脚本搞定</h3>
+      
+    </div>
+
+    <footer class="article-footer">
+      <a data-url="http://fenlan.github.io/2017/06/13/nmap_mac/" data-id="cj3vjf1r8000suxuwr2z4s1sn" class="article-share-link">Share</a>
+      
+        <a href="http://fenlan.github.io/2017/06/13/nmap_mac/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/06/13/my-note2/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          发个牢骚
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/06/13/guestbook/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">通过留言板的添加所得到的tip</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<section id="comments">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android-Handler/">Android Handler</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android-国创-信仰/">Android 国创 信仰</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android-数据传输/">Android 数据传输</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/andriod/">andriod</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android-Intent/">android-Intent</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android-Progress-And-Thread/">android-Progress And Thread</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java-Thread/">java-Thread</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ubuntu/">ubuntu</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据结构/">数据结构</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/服务器/">服务器</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/爬虫/">爬虫</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Android-Handler/" style="font-size: 10px;">Android Handler</a> <a href="/tags/Android-国创-信仰/" style="font-size: 10px;">Android 国创 信仰</a> <a href="/tags/Android-数据传输/" style="font-size: 10px;">Android 数据传输</a> <a href="/tags/andriod/" style="font-size: 10px;">andriod</a> <a href="/tags/android-Intent/" style="font-size: 10px;">android-Intent</a> <a href="/tags/android-Progress-And-Thread/" style="font-size: 10px;">android-Progress And Thread</a> <a href="/tags/java-Thread/" style="font-size: 10px;">java-Thread</a> <a href="/tags/ubuntu/" style="font-size: 10px;">ubuntu</a> <a href="/tags/数据结构/" style="font-size: 10px;">数据结构</a> <a href="/tags/服务器/" style="font-size: 10px;">服务器</a> <a href="/tags/爬虫/" style="font-size: 10px;">爬虫</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/06/13/myname/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2017/06/13/爬虫/">再次挖坑</a>
+          </li>
+        
+          <li>
+            <a href="/2017/06/13/流水账/">许久没有更新的流水账</a>
+          </li>
+        
+          <li>
+            <a href="/2017/06/13/服务器/">服务器折腾中。。。</a>
+          </li>
+        
+          <li>
+            <a href="/2017/06/13/数据结构/">数据结构c++</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+<footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 Gao Jie<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      <br>
+	<span id="busuanzi_container_site_pv">
+    viewer：<span id="busuanzi_value_site_pv"></span>
+</span>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/guestbook" class="mobile-nav-link">Guestbook</a>
+  
+</nav>
+    
+<script>
+  var disqus_shortname = 'fenlan1';
+  
+  var disqus_url = 'http://fenlan.github.io/2017/06/13/nmap_mac/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>ubuntu安装配置 | fenlan</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="想了一下，最终还是将电脑安成windows10 + ubuntu16双系统，以后多用用ubuntu试试。我选择的安装方式使用u盘安装，在安装ubuntu时一直没有选对启动盘制作工具，之前安装windows10的时候使用的是UltraIso，这个安windows没什么问题，但是安装ubuntu时，安不上，后面上网查了很多次，也用了其他的软件，比如linuxLive USB Creator,Unive">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ubuntu安装配置">
+<meta property="og:url" content="http://fenlan.github.io/2017/06/13/ubuntu安装与配置/index.html">
+<meta property="og:site_name" content="fenlan">
+<meta property="og:description" content="想了一下，最终还是将电脑安成windows10 + ubuntu16双系统，以后多用用ubuntu试试。我选择的安装方式使用u盘安装，在安装ubuntu时一直没有选对启动盘制作工具，之前安装windows10的时候使用的是UltraIso，这个安windows没什么问题，但是安装ubuntu时，安不上，后面上网查了很多次，也用了其他的软件，比如linuxLive USB Creator,Unive">
+<meta property="og:updated_time" content="2016-11-20T08:57:29.497Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ubuntu安装配置">
+<meta name="twitter:description" content="想了一下，最终还是将电脑安成windows10 + ubuntu16双系统，以后多用用ubuntu试试。我选择的安装方式使用u盘安装，在安装ubuntu时一直没有选对启动盘制作工具，之前安装windows10的时候使用的是UltraIso，这个安windows没什么问题，但是安装ubuntu时，安不上，后面上网查了很多次，也用了其他的软件，比如linuxLive USB Creator,Unive">
+  
+    <link rel="alternate" href="/atom.xml" title="fenlan" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">fenlan</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Everything gonna be fine in the end, if it&#39;s not fine, it&#39;s not the end.</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/guestbook">Guestbook</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://fenlan.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-ubuntu安装与配置" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/06/13/ubuntu安装与配置/" class="article-date">
+  <time datetime="2017-06-13T12:16:45.509Z" itemprop="datePublished">2017-06-13</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      ubuntu安装配置
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong>想了一下，最终还是将电脑安成windows10 + ubuntu16双系统，以后多用用ubuntu试试。我选择的安装方式使用u盘安装，在安装ubuntu时一直没有选对启动盘制作工具，之前安装windows10的时候使用的是UltraIso，这个安windows没什么问题，但是安装ubuntu时，安不上，后面上网查了很多次，也用了其他的软件，比如linuxLive USB Creator,Universal-USB-Installer等等，其中Universal-usb-installer还是ubuntu推荐的软件，但是仍然不行，就这我折腾了两天还是没成功，后来在qq上的一个业余群里面，有人叫我用USBwriter，结果就成功安装上了。</strong></p>
+<a id="more"></a>
+<h2 id="ubuntu有线联网"><a href="#ubuntu有线联网" class="headerlink" title="ubuntu有线联网"></a>ubuntu有线联网</h2><p><strong>感觉每一项都挺折腾的，百度google都查了很多，这一步我是在终端完成的</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo pppoeconf</span><br></pre></td></tr></table></figure></p>
+<p><strong>然后根据提示输入用户名和密码就行了</strong></p>
+<h2 id="Chrome安装"><a href="#Chrome安装" class="headerlink" title="Chrome安装"></a>Chrome安装</h2><p><strong>很抱歉，我有google强迫症，没它不行，所以直接在官网下载软件包，然后再终端安装</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo dpkg -i 软件包名</span><br></pre></td></tr></table></figure></p>
+<p><strong>其实有很多安装方式，百度google多问一下就行了</strong></p>
+<h2 id="安装软件出现未满足依赖"><a href="#安装软件出现未满足依赖" class="headerlink" title="安装软件出现未满足依赖"></a>安装软件出现未满足依赖</h2><p><strong>方法就是软件更新器更新，也有这个命令</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get install -f</span><br><span class="line">$ sudo apt-get update</span><br></pre></td></tr></table></figure></p>
+<p><strong>我上面的命令都不管用了，因为我下载了android studio，然后就出问题了，出现没有满足依赖，后来把android studio卸载了才能更新软件包的</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get remove android-studio</span><br></pre></td></tr></table></figure></p>
+<p><strong>系统软件包更新后仍然没有安上android studio</strong></p>
+<h2 id="安装jdk"><a href="#安装jdk" class="headerlink" title="安装jdk"></a>安装jdk</h2><p><strong>跟安装chrome一样，不过要配置环境</strong><br><strong>这里就不浪费时间，直接引用</strong><br><a href="http://blog.csdn.net/sunlovefly2012/article/details/42747929" target="_blank" rel="external">Ubuntu 11.04,14.04 下安装配置 JDK 7,JDK 8</a><br><strong>具体根据自己的情况去设置</strong></p>
+<h2 id="chrome翻墙"><a href="#chrome翻墙" class="headerlink" title="chrome翻墙"></a>chrome翻墙</h2><p><strong>这里有写得很好的博客关于翻墙的</strong><br><a href="https://aitanlu.com/ubuntu-shadowsocks-ke-hu-duan-pei-zhi.html#comment-3874" target="_blank" rel="external">linux-ubuntu使用shadowsocks客户端配置</a></p>
+<p><strong>里面全部都有，很详细。</strong></p>
+<h2 id="git安装"><a href="#git安装" class="headerlink" title="git安装"></a>git安装</h2><p><strong>这个我的博客里有，还有hexo和博客关联都有</strong></p>
+<h2 id="安装android-studio"><a href="#安装android-studio" class="headerlink" title="安装android studio"></a>安装android studio</h2><p><strong>还在努力中。。。。。</strong><br><strong>已经完成了，不过并不想写。哎，太懒了，其实也没有多难，只是要配好java环境,然后我的android studio是用命令打开，打开一个后缀是.sh的文件就行</strong></p>
+<h2 id="vim配置"><a href="#vim配置" class="headerlink" title="vim配置"></a>vim配置</h2><p><strong>主要是两个文件夹，一个是/etc/vim,一个是~/.vim,具体的还是要多google，我到现在也没弄清楚</strong></p>
+<p><strong>经过我不懈的努力，终于比较完善了，有代码高亮，自动补全，错误检测，还有nerdtree功能，这些都可以用bundle安装，先安装bundle，然后再在vimrc文件中配置Plugin + 插件，完成后重新打开vim，输入命令PluginInstall就ok。总结一下我用的vim的插件：syntastic(实现代码检测功能)、YouCompleteMe(自动补全最好的插件，没有之一，我这么觉得的)、nerdtree(可以在vim的左侧显示文件目录)，其他的我有点忘了，不过弄好这三个我已经满意了，以后试着有vim,不过讲真，vim还是不太适合写较大的程序，我这么觉得的</strong></p>
+<h2 id="gcc编译器问题"><a href="#gcc编译器问题" class="headerlink" title="gcc编译器问题"></a>gcc编译器问题</h2><p><strong>最近我自己写了一些代码，有自己定义的头文件，在ubuntu中用gcc编译器编译时总是出现许多对‘XXX’未定义的引用，我疑惑了很久，后来意外的解决了，一个原因是要编译多个源文件的程序时，所有的源文件都要放在一起编译，还有就是用math.h头文件时要在命令最后加上-lm,还有用ncurses.h头文件时也要用-lcurses,什么原因要是要google搜搜，最后吐槽一下自己，发现自己已经在c这门语言的路上越走越远，我并不想这样，感觉写什么程序都要被迫用c，我想学用python,java。然而到目前为止，我仍然对他们很陌生，好苦逼</strong></p>
+<h2 id="atom编辑器"><a href="#atom编辑器" class="headerlink" title="atom编辑器"></a>atom编辑器</h2><p><strong><a href="http://www.jianshu.com/p/b4c8479cfaa5" target="_blank" rel="external">atom</a>是一个类似sublime text的编译器，但是个人观点atom好看到无解，好用好看，是真的好。这是我强烈推荐的一款软件，不用真的会后悔，这还是寝室大神告诉我的，我偶然看见他在用，就问是什么编译器。我推荐给另一个人的时候，他居然居然说什么编译器都一样，只要能用就行。我愣了！他还在用Dev，有visual studio这样强大的东西，又有atom那么好看的东西，他居然还在用Dev。反正我是无法理解。</strong></p>
+<h2 id="主题推荐"><a href="#主题推荐" class="headerlink" title="主题推荐"></a>主题推荐</h2><p><strong>ubuntu上主题好看的不少，个人钟情与flatabulous，这个主题满足了我的个人审美，具体操作看这篇博文： <a href="http://www.jcodecraeer.com/a/chengxusheji/chengxuyuan/2015/0923/3502.html" target="_blank" rel="external">http://www.jcodecraeer.com/a/chengxusheji/chengxuyuan/2015/0923/3502.html</a></strong></p>
+<h2 id="ubuntu配置QQ"><a href="#ubuntu配置QQ" class="headerlink" title="ubuntu配置QQ"></a>ubuntu配置QQ</h2><p><strong>之前试过好多次没成功，意外之间找到了一个网站便用上了，能满足一般的QQ要求，跟windows的QQ很像，网站如下： <a href="http://ttop5.net/?p=1316" target="_blank" rel="external">http://ttop5.net/?p=1316</a></strong></p>
+<h2 id="ubuntu写markdown工具"><a href="#ubuntu写markdown工具" class="headerlink" title="ubuntu写markdown工具"></a>ubuntu写markdown工具</h2><p><strong>推荐haroopad，很好用，可以实时显示效果,推荐博文： <a href="http://www.jianshu.com/p/064aec7a5164" target="_blank" rel="external">http://www.jianshu.com/p/064aec7a5164</a></strong></p>
+
+      
+    </div>
+
+    <footer class="article-footer">
+      <a data-url="http://fenlan.github.io/2017/06/13/ubuntu安装与配置/" data-id="cj3vjf1rd000wuxuw022uw2wl" class="article-share-link">Share</a>
+      
+        <a href="http://fenlan.github.io/2017/06/13/ubuntu安装与配置/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ubuntu/">ubuntu</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/06/13/拖更/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          拖更。。。。。
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/06/13/test/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">教训</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<section id="comments">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android-Handler/">Android Handler</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android-国创-信仰/">Android 国创 信仰</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android-数据传输/">Android 数据传输</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/andriod/">andriod</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android-Intent/">android-Intent</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android-Progress-And-Thread/">android-Progress And Thread</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java-Thread/">java-Thread</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ubuntu/">ubuntu</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据结构/">数据结构</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/服务器/">服务器</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/爬虫/">爬虫</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Android-Handler/" style="font-size: 10px;">Android Handler</a> <a href="/tags/Android-国创-信仰/" style="font-size: 10px;">Android 国创 信仰</a> <a href="/tags/Android-数据传输/" style="font-size: 10px;">Android 数据传输</a> <a href="/tags/andriod/" style="font-size: 10px;">andriod</a> <a href="/tags/android-Intent/" style="font-size: 10px;">android-Intent</a> <a href="/tags/android-Progress-And-Thread/" style="font-size: 10px;">android-Progress And Thread</a> <a href="/tags/java-Thread/" style="font-size: 10px;">java-Thread</a> <a href="/tags/ubuntu/" style="font-size: 10px;">ubuntu</a> <a href="/tags/数据结构/" style="font-size: 10px;">数据结构</a> <a href="/tags/服务器/" style="font-size: 10px;">服务器</a> <a href="/tags/爬虫/" style="font-size: 10px;">爬虫</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/06/13/myname/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2017/06/13/爬虫/">再次挖坑</a>
+          </li>
+        
+          <li>
+            <a href="/2017/06/13/流水账/">许久没有更新的流水账</a>
+          </li>
+        
+          <li>
+            <a href="/2017/06/13/服务器/">服务器折腾中。。。</a>
+          </li>
+        
+          <li>
+            <a href="/2017/06/13/数据结构/">数据结构c++</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+<footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 Gao Jie<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      <br>
+	<span id="busuanzi_container_site_pv">
+    viewer：<span id="busuanzi_value_site_pv"></span>
+</span>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/guestbook" class="mobile-nav-link">Guestbook</a>
+  
+</nav>
+    
+<script>
+  var disqus_shortname = 'fenlan1';
+  
+  var disqus_url = 'http://fenlan.github.io/2017/06/13/ubuntu安装与配置/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

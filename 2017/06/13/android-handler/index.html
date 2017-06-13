@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Android Handler学习记录 | fenlan</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="这个需要学习三节课程，这是第一节，多的不说，直接放代码">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android Handler学习记录">
+<meta property="og:url" content="http://fenlan.github.io/2017/06/13/android-handler/index.html">
+<meta property="og:site_name" content="fenlan">
+<meta property="og:description" content="这个需要学习三节课程，这是第一节，多的不说，直接放代码">
+<meta property="og:updated_time" content="2016-06-23T12:43:24.506Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Android Handler学习记录">
+<meta name="twitter:description" content="这个需要学习三节课程，这是第一节，多的不说，直接放代码">
+  
+    <link rel="alternate" href="/atom.xml" title="fenlan" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">fenlan</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Everything gonna be fine in the end, if it&#39;s not fine, it&#39;s not the end.</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/guestbook">Guestbook</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://fenlan.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-android-handler" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/06/13/android-handler/" class="article-date">
+  <time datetime="2017-06-13T12:16:45.497Z" itemprop="datePublished">2017-06-13</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Android Handler学习记录
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong>这个需要学习三节课程，这是第一节，多的不说，直接放代码</strong></p>
+<a id="more"></a>
+<h3 id="第一节课程"><a href="#第一节课程" class="headerlink" title="第一节课程"></a>第一节课程</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">package com.example.administrator.handler;</span><br><span class="line"></span><br><span class="line">import android.os.Handler;</span><br><span class="line">import android.os.Message;</span><br><span class="line">import android.provider.Settings;</span><br><span class="line">import android.support.v7.app.AppCompatActivity;</span><br><span class="line">import android.os.Bundle;</span><br><span class="line">import android.view.View;</span><br><span class="line">import android.widget.Button;</span><br><span class="line"></span><br><span class="line">public class MainActivity extends AppCompatActivity &#123;</span><br><span class="line"></span><br><span class="line">    private Button button;</span><br><span class="line">    private Handler handler;</span><br><span class="line">    @Override</span><br><span class="line">    protected void onCreate(Bundle savedInstanceState) &#123;</span><br><span class="line">        super.onCreate(savedInstanceState);</span><br><span class="line">        <span class="built_in">set</span>ContentView(R.layout.activity_main);</span><br><span class="line"></span><br><span class="line">        button = (Button)findViewById(R.id.Button);</span><br><span class="line">        button.setOnClickListener(new ButtonListener());</span><br><span class="line">		handler = new FirstHandler();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    class ButtonListener implements View.OnClickListener&#123;</span><br><span class="line">        @Override</span><br><span class="line">        public void onClick(View view)&#123;</span><br><span class="line">            Message message = handler.obtainMessage();</span><br><span class="line">            message.what = 2;</span><br><span class="line">            handler.sendMessage(message);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    class FirstHandler extends Handler&#123;</span><br><span class="line">        @Override</span><br><span class="line">        public void handleMessage(Message message)&#123;</span><br><span class="line">            int what = message.what;</span><br><span class="line">            System.out.println(<span class="string">"what = "</span> + what);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>附上参考地址</strong><br><a href="https://developer.android.com/reference/android/os/Handler.html" target="_blank" rel="external">https://developer.android.com/reference/android/os/Handler.html</a></p>
+<p><strong>怎么说呢，上一节课程的代码其实我自己运行失败，主要是java基础还是没过关，不管怎样，先学完了再回头来看是怎么回事，今天来记录第二节课的学习笔记</strong></p>
+<h3 id="第二节课程"><a href="#第二节课程" class="headerlink" title="第二节课程"></a>第二节课程</h3><p><strong>主要内容</strong></p>
+<ol>
+<li>通过Handler实现线程间通信</li>
+<li>在主线程中实现Handler和handleMessage（）方法</li>
+<li>在Worker Thread当中通过Handler发送消息</li>
+</ol>
+<p><strong>今天学得什么我也不太清楚，大概是讲一个worker线程如何通过handler来改变main线程里面的东西，多说不如直接放代码</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line">package com.example.administrator.handler2;</span><br><span class="line"></span><br><span class="line">import android.os.Handler;</span><br><span class="line">import android.os.Message;</span><br><span class="line">import android.support.v7.app.AppCompatActivity;</span><br><span class="line">import android.os.Bundle;</span><br><span class="line">import android.view.View;</span><br><span class="line">import android.widget.Button;</span><br><span class="line">import android.widget.TextView;</span><br><span class="line"></span><br><span class="line">public class MainActivity extends AppCompatActivity &#123;</span><br><span class="line"></span><br><span class="line">    private Button button;</span><br><span class="line">    private TextView textView;</span><br><span class="line">    private Handler handler;</span><br><span class="line">    @Override</span><br><span class="line">    protected void onCreate(Bundle savedInstanceState) &#123;</span><br><span class="line">        super.onCreate(savedInstanceState);</span><br><span class="line">        <span class="built_in">set</span>ContentView(R.layout.activity_main);</span><br><span class="line"></span><br><span class="line">        button = (Button)findViewById(R.id.ButtonId);</span><br><span class="line">        textView = (TextView)findViewById(R.id.TextViewId);</span><br><span class="line"></span><br><span class="line">        handler = new MyHandler();</span><br><span class="line"></span><br><span class="line">        button.setOnClickListener(new View.<span class="function"><span class="title">OnClickListener</span></span>() &#123;</span><br><span class="line">            @Override</span><br><span class="line">            public void onClick(View v) &#123;</span><br><span class="line">                Thread thread = new NetWorkThread();</span><br><span class="line">                thread.start();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    class MyHandler extends Handler &#123;</span><br><span class="line">        @Override</span><br><span class="line">        public void handleMessage(Message msg)&#123;</span><br><span class="line">            String s = (String)msg.obj;</span><br><span class="line">            textView.setText(s);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    class NetWorkThread extends Thread&#123;</span><br><span class="line">        @Override</span><br><span class="line">        public void <span class="function"><span class="title">run</span></span>()&#123;</span><br><span class="line">            try &#123;</span><br><span class="line">                Thread.sleep(2 * 1000);</span><br><span class="line">            &#125; catch (InterruptedException e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            String s = <span class="string">"your app is working!"</span>;</span><br><span class="line">            Message msg = handler.obtainMessage();</span><br><span class="line">            msg.obj = s;</span><br><span class="line">            handler.sendMessage(msg);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>这次运行成功了</strong></p>
+<h3 id="第三节课程"><a href="#第三节课程" class="headerlink" title="第三节课程"></a>第三节课程</h3><p><strong>记录之前有个小插曲，之前那个网站的视频到第二节课程就没有了，害得我到处找才找到</strong></p>
+<p><strong>今天主要内容</strong></p>
+<ol>
+<li>准备Looper对象</li>
+<li>在workerThread当中生成Handler对象</li>
+<li>在MainThread当中发送消息</li>
+</ol>
+<p><strong>先放代码再说问题</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line">package com.example.administrator.handler3;</span><br><span class="line"></span><br><span class="line">import android.os.Handler;</span><br><span class="line">import android.os.Looper;</span><br><span class="line">import android.os.Message;</span><br><span class="line">import android.support.v7.app.AppCompatActivity;</span><br><span class="line">import android.os.Bundle;</span><br><span class="line">import android.view.View;</span><br><span class="line">import android.widget.Button;</span><br><span class="line">import android.widget.TextView;</span><br><span class="line"></span><br><span class="line">public class MainActivity extends AppCompatActivity &#123;</span><br><span class="line"></span><br><span class="line">    private Button button;</span><br><span class="line">    private Handler handler;</span><br><span class="line">    @Override</span><br><span class="line">    protected void onCreate(Bundle savedInstanceState) &#123;</span><br><span class="line">        super.onCreate(savedInstanceState);</span><br><span class="line">        <span class="built_in">set</span>ContentView(R.layout.activity_main);</span><br><span class="line"></span><br><span class="line">        button = (Button)findViewById(R.id.ButtonId);</span><br><span class="line">        button.setOnClickListener(new View.<span class="function"><span class="title">OnClickListener</span></span>() &#123;</span><br><span class="line">            @Override</span><br><span class="line">            public void onClick(View v) &#123;</span><br><span class="line">                Message msg = handler.obtainMessage();</span><br><span class="line">                String s = <span class="string">"your app is working!"</span>;</span><br><span class="line">                msg.obj = s;</span><br><span class="line">                handler.sendMessage(msg);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line"></span><br><span class="line">        Thread thread = new MyThread();</span><br><span class="line">        thread.start();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    class MyThread extends Thread&#123;</span><br><span class="line">        public void <span class="function"><span class="title">run</span></span>()&#123;</span><br><span class="line">            Looper.prepare();</span><br><span class="line">            handler = new <span class="function"><span class="title">Handler</span></span>()&#123;</span><br><span class="line">                public void handleMessage(Message msg) &#123;</span><br><span class="line">                    String s = (String)msg.obj;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;;</span><br><span class="line">            Looper.loop();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>写代码时我将button监听器里面的内容设置成了启动线程，然后再button后面设置handler，结果不能运行，难道是因为那样运行到另外一个线程的时候发现handler还没有设置好。或许是吧，没时间想了，已经一点了，代码发布了就睡</strong></p>
+
+      
+    </div>
+
+    <footer class="article-footer">
+      <a data-url="http://fenlan.github.io/2017/06/13/android-handler/" data-id="cj3vjf1qh000auxuwjgb5wmhq" class="article-share-link">Share</a>
+      
+        <a href="http://fenlan.github.io/2017/06/13/android-handler/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android-Handler/">Android Handler</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/06/13/Android数据传输/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Android在不同Activity之间传输数据
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/06/13/android-activity/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">android生命周期函数记录</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<section id="comments">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android-Handler/">Android Handler</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android-国创-信仰/">Android 国创 信仰</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android-数据传输/">Android 数据传输</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/andriod/">andriod</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android-Intent/">android-Intent</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android-Progress-And-Thread/">android-Progress And Thread</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java-Thread/">java-Thread</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ubuntu/">ubuntu</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据结构/">数据结构</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/服务器/">服务器</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/爬虫/">爬虫</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Android-Handler/" style="font-size: 10px;">Android Handler</a> <a href="/tags/Android-国创-信仰/" style="font-size: 10px;">Android 国创 信仰</a> <a href="/tags/Android-数据传输/" style="font-size: 10px;">Android 数据传输</a> <a href="/tags/andriod/" style="font-size: 10px;">andriod</a> <a href="/tags/android-Intent/" style="font-size: 10px;">android-Intent</a> <a href="/tags/android-Progress-And-Thread/" style="font-size: 10px;">android-Progress And Thread</a> <a href="/tags/java-Thread/" style="font-size: 10px;">java-Thread</a> <a href="/tags/ubuntu/" style="font-size: 10px;">ubuntu</a> <a href="/tags/数据结构/" style="font-size: 10px;">数据结构</a> <a href="/tags/服务器/" style="font-size: 10px;">服务器</a> <a href="/tags/爬虫/" style="font-size: 10px;">爬虫</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/06/13/myname/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2017/06/13/爬虫/">再次挖坑</a>
+          </li>
+        
+          <li>
+            <a href="/2017/06/13/流水账/">许久没有更新的流水账</a>
+          </li>
+        
+          <li>
+            <a href="/2017/06/13/服务器/">服务器折腾中。。。</a>
+          </li>
+        
+          <li>
+            <a href="/2017/06/13/数据结构/">数据结构c++</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+<footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 Gao Jie<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      <br>
+	<span id="busuanzi_container_site_pv">
+    viewer：<span id="busuanzi_value_site_pv"></span>
+</span>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/guestbook" class="mobile-nav-link">Guestbook</a>
+  
+</nav>
+    
+<script>
+  var disqus_shortname = 'fenlan1';
+  
+  var disqus_url = 'http://fenlan.github.io/2017/06/13/android-handler/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>
