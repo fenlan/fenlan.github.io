@@ -107,7 +107,7 @@
 开机进入CentOS系统
 进入目录/boot/grub2，打开grub.cfg进行编辑
 找到其中第70行，在指定位置添加内容">
-<meta property="og:updated_time" content="2017-06-14T14:40:26.802Z">
+<meta property="og:updated_time" content="2017-06-14T14:44:39.324Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="正式入坑CentOS">
 <meta name="twitter:description" content="第一关：设置windows启动项在安装双系统时，选择centos会默认没有windows的启动项，因此要添加windows的引导选项，过程如下：
@@ -214,7 +214,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Startseite
+            Home
           </a>
         </li>
       
@@ -224,7 +224,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archiv
+            Archives
           </a>
         </li>
       
@@ -294,9 +294,9 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-06-14T22:40:26+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-06-14T22:44:39+08:00">
                 2017-06-14
               </time>
             
@@ -372,7 +372,7 @@
 </ul>
 <p><strong>那么命令如下：</strong><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost]$ yum install sendmail sendmail-cf mailx</span><br><span class="line">[root@localhost]$ service start sendmail</span><br><span class="line">[root@localhost]$ last | awk <span class="string">'$1=="root"'</span></span><br></pre></td></tr></table></figure></p>
 <p><strong>接下来需要修改一个配置文件，让<code>sendmail</code>可以给整个英特网发送邮件，配置文件为<code>/etc/mail/sendmail.mc</code>，其中有一行</strong><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DAEMON_OPTIONS(<span class="string">'port=smtp,Addr=127.0.0.1, Name=MTA-v6, Family=net6'</span>)dnl</span><br></pre></td></tr></table></figure></p>
-<p><strong>将127.0.0.1改为0.0.0.0，这样就可以给整个英特网发送邮件了</strong><br><strong>python脚本如下</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">import os</span><br><span class="line"></span><br><span class="line">inst = &quot;last | awk \&apos;$1!=\&quot;reboot\&quot;\&apos;&quot;</span><br><span class="line">str = os.popen(inst).read()</span><br><span class="line">ssh_login = str.split(&quot;\nngth = len(ssh_login)</span><br><span class="line"></span><br><span class="line">while True:</span><br><span class="line">    inst1 = &quot;last | awk \&apos;$1!=\&quot;reboot\&quot;\&apos; &gt; ssh_login.txt&quot;</span><br><span class="line">    os.system(inst1)</span><br><span class="line">    str = os.popen(inst).read()</span><br><span class="line">    ssh_login = str.split(&quot;\n  length1 = len(ssh_login)</span><br><span class="line"></span><br><span class="line">    if length1 &gt; length:</span><br><span class="line">        login_name = ssh_login[0]</span><br><span class="line">        mail = &quot;echo %s | mail -s \&apos;$1!=\&quot;reboot\&quot;\&apos; ××××@qq.com&quot; % login_name</span><br><span class="line">        os.system(mail)</span><br><span class="line">        length = length1</span><br></pre></td></tr></table></figure></p>
+<p><strong>将127.0.0.1改为0.0.0.0，这样就可以给整个英特网发送邮件了</strong><br><strong>python脚本如下</strong><br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">import os</span><br><span class="line"></span><br><span class="line">inst = "last | awk \'$1!=\"reboot\"\'"</span><br><span class="line">str = os.popen(inst).read()</span><br><span class="line">ssh_login = str.split("\nngth = len(ssh_login)</span><br><span class="line"></span><br><span class="line">while True:</span><br><span class="line">    inst1 = "last | awk \'$1!=\"reboot\"\' &gt; ssh_login.txt"</span><br><span class="line">    os.system(inst1)</span><br><span class="line">    str = os.popen(inst).read()</span><br><span class="line">    ssh_login = str.split("\n  length1 = len(ssh_login)</span><br><span class="line"></span><br><span class="line">    if length1 &gt; length:</span><br><span class="line">        login_name = ssh_login[0]</span><br><span class="line">        mail = "echo %s | mail -s \'$1!=\"reboot\"\' ××××@qq.com" % login_name</span><br><span class="line">        os.system(mail)</span><br><span class="line">        length = length1</span><br></pre></td></tr></table></figure></p>
 <p><strong>最重要的一点：qq邮箱发送成功一次过后vps的域名就会被拉黑，被认为是垃圾邮件，因此需要在邮箱管理界面设置域名白名单<code>localhost.localdomain</code>，然后大功告成，哈哈</strong></p>
 <p><strong>你以为这样就了事了？如果你将这个程序通过开机启动让它一直跑着，那么很开心的告诉你，你的机器cpu用不了多久就会被占满，所以，这个方法还是不行滴，这只是一种理想思路，想要处理的话可以选择指定时间运行一次或者每隔一段时间运行一次。接下来我去找个比较好的方式来实现这个功能，并实现每天发送当天的日志文件。</strong></p>
 <p><strong>我的vps跑了几个小时后的cpu受不了了，跑了不到两个小时，就被厂家限制了。</strong></p>
@@ -482,10 +482,10 @@
       
         <ul class="sidebar-nav motion-element">
           <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            Inhaltsverzeichnis
+            Table of Contents
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview">
-            Übersicht
+            Overview
           </li>
         </ul>
       
@@ -506,7 +506,7 @@
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
                 <span class="site-state-item-count">24</span>
-                <span class="site-state-item-name">Artikel</span>
+                <span class="site-state-item-name">posts</span>
               </a>
             </div>
           
@@ -519,7 +519,7 @@
             <div class="site-state-item site-state-tags">
               
                 <span class="site-state-item-count">12</span>
-                <span class="site-state-item-name">Tags</span>
+                <span class="site-state-item-name">tags</span>
               
             </div>
           
@@ -585,7 +585,7 @@
 
 
 <div class="powered-by">
-  Erstellt mit  <a class="theme-link" href="https://hexo.io">Hexo</a>
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
 </div>
 
 <div class="theme-info">
