@@ -109,7 +109,7 @@
 找到其中第70行，在指定位置添加内容">
 <meta property="og:image" content="http://fenlan.github.io/images/nginxUser.png">
 <meta property="og:image" content="http://fenlan.github.io/images/cpu.png">
-<meta property="og:updated_time" content="2017-06-15T16:35:12.832Z">
+<meta property="og:updated_time" content="2017-06-15T17:43:37.910Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="正式入坑CentOS">
 <meta name="twitter:description" content="第一关：设置windows启动项在安装双系统时，选择centos会默认没有windows的启动项，因此要添加windows的引导选项，过程如下：
@@ -217,7 +217,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Startseite
+            Home
           </a>
         </li>
       
@@ -227,7 +227,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archiv
+            Archives
           </a>
         </li>
       
@@ -297,9 +297,9 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-06-16T00:35:12+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-06-16T01:43:37+08:00">
                 2017-06-16
               </time>
             
@@ -378,10 +378,12 @@
 </ul>
 <p><strong>那么命令如下：</strong><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost]$ yum install sendmail sendmail-cf mailx</span><br><span class="line">[root@localhost]$ service start sendmail</span><br><span class="line">[root@localhost]$ last | awk <span class="string">'$1=="root"'</span></span><br></pre></td></tr></table></figure></p>
 <p><strong>接下来需要修改一个配置文件，让<code>sendmail</code>可以给整个英特网发送邮件，配置文件为<code>/etc/mail/sendmail.mc</code>，其中有一行</strong><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DAEMON_OPTIONS(<span class="string">'port=smtp,Addr=127.0.0.1, Name=MTA-v6, Family=net6'</span>)dnl</span><br></pre></td></tr></table></figure></p>
-<p><strong>将127.0.0.1改为0.0.0.0，这样就可以给整个英特网发送邮件了</strong><br><strong>python脚本如下</strong><br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">import os</span><br><span class="line"></span><br><span class="line">inst = "last | awk \'$1!=\"reboot\"\'"</span><br><span class="line">str = os.popen(inst).read()</span><br><span class="line">ssh_login = str.split("\nngth = len(ssh_login)</span><br><span class="line"></span><br><span class="line">while True:</span><br><span class="line">    inst1 = "last | awk \'$1!=\"reboot\"\' &gt; ssh_login.txt"</span><br><span class="line">    os.system(inst1)</span><br><span class="line">    str = os.popen(inst).read()</span><br><span class="line">    ssh_login = str.split("\n  length1 = len(ssh_login)</span><br><span class="line"></span><br><span class="line">    if length1 &gt; length:</span><br><span class="line">        login_name = ssh_login[0]</span><br><span class="line">        mail = "echo %s | mail -s \'$1!=\"reboot\"\' ××××@qq.com" % login_name</span><br><span class="line">        os.system(mail)</span><br><span class="line">        length = length1</span><br></pre></td></tr></table></figure></p>
+<p><strong>将127.0.0.1改为0.0.0.0，这样就可以给整个英特网发送邮件了</strong><br><strong>python脚本如下</strong></p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">import os</span><br><span class="line"></span><br><span class="line">inst = "last | awk \'$1!=\"reboot\"\'"</span><br><span class="line">str = os.popen(inst).read()</span><br><span class="line">ssh_login = str.split("\n")</span><br><span class="line">length = len(ssh_login)</span><br><span class="line"></span><br><span class="line">while True:</span><br><span class="line">    inst1 = "last | awk \'$1!=\"reboot\"\' &gt; ssh_login.txt"</span><br><span class="line">    os.system(inst1)</span><br><span class="line">    str = os.popen(inst).read()</span><br><span class="line">    ssh_login = str.split("\n  length1 = len(ssh_login)</span><br><span class="line"></span><br><span class="line">    if length1 &gt; length:</span><br><span class="line">        login_name = ssh_login[0]</span><br><span class="line">        mail = "echo %s | mail -s \'$1!=\"reboot\"\' ××××@qq.com" % login_name</span><br><span class="line">        os.system(mail)</span><br><span class="line">        length = length1</span><br></pre></td></tr></table></figure>
 <p><strong>最重要的一点：qq邮箱发送成功一次过后vps的域名就会被拉黑，被认为是垃圾邮件，因此需要在邮箱管理界面设置域名白名单<code>localhost.localdomain</code>，然后大功告成，哈哈</strong></p>
 <p><strong>你以为这样就了事了？如果你将这个程序通过开机启动让它一直跑着，那么很开心的告诉你，你的机器cpu用不了多久就会被占满，所以，这个方法还是不行滴，这只是一种理想思路，想要处理的话可以选择指定时间运行一次或者每隔一段时间运行一次。接下来我去找个比较好的方式来实现这个功能，并实现每天发送当天的日志文件。</strong></p>
 <p><strong>我的vps跑了几个小时后的cpu受不了了，跑了不到两个小时，就被厂家限制了。</strong><br><img src="/images/cpu.png" alt=""></p>
+<h2 id="python实现邮件发送"><a href="#python实现邮件发送" class="headerlink" title="python实现邮件发送"></a>python实现邮件发送</h2><p><strong>没时间了，直接贴代码</strong><br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> email <span class="keyword">import</span> encoders</span><br><span class="line"><span class="keyword">from</span> email.header <span class="keyword">import</span> Header</span><br><span class="line"><span class="keyword">from</span> email.mime.text <span class="keyword">import</span> MIMEText</span><br><span class="line"><span class="keyword">from</span> email.utils <span class="keyword">import</span> parseaddr, formataddr</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> smtplib</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">_format_addr</span><span class="params">(s)</span>:</span></span><br><span class="line">    name, addr = parseaddr(s)</span><br><span class="line">    <span class="keyword">return</span> formataddr((Header(name, <span class="string">'utf-8'</span>).encode(), addr))</span><br><span class="line"></span><br><span class="line">from_addr = <span class="string">"××××××××××@qq.com"</span></span><br><span class="line">password = <span class="string">"××××××××××"</span>　　　<span class="comment"># SMTP独立密码</span></span><br><span class="line">to_addr = <span class="string">"××××××××××@qq.com"</span></span><br><span class="line">smtp_server = <span class="string">"smtp.qq.com"</span></span><br><span class="line"></span><br><span class="line">msg = MIMEText(<span class="string">'hello, send by Python...'</span>, <span class="string">'plain'</span>, <span class="string">'utf-8'</span>)</span><br><span class="line">msg[<span class="string">'From'</span>] = _format_addr(<span class="string">'fenlan &lt;%s&gt;'</span> % from_addr)</span><br><span class="line">msg[<span class="string">'To'</span>] = _format_addr(<span class="string">'管理员 &lt;%s&gt;'</span> % to_addr)</span><br><span class="line">msg[<span class="string">'Subject'</span>] = Header(<span class="string">'vps远程登录日志'</span>, <span class="string">'utf-8'</span>).encode()</span><br><span class="line"></span><br><span class="line">server = smtplib.SMTP_SSL(smtp_server, <span class="number">465</span>)</span><br><span class="line">server.login(from_addr, password)</span><br><span class="line">server.sendmail(from_addr, [to_addr], msg.as_string())</span><br><span class="line">server.quit()</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -488,10 +490,10 @@
       
         <ul class="sidebar-nav motion-element">
           <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            Inhaltsverzeichnis
+            Table of Contents
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview">
-            Übersicht
+            Overview
           </li>
         </ul>
       
@@ -512,7 +514,7 @@
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
                 <span class="site-state-item-count">24</span>
-                <span class="site-state-item-name">Artikel</span>
+                <span class="site-state-item-name">posts</span>
               </a>
             </div>
           
@@ -525,7 +527,7 @@
             <div class="site-state-item site-state-tags">
               
                 <span class="site-state-item-count">12</span>
-                <span class="site-state-item-name">Tags</span>
+                <span class="site-state-item-name">tags</span>
               
             </div>
           
@@ -559,7 +561,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#第一关：设置windows启动项"><span class="nav-number">1.</span> <span class="nav-text">第一关：设置windows启动项</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第二关：防火墙"><span class="nav-number">2.</span> <span class="nav-text">第二关：防火墙</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第三关：lnmp配置"><span class="nav-number">3.</span> <span class="nav-text">第三关：lnmp配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第四关：ssh登录邮件通知（后面有彩蛋哟）"><span class="nav-number">4.</span> <span class="nav-text">第四关：ssh登录邮件通知（后面有彩蛋哟）</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#第一关：设置windows启动项"><span class="nav-number">1.</span> <span class="nav-text">第一关：设置windows启动项</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第二关：防火墙"><span class="nav-number">2.</span> <span class="nav-text">第二关：防火墙</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第三关：lnmp配置"><span class="nav-number">3.</span> <span class="nav-text">第三关：lnmp配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第四关：ssh登录邮件通知（后面有彩蛋哟）"><span class="nav-number">4.</span> <span class="nav-text">第四关：ssh登录邮件通知（后面有彩蛋哟）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#python实现邮件发送"><span class="nav-number">5.</span> <span class="nav-text">python实现邮件发送</span></a></li></ol></div>
             
 
           </div>
@@ -591,7 +593,7 @@
 
 
 <div class="powered-by">
-  Erstellt mit  <a class="theme-link" href="https://hexo.io">Hexo</a>
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
 </div>
 
 <div class="theme-info">
