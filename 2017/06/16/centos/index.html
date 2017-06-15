@@ -100,14 +100,14 @@
 找到其中第70行，在指定位置添加内容">
 <meta property="og:type" content="article">
 <meta property="og:title" content="正式入坑CentOS">
-<meta property="og:url" content="http://fenlan.github.io/2017/06/15/centos/index.html">
+<meta property="og:url" content="http://fenlan.github.io/2017/06/16/centos/index.html">
 <meta property="og:site_name" content="fenlan">
 <meta property="og:description" content="第一关：设置windows启动项在安装双系统时，选择centos会默认没有windows的启动项，因此要添加windows的引导选项，过程如下：
 
 开机进入CentOS系统
 进入目录/boot/grub2，打开grub.cfg进行编辑
 找到其中第70行，在指定位置添加内容">
-<meta property="og:updated_time" content="2017-06-15T03:34:12.936Z">
+<meta property="og:updated_time" content="2017-06-15T16:17:15.671Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="正式入坑CentOS">
 <meta name="twitter:description" content="第一关：设置windows启动项在安装双系统时，选择centos会默认没有windows的启动项，因此要添加windows的引导选项，过程如下：
@@ -142,7 +142,7 @@
 
 
 
-  <link rel="canonical" href="http://fenlan.github.io/2017/06/15/centos/"/>
+  <link rel="canonical" href="http://fenlan.github.io/2017/06/16/centos/"/>
 
 
 
@@ -214,7 +214,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Startseite
+            Home
           </a>
         </li>
       
@@ -224,7 +224,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archiv
+            Archives
           </a>
         </li>
       
@@ -267,7 +267,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://fenlan.github.io/2017/06/15/centos/">
+    <link itemprop="mainEntityOfPage" href="http://fenlan.github.io/2017/06/16/centos/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Gao Jie">
@@ -294,10 +294,10 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-06-15T11:39:51+08:00">
-                2017-06-15
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-06-16T00:17:15+08:00">
+                2017-06-16
               </time>
             
 
@@ -315,9 +315,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/06/15/centos/#comments" itemprop="discussionUrl">
+                <a href="/2017/06/16/centos/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/06/15/centos/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2017/06/16/centos/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -365,6 +365,7 @@
 <h2 id="第三关：lnmp配置"><a href="#第三关：lnmp配置" class="headerlink" title="第三关：lnmp配置"></a>第三关：lnmp配置</h2><p><strong>安装<code>nginx</code>:</strong><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost]$ yum install epel-release</span><br><span class="line">[root@localhost]$ yum -y install nginx</span><br><span class="line">[root@localhost]$ servive nginx start</span><br></pre></td></tr></table></figure></p>
 <p><strong>安装<code>php7.0</code>(CentOS 7.x):</strong><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm</span><br><span class="line">rpm -Uvh https://mirror.webtatic.com/yum/el7/webtatic-release.rpm</span><br><span class="line">yum install php70w php70w-opcache</span><br><span class="line">yum install php70w-fpm php70w-opcache</span><br></pre></td></tr></table></figure></p>
 <p><strong>安装php7.0不太容易，建议多在网上查</strong></p>
+<p><strong>设置<code>nginx</code>，更改root目录问题：</strong><br><strong>之前将<code>nginx</code>的root目录改了过后出现了403问题，搞了好久还是没有一个很完整的解决方案，不过找到一个方案，但还是不太理解。将<code>nginx</code>中的配置文件的<code>user nginx</code> 改为自己的用户名，即更改过后root目录的所有者。<br>困惑点在于<code>nginx</code>默认的目录<code>/usr/share/nginx/html</code>的所有者为<code>root</code>但没有出现403</strong></p>
 <h2 id="第四关：ssh登录邮件通知（后面有彩蛋哟）"><a href="#第四关：ssh登录邮件通知（后面有彩蛋哟）" class="headerlink" title="第四关：ssh登录邮件通知（后面有彩蛋哟）"></a>第四关：ssh登录邮件通知（后面有彩蛋哟）</h2><p><strong>游手好闲地折腾了几天，突发奇想，前几天租了一个vps，想随时检测有没有人通过ssh登录我的vps，如果有人登录，就发邮件通知，于是有了以下的折腾：</strong></p>
 <ul>
 <li><strong>首先安装必备的软件<code>sendmail</code> 和<code>mailx</code></strong></li>
@@ -484,10 +485,10 @@
       
         <ul class="sidebar-nav motion-element">
           <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            Inhaltsverzeichnis
+            Table of Contents
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview">
-            Übersicht
+            Overview
           </li>
         </ul>
       
@@ -508,7 +509,7 @@
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
                 <span class="site-state-item-count">24</span>
-                <span class="site-state-item-name">Artikel</span>
+                <span class="site-state-item-name">posts</span>
               </a>
             </div>
           
@@ -521,7 +522,7 @@
             <div class="site-state-item site-state-tags">
               
                 <span class="site-state-item-count">12</span>
-                <span class="site-state-item-name">Tags</span>
+                <span class="site-state-item-name">tags</span>
               
             </div>
           
@@ -587,7 +588,7 @@
 
 
 <div class="powered-by">
-  Erstellt mit  <a class="theme-link" href="https://hexo.io">Hexo</a>
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
 </div>
 
 <div class="theme-info">
@@ -698,8 +699,8 @@
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'http://fenlan.github.io/2017/06/15/centos/';
-          this.page.identifier = '2017/06/15/centos/';
+          this.page.url = 'http://fenlan.github.io/2017/06/16/centos/';
+          this.page.identifier = '2017/06/16/centos/';
           this.page.title = '正式入坑CentOS';
         };
         var d = document, s = d.createElement('script');
