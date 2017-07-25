@@ -109,7 +109,8 @@
 找到其中第70行，在指定位置添加内容">
 <meta property="og:image" content="http://fenlan.github.io/images/nginxUser.png">
 <meta property="og:image" content="http://fenlan.github.io/images/cpu.png">
-<meta property="og:updated_time" content="2017-07-24T17:04:03.906Z">
+<meta property="og:image" content="http://fenlan.github.io/images/laravel_problem.png">
+<meta property="og:updated_time" content="2017-07-25T14:39:55.071Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="正式入坑CentOS">
 <meta name="twitter:description" content="第一关：设置windows启动项在安装双系统时，选择centos会默认没有windows的启动项，因此要添加windows的引导选项，过程如下：
@@ -217,7 +218,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Home
+            Startseite
           </a>
         </li>
       
@@ -227,7 +228,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archives
+            Archiv
           </a>
         </li>
       
@@ -297,9 +298,9 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-07-25T01:04:03+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-07-25T22:39:55+08:00">
                 2017-07-25
               </time>
             
@@ -387,6 +388,11 @@
 <p><strong>你以为这样就了事了？如果你将这个程序通过开机启动让它一直跑着，那么很开心的告诉你，你的机器cpu用不了多久就会被占满，所以，这个方法还是不行滴，这只是一种理想思路，想要处理的话可以选择指定时间运行一次或者每隔一段时间运行一次。接下来我去找个比较好的方式来实现这个功能，并实现每天发送当天的日志文件。</strong></p>
 <p><strong>我的vps跑了几个小时后的cpu受不了了，跑了不到两个小时，就被厂家限制了。</strong><br><img src="/images/cpu.png" alt=""></p>
 <h2 id="第五关：python实现邮件发送"><a href="#第五关：python实现邮件发送" class="headerlink" title="第五关：python实现邮件发送"></a>第五关：python实现邮件发送</h2><p><strong>没时间了，直接贴代码</strong><br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> email <span class="keyword">import</span> encoders</span><br><span class="line"><span class="keyword">from</span> email.header <span class="keyword">import</span> Header</span><br><span class="line"><span class="keyword">from</span> email.mime.text <span class="keyword">import</span> MIMEText</span><br><span class="line"><span class="keyword">from</span> email.utils <span class="keyword">import</span> parseaddr, formataddr</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> smtplib</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">_format_addr</span><span class="params">(s)</span>:</span></span><br><span class="line">    name, addr = parseaddr(s)</span><br><span class="line">    <span class="keyword">return</span> formataddr((Header(name, <span class="string">'utf-8'</span>).encode(), addr))</span><br><span class="line"></span><br><span class="line">from_addr = <span class="string">"××××××××××@qq.com"</span></span><br><span class="line">password = <span class="string">"××××××××××"</span>　　　<span class="comment"># SMTP独立密码</span></span><br><span class="line">to_addr = <span class="string">"××××××××××@qq.com"</span></span><br><span class="line">smtp_server = <span class="string">"smtp.qq.com"</span></span><br><span class="line"></span><br><span class="line">msg = MIMEText(<span class="string">'hello, send by Python...'</span>, <span class="string">'plain'</span>, <span class="string">'utf-8'</span>)</span><br><span class="line">msg[<span class="string">'From'</span>] = _format_addr(<span class="string">'fenlan &lt;%s&gt;'</span> % from_addr)</span><br><span class="line">msg[<span class="string">'To'</span>] = _format_addr(<span class="string">'管理员 &lt;%s&gt;'</span> % to_addr)</span><br><span class="line">msg[<span class="string">'Subject'</span>] = Header(<span class="string">'vps远程登录日志'</span>, <span class="string">'utf-8'</span>).encode()</span><br><span class="line"></span><br><span class="line">server = smtplib.SMTP_SSL(smtp_server, <span class="number">465</span>)</span><br><span class="line">server.login(from_addr, password)</span><br><span class="line">server.sendmail(from_addr, [to_addr], msg.as_string())</span><br><span class="line">server.quit()</span><br></pre></td></tr></table></figure></p>
+<h2 id="第六关：搭建laravel框架"><a href="#第六关：搭建laravel框架" class="headerlink" title="第六关：搭建laravel框架"></a>第六关：搭建laravel框架</h2><p><strong>首先安装<code>composer</code>(一个php工具，具体查看官网)</strong><br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">php -r <span class="string">"copy('https://getcomposer.org/installer', 'composer-setup.php');"</span></span><br><span class="line">php -r <span class="string">"if (hash_file('SHA384', 'composer-setup.php') === '669656bab3166a7aff8a7506b8cb2d1c292f042046c5a994c43155c0be6190fa0355160742ab2e1c88d40d5be660b410') &#123; echo 'Installer verified'; &#125; else &#123; echo 'Installer corrupt'; unlink('composer-setup.php'); &#125; echo PHP_EOL;"</span></span><br><span class="line">php composer-setup.php</span><br><span class="line">php -r <span class="string">"unlink('composer-setup.php');"</span></span><br></pre></td></tr></table></figure></p>
+<p><strong>然后全局使用<code>composer</code></strong><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mv composer.phar /usr/<span class="built_in">local</span>/bin/composer</span><br></pre></td></tr></table></figure></p>
+<p><strong>接着安装<code>laravel</code></strong><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">composer create-project --prefer-dist laravel/laravel your_project_name</span><br></pre></td></tr></table></figure></p>
+<p><strong>进入项目目录更新<code>composer</code></strong><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">composer update</span><br></pre></td></tr></table></figure></p>
+<p><strong>在这里我遇到了一个问题，我搭建三次只遇见过一次</strong><br><img src="/images/laravel_problem.png" alt=""><br><strong>根据提示进入里面说的网站上，跟着网站描述解决问题就ok</strong></p>
 
       
     </div>
@@ -493,10 +499,10 @@
       
         <ul class="sidebar-nav motion-element">
           <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            Table of Contents
+            Inhaltsverzeichnis
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview">
-            Overview
+            Übersicht
           </li>
         </ul>
       
@@ -517,7 +523,7 @@
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
                 <span class="site-state-item-count">25</span>
-                <span class="site-state-item-name">posts</span>
+                <span class="site-state-item-name">Artikel</span>
               </a>
             </div>
           
@@ -530,7 +536,7 @@
             <div class="site-state-item site-state-tags">
               
                 <span class="site-state-item-count">13</span>
-                <span class="site-state-item-name">tags</span>
+                <span class="site-state-item-name">Tags</span>
               
             </div>
           
@@ -564,7 +570,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#第一关：设置windows启动项"><span class="nav-number">1.</span> <span class="nav-text">第一关：设置windows启动项</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第二关：防火墙"><span class="nav-number">2.</span> <span class="nav-text">第二关：防火墙</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第三关：lnmp配置"><span class="nav-number">3.</span> <span class="nav-text">第三关：lnmp配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第四关：ssh登录邮件通知（后面有彩蛋哟）"><span class="nav-number">4.</span> <span class="nav-text">第四关：ssh登录邮件通知（后面有彩蛋哟）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第五关：python实现邮件发送"><span class="nav-number">5.</span> <span class="nav-text">第五关：python实现邮件发送</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#第一关：设置windows启动项"><span class="nav-number">1.</span> <span class="nav-text">第一关：设置windows启动项</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第二关：防火墙"><span class="nav-number">2.</span> <span class="nav-text">第二关：防火墙</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第三关：lnmp配置"><span class="nav-number">3.</span> <span class="nav-text">第三关：lnmp配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第四关：ssh登录邮件通知（后面有彩蛋哟）"><span class="nav-number">4.</span> <span class="nav-text">第四关：ssh登录邮件通知（后面有彩蛋哟）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第五关：python实现邮件发送"><span class="nav-number">5.</span> <span class="nav-text">第五关：python实现邮件发送</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第六关：搭建laravel框架"><span class="nav-number">6.</span> <span class="nav-text">第六关：搭建laravel框架</span></a></li></ol></div>
             
 
           </div>
@@ -596,7 +602,7 @@
 
 
 <div class="powered-by">
-  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+  Erstellt mit  <a class="theme-link" href="https://hexo.io">Hexo</a>
 </div>
 
 <div class="theme-info">
