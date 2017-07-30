@@ -287,7 +287,7 @@
               
                 <span class="post-meta-item-text">Veröffentlicht am</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-07-30T20:31:26+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-07-30T23:50:52+08:00">
                 2017-07-30
               </time>
             
@@ -641,7 +641,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://fenlan.github.io/2017/06/15/java-Thread/">
+    <link itemprop="mainEntityOfPage" href="http://fenlan.github.io/2017/06/15/blog/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Gao Jie">
@@ -660,7 +660,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/06/15/java-Thread/" itemprop="url">java线程学习记录</a></h1>
+                <a class="post-title-link" href="/2017/06/15/blog/" itemprop="url">搭建博客的大致流程</a></h1>
         
 
         <div class="post-meta">
@@ -691,9 +691,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/06/15/java-Thread/#comments" itemprop="discussionUrl">
+                <a href="/2017/06/15/blog/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/06/15/java-Thread/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2017/06/15/blog/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -719,11 +719,10 @@
 
       
         
-          <p><strong>在接触Android时候发现java基础没打好，所以回来重新打基础</strong></p>
-<h3 id="java线程基础"><a href="#java线程基础" class="headerlink" title="java线程基础"></a>java线程基础</h3>
+          <p>本想着是不是拿英文来写这个流程来锻炼一下自己的英文水平，不过想了想就不装B了，英语就拿磋样还拿出来献丑。言归正传，我以为可以在寝室大神的引导下我能快一点搭好my blog，不过是我想得太简单。经过自己踩了无数坑过后总结大概过程，具体过程网上一搜一大把，不过建议别用百度搜这种东西，能翻墙就翻墙吧。大概过程如下：</p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/06/15/java-Thread/#more" rel="contents">
+            <a class="btn" href="/2017/06/15/blog/#more" rel="contents">
               Weiterlesen &raquo;
             </a>
           </div>
@@ -769,7 +768,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://fenlan.github.io/2017/06/15/android-activity/">
+    <link itemprop="mainEntityOfPage" href="http://fenlan.github.io/2017/06/15/android-ProgressBarAndThread/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Gao Jie">
@@ -788,7 +787,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/06/15/android-activity/" itemprop="url">android生命周期函数记录</a></h1>
+                <a class="post-title-link" href="/2017/06/15/android-ProgressBarAndThread/" itemprop="url">android中ProgressBar和线程学习记录</a></h1>
         
 
         <div class="post-meta">
@@ -819,9 +818,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/06/15/android-activity/#comments" itemprop="discussionUrl">
+                <a href="/2017/06/15/android-ProgressBarAndThread/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/06/15/android-activity/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2017/06/15/android-ProgressBarAndThread/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -847,11 +846,11 @@
 
       
         
-          <h3 id="函数及解释如下"><a href="#函数及解释如下" class="headerlink" title="函数及解释如下"></a>函数及解释如下</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">onCreate    在activity对象被第一次创建时调用</span><br><span class="line">onStart     在activity变得可见时调用该函数</span><br><span class="line">onResume    在activity开始准备与用户交互时调用该方法</span><br><span class="line">onPause     当系统即将启动另外一个activity之前调用该方法</span><br><span class="line">onStop      当前activity变得不可见时调用该方法</span><br><span class="line">onDestroy   当前activity被销毁之前将会调用该方法</span><br><span class="line">onRestroy   当一个activity再次启动之前将会调用该方法</span><br></pre></td></tr></table></figure>
-<h3 id="来张图片帮助理解"><a href="#来张图片帮助理解" class="headerlink" title="来张图片帮助理解"></a>来张图片帮助理解</h3>
+          <p><strong>感觉没什么说的，就直接放代码吧</strong></p>
+<h3 id="代码如下"><a href="#代码如下" class="headerlink" title="代码如下"></a>代码如下</h3>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/06/15/android-activity/#more" rel="contents">
+            <a class="btn" href="/2017/06/15/android-ProgressBarAndThread/#more" rel="contents">
               Weiterlesen &raquo;
             </a>
           </div>
@@ -1024,260 +1023,6 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://fenlan.github.io/2017/06/15/blog/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Gao Jie">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="fenlan">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/06/15/blog/" itemprop="url">搭建博客的大致流程</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Veröffentlicht am</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-06-15T00:20:43+08:00">
-                2017-06-15
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2017/06/15/blog/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/06/15/blog/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>本想着是不是拿英文来写这个流程来锻炼一下自己的英文水平，不过想了想就不装B了，英语就拿磋样还拿出来献丑。言归正传，我以为可以在寝室大神的引导下我能快一点搭好my blog，不过是我想得太简单。经过自己踩了无数坑过后总结大概过程，具体过程网上一搜一大把，不过建议别用百度搜这种东西，能翻墙就翻墙吧。大概过程如下：</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/06/15/blog/#more" rel="contents">
-              Weiterlesen &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://fenlan.github.io/2017/06/15/Android数据传输/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Gao Jie">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="fenlan">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/06/15/Android数据传输/" itemprop="url">Android在不同Activity之间传输数据</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Veröffentlicht am</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-06-15T00:20:43+08:00">
-                2017-06-15
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2017/06/15/Android数据传输/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/06/15/Android数据传输/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h3 id="Android中的数据传输"><a href="#Android中的数据传输" class="headerlink" title="Android中的数据传输"></a>Android中的数据传输</h3>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/06/15/Android数据传输/#more" rel="contents">
-              Weiterlesen &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://fenlan.github.io/2017/06/15/duoshuo/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1405,7 +1150,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://fenlan.github.io/2017/06/15/git-install/">
+    <link itemprop="mainEntityOfPage" href="http://fenlan.github.io/2017/06/15/git-to-github/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Gao Jie">
@@ -1424,7 +1169,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/06/15/git-install/" itemprop="url">Git install and setting</a></h1>
+                <a class="post-title-link" href="/2017/06/15/git-to-github/" itemprop="url">git to gihub</a></h1>
         
 
         <div class="post-meta">
@@ -1455,9 +1200,263 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/06/15/git-install/#comments" itemprop="discussionUrl">
+                <a href="/2017/06/15/git-to-github/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/06/15/git-install/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2017/06/15/git-to-github/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p><strong>我想想，这个东西好像是上个学期寝室大神告诉我的，然而我现在才知道怎么使用它，主要是之前没接触到这个东西，不知道这东西是干嘛用的，在建blog时接触到了，对于如此难堪的水平的我来说有必要记录一下。想想感觉不应该写在blog上，觉得好好的博客怎么写这些东西了，不过尽管如此，我还是决心写一下</strong></p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/06/15/git-to-github/#more" rel="contents">
+              Weiterlesen &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://fenlan.github.io/2017/06/15/guestbook/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Gao Jie">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="fenlan">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/06/15/guestbook/" itemprop="url">通过留言板的添加所得到的tip</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-06-15T00:20:43+08:00">
+                2017-06-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/06/15/guestbook/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2017/06/15/guestbook/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>在添加留言板时意外收获到了我想要的外部链接，但不知道适不适用与除主页上的menu以外的地方。假设一个场景，就是你要在主页上的某个地方添加一个超链接，使点击事件发生后跳到另外一个界面，设置如下：</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/06/15/guestbook/#more" rel="contents">
+              Weiterlesen &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://fenlan.github.io/2017/06/15/hello-world/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Gao Jie">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="fenlan">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/06/15/hello-world/" itemprop="url">Hello World</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-06-15T00:20:43+08:00">
+                2017-06-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/06/15/hello-world/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2017/06/15/hello-world/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -1484,14 +1483,7 @@
       
         
           
-            <h3 id="git-install-and-setting"><a href="#git-install-and-setting" class="headerlink" title="git install and setting:"></a>git install and setting:</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git config --global user.name <span class="string">"name"</span></span><br><span class="line">$ git config --global user.email <span class="string">"email"</span></span><br><span class="line">$ git config --global color.ui auto</span><br></pre></td></tr></table></figure>
-<h3 id="and-then-create-a-new-directory-as-tutorial"><a href="#and-then-create-a-new-directory-as-tutorial" class="headerlink" title="and then create a new directory as tutorial"></a>and then create a new directory as tutorial</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ mkdir tutorial</span><br><span class="line">$ <span class="built_in">cd</span> tutorial</span><br><span class="line">$ git init</span><br></pre></td></tr></table></figure>
-<h3 id="then-create-a-new-file-as-text-txt"><a href="#then-create-a-new-file-as-text-txt" class="headerlink" title="then create a new file as text.txt"></a>then create a new file as text.txt</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ git status</span><br><span class="line">$ git add text.txt</span><br><span class="line">$ git status</span><br><span class="line">$ git commit -m <span class="string">"text"</span></span><br><span class="line">$ git status</span><br><span class="line">$ git <span class="built_in">log</span></span><br></pre></td></tr></table></figure>
-<h3 id="next-to-rename-the-“https-……-”-as-origin"><a href="#next-to-rename-the-“https-……-”-as-origin" class="headerlink" title="next to rename the “https://…….” as origin"></a>next to rename the “https://…….” as origin</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git remote add origin https://.........(<span class="keyword">do</span> this only the first time)</span><br><span class="line">$ git push -u origin master(the first time)</span><br><span class="line">$ git push -u origin(<span class="keyword">do</span> this the next time)</span><br></pre></td></tr></table></figure>
-<h3 id="do-clone-the-date-base-数据库，不知道是不是这个词"><a href="#do-clone-the-date-base-数据库，不知道是不是这个词" class="headerlink" title="do clone the date-base(数据库，不知道是不是这个词)"></a>do clone the date-base(数据库，不知道是不是这个词)</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="built_in">clone</span> https://....... tutorial2(a new directory)</span><br></pre></td></tr></table></figure>
-<h3 id="do-pull-file-in-your-date-base"><a href="#do-pull-file-in-your-date-base" class="headerlink" title="do pull file in your date-base"></a>do pull file in your date-base</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git pull origin master</span><br><span class="line">$ git <span class="built_in">log</span></span><br></pre></td></tr></table></figure>
-<p>finally do another setting to make it better,but I meet a problem.<br>So I stop it temporarily,continue it if I have time.</p>
-
+            <font face="微软雅黑"><br>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.<br><br>## Quick Start<br><br>### Create a new post<br><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure><br><br>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a><br><br>### Run server<br><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><br><br>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a><br><br>### Generate static files<br><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><br><br>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a><br><br>### Deploy to remote sites<br><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><br><br>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a><br></font>
           
         
       
