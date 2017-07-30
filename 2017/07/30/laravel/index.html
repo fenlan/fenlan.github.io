@@ -93,19 +93,16 @@
 
 
 
-<meta name="description" content="路由1.基本路由123Route::get(&apos;basic1&apos;, function () &amp;#123;    return &apos;Hello World&apos;;&amp;#125;);
-2.路由参数1234567Route::get(&apos;user/&amp;#123;id&amp;#125;&apos;, function ($id) &amp;#123;    return &apos;User-id-&apos; . $id;&amp;#125;)-&amp;gt;where(&apos;i">
+<meta name="description" content="路由1.基本路由123Route::get(&apos;basic1&apos;, function () &amp;#123;    return &apos;Hello World&apos;;&amp;#125;);">
 <meta property="og:type" content="article">
 <meta property="og:title" content="laravel学习进展">
 <meta property="og:url" content="http://fenlan.github.io/2017/07/30/laravel/index.html">
 <meta property="og:site_name" content="fenlan">
-<meta property="og:description" content="路由1.基本路由123Route::get(&apos;basic1&apos;, function () &amp;#123;    return &apos;Hello World&apos;;&amp;#125;);
-2.路由参数1234567Route::get(&apos;user/&amp;#123;id&amp;#125;&apos;, function ($id) &amp;#123;    return &apos;User-id-&apos; . $id;&amp;#125;)-&amp;gt;where(&apos;i">
-<meta property="og:updated_time" content="2017-07-30T06:35:59.249Z">
+<meta property="og:description" content="路由1.基本路由123Route::get(&apos;basic1&apos;, function () &amp;#123;    return &apos;Hello World&apos;;&amp;#125;);">
+<meta property="og:updated_time" content="2017-07-30T06:38:43.121Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="laravel学习进展">
-<meta name="twitter:description" content="路由1.基本路由123Route::get(&apos;basic1&apos;, function () &amp;#123;    return &apos;Hello World&apos;;&amp;#125;);
-2.路由参数1234567Route::get(&apos;user/&amp;#123;id&amp;#125;&apos;, function ($id) &amp;#123;    return &apos;User-id-&apos; . $id;&amp;#125;)-&amp;gt;where(&apos;i">
+<meta name="twitter:description" content="路由1.基本路由123Route::get(&apos;basic1&apos;, function () &amp;#123;    return &apos;Hello World&apos;;&amp;#125;);">
 
 
 
@@ -205,7 +202,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Home
+            Startseite
           </a>
         </li>
       
@@ -215,7 +212,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archives
+            Archiv
           </a>
         </li>
       
@@ -285,9 +282,9 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-07-30T14:35:59+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-07-30T14:38:43+08:00">
                 2017-07-30
               </time>
             
@@ -334,6 +331,7 @@
 
       
         <h2 id="路由"><a href="#路由" class="headerlink" title="路由"></a>路由</h2><p><strong>1.基本路由</strong><br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Route::get(<span class="string">'basic1'</span>, <span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">'Hello World'</span>;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<a id="more"></a>
 <p><strong>2.路由参数</strong><br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Route::get(<span class="string">'user/&#123;id&#125;'</span>, <span class="function"><span class="keyword">function</span> <span class="params">($id)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">'User-id-'</span> . $id;</span><br><span class="line">&#125;)-&gt;where(<span class="string">'id'</span>, <span class="string">'[0-9]+'</span>);</span><br><span class="line"></span><br><span class="line">Route::get(<span class="string">'user/&#123;name?&#125;'</span>, <span class="function"><span class="keyword">function</span> <span class="params">($name = <span class="string">'fenlan'</span>)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">'User-name-'</span> . $name;</span><br><span class="line">&#125;)-&gt;where(<span class="string">'name'</span>, <span class="string">'[A-Za-z]+'</span>);</span><br></pre></td></tr></table></figure></p>
 <p><strong>3.路由群组</strong><br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Route::group([<span class="string">'prefix'</span> =&gt; <span class="string">'member'</span>], <span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">    Route::get(<span class="string">'user/member-center'</span>, [<span class="string">'as'</span> =&gt; <span class="string">'center'</span>, <span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> route(<span class="string">'center'</span>);</span><br><span class="line">    &#125;]);</span><br><span class="line">    Route::any(<span class="string">'multy1'</span>, <span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">'member-multy1'</span>;</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
 <p><strong>4.控制器关联</strong><br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Route::get(<span class="string">'member/&#123;id&#125;'</span>, <span class="string">'MemberController@info'</span>);</span><br></pre></td></tr></table></figure></p>
@@ -450,10 +448,10 @@
       
         <ul class="sidebar-nav motion-element">
           <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            Table of Contents
+            Inhaltsverzeichnis
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview">
-            Overview
+            Übersicht
           </li>
         </ul>
       
@@ -474,7 +472,7 @@
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
                 <span class="site-state-item-count">26</span>
-                <span class="site-state-item-name">posts</span>
+                <span class="site-state-item-name">Artikel</span>
               </a>
             </div>
           
@@ -487,7 +485,7 @@
             <div class="site-state-item site-state-tags">
               
                 <span class="site-state-item-count">14</span>
-                <span class="site-state-item-name">tags</span>
+                <span class="site-state-item-name">Tags</span>
               
             </div>
           
@@ -553,7 +551,7 @@
 
 
 <div class="powered-by">
-  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+  Erstellt mit  <a class="theme-link" href="https://hexo.io">Hexo</a>
 </div>
 
 <div class="theme-info">

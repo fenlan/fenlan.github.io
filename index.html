@@ -203,7 +203,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Home
+            Startseite
           </a>
         </li>
       
@@ -213,7 +213,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archives
+            Archiv
           </a>
         </li>
       
@@ -285,9 +285,9 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-07-30T14:35:59+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-07-30T14:38:43+08:00">
                 2017-07-30
               </time>
             
@@ -334,20 +334,14 @@
 
       
         
-          
-            <h2 id="路由"><a href="#路由" class="headerlink" title="路由"></a>路由</h2><p><strong>1.基本路由</strong><br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Route::get(<span class="string">'basic1'</span>, <span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">'Hello World'</span>;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
-<p><strong>2.路由参数</strong><br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Route::get(<span class="string">'user/&#123;id&#125;'</span>, <span class="function"><span class="keyword">function</span> <span class="params">($id)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">'User-id-'</span> . $id;</span><br><span class="line">&#125;)-&gt;where(<span class="string">'id'</span>, <span class="string">'[0-9]+'</span>);</span><br><span class="line"></span><br><span class="line">Route::get(<span class="string">'user/&#123;name?&#125;'</span>, <span class="function"><span class="keyword">function</span> <span class="params">($name = <span class="string">'fenlan'</span>)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">'User-name-'</span> . $name;</span><br><span class="line">&#125;)-&gt;where(<span class="string">'name'</span>, <span class="string">'[A-Za-z]+'</span>);</span><br></pre></td></tr></table></figure></p>
-<p><strong>3.路由群组</strong><br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Route::group([<span class="string">'prefix'</span> =&gt; <span class="string">'member'</span>], <span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">    Route::get(<span class="string">'user/member-center'</span>, [<span class="string">'as'</span> =&gt; <span class="string">'center'</span>, <span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> route(<span class="string">'center'</span>);</span><br><span class="line">    &#125;]);</span><br><span class="line">    Route::any(<span class="string">'multy1'</span>, <span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">'member-multy1'</span>;</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
-<p><strong>4.控制器关联</strong><br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Route::get(<span class="string">'member/&#123;id&#125;'</span>, <span class="string">'MemberController@info'</span>);</span><br></pre></td></tr></table></figure></p>
-<blockquote>
-<p>get参数中第一个是url路由，第二个是控制器MemberController及控制器中函数info</p>
-</blockquote>
-<h2 id="控制器"><a href="#控制器" class="headerlink" title="控制器"></a>控制器</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title">App</span>\<span class="title">Http</span>\<span class="title">Controllers</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MemberController</span> <span class="keyword">extends</span> <span class="title">Controller</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">info</span><span class="params">($id)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//return 'member-info-id-' . $id;</span></span><br><span class="line">        <span class="comment">//return view('welcome');</span></span><br><span class="line">        <span class="keyword">return</span> view(<span class="string">'info'</span>, [</span><br><span class="line">            <span class="string">'name'</span> =&gt; <span class="string">'fenlan'</span>,</span><br><span class="line">            <span class="string">'age'</span> =&gt; <span class="number">18</span>,</span><br><span class="line">            <span class="string">'sex'</span> =&gt; <span class="string">'male'</span></span><br><span class="line">        ]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="视图"><a href="#视图" class="headerlink" title="视图"></a>视图</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">info blade php</span><br><span class="line">&#123;&#123;$name&#125;&#125;</span><br><span class="line">&#123;&#123;$age&#125;&#125;</span><br><span class="line">&#123;&#123;$sex&#125;&#125;</span><br></pre></td></tr></table></figure>
-<p><strong>laravel新建视图完成后需要模块编译(我是这么理解的)</strong><br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">php artisan serve</span><br></pre></td></tr></table></figure></p>
-<h2 id="项目源码"><a href="#项目源码" class="headerlink" title="项目源码"></a>项目源码</h2><p><a href="https://github.com/fenlan/laravel-ubuntu" target="_blank" rel="external">laravel-ubuntu</a></p>
-
-          
+          <h2 id="路由"><a href="#路由" class="headerlink" title="路由"></a>路由</h2><p><strong>1.基本路由</strong><br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Route::get(<span class="string">'basic1'</span>, <span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">'Hello World'</span>;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/07/30/laravel/#more" rel="contents">
+              Weiterlesen &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -418,7 +412,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-07-25T22:39:55+08:00">
                 2017-07-25
@@ -475,7 +469,7 @@
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/07/25/centos/#more" rel="contents">
-              Read more &raquo;
+              Weiterlesen &raquo;
             </a>
           </div>
           <!--/noindex-->
@@ -549,7 +543,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-06-21T00:22:57+08:00">
                 2017-06-21
@@ -602,7 +596,7 @@
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/06/21/logrotate/#more" rel="contents">
-              Read more &raquo;
+              Weiterlesen &raquo;
             </a>
           </div>
           <!--/noindex-->
@@ -676,7 +670,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-06-15T00:20:43+08:00">
                 2017-06-15
@@ -799,7 +793,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-06-15T00:20:43+08:00">
                 2017-06-15
@@ -853,7 +847,7 @@
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/06/15/android-activity/#more" rel="contents">
-              Read more &raquo;
+              Weiterlesen &raquo;
             </a>
           </div>
           <!--/noindex-->
@@ -927,7 +921,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-06-15T00:20:43+08:00">
                 2017-06-15
@@ -981,7 +975,7 @@
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/06/15/android-ProgressBarAndThread/#more" rel="contents">
-              Read more &raquo;
+              Weiterlesen &raquo;
             </a>
           </div>
           <!--/noindex-->
@@ -1055,7 +1049,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-06-15T00:20:43+08:00">
                 2017-06-15
@@ -1108,7 +1102,7 @@
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/06/15/android-handler/#more" rel="contents">
-              Read more &raquo;
+              Weiterlesen &raquo;
             </a>
           </div>
           <!--/noindex-->
@@ -1182,7 +1176,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-06-15T00:20:43+08:00">
                 2017-06-15
@@ -1235,7 +1229,7 @@
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/06/15/blog/#more" rel="contents">
-              Read more &raquo;
+              Weiterlesen &raquo;
             </a>
           </div>
           <!--/noindex-->
@@ -1309,7 +1303,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-06-15T00:20:43+08:00">
                 2017-06-15
@@ -1362,7 +1356,7 @@
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/06/15/duoshuo/#more" rel="contents">
-              Read more &raquo;
+              Weiterlesen &raquo;
             </a>
           </div>
           <!--/noindex-->
@@ -1436,7 +1430,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-06-15T00:20:43+08:00">
                 2017-06-15
@@ -1577,7 +1571,7 @@
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
                 <span class="site-state-item-count">26</span>
-                <span class="site-state-item-name">posts</span>
+                <span class="site-state-item-name">Artikel</span>
               </a>
             </div>
           
@@ -1590,7 +1584,7 @@
             <div class="site-state-item site-state-tags">
               
                 <span class="site-state-item-count">14</span>
-                <span class="site-state-item-name">tags</span>
+                <span class="site-state-item-name">Tags</span>
               
             </div>
           
@@ -1640,7 +1634,7 @@
 
 
 <div class="powered-by">
-  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+  Erstellt mit  <a class="theme-link" href="https://hexo.io">Hexo</a>
 </div>
 
 <div class="theme-info">
