@@ -77,7 +77,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="java-Thread," />
+  <meta name="keywords" content="laravel mvc," />
 
 
 
@@ -93,19 +93,19 @@
 
 
 
-<meta name="description" content="在接触Android时候发现java基础没打好，所以回来重新打基础
-java线程基础">
+<meta name="description" content="路由1.基本路由123Route::get(&apos;basic1&apos;, function () &amp;#123;    return &apos;Hello World&apos;;&amp;#125;);
+2.路由参数1234567Route::get(&apos;user/&amp;#123;id&amp;#125;&apos;, function ($id) &amp;#123;    return &apos;User-id-&apos; . $id;&amp;#125;)-&amp;gt;where(&apos;i">
 <meta property="og:type" content="article">
-<meta property="og:title" content="java线程学习记录">
-<meta property="og:url" content="http://fenlan.github.io/2017/06/15/java-Thread/index.html">
+<meta property="og:title" content="laravel学习进展">
+<meta property="og:url" content="http://fenlan.github.io/2017/07/30/laravel/index.html">
 <meta property="og:site_name" content="fenlan">
-<meta property="og:description" content="在接触Android时候发现java基础没打好，所以回来重新打基础
-java线程基础">
-<meta property="og:updated_time" content="2016-06-18T10:43:39.887Z">
+<meta property="og:description" content="路由1.基本路由123Route::get(&apos;basic1&apos;, function () &amp;#123;    return &apos;Hello World&apos;;&amp;#125;);
+2.路由参数1234567Route::get(&apos;user/&amp;#123;id&amp;#125;&apos;, function ($id) &amp;#123;    return &apos;User-id-&apos; . $id;&amp;#125;)-&amp;gt;where(&apos;i">
+<meta property="og:updated_time" content="2017-07-30T06:35:59.249Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="java线程学习记录">
-<meta name="twitter:description" content="在接触Android时候发现java基础没打好，所以回来重新打基础
-java线程基础">
+<meta name="twitter:title" content="laravel学习进展">
+<meta name="twitter:description" content="路由1.基本路由123Route::get(&apos;basic1&apos;, function () &amp;#123;    return &apos;Hello World&apos;;&amp;#125;);
+2.路由参数1234567Route::get(&apos;user/&amp;#123;id&amp;#125;&apos;, function ($id) &amp;#123;    return &apos;User-id-&apos; . $id;&amp;#125;)-&amp;gt;where(&apos;i">
 
 
 
@@ -133,13 +133,13 @@ java线程基础">
 
 
 
-  <link rel="canonical" href="http://fenlan.github.io/2017/06/15/java-Thread/"/>
+  <link rel="canonical" href="http://fenlan.github.io/2017/07/30/laravel/"/>
 
 
 
 
 
-  <title>java线程学习记录 | fenlan</title>
+  <title>laravel学习进展 | fenlan</title>
   
 
 
@@ -258,7 +258,7 @@ java线程基础">
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://fenlan.github.io/2017/06/15/java-Thread/">
+    <link itemprop="mainEntityOfPage" href="http://fenlan.github.io/2017/07/30/laravel/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Gao Jie">
@@ -275,7 +275,7 @@ java线程基础">
 
         
         
-          <h1 class="post-title" itemprop="name headline">java线程学习记录</h1>
+          <h1 class="post-title" itemprop="name headline">laravel学习进展</h1>
         
 
         <div class="post-meta">
@@ -287,8 +287,8 @@ java线程基础">
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-06-15T00:20:43+08:00">
-                2017-06-15
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-07-30T14:35:59+08:00">
+                2017-07-30
               </time>
             
 
@@ -306,9 +306,9 @@ java线程基础">
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/06/15/java-Thread/#comments" itemprop="discussionUrl">
+                <a href="/2017/07/30/laravel/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/06/15/java-Thread/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2017/07/30/laravel/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -333,11 +333,17 @@ java线程基础">
       
 
       
-        <p><strong>在接触Android时候发现java基础没打好，所以回来重新打基础</strong></p>
-<h3 id="java线程基础"><a href="#java线程基础" class="headerlink" title="java线程基础"></a>java线程基础</h3><a id="more"></a>
-<p><strong>java线程是在一个程序代码中CPU同步运行多个程序片段，而不是一行代码一行代码地执行到底，这样做是为了在运行大程序时提高程序的运行效率。虽然说的是同步运行，其实是“微观串行，宏观并行”，只是线程之间的切换时间太短以至于我们看上去是并行的。另外线程的调度模式有    （1）分时模型   （2）抢占模型</strong><br><strong>java用的是抢占模型，其他知识以后再补充，现在放代码</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">class ThreadTest &#123;</span><br><span class="line">	public static void main (String[] args)&#123;</span><br><span class="line">		MyThread thread1 = new MyThread(<span class="string">"thread1"</span>);</span><br><span class="line">		MyThread thread2 = new MyThread(<span class="string">"thread2"</span>);</span><br><span class="line">		thread1.start();</span><br><span class="line">		thread2.start();</span><br><span class="line">		System.out.println(<span class="string">"The main runnnig is stopped"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class MyThread extends Thread &#123;</span><br><span class="line">	public MyThread(String str)&#123;</span><br><span class="line">		super(str);</span><br><span class="line">	&#125;</span><br><span class="line">	public void <span class="function"><span class="title">run</span></span>()&#123;</span><br><span class="line">		<span class="keyword">for</span> (int i=0;i&lt;3;i++)&#123;</span><br><span class="line">			System.out.println(getName() + <span class="string">"is running"</span>);</span><br><span class="line">			try &#123;</span><br><span class="line">				sleep(100);</span><br><span class="line">			&#125; catch (InterruptedException e) &#123;&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		System.out.println(getName() + <span class="string">"stopped"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><strong>运行结果如下</strong><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">The main runnnig is stopped</span><br><span class="line">thread2is running</span><br><span class="line">thread1is running</span><br><span class="line">thread1is running</span><br><span class="line">thread2is running</span><br><span class="line">thread1is running</span><br><span class="line">thread2is running</span><br><span class="line">thread2stopped</span><br><span class="line">thread1stopped</span><br></pre></td></tr></table></figure></p>
+        <h2 id="路由"><a href="#路由" class="headerlink" title="路由"></a>路由</h2><p><strong>1.基本路由</strong><br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Route::get(<span class="string">'basic1'</span>, <span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">'Hello World'</span>;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<p><strong>2.路由参数</strong><br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Route::get(<span class="string">'user/&#123;id&#125;'</span>, <span class="function"><span class="keyword">function</span> <span class="params">($id)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">'User-id-'</span> . $id;</span><br><span class="line">&#125;)-&gt;where(<span class="string">'id'</span>, <span class="string">'[0-9]+'</span>);</span><br><span class="line"></span><br><span class="line">Route::get(<span class="string">'user/&#123;name?&#125;'</span>, <span class="function"><span class="keyword">function</span> <span class="params">($name = <span class="string">'fenlan'</span>)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">'User-name-'</span> . $name;</span><br><span class="line">&#125;)-&gt;where(<span class="string">'name'</span>, <span class="string">'[A-Za-z]+'</span>);</span><br></pre></td></tr></table></figure></p>
+<p><strong>3.路由群组</strong><br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Route::group([<span class="string">'prefix'</span> =&gt; <span class="string">'member'</span>], <span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">    Route::get(<span class="string">'user/member-center'</span>, [<span class="string">'as'</span> =&gt; <span class="string">'center'</span>, <span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> route(<span class="string">'center'</span>);</span><br><span class="line">    &#125;]);</span><br><span class="line">    Route::any(<span class="string">'multy1'</span>, <span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">'member-multy1'</span>;</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<p><strong>4.控制器关联</strong><br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Route::get(<span class="string">'member/&#123;id&#125;'</span>, <span class="string">'MemberController@info'</span>);</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>get参数中第一个是url路由，第二个是控制器MemberController及控制器中函数info</p>
+</blockquote>
+<h2 id="控制器"><a href="#控制器" class="headerlink" title="控制器"></a>控制器</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title">App</span>\<span class="title">Http</span>\<span class="title">Controllers</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MemberController</span> <span class="keyword">extends</span> <span class="title">Controller</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">info</span><span class="params">($id)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//return 'member-info-id-' . $id;</span></span><br><span class="line">        <span class="comment">//return view('welcome');</span></span><br><span class="line">        <span class="keyword">return</span> view(<span class="string">'info'</span>, [</span><br><span class="line">            <span class="string">'name'</span> =&gt; <span class="string">'fenlan'</span>,</span><br><span class="line">            <span class="string">'age'</span> =&gt; <span class="number">18</span>,</span><br><span class="line">            <span class="string">'sex'</span> =&gt; <span class="string">'male'</span></span><br><span class="line">        ]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="视图"><a href="#视图" class="headerlink" title="视图"></a>视图</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">info blade php</span><br><span class="line">&#123;&#123;$name&#125;&#125;</span><br><span class="line">&#123;&#123;$age&#125;&#125;</span><br><span class="line">&#123;&#123;$sex&#125;&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>laravel新建视图完成后需要模块编译(我是这么理解的)</strong><br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">php artisan serve</span><br></pre></td></tr></table></figure></p>
+<h2 id="项目源码"><a href="#项目源码" class="headerlink" title="项目源码"></a>项目源码</h2><p><a href="https://github.com/fenlan/laravel-ubuntu" target="_blank" rel="external">laravel-ubuntu</a></p>
 
       
     </div>
@@ -367,7 +373,7 @@ java线程基础">
       
         <div class="post-tags">
           
-            <a href="/tags/java-Thread/" rel="tag"># java-Thread</a>
+            <a href="/tags/laravel-mvc/" rel="tag"># laravel mvc</a>
           
         </div>
       
@@ -380,8 +386,8 @@ java线程基础">
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/06/15/my-note2/" rel="next" title="发个牢骚">
-                <i class="fa fa-chevron-left"></i> 发个牢骚
+              <a href="/2017/07/25/centos/" rel="next" title="正式入坑CentOS">
+                <i class="fa fa-chevron-left"></i> 正式入坑CentOS
               </a>
             
           </div>
@@ -389,10 +395,6 @@ java线程基础">
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/06/15/JieCheng/" rel="prev" title="计算两个大数乘积巧算法">
-                计算两个大数乘积巧算法 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -519,7 +521,7 @@ java线程基础">
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#java线程基础"><span class="nav-number">1.</span> <span class="nav-text">java线程基础</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#路由"><span class="nav-number">1.</span> <span class="nav-text">路由</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#控制器"><span class="nav-number">2.</span> <span class="nav-text">控制器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#视图"><span class="nav-number">3.</span> <span class="nav-text">视图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#项目源码"><span class="nav-number">4.</span> <span class="nav-text">项目源码</span></a></li></ol></div>
             
 
           </div>
@@ -662,9 +664,9 @@ java线程基础">
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'http://fenlan.github.io/2017/06/15/java-Thread/';
-          this.page.identifier = '2017/06/15/java-Thread/';
-          this.page.title = 'java线程学习记录';
+          this.page.url = 'http://fenlan.github.io/2017/07/30/laravel/';
+          this.page.identifier = '2017/07/30/laravel/';
+          this.page.title = 'laravel学习进展';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://fenlan1.disqus.com/embed.js';
