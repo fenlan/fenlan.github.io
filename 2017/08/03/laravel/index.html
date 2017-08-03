@@ -100,7 +100,7 @@
 <meta property="og:site_name" content="fenlan">
 <meta property="og:description" content="路由1.基本路由123Route::get(&apos;basic1&apos;, function () &amp;#123;    return &apos;Hello World&apos;;&amp;#125;);">
 <meta property="og:image" content="http://fenlan.github.io/images/laravel_problem_1.png">
-<meta property="og:updated_time" content="2017-08-02T17:26:23.534Z">
+<meta property="og:updated_time" content="2017-08-03T05:24:41.178Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="laravel学习之旅">
 <meta name="twitter:description" content="路由1.基本路由123Route::get(&apos;basic1&apos;, function () &amp;#123;    return &apos;Hello World&apos;;&amp;#125;);">
@@ -286,7 +286,7 @@
               
                 <span class="post-meta-item-text">Veröffentlicht am</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-08-03T01:26:23+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-08-03T13:24:41+08:00">
                 2017-08-03
               </time>
             
@@ -370,7 +370,11 @@
 <p><strong>4.浏览器访问activity1或者activity2</strong></p>
 <h2 id="踩坑总结"><a href="#踩坑总结" class="headerlink" title="踩坑总结"></a>踩坑总结</h2><ol>
 <li><code>TokenMismatchException in VerifyCsrfToken.php line 68</code><br><strong>laravel 默认开启了 csrf验证 ，post请求需要验证csrf,所以要在表单里 加个隐藏域</strong><br><strong>解决方案：</strong><br><img src="/images/laravel_problem_1.png" alt=""></li>
-<li><code>MassAssignmentException in Model.php line 232:</code><br><strong>在添加学生的时候选择<code>action</code>为空时，会出现这个错误，解释为<code>new Student</code>时复制不能批量操作，因此要在<code>Model</code>中添加</strong><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">protected</span> $fillable = [<span class="string">'name'</span>, <span class="string">'age'</span>, <span class="string">'sex'</span>];</span><br></pre></td></tr></table></figure>
+<li><p><code>MassAssignmentException in Model.php line 232:</code><br><strong>在添加学生的时候选择<code>action</code>为空时，会出现这个错误，解释为<code>new Student</code>时复制不能批量操作，因此要在<code>Model</code>中添加</strong></p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">protected</span> $fillable = [<span class="string">'name'</span>, <span class="string">'age'</span>, <span class="string">'sex'</span>];</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>ErrorException in HasAttributes.php line 403:
+Relationship method must return an object of type Illuminate\Database\Eloquent\Relations\Relation</code><br><strong>在写<code>Student</code>模型的时候，将一个方法命名为<code>sex</code>，但<code>Student</code>又有一个属性是<code>sex</code>，两者相冲突了，因此需要将<code>sex</code>方法重新命名以解决冲突</strong></p>
 </li>
 </ol>
 <h2 id="项目源码"><a href="#项目源码" class="headerlink" title="项目源码"></a>项目源码</h2><p><a href="https://github.com/fenlan/laravel-ubuntu" target="_blank" rel="external">laravel-ubuntu</a></p>
