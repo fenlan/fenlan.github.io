@@ -100,7 +100,7 @@
 <meta property="og:site_name" content="fenlan">
 <meta property="og:description" content="路由1.基本路由123Route::get(&apos;basic1&apos;, function () &amp;#123;    return &apos;Hello World&apos;;&amp;#125;);">
 <meta property="og:image" content="http://fenlan.github.io/images/laravel_problem_1.png">
-<meta property="og:updated_time" content="2017-08-04T13:54:23.120Z">
+<meta property="og:updated_time" content="2017-08-04T13:57:50.997Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="laravel学习之旅">
 <meta name="twitter:description" content="路由1.基本路由123Route::get(&apos;basic1&apos;, function () &amp;#123;    return &apos;Hello World&apos;;&amp;#125;);">
@@ -286,7 +286,7 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-08-04T21:54:23+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-08-04T21:57:50+08:00">
                 2017-08-04
               </time>
             
@@ -377,10 +377,9 @@
 Relationship method must return an object of type Illuminate\Database\Eloquent\Relations\Relation</code><br><strong>在写<code>Student</code>模型的时候，将一个方法命名为<code>sex</code>，但<code>Student</code>又有一个属性是<code>sex</code>，两者相冲突了，因此需要将<code>sex</code>方法重新命名以解决冲突</strong></p>
 </li>
 <li><code>无法修改和删除数据</code><br><strong>这是我遇到的巨坑的一次，原因在于<code>Student Model</code>中将主码写错了，原本应该是<code>id</code>，被我写成了<code>ID</code>，然后一直被找出来，之前就有预感是<code>Student Model</code>错了，但是我检查了很多遍都没注意，吐血。。。</strong></li>
-<li><code>PDOException in Connector.php line 55:could not find driver</code><br><strong>就像报错说的没有找到<code>driver(驱动)</code>，所以少了什么呢，少了<code>php</code>连接<code>mysql</code>的<code>module(组件)</code>，组件名字<code>pdo_mysql</code></strong><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install php70w-mysql</span><br></pre></td></tr></table></figure>
+<li><code>PDOException in Connector.php line 55:could not find driver</code><br><strong>就像报错说的没有找到<code>driver(驱动)</code>，所以少了什么呢，少了<code>php</code>连接<code>mysql</code>的<code>module(组件)</code>，组件名字<code>pdo_mysql</code>，安装组件后重启<code>php-fpm</code>和<code>nginx</code></strong><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install php70w-mysql</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
-<p><strong>然后重启<code>php-fpm</code>和<code>nginx</code></strong></p>
 <h2 id="项目源码"><a href="#项目源码" class="headerlink" title="项目源码"></a>项目源码</h2><p><a href="https://github.com/fenlan/laravel-ubuntu" target="_blank" rel="external">laravel-ubuntu</a></p>
 
       
