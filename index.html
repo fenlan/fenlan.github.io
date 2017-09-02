@@ -321,7 +321,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-03T00:16:08+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-03T00:22:03+08:00">
                 2017-09-03
               </time>
             
@@ -368,19 +368,17 @@
 
       
         
-          
-            <h2 id="下载软件包"><a href="#下载软件包" class="headerlink" title="下载软件包"></a>下载软件包</h2><p><strong>从<a href="https://www.zabbix.com/download" target="_blank" rel="external">zabbix</a>上下载所需要的软件包，包括<code>zabbix-server-mysql</code>和<code>zabbix-frontend-php</code>，如果还要安装客户端，还要下载<code>zabbix-agent</code>。(推荐直接添加<code>zabbix</code>源)</strong></p>
+          <h2 id="下载软件包"><a href="#下载软件包" class="headerlink" title="下载软件包"></a>下载软件包</h2><p><strong>从<a href="https://www.zabbix.com/download">zabbix</a>上下载所需要的软件包，包括<code>zabbix-server-mysql</code>和<code>zabbix-frontend-php</code>，如果还要安装客户端，还要下载<code>zabbix-agent</code>。(推荐直接添加<code>zabbix</code>源)</strong></p>
 <h2 id="安装软件"><a href="#安装软件" class="headerlink" title="安装软件"></a>安装软件</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo dpkg -i zabbix-server-mysql_3.4.0-1+xenial_amd64.deb</span><br><span class="line">sudo dpkg -i zabbix-frontend-php_3.4.0-1+xenial_all.deb</span><br></pre></td></tr></table></figure>
 <h2 id="配置Zabbix-server"><a href="#配置Zabbix-server" class="headerlink" title="配置Zabbix server"></a>配置Zabbix server</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vim /etc/zabbix/zabbix_server.conf</span><br></pre></td></tr></table></figure>
-<p>修改其中的<code>DBhost</code>, <code>DBUser</code>, <code>DBPassword</code>，如果有必要，需要设置<code>socket</code>与<code>mysql</code>的<code>socket</code>相同。</p>
-<h2 id="配置MySQL"><a href="#配置MySQL" class="headerlink" title="配置MySQL"></a>配置MySQL</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">database</span> zabbix <span class="built_in">character</span> <span class="keyword">set</span> utf8 <span class="keyword">collate</span> utf8_bin;</span><br><span class="line"><span class="keyword">grant</span> all <span class="keyword">privileges</span> <span class="keyword">on</span> zabbix.* <span class="keyword">to</span> <span class="string">'zabbix'</span>@<span class="string">'localhost'</span>;</span><br><span class="line"><span class="keyword">flush</span> <span class="keyword">privileges</span>;</span><br><span class="line">exit;</span><br></pre></td></tr></table></figure>
-<p>找到<code>zabbix-server-mysql</code>文件夹，文件夹中是zabbix数据库数据填充文件用来填充数据库<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">zcat *.sql.gz | mysql -uzabbix -p zabbix</span><br></pre></td></tr></table></figure></p>
-<p>如果是三个sql文件，填充顺序是<code>schema.sql.gz</code>-&gt;<code>images.sql.gz</code>-&gt;<code>data.sql</code></p>
-<h2 id="配置PHP"><a href="#配置PHP" class="headerlink" title="配置PHP"></a>配置PHP</h2><p>按照需要修改<code>php.ini</code>配置项</p>
-<h2 id="Zabbix-web"><a href="#Zabbix-web" class="headerlink" title="Zabbix web"></a>Zabbix web</h2><p><strong>将Zabbix的web页面文件拷贝到LNMP的指定目录，启动<code>Zabbix-server</code>进入<code>http://ip/zabbix</code>按步骤填写相关信息，最后成功安上，最后再配合客户端进行监控</strong></p>
-<h2 id="附言"><a href="#附言" class="headerlink" title="附言"></a>附言</h2><p><strong>写得很草率，还在学习中，会努力更新….</strong></p>
-
-          
+<p>修改其中的<code>DBhost</code>, <code>DBUser</code>, <code>DBPassword</code>，如果有必要，需要设置<code>socket</code>与<code>mysql</code>的<code>socket</code>相同。<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/09/03/zabbix/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
