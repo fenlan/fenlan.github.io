@@ -72,14 +72,14 @@
     <content type="text"><![CDATA[git install and setting:123$ git config --global user.name "name"$ git config --global user.email "email"$ git config --global color.ui auto and then create a new directory as tutorial123$ mkdir tutorial$ cd tutorial$ git init then create a new file as text.txt123456$ git status$ git add text.txt$ git status$ git commit -m "text"$ git status$ git log next to rename the “https://…….” as origin123$ git remote add origin https://.........(do this only the first time)$ git push -u origin master(the first time)$ git push -u origin(do this the next time) do clone the date-base(数据库，不知道是不是这个词)1$ git clone https://....... tutorial2(a new directory) do pull file in your date-base12$ git pull origin master$ git log finally do another setting to make it better,but I meet a problem.So I stop it temporarily,continue it if I have time.]]></content>
   </entry>
   <entry>
-    <title><![CDATA[通过留言板的添加所得到的tip]]></title>
-    <url>%2F2017%2F06%2F15%2Fguestbook%2F</url>
-    <content type="text"><![CDATA[在添加留言板时意外收获到了我想要的外部链接，但不知道适不适用与除主页上的menu以外的地方。假设一个场景，就是你要在主页上的某个地方添加一个超链接，使点击事件发生后跳到另外一个界面，设置如下： 先找到themes目录下的_config.yml这个文件打开，这个文件是themes设置文件，你可以在里面设置themes属性 这里面有layout布局，比如menu,content,sidebar等设置，我的留言板是在menu里面的，所以我在menu里面添加了这行代码： 1Guestbook: /guestbook 解释一下，Guestbook是在Header的menu中显示，效果如下 后面的guestbook是在你博客主目录下的source中的一个界面名字。ok，就这样就ok了。]]></content>
-  </entry>
-  <entry>
     <title><![CDATA[git to gihub]]></title>
     <url>%2F2017%2F06%2F15%2Fgit-to-github%2F</url>
     <content type="text"><![CDATA[我想想，这个东西好像是上个学期寝室大神告诉我的，然而我现在才知道怎么使用它，主要是之前没接触到这个东西，不知道这东西是干嘛用的，在建blog时接触到了，对于如此难堪的水平的我来说有必要记录一下。想想感觉不应该写在blog上，觉得好好的博客怎么写这些东西了，不过尽管如此，我还是决心写一下 注册github账号这个步骤省略。。。。。 新建repositories继续省略。。。。。。 本地配置最好新建一个目录，比如Mycode，然后将你要放在github的代码放在这个目录中如果第一次用git，需要表明你的身份，我的理解是这样的，命令行如下： 123$ git config --global user.name "yourname"$ git config --global user.email "youremail"$ git config --global color.ui auto 然后继续： 1234567891011$ cd Mycode$ git init$ git status$ git add 要放在github的文件$ git status$ git commit -m "c-program"$ git status$ git log$ git remote add origin https://......$ git push -u origin master$ git push -u origin 附加一些其他的 123$ git clone https://......$ git pull origin master$ git log 差不多就这些 最近更新：同步远程仓库更新本地仓库命令1$ git pull]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[通过留言板的添加所得到的tip]]></title>
+    <url>%2F2017%2F06%2F15%2Fguestbook%2F</url>
+    <content type="text"><![CDATA[在添加留言板时意外收获到了我想要的外部链接，但不知道适不适用与除主页上的menu以外的地方。假设一个场景，就是你要在主页上的某个地方添加一个超链接，使点击事件发生后跳到另外一个界面，设置如下： 先找到themes目录下的_config.yml这个文件打开，这个文件是themes设置文件，你可以在里面设置themes属性 这里面有layout布局，比如menu,content,sidebar等设置，我的留言板是在menu里面的，所以我在menu里面添加了这行代码： 1Guestbook: /guestbook 解释一下，Guestbook是在Header的menu中显示，效果如下 后面的guestbook是在你博客主目录下的source中的一个界面名字。ok，就这样就ok了。]]></content>
   </entry>
   <entry>
     <title><![CDATA[Intent对象使用]]></title>
