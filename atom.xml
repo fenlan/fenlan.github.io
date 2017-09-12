@@ -173,6 +173,22 @@
   </entry>
   
   <entry>
+    <title>hexo评论框部署</title>
+    <link href="http://fenlan.github.io/2017/06/15/duoshuo/"/>
+    <id>http://fenlan.github.io/2017/06/15/duoshuo/</id>
+    <published>2017-06-14T16:20:43.113Z</published>
+    <updated>2016-05-23T10:24:20.690Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;这几天我被一个问题缠了很久，一直没解决，到现在算是有点清楚了，所以来写个博文记录一下。hexo本身是有默认的评论框的disqus，个人感觉这个评论框风格很好，其实我想用来着，不过想想国内要翻墙，很麻烦，所以很委屈的选择了多说，不是说多说不好，自己个人比较喜欢disqus。废话不多说，来看看我折腾的过程吧。&lt;/p&gt;
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
     <title>Git install and setting</title>
     <link href="http://fenlan.github.io/2017/06/15/git-install/"/>
     <id>http://fenlan.github.io/2017/06/15/git-install/</id>
@@ -211,22 +227,6 @@
   </entry>
   
   <entry>
-    <title>hexo评论框部署</title>
-    <link href="http://fenlan.github.io/2017/06/15/duoshuo/"/>
-    <id>http://fenlan.github.io/2017/06/15/duoshuo/</id>
-    <published>2017-06-14T16:20:43.113Z</published>
-    <updated>2016-05-23T10:24:20.690Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;这几天我被一个问题缠了很久，一直没解决，到现在算是有点清楚了，所以来写个博文记录一下。hexo本身是有默认的评论框的disqus，个人感觉这个评论框风格很好，其实我想用来着，不过想想国内要翻墙，很麻烦，所以很委屈的选择了多说，不是说多说不好，自己个人比较喜欢disqus。废话不多说，来看看我折腾的过程吧。&lt;/p&gt;
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
     <title>通过留言板的添加所得到的tip</title>
     <link href="http://fenlan.github.io/2017/06/15/guestbook/"/>
     <id>http://fenlan.github.io/2017/06/15/guestbook/</id>
@@ -243,24 +243,18 @@
   </entry>
   
   <entry>
-    <title>Intent对象使用</title>
-    <link href="http://fenlan.github.io/2017/06/15/android-Intent/"/>
-    <id>http://fenlan.github.io/2017/06/15/android-Intent/</id>
+    <title>计算两个大数乘积巧算法</title>
+    <link href="http://fenlan.github.io/2017/06/15/JieCheng/"/>
+    <id>http://fenlan.github.io/2017/06/15/JieCheng/</id>
     <published>2017-06-14T16:20:43.113Z</published>
-    <updated>2016-06-17T04:47:26.891Z</updated>
+    <updated>2016-05-25T09:34:43.342Z</updated>
     
     <summary type="html">
     
-      &lt;h3 id=&quot;使用Intent对象专递数据&quot;&gt;&lt;a href=&quot;#使用Intent对象专递数据&quot; class=&quot;headerlink&quot; title=&quot;使用Intent对象专递数据&quot;&gt;&lt;/a&gt;使用Intent对象专递数据&lt;/h3&gt;&lt;ol&gt;
-&lt;li&gt;在Activity之间可以通过Intent对象传递数据&lt;/li&gt;
-&lt;li&gt;使用putExtra()系列方法向Intent对象当中储存数据&lt;/li&gt;
-&lt;li&gt;使用getXXXExtra()系列方法从Intent对象当中取出数据&lt;/li&gt;
-&lt;/ol&gt;
+      &lt;p&gt;&lt;strong&gt;最近遇到了一个编程上的小问题，编程题目是这样的，计算一个数的阶乘，我当时就在想，这不是很简单吗，然后我随手写了串代码，如下&lt;/strong&gt;&lt;/p&gt;
     
     </summary>
     
-    
-      <category term="android-Intent" scheme="http://fenlan.github.io/tags/android-Intent/"/>
     
   </entry>
   
@@ -287,18 +281,24 @@
   </entry>
   
   <entry>
-    <title>计算两个大数乘积巧算法</title>
-    <link href="http://fenlan.github.io/2017/06/15/JieCheng/"/>
-    <id>http://fenlan.github.io/2017/06/15/JieCheng/</id>
+    <title>Intent对象使用</title>
+    <link href="http://fenlan.github.io/2017/06/15/android-Intent/"/>
+    <id>http://fenlan.github.io/2017/06/15/android-Intent/</id>
     <published>2017-06-14T16:20:43.113Z</published>
-    <updated>2016-05-25T09:34:43.342Z</updated>
+    <updated>2016-06-17T04:47:26.891Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;&lt;strong&gt;最近遇到了一个编程上的小问题，编程题目是这样的，计算一个数的阶乘，我当时就在想，这不是很简单吗，然后我随手写了串代码，如下&lt;/strong&gt;&lt;/p&gt;
+      &lt;h3 id=&quot;使用Intent对象专递数据&quot;&gt;&lt;a href=&quot;#使用Intent对象专递数据&quot; class=&quot;headerlink&quot; title=&quot;使用Intent对象专递数据&quot;&gt;&lt;/a&gt;使用Intent对象专递数据&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;在Activity之间可以通过Intent对象传递数据&lt;/li&gt;
+&lt;li&gt;使用putExtra()系列方法向Intent对象当中储存数据&lt;/li&gt;
+&lt;li&gt;使用getXXXExtra()系列方法从Intent对象当中取出数据&lt;/li&gt;
+&lt;/ol&gt;
     
     </summary>
     
+    
+      <category term="android-Intent" scheme="http://fenlan.github.io/tags/android-Intent/"/>
     
   </entry>
   
