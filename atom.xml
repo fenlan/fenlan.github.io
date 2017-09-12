@@ -243,18 +243,24 @@
   </entry>
   
   <entry>
-    <title>计算两个大数乘积巧算法</title>
-    <link href="http://fenlan.github.io/2017/06/15/JieCheng/"/>
-    <id>http://fenlan.github.io/2017/06/15/JieCheng/</id>
+    <title>Intent对象使用</title>
+    <link href="http://fenlan.github.io/2017/06/15/android-Intent/"/>
+    <id>http://fenlan.github.io/2017/06/15/android-Intent/</id>
     <published>2017-06-14T16:20:43.113Z</published>
-    <updated>2016-05-25T09:34:43.342Z</updated>
+    <updated>2016-06-17T04:47:26.891Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;&lt;strong&gt;最近遇到了一个编程上的小问题，编程题目是这样的，计算一个数的阶乘，我当时就在想，这不是很简单吗，然后我随手写了串代码，如下&lt;/strong&gt;&lt;/p&gt;
+      &lt;h3 id=&quot;使用Intent对象专递数据&quot;&gt;&lt;a href=&quot;#使用Intent对象专递数据&quot; class=&quot;headerlink&quot; title=&quot;使用Intent对象专递数据&quot;&gt;&lt;/a&gt;使用Intent对象专递数据&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;在Activity之间可以通过Intent对象传递数据&lt;/li&gt;
+&lt;li&gt;使用putExtra()系列方法向Intent对象当中储存数据&lt;/li&gt;
+&lt;li&gt;使用getXXXExtra()系列方法从Intent对象当中取出数据&lt;/li&gt;
+&lt;/ol&gt;
     
     </summary>
     
+    
+      <category term="android-Intent" scheme="http://fenlan.github.io/tags/android-Intent/"/>
     
   </entry>
   
@@ -281,24 +287,18 @@
   </entry>
   
   <entry>
-    <title>Intent对象使用</title>
-    <link href="http://fenlan.github.io/2017/06/15/android-Intent/"/>
-    <id>http://fenlan.github.io/2017/06/15/android-Intent/</id>
+    <title>计算两个大数乘积巧算法</title>
+    <link href="http://fenlan.github.io/2017/06/15/JieCheng/"/>
+    <id>http://fenlan.github.io/2017/06/15/JieCheng/</id>
     <published>2017-06-14T16:20:43.113Z</published>
-    <updated>2016-06-17T04:47:26.891Z</updated>
+    <updated>2016-05-25T09:34:43.342Z</updated>
     
     <summary type="html">
     
-      &lt;h3 id=&quot;使用Intent对象专递数据&quot;&gt;&lt;a href=&quot;#使用Intent对象专递数据&quot; class=&quot;headerlink&quot; title=&quot;使用Intent对象专递数据&quot;&gt;&lt;/a&gt;使用Intent对象专递数据&lt;/h3&gt;&lt;ol&gt;
-&lt;li&gt;在Activity之间可以通过Intent对象传递数据&lt;/li&gt;
-&lt;li&gt;使用putExtra()系列方法向Intent对象当中储存数据&lt;/li&gt;
-&lt;li&gt;使用getXXXExtra()系列方法从Intent对象当中取出数据&lt;/li&gt;
-&lt;/ol&gt;
+      &lt;p&gt;&lt;strong&gt;最近遇到了一个编程上的小问题，编程题目是这样的，计算一个数的阶乘，我当时就在想，这不是很简单吗，然后我随手写了串代码，如下&lt;/strong&gt;&lt;/p&gt;
     
     </summary>
     
-    
-      <category term="android-Intent" scheme="http://fenlan.github.io/tags/android-Intent/"/>
     
   </entry>
   
