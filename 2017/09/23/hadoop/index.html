@@ -112,7 +112,7 @@
 <meta property="og:image" content="http://cdn.guru99.com/images/Big_Data/061114_0803_LearnHadoop4.png">
 <meta property="og:image" content="http://fenlan.github.io/images/hadoop-master-slaves-conf.png">
 <meta property="og:image" content="http://fenlan.github.io/images/hadoopdownloads.png">
-<meta property="og:updated_time" content="2017-09-22T16:17:32.661Z">
+<meta property="og:updated_time" content="2017-09-22T16:30:43.195Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="hadoop之旅">
 <meta name="twitter:description" content="hadoop介绍以下是 Hadoop 的几种定义，每种定义都针对的是企业内的不同受众：
@@ -336,7 +336,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-23T00:17:32+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-23T00:30:43+08:00">
                 2017-09-23
               </time>
             
@@ -414,7 +414,11 @@
 <p><strong>另一种可能是你的ssh—agent和ssh-server等设置不一致，需要将<code>/etc/ssh/ssh_config</code>和<code>/etc/ssh/sshd_config</code>两个文件里面的端口设置相同</strong></p>
 <p><strong>如果需要这种情况</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sign_and_send_pubkey: signing failed: agent refused operation</span><br></pre></td></tr></table></figure></p>
 <p><strong>需要敲<code>ssh-add</code>就解决问题</strong></p>
-<h3 id="联机"><a href="#联机" class="headerlink" title="联机"></a>联机</h3><p><strong>联机设置主要在<code>hadoop/etc/hadoop/masters</code>和<code>hadoop/etc/hadoop/slaves</code>里面,在所有机子上设置<code>masters</code>为主机ip地址,而只在主机上添加其他所有联机设备的ip地址</strong><br><img src="/images/hadoop-master-slaves-conf.png" alt="masters and slaves"></p>
+<h3 id="联机"><a href="#联机" class="headerlink" title="联机"></a>联机</h3><p><strong>联机设置主要在<code>hadoop/etc/hadoop/masters</code>和<code>hadoop/etc/hadoop/slaves</code>里面,在所有机子上设置<code>masters</code>为主机ip地址,而只在主机上添加其他所有联机设备的ip地址(2.x版本不需要masters文件，因此不必配置masters文件)</strong></p>
+<blockquote>
+<p>说明：slaves里面同样可以写主机hostname，如果写hostname, 需要配合<code>/etc/hosts</code>一起配置</p>
+</blockquote>
+<p><img src="/images/hadoop-master-slaves-conf.png" alt="masters and slaves"></p>
 <p><strong>然后在主机上启动hadoop,并通过<code>localhost:50070</code>查看Hadoop信息和连接情况</strong></p>
 <p><strong>如果在网页上没有出现我们的datanode，可能是需要进入没有出现的slaves，找到之前<code>hdfs.site.xml</code>配置的目录，将其目录下的所有文件删掉就ok</strong></p>
 <h2 id="Hadoop下载安装"><a href="#Hadoop下载安装" class="headerlink" title="Hadoop下载安装"></a>Hadoop下载安装</h2><h3 id="进入Hadoop官网找到最新的稳定版下载"><a href="#进入Hadoop官网找到最新的稳定版下载" class="headerlink" title="进入Hadoop官网找到最新的稳定版下载"></a>进入<code>Hadoop</code>官网找到最新的稳定版下载</h3><p><img src="/images/hadoopdownloads.png" alt="下载界面"></p>
@@ -430,10 +434,10 @@
 <blockquote>
 <p>想知道本机JAVA_HOME，敲个<code>which java</code>就知道了</p>
 </blockquote>
-<p><strong>编辑<code>hadoop/etc/hadoop/master</code>,添加namenode主机(ip),<code>hadoop/etc/hadoop/slaves</code>,添加datanode主机(ip)</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hadoop-master</span><br></pre></td></tr></table></figure></p>
+<p><strong>编辑<code>hadoop/etc/hadoop/master</code>,添加namenode主机,<code>hadoop/etc/hadoop/slaves</code>,添加datanode主机</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hadoop-master</span><br></pre></td></tr></table></figure></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hadoop-slave1</span><br><span class="line">hadoop-slave2</span><br></pre></td></tr></table></figure>
 <blockquote>
-<p>需要说明，hadoop-slave hadoop-master为主机的hostname, 为了方便管理，需要将主机的hostname修改, 比如我的电脑开始hostname是<code>fenlan-K401UQ</code>, 在我的教程里面就需要改成<code>hadoop-slave1</code>(相当重要，否则在运行程序是会报错找不到主机)</p>
+<p>需要说明，hadoop-slave hadoop-master为主机的hostname, 为了方便管理，需要将主机的hostname修改, 比如我的电脑开始hostname是<code>fenlan-K401UQ</code>, 在我的教程里面就需要改成<code>hadoop-slave1</code>(相当重要，否则在运行程序是会报错找不到主机),这里我个人感激仍然没有讲清楚，下面有一个youtube视频教程，辅助理解</p>
 </blockquote>
 <p><strong>格式化HDFS</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bin/hdfs namenode -format</span><br></pre></td></tr></table></figure></p>
 <p><strong>启动Hadoop的单节点集群</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sbin/start-dfs.sh</span><br><span class="line">sbin/start-all.sh</span><br></pre></td></tr></table></figure></p>
@@ -468,6 +472,7 @@
 </li>
 </ol>
 <h2 id="问题总结"><a href="#问题总结" class="headerlink" title="问题总结"></a>问题总结</h2><p><strong>1.当无法启动datanode时将<code>hadoop/hdfs/datanode/current/</code>文件夹删掉重新启动</strong></p>
+<p><strong>教程如果有错误，欢迎留言!</strong></p>
 
       
     </div>
