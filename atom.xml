@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://fenlan.github.io/"/>
-  <updated>2017-09-22T10:10:29.246Z</updated>
+  <updated>2017-09-22T16:14:01.256Z</updated>
   <id>http://fenlan.github.io/</id>
   
   <author>
@@ -18,10 +18,10 @@
   
   <entry>
     <title>hadoop之旅</title>
-    <link href="http://fenlan.github.io/2017/09/22/hadoop/"/>
-    <id>http://fenlan.github.io/2017/09/22/hadoop/</id>
-    <published>2017-09-22T10:10:29.246Z</published>
-    <updated>2017-09-22T10:10:29.246Z</updated>
+    <link href="http://fenlan.github.io/2017/09/23/hadoop/"/>
+    <id>http://fenlan.github.io/2017/09/23/hadoop/</id>
+    <published>2017-09-22T16:14:01.256Z</published>
+    <updated>2017-09-22T16:14:01.256Z</updated>
     
     <summary type="html">
     
@@ -120,6 +120,25 @@
   </entry>
   
   <entry>
+    <title>java线程学习记录</title>
+    <link href="http://fenlan.github.io/2017/06/15/java-Thread/"/>
+    <id>http://fenlan.github.io/2017/06/15/java-Thread/</id>
+    <published>2017-06-14T16:20:43.113Z</published>
+    <updated>2016-06-18T10:43:39.887Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;strong&gt;在接触Android时候发现java基础没打好，所以回来重新打基础&lt;/strong&gt;&lt;/p&gt;
+&lt;h3 id=&quot;java线程基础&quot;&gt;&lt;a href=&quot;#java线程基础&quot; class=&quot;headerlink&quot; title=&quot;java线程基础&quot;&gt;&lt;/a&gt;java线程基础&lt;/h3&gt;
+    
+    </summary>
+    
+    
+      <category term="java-Thread" scheme="http://fenlan.github.io/tags/java-Thread/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Android Handler学习记录</title>
     <link href="http://fenlan.github.io/2017/06/15/android-handler/"/>
     <id>http://fenlan.github.io/2017/06/15/android-handler/</id>
@@ -134,22 +153,6 @@
     
     
       <category term="Android Handler" scheme="http://fenlan.github.io/tags/Android-Handler/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>搭建博客的大致流程</title>
-    <link href="http://fenlan.github.io/2017/06/15/blog/"/>
-    <id>http://fenlan.github.io/2017/06/15/blog/</id>
-    <published>2017-06-14T16:20:43.113Z</published>
-    <updated>2016-05-23T08:35:02.513Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;本想着是不是拿英文来写这个流程来锻炼一下自己的英文水平，不过想了想就不装B了，英语就拿磋样还拿出来献丑。言归正传，我以为可以在寝室大神的引导下我能快一点搭好my blog，不过是我想得太简单。经过自己踩了无数坑过后总结大概过程，具体过程网上一搜一大把，不过建议别用百度搜这种东西，能翻墙就翻墙吧。大概过程如下：&lt;/p&gt;
-    
-    </summary>
-    
     
   </entry>
   
@@ -188,31 +191,21 @@
   </entry>
   
   <entry>
-    <title>通过留言板的添加所得到的tip</title>
-    <link href="http://fenlan.github.io/2017/06/15/guestbook/"/>
-    <id>http://fenlan.github.io/2017/06/15/guestbook/</id>
+    <title>Git install and setting</title>
+    <link href="http://fenlan.github.io/2017/06/15/git-install/"/>
+    <id>http://fenlan.github.io/2017/06/15/git-install/</id>
     <published>2017-06-14T16:20:43.113Z</published>
-    <updated>2016-05-24T15:18:45.706Z</updated>
+    <updated>2016-05-21T07:38:56.132Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;在添加留言板时意外收获到了我想要的外部链接，但不知道适不适用与除主页上的menu以外的地方。假设一个场景，就是你要在主页上的某个地方添加一个超链接，使点击事件发生后跳到另外一个界面，设置如下：&lt;/p&gt;
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>git to gihub</title>
-    <link href="http://fenlan.github.io/2017/06/15/git-to-github/"/>
-    <id>http://fenlan.github.io/2017/06/15/git-to-github/</id>
-    <published>2017-06-14T16:20:43.113Z</published>
-    <updated>2016-08-17T22:20:44.492Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;strong&gt;我想想，这个东西好像是上个学期寝室大神告诉我的，然而我现在才知道怎么使用它，主要是之前没接触到这个东西，不知道这东西是干嘛用的，在建blog时接触到了，对于如此难堪的水平的我来说有必要记录一下。想想感觉不应该写在blog上，觉得好好的博客怎么写这些东西了，不过尽管如此，我还是决心写一下&lt;/strong&gt;&lt;/p&gt;
+      
+      
+        
+        
+          &lt;h3 id=&quot;git-install-and-setting&quot;&gt;&lt;a href=&quot;#git-install-and-setting&quot; class=&quot;headerlink&quot; title=&quot;git install and setting:&quot;&gt;&lt;/a&gt;git install and
+        
+      
     
     </summary>
     
@@ -242,6 +235,38 @@
   </entry>
   
   <entry>
+    <title>git to gihub</title>
+    <link href="http://fenlan.github.io/2017/06/15/git-to-github/"/>
+    <id>http://fenlan.github.io/2017/06/15/git-to-github/</id>
+    <published>2017-06-14T16:20:43.113Z</published>
+    <updated>2016-08-17T22:20:44.492Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;strong&gt;我想想，这个东西好像是上个学期寝室大神告诉我的，然而我现在才知道怎么使用它，主要是之前没接触到这个东西，不知道这东西是干嘛用的，在建blog时接触到了，对于如此难堪的水平的我来说有必要记录一下。想想感觉不应该写在blog上，觉得好好的博客怎么写这些东西了，不过尽管如此，我还是决心写一下&lt;/strong&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>通过留言板的添加所得到的tip</title>
+    <link href="http://fenlan.github.io/2017/06/15/guestbook/"/>
+    <id>http://fenlan.github.io/2017/06/15/guestbook/</id>
+    <published>2017-06-14T16:20:43.113Z</published>
+    <updated>2016-05-24T15:18:45.706Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;在添加留言板时意外收获到了我想要的外部链接，但不知道适不适用与除主页上的menu以外的地方。假设一个场景，就是你要在主页上的某个地方添加一个超链接，使点击事件发生后跳到另外一个界面，设置如下：&lt;/p&gt;
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
     <title>Hello World</title>
     <link href="http://fenlan.github.io/2017/06/15/hello-world/"/>
     <id>http://fenlan.github.io/2017/06/15/hello-world/</id>
@@ -260,25 +285,6 @@
     
     </summary>
     
-    
-  </entry>
-  
-  <entry>
-    <title>java线程学习记录</title>
-    <link href="http://fenlan.github.io/2017/06/15/java-Thread/"/>
-    <id>http://fenlan.github.io/2017/06/15/java-Thread/</id>
-    <published>2017-06-14T16:20:43.113Z</published>
-    <updated>2016-06-18T10:43:39.887Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;strong&gt;在接触Android时候发现java基础没打好，所以回来重新打基础&lt;/strong&gt;&lt;/p&gt;
-&lt;h3 id=&quot;java线程基础&quot;&gt;&lt;a href=&quot;#java线程基础&quot; class=&quot;headerlink&quot; title=&quot;java线程基础&quot;&gt;&lt;/a&gt;java线程基础&lt;/h3&gt;
-    
-    </summary>
-    
-    
-      <category term="java-Thread" scheme="http://fenlan.github.io/tags/java-Thread/"/>
     
   </entry>
   
@@ -318,6 +324,25 @@
   </entry>
   
   <entry>
+    <title>android生命周期函数记录</title>
+    <link href="http://fenlan.github.io/2017/06/15/android-activity/"/>
+    <id>http://fenlan.github.io/2017/06/15/android-activity/</id>
+    <published>2017-06-14T16:20:43.113Z</published>
+    <updated>2016-06-16T16:23:51.450Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;函数及解释如下&quot;&gt;&lt;a href=&quot;#函数及解释如下&quot; class=&quot;headerlink&quot; title=&quot;函数及解释如下&quot;&gt;&lt;/a&gt;函数及解释如下&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;onCreate    在activity对象被第一次创建时调用&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;onStart     在activity变得可见时调用该函数&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;onResume    在activity开始准备与用户交互时调用该方法&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;onPause     当系统即将启动另外一个activity之前调用该方法&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;onStop      当前activity变得不可见时调用该方法&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;onDestroy   当前activity被销毁之前将会调用该方法&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;onRestroy   当一个activity再次启动之前将会调用该方法&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h3 id=&quot;来张图片帮助理解&quot;&gt;&lt;a href=&quot;#来张图片帮助理解&quot; class=&quot;headerlink&quot; title=&quot;来张图片帮助理解&quot;&gt;&lt;/a&gt;来张图片帮助理解&lt;/h3&gt;
+    
+    </summary>
+    
+    
+      <category term="andriod" scheme="http://fenlan.github.io/tags/andriod/"/>
+    
+  </entry>
+  
+  <entry>
     <title>吐槽</title>
     <link href="http://fenlan.github.io/2017/06/15/my-note1/"/>
     <id>http://fenlan.github.io/2017/06/15/my-note1/</id>
@@ -334,22 +359,6 @@
 
         
       
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>获取局域网连接设备mac地址</title>
-    <link href="http://fenlan.github.io/2017/06/15/nmap_mac/"/>
-    <id>http://fenlan.github.io/2017/06/15/nmap_mac/</id>
-    <published>2017-06-14T16:20:43.113Z</published>
-    <updated>2017-03-22T07:21:50.831Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;使用工具&quot;&gt;&lt;a href=&quot;#使用工具&quot; class=&quot;headerlink&quot; title=&quot;使用工具&quot;&gt;&lt;/a&gt;使用工具&lt;/h1&gt;&lt;p&gt;&lt;strong&gt;nmap: 也就是Network Mapper,最早是linux下的网络扫描和嗅探工具包&lt;/strong&gt;&lt;br&gt;&lt;strong&gt;nmap是一个网络连接端扫描软件，用来扫描网上电脑开放的网络端口。确定哪些服务运行在哪些连接端，并且推断计算机运行哪个操作系统。他是网络管理员比用的软件之一，以及用以评估网络系统安全。&lt;/strong&gt;&lt;br&gt;
     
     </summary>
     
@@ -379,22 +388,15 @@
   </entry>
   
   <entry>
-    <title>教训</title>
-    <link href="http://fenlan.github.io/2017/06/15/test/"/>
-    <id>http://fenlan.github.io/2017/06/15/test/</id>
+    <title>获取局域网连接设备mac地址</title>
+    <link href="http://fenlan.github.io/2017/06/15/nmap_mac/"/>
+    <id>http://fenlan.github.io/2017/06/15/nmap_mac/</id>
     <published>2017-06-14T16:20:43.113Z</published>
-    <updated>2016-06-26T17:25:21.525Z</updated>
+    <updated>2017-03-22T07:21:50.831Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          &lt;p&gt;昨天在百度上下了软件，结果有问题，然后重置电脑，然后后悔了，这个博文只是一个测试。。。&lt;/p&gt;
-
-        
-      
+      &lt;h1 id=&quot;使用工具&quot;&gt;&lt;a href=&quot;#使用工具&quot; class=&quot;headerlink&quot; title=&quot;使用工具&quot;&gt;&lt;/a&gt;使用工具&lt;/h1&gt;&lt;p&gt;&lt;strong&gt;nmap: 也就是Network Mapper,最早是linux下的网络扫描和嗅探工具包&lt;/strong&gt;&lt;br&gt;&lt;strong&gt;nmap是一个网络连接端扫描软件，用来扫描网上电脑开放的网络端口。确定哪些服务运行在哪些连接端，并且推断计算机运行哪个操作系统。他是网络管理员比用的软件之一，以及用以评估网络系统安全。&lt;/strong&gt;&lt;br&gt;
     
     </summary>
     
