@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://fenlan.github.io/"/>
-  <updated>2017-09-22T16:35:30.662Z</updated>
+  <updated>2017-09-25T10:01:31.696Z</updated>
   <id>http://fenlan.github.io/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>正式入坑CentOS</title>
+    <link href="http://fenlan.github.io/2017/09/25/centos/"/>
+    <id>http://fenlan.github.io/2017/09/25/centos/</id>
+    <published>2017-09-25T10:01:31.696Z</published>
+    <updated>2017-09-25T10:01:31.696Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;第一关：设置windows启动项&quot;&gt;&lt;a href=&quot;#第一关：设置windows启动项&quot; class=&quot;headerlink&quot; title=&quot;第一关：设置windows启动项&quot;&gt;&lt;/a&gt;第一关：设置windows启动项&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;在安装双系统时，选择centos会默认没有windows的启动项，因此要添加windows的引导选项，过程如下：&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;开机进入CentOS系统&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;进入目录&lt;code&gt;/boot/grub2&lt;/code&gt;，打开&lt;code&gt;grub.cfg&lt;/code&gt;进行编辑&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;找到其中第70行，在指定位置添加内容&lt;/strong&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="CentOS" scheme="http://fenlan.github.io/tags/CentOS/"/>
+    
+  </entry>
   
   <entry>
     <title>hadoop之旅</title>
@@ -76,28 +98,6 @@
     
     
       <category term="laravel mvc" scheme="http://fenlan.github.io/tags/laravel-mvc/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>正式入坑CentOS</title>
-    <link href="http://fenlan.github.io/2017/07/25/centos/"/>
-    <id>http://fenlan.github.io/2017/07/25/centos/</id>
-    <published>2017-07-25T14:39:55.071Z</published>
-    <updated>2017-07-25T14:39:55.071Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;第一关：设置windows启动项&quot;&gt;&lt;a href=&quot;#第一关：设置windows启动项&quot; class=&quot;headerlink&quot; title=&quot;第一关：设置windows启动项&quot;&gt;&lt;/a&gt;第一关：设置windows启动项&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;在安装双系统时，选择centos会默认没有windows的启动项，因此要添加windows的引导选项，过程如下：&lt;/strong&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;开机进入CentOS系统&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;进入目录&lt;code&gt;/boot/grub2&lt;/code&gt;，打开&lt;code&gt;grub.cfg&lt;/code&gt;进行编辑&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;找到其中第70行，在指定位置添加内容&lt;/strong&gt;&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="CentOS" scheme="http://fenlan.github.io/tags/CentOS/"/>
     
   </entry>
   
