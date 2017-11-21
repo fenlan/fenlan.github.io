@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://fenlan.github.io/"/>
-  <updated>2017-11-21T09:28:32.913Z</updated>
+  <updated>2017-11-21T09:46:19.531Z</updated>
   <id>http://fenlan.github.io/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Git install and setting</title>
+    <link href="http://fenlan.github.io/2017/11/21/git-install/"/>
+    <id>http://fenlan.github.io/2017/11/21/git-install/</id>
+    <published>2017-11-21T09:46:19.531Z</published>
+    <updated>2017-11-21T09:46:19.531Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h3 id=&quot;git-install-and-setting&quot;&gt;&lt;a href=&quot;#git-install-and-setting&quot; class=&quot;headerlink&quot; title=&quot;git install and setting:&quot;&gt;&lt;/a&gt;git install and
+        
+      
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>Unix 时间问题(非原创)</title>
@@ -142,28 +164,6 @@
     
     
       <category term="服务器" scheme="http://fenlan.github.io/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Git install and setting</title>
-    <link href="http://fenlan.github.io/2017/06/15/git-install/"/>
-    <id>http://fenlan.github.io/2017/06/15/git-install/</id>
-    <published>2017-06-14T16:20:43.113Z</published>
-    <updated>2016-05-21T07:38:56.132Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h3 id=&quot;git-install-and-setting&quot;&gt;&lt;a href=&quot;#git-install-and-setting&quot; class=&quot;headerlink&quot; title=&quot;git install and setting:&quot;&gt;&lt;/a&gt;git install and
-        
-      
-    
-    </summary>
-    
     
   </entry>
   
