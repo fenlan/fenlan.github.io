@@ -102,7 +102,7 @@
 <meta property="og:site_name" content="fenlan">
 <meta property="og:description" content="故事缘由有时候不得不相信，有些东西就是刚刚好，刚刚好到来，刚刚好知道，刚刚好契合。因为这些刚刚好，就会不由自主的激动，感觉这些刚知道的东西发生在自己身上。这次要说的是unix时间问题，我最开始接触这个问题是我们云计算课程项目中一个小小的时间问题，当时项目中所有的时间都是通过unix时间记录。所谓unix时间，就是记录从unix元年1970年1月1日0点起到当前时间经过的秒数。这个问题最开始我并没有">
 <meta property="og:image" content="https://www.google.com/logos/unix1234567890.gif">
-<meta property="og:updated_time" content="2017-11-21T08:57:48.552Z">
+<meta property="og:updated_time" content="2017-11-21T09:07:27.474Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Unix 时间问题(非原创)">
 <meta name="twitter:description" content="故事缘由有时候不得不相信，有些东西就是刚刚好，刚刚好到来，刚刚好知道，刚刚好契合。因为这些刚刚好，就会不由自主的激动，感觉这些刚知道的东西发生在自己身上。这次要说的是unix时间问题，我最开始接触这个问题是我们云计算课程项目中一个小小的时间问题，当时项目中所有的时间都是通过unix时间记录。所谓unix时间，就是记录从unix元年1970年1月1日0点起到当前时间经过的秒数。这个问题最开始我并没有">
@@ -322,7 +322,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-21T16:57:48+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-21T17:07:27+08:00">
                 2017-11-21
               </time>
             
@@ -373,7 +373,7 @@
       
 
       
-        <h2 id="故事缘由"><a href="#故事缘由" class="headerlink" title="故事缘由"></a>故事缘由</h2><p><strong>有时候不得不相信，有些东西就是刚刚好，刚刚好到来，刚刚好知道，刚刚好契合。因为这些刚刚好，就会不由自主的激动，感觉这些刚知道的东西发生在自己身上。这次要说的是unix时间问题，我最开始接触这个问题是我们云计算课程项目中一个小小的时间问题，当时项目中所有的时间都是通过unix时间记录。所谓unix时间，就是记录从unix元年1970年1月1日0点起到当前时间经过的秒数。这个问题最开始我并没有觉得有什么问题，但后来我在网上瞎逛的时候看见了一篇文章 <a href="http://www.wttech.org/archives/3960" target="_blank" rel="external">十大著名的计算机发展史上的软件缺陷</a> ,这里就讲到了一个unix时间问题，我就很好奇的去了解这一个故事，而在这个时间点，我们正在进行的操作系统课程也讲到了unix时间，所以这一堆堆事情，就刚刚好地发生了。</strong><br><a id="more"></a></p>
+        <h2 id="故事缘由"><a href="#故事缘由" class="headerlink" title="故事缘由"></a>故事缘由</h2><p><strong>有时候不得不相信，有些东西就是刚刚好，刚刚好到来，刚刚好知道，刚刚好契合。因为这些刚刚好，就会不由自主的激动，感觉这些刚知道的东西发生在自己身上。这次要说的是unix时间问题，我最开始接触这个问题是我们云计算课程项目中一个小小的时间问题，当时项目中所有的时间都是通过unix时间记录。所谓unix时间，就是记录从unix元年1970年1月1日0点起到当前时间经过的秒数。这个问题最开始我并没有觉得有什么问题，但后来我在网上瞎逛的时候看见了一篇文章 <a href="http://www.wttech.org/archives/3960" target="_blank" rel="external">十大著名的计算机发展史上的软件缺陷</a> ,这里就讲到了一个unix时间问题，我就很好奇的去了解这一个故事，而在这个时间点，我们正在进行的操作系统课程也讲到了unix时间，所以这一堆堆事情，就刚刚好地发生了。 </strong><br><a id="more"></a></p>
 <h2 id="2038问题"><a href="#2038问题" class="headerlink" title="2038问题"></a>2038问题</h2><p><strong>2038年问题的成因与20世纪90年代曾经名噪一时的千年虫问题很类似。千年虫问题是因为早期(早在20世纪50年前以前)程序员们使用两位十进制数字来表示年份(为了节约存储空间和书写程序的便利)，并且在很长一段时间内，没有意识到这么做可能给后人带来的麻烦;当所有人都习惯这么做时，随着软件系统变得越来越复杂，小问题就逐渐变成大问题了。</strong></p>
 <p><strong>说起Unix上的2038年问题，时间要追溯到1969年。当Ken Thompson和Dennis Ritchie在贝尔实验室里捣鼓他们的新玩意时，他们肯定没有想到他们的小发明将来会在全世界发挥如此大的影响力。他们决定把他们所创造的这个支持多用户多任务的新操作系统命名为UNIX，以一个32位二进制数所能表示的有符号整数范围（-2,147,483,648 ~ +2,147,483,647）所代表的秒数作为Unix纪元（Unix epoch）时间，把西元1970年1月1日0时0分0秒定为Unix纪元的元年。</strong></p>
 <p><strong>在Unix历的约第100,000,000秒（或者，用人类的纪年法，大约在西元1972~1973年之间），一种叫做C的高级程序语言被发明出来了。于是，贝尔实验室的这帮人用C语言重写了他们的UNIX系统内核，很自然地，系统库中用于存储时间的time_t类型的typedef定义，就采用了C语言中对应的32位有符号整型（signed int32）来实现。</strong></p>
@@ -460,8 +460,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/11/21/流水账/" rel="next" title="许久没有更新的流水账">
-                <i class="fa fa-chevron-left"></i> 许久没有更新的流水账
+              <a href="/2017/11/21/centos/" rel="next" title="正式入坑CentOS">
+                <i class="fa fa-chevron-left"></i> 正式入坑CentOS
               </a>
             
           </div>

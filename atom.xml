@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://fenlan.github.io/"/>
-  <updated>2017-11-21T08:57:48.552Z</updated>
+  <updated>2017-11-21T09:07:27.474Z</updated>
   <id>http://fenlan.github.io/</id>
   
   <author>
@@ -20,17 +20,137 @@
     <title>Unix 时间问题(非原创)</title>
     <link href="http://fenlan.github.io/2017/11/21/unix%E6%97%B6%E9%97%B4md/"/>
     <id>http://fenlan.github.io/2017/11/21/unix时间md/</id>
-    <published>2017-11-21T08:57:48.552Z</published>
-    <updated>2017-11-21T08:57:48.552Z</updated>
+    <published>2017-11-21T09:07:27.474Z</published>
+    <updated>2017-11-21T09:07:27.474Z</updated>
     
     <summary type="html">
     
-      &lt;h2 id=&quot;故事缘由&quot;&gt;&lt;a href=&quot;#故事缘由&quot; class=&quot;headerlink&quot; title=&quot;故事缘由&quot;&gt;&lt;/a&gt;故事缘由&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;有时候不得不相信，有些东西就是刚刚好，刚刚好到来，刚刚好知道，刚刚好契合。因为这些刚刚好，就会不由自主的激动，感觉这些刚知道的东西发生在自己身上。这次要说的是unix时间问题，我最开始接触这个问题是我们云计算课程项目中一个小小的时间问题，当时项目中所有的时间都是通过unix时间记录。所谓unix时间，就是记录从unix元年1970年1月1日0点起到当前时间经过的秒数。这个问题最开始我并没有觉得有什么问题，但后来我在网上瞎逛的时候看见了一篇文章 &lt;a href=&quot;http://www.wttech.org/archives/3960&quot;&gt;十大著名的计算机发展史上的软件缺陷&lt;/a&gt; ,这里就讲到了一个unix时间问题，我就很好奇的去了解这一个故事，而在这个时间点，我们正在进行的操作系统课程也讲到了unix时间，所以这一堆堆事情，就刚刚好地发生了。&lt;/strong&gt;&lt;br&gt;
+      &lt;h2 id=&quot;故事缘由&quot;&gt;&lt;a href=&quot;#故事缘由&quot; class=&quot;headerlink&quot; title=&quot;故事缘由&quot;&gt;&lt;/a&gt;故事缘由&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;有时候不得不相信，有些东西就是刚刚好，刚刚好到来，刚刚好知道，刚刚好契合。因为这些刚刚好，就会不由自主的激动，感觉这些刚知道的东西发生在自己身上。这次要说的是unix时间问题，我最开始接触这个问题是我们云计算课程项目中一个小小的时间问题，当时项目中所有的时间都是通过unix时间记录。所谓unix时间，就是记录从unix元年1970年1月1日0点起到当前时间经过的秒数。这个问题最开始我并没有觉得有什么问题，但后来我在网上瞎逛的时候看见了一篇文章 &lt;a href=&quot;http://www.wttech.org/archives/3960&quot;&gt;十大著名的计算机发展史上的软件缺陷&lt;/a&gt; ,这里就讲到了一个unix时间问题，我就很好奇的去了解这一个故事，而在这个时间点，我们正在进行的操作系统课程也讲到了unix时间，所以这一堆堆事情，就刚刚好地发生了。 &lt;/strong&gt;&lt;br&gt;
     
     </summary>
     
     
       <category term="linux" scheme="http://fenlan.github.io/tags/linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>正式入坑CentOS</title>
+    <link href="http://fenlan.github.io/2017/11/21/centos/"/>
+    <id>http://fenlan.github.io/2017/11/21/centos/</id>
+    <published>2017-11-21T09:07:11.186Z</published>
+    <updated>2017-11-21T09:07:11.186Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;第一关：设置windows启动项&quot;&gt;&lt;a href=&quot;#第一关：设置windows启动项&quot; class=&quot;headerlink&quot; title=&quot;第一关：设置windows启动项&quot;&gt;&lt;/a&gt;第一关：设置windows启动项&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;在安装双系统时，选择centos会默认没有windows的启动项，因此要添加windows的引导选项，过程如下：&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;开机进入CentOS系统&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;进入目录&lt;code&gt;/boot/grub2&lt;/code&gt;，打开&lt;code&gt;grub.cfg&lt;/code&gt;进行编辑&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;找到其中第70行，在指定位置添加内容 &lt;/strong&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="linux" scheme="http://fenlan.github.io/tags/linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>zabbix安装配置</title>
+    <link href="http://fenlan.github.io/2017/11/21/zabbix/"/>
+    <id>http://fenlan.github.io/2017/11/21/zabbix/</id>
+    <published>2017-11-21T09:06:33.446Z</published>
+    <updated>2017-11-21T09:06:33.446Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;下载软件包&quot;&gt;&lt;a href=&quot;#下载软件包&quot; class=&quot;headerlink&quot; title=&quot;下载软件包&quot;&gt;&lt;/a&gt;下载软件包&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;从&lt;a href=&quot;https://www.zabbix.com/download&quot;&gt;zabbix&lt;/a&gt;上下载所需要的软件包，包括&lt;code&gt;zabbix-server-mysql&lt;/code&gt;和&lt;code&gt;zabbix-frontend-php&lt;/code&gt;，如果还要安装客户端，还要下载&lt;code&gt;zabbix-agent&lt;/code&gt;。(推荐直接添加&lt;code&gt;zabbix&lt;/code&gt;源)&lt;/strong&gt;&lt;/p&gt;
+&lt;h2 id=&quot;安装软件&quot;&gt;&lt;a href=&quot;#安装软件&quot; class=&quot;headerlink&quot; title=&quot;安装软件&quot;&gt;&lt;/a&gt;安装软件&lt;/h2&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;sudo dpkg -i zabbix-server-mysql_3.4.0-1+xenial_amd64.deb&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;sudo dpkg -i zabbix-frontend-php_3.4.0-1+xenial_all.deb&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h2 id=&quot;配置Zabbix-server&quot;&gt;&lt;a href=&quot;#配置Zabbix-server&quot; class=&quot;headerlink&quot; title=&quot;配置Zabbix server&quot;&gt;&lt;/a&gt;配置Zabbix server&lt;/h2&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;sudo vim /etc/zabbix/zabbix_server.conf&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;修改其中的&lt;code&gt;DBhost&lt;/code&gt;, &lt;code&gt;DBUser&lt;/code&gt;, &lt;code&gt;DBPassword&lt;/code&gt;， 如果有必要，需要设置&lt;code&gt;socket&lt;/code&gt;与&lt;code&gt;mysql&lt;/code&gt;的&lt;code&gt;socket&lt;/code&gt;相同。&lt;br&gt;
+    
+    </summary>
+    
+    
+      <category term="linux" scheme="http://fenlan.github.io/tags/linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>获取局域网连接设备mac地址</title>
+    <link href="http://fenlan.github.io/2017/11/21/nmap_mac/"/>
+    <id>http://fenlan.github.io/2017/11/21/nmap_mac/</id>
+    <published>2017-11-21T09:05:04.780Z</published>
+    <updated>2017-11-21T09:05:04.780Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;使用工具&quot;&gt;&lt;a href=&quot;#使用工具&quot; class=&quot;headerlink&quot; title=&quot;使用工具&quot;&gt;&lt;/a&gt;使用工具&lt;/h1&gt;&lt;p&gt;&lt;strong&gt;nmap: 也就是Network Mapper,最早是linux下的网络扫描和嗅探工具包&lt;/strong&gt;&lt;br&gt;&lt;strong&gt;nmap是一个网络连接端扫描软件，用来扫描网上电脑开放的网络端口。确定哪些服务运行在哪些连接端，并且推断计算机运行哪个操作系统。他是网络管理员比用的软件之一，以及用以评估网络系统安全。 &lt;/strong&gt;&lt;br&gt;
+    
+    </summary>
+    
+    
+      <category term="linux" scheme="http://fenlan.github.io/tags/linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>服务器折腾中。。。</title>
+    <link href="http://fenlan.github.io/2017/11/21/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+    <id>http://fenlan.github.io/2017/11/21/服务器/</id>
+    <published>2017-11-21T09:04:34.245Z</published>
+    <updated>2017-11-21T09:04:34.245Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;安装&quot;&gt;&lt;a href=&quot;#安装&quot; class=&quot;headerlink&quot; title=&quot;安装&quot;&gt;&lt;/a&gt;安装&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;需要安装apahce2,php5,mysql,命令：&lt;/strong&gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;variable&quot;&gt;$sudo&lt;/span&gt; apt-get install apache2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;variable&quot;&gt;$sudo&lt;/span&gt; apt-get install php5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;variable&quot;&gt;$sudo&lt;/span&gt; apt-get install mysql&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h4 id=&quot;使用记录&quot;&gt;&lt;a href=&quot;#使用记录&quot; class=&quot;headerlink&quot; title=&quot;使用记录&quot;&gt;&lt;/a&gt;使用记录&lt;/h4&gt;&lt;p&gt;&lt;strong&gt;apache2重启命令等&lt;/strong&gt;&lt;br&gt;
+    
+    </summary>
+    
+    
+      <category term="linux" scheme="http://fenlan.github.io/tags/linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>ubuntu安装配置</title>
+    <link href="http://fenlan.github.io/2017/11/21/ubuntu%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE/"/>
+    <id>http://fenlan.github.io/2017/11/21/ubuntu安装与配置/</id>
+    <published>2017-11-21T09:04:09.789Z</published>
+    <updated>2017-11-21T09:04:09.789Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;strong&gt;想了一下，最终还是将电脑安成windows10 + ubuntu16双系统，以后多用用ubuntu试试。我选择的安装方式使用u盘安装，在安装ubuntu时一直没有选对启动盘制作工具，之前安装windows10的时候使用的是UltraIso，这个安windows没什么问题，但是安装ubuntu时，安不上，后面上网查了很多次，也用了其他的软件，比如linuxLive USB Creator,Universal-USB-Installer等等，其中Universal-usb-installer还是ubuntu推荐的软件，但是仍然不行，就这我折腾了两天还是没成功，后来在qq上的一个业余群里面，有人叫我用USBwriter，结果就成功安装上了。&lt;/strong&gt;&lt;br&gt;
+    
+    </summary>
+    
+    
+      <category term="linux" scheme="http://fenlan.github.io/tags/linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>通过留言板的添加所得到的想法</title>
+    <link href="http://fenlan.github.io/2017/11/21/guestbook/"/>
+    <id>http://fenlan.github.io/2017/11/21/guestbook/</id>
+    <published>2017-11-21T09:03:12.254Z</published>
+    <updated>2017-11-21T09:03:12.254Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;在添加留言板时意外收获到了我想要的外部链接，但不知道适不适用与除主页上的menu以外的地方。假设一个场景，就是你要在主页上的某个地方添加一个超链接，使点击事件发生后跳到另外一个界面，设置如下：&lt;/p&gt;
+&lt;p&gt;先找到themes目录下的_config.yml这个文件打开，这个文件是themes设置文件，你可以在里面设置themes属性&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://github.com/fenlan/fenlan.github.io/blob/master/css/images/1.png?raw=true =100*20&quot; alt=&quot;1&quot;&gt;&lt;/p&gt;
+&lt;p&gt;这里面有layout布局，比如menu,content,sidebar等设置，我的留言板是在menu里面的，所以我在menu里面添加了这行代码：&lt;br&gt;
+    
+    </summary>
+    
+    
+      <category term="hexo" scheme="http://fenlan.github.io/tags/hexo/"/>
     
   </entry>
   
@@ -49,81 +169,6 @@
     
     
       <category term="Android" scheme="http://fenlan.github.io/tags/Android/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>服务器折腾中。。。</title>
-    <link href="http://fenlan.github.io/2017/11/21/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
-    <id>http://fenlan.github.io/2017/11/21/服务器/</id>
-    <published>2017-11-21T08:57:17.807Z</published>
-    <updated>2017-11-21T08:57:17.807Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;安装&quot;&gt;&lt;a href=&quot;#安装&quot; class=&quot;headerlink&quot; title=&quot;安装&quot;&gt;&lt;/a&gt;安装&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;需要安装apahce2,php5,mysql,命令：&lt;/strong&gt;&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="linux" scheme="http://fenlan.github.io/tags/linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>zabbix安装配置</title>
-    <link href="http://fenlan.github.io/2017/11/21/zabbix/"/>
-    <id>http://fenlan.github.io/2017/11/21/zabbix/</id>
-    <published>2017-11-21T08:56:57.879Z</published>
-    <updated>2017-11-21T08:56:57.879Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;下载软件包&quot;&gt;&lt;a href=&quot;#下载软件包&quot; class=&quot;headerlink&quot; title=&quot;下载软件包&quot;&gt;&lt;/a&gt;下载软件包&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;从&lt;a href=&quot;https://www.zabbix.com/download&quot;&gt;zabbix&lt;/a&gt;上下载所需要的软件包，包括&lt;code&gt;zabbix-server-mysql&lt;/code&gt;和&lt;code&gt;zabbix-frontend-php&lt;/code&gt;，如果还要安装客户端，还要下载&lt;code&gt;zabbix-agent&lt;/code&gt;。(推荐直接添加&lt;code&gt;zabbix&lt;/code&gt;源)&lt;/strong&gt;&lt;/p&gt;
-&lt;h2 id=&quot;安装软件&quot;&gt;&lt;a href=&quot;#安装软件&quot; class=&quot;headerlink&quot; title=&quot;安装软件&quot;&gt;&lt;/a&gt;安装软件&lt;/h2&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;sudo dpkg -i zabbix-server-mysql_3.4.0-1+xenial_amd64.deb&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;sudo dpkg -i zabbix-frontend-php_3.4.0-1+xenial_all.deb&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;h2 id=&quot;配置Zabbix-server&quot;&gt;&lt;a href=&quot;#配置Zabbix-server&quot; class=&quot;headerlink&quot; title=&quot;配置Zabbix server&quot;&gt;&lt;/a&gt;配置Zabbix server&lt;/h2&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;sudo vim /etc/zabbix/zabbix_server.conf&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;修改其中的&lt;code&gt;DBhost&lt;/code&gt;, &lt;code&gt;DBUser&lt;/code&gt;, &lt;code&gt;DBPassword&lt;/code&gt;，如果有必要，需要设置&lt;code&gt;socket&lt;/code&gt;与&lt;code&gt;mysql&lt;/code&gt;的&lt;code&gt;socket&lt;/code&gt;相同。&lt;br&gt;
-    
-    </summary>
-    
-    
-      <category term="linux" scheme="http://fenlan.github.io/tags/linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>ubuntu安装配置</title>
-    <link href="http://fenlan.github.io/2017/11/21/ubuntu%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE/"/>
-    <id>http://fenlan.github.io/2017/11/21/ubuntu安装与配置/</id>
-    <published>2017-11-21T08:56:37.491Z</published>
-    <updated>2017-11-21T08:56:37.491Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;strong&gt;想了一下，最终还是将电脑安成windows10 + ubuntu16双系统，以后多用用ubuntu试试。我选择的安装方式使用u盘安装，在安装ubuntu时一直没有选对启动盘制作工具，之前安装windows10的时候使用的是UltraIso，这个安windows没什么问题，但是安装ubuntu时，安不上，后面上网查了很多次，也用了其他的软件，比如linuxLive USB Creator,Universal-USB-Installer等等，其中Universal-usb-installer还是ubuntu推荐的软件，但是仍然不行，就这我折腾了两天还是没成功，后来在qq上的一个业余群里面，有人叫我用USBwriter，结果就成功安装上了。&lt;/strong&gt;&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="linux" scheme="http://fenlan.github.io/tags/linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>获取局域网连接设备mac地址</title>
-    <link href="http://fenlan.github.io/2017/11/21/nmap_mac/"/>
-    <id>http://fenlan.github.io/2017/11/21/nmap_mac/</id>
-    <published>2017-11-21T08:56:17.927Z</published>
-    <updated>2017-11-21T08:56:17.927Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;使用工具&quot;&gt;&lt;a href=&quot;#使用工具&quot; class=&quot;headerlink&quot; title=&quot;使用工具&quot;&gt;&lt;/a&gt;使用工具&lt;/h1&gt;&lt;p&gt;&lt;strong&gt;nmap: 也就是Network Mapper,最早是linux下的网络扫描和嗅探工具包&lt;/strong&gt;&lt;br&gt;&lt;strong&gt;nmap是一个网络连接端扫描软件，用来扫描网上电脑开放的网络端口。确定哪些服务运行在哪些连接端，并且推断计算机运行哪个操作系统。他是网络管理员比用的软件之一，以及用以评估网络系统安全。&lt;/strong&gt;&lt;br&gt;
-    
-    </summary>
-    
-    
-      <category term="linux" scheme="http://fenlan.github.io/tags/linux/"/>
     
   </entry>
   
@@ -184,24 +229,6 @@
   </entry>
   
   <entry>
-    <title>通过留言板的添加所得到的tip</title>
-    <link href="http://fenlan.github.io/2017/11/21/guestbook/"/>
-    <id>http://fenlan.github.io/2017/11/21/guestbook/</id>
-    <published>2017-11-21T08:54:56.482Z</published>
-    <updated>2017-11-21T08:54:56.482Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;在添加留言板时意外收获到了我想要的外部链接，但不知道适不适用与除主页上的menu以外的地方。假设一个场景，就是你要在主页上的某个地方添加一个超链接，使点击事件发生后跳到另外一个界面，设置如下：&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="hexo" scheme="http://fenlan.github.io/tags/hexo/"/>
-    
-  </entry>
-  
-  <entry>
     <title>git to gihub</title>
     <link href="http://fenlan.github.io/2017/11/21/git-to-github/"/>
     <id>http://fenlan.github.io/2017/11/21/git-to-github/</id>
@@ -252,28 +279,6 @@
     
     
       <category term="hexo" scheme="http://fenlan.github.io/tags/hexo/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>正式入坑CentOS</title>
-    <link href="http://fenlan.github.io/2017/11/21/centos/"/>
-    <id>http://fenlan.github.io/2017/11/21/centos/</id>
-    <published>2017-11-21T08:53:41.322Z</published>
-    <updated>2017-11-21T08:53:41.322Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;第一关：设置windows启动项&quot;&gt;&lt;a href=&quot;#第一关：设置windows启动项&quot; class=&quot;headerlink&quot; title=&quot;第一关：设置windows启动项&quot;&gt;&lt;/a&gt;第一关：设置windows启动项&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;在安装双系统时，选择centos会默认没有windows的启动项，因此要添加windows的引导选项，过程如下：&lt;/strong&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;开机进入CentOS系统&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;进入目录&lt;code&gt;/boot/grub2&lt;/code&gt;，打开&lt;code&gt;grub.cfg&lt;/code&gt;进行编辑&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;找到其中第70行，在指定位置添加内容&lt;/strong&gt;&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="linux" scheme="http://fenlan.github.io/tags/linux/"/>
     
   </entry>
   
