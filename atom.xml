@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://fenlan.github.io/"/>
-  <updated>2017-11-21T09:07:27.474Z</updated>
+  <updated>2017-11-21T09:06:33.446Z</updated>
   <id>http://fenlan.github.io/</id>
   
   <author>
@@ -15,46 +15,6 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>Unix 时间问题(非原创)</title>
-    <link href="http://fenlan.github.io/2017/11/21/unix%E6%97%B6%E9%97%B4md/"/>
-    <id>http://fenlan.github.io/2017/11/21/unix时间md/</id>
-    <published>2017-11-21T09:07:27.474Z</published>
-    <updated>2017-11-21T09:07:27.474Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;故事缘由&quot;&gt;&lt;a href=&quot;#故事缘由&quot; class=&quot;headerlink&quot; title=&quot;故事缘由&quot;&gt;&lt;/a&gt;故事缘由&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;有时候不得不相信，有些东西就是刚刚好，刚刚好到来，刚刚好知道，刚刚好契合。因为这些刚刚好，就会不由自主的激动，感觉这些刚知道的东西发生在自己身上。这次要说的是unix时间问题，我最开始接触这个问题是我们云计算课程项目中一个小小的时间问题，当时项目中所有的时间都是通过unix时间记录。所谓unix时间，就是记录从unix元年1970年1月1日0点起到当前时间经过的秒数。这个问题最开始我并没有觉得有什么问题，但后来我在网上瞎逛的时候看见了一篇文章 &lt;a href=&quot;http://www.wttech.org/archives/3960&quot;&gt;十大著名的计算机发展史上的软件缺陷&lt;/a&gt; ,这里就讲到了一个unix时间问题，我就很好奇的去了解这一个故事，而在这个时间点，我们正在进行的操作系统课程也讲到了unix时间，所以这一堆堆事情，就刚刚好地发生了。 &lt;/strong&gt;&lt;br&gt;
-    
-    </summary>
-    
-    
-      <category term="linux" scheme="http://fenlan.github.io/tags/linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>正式入坑CentOS</title>
-    <link href="http://fenlan.github.io/2017/11/21/centos/"/>
-    <id>http://fenlan.github.io/2017/11/21/centos/</id>
-    <published>2017-11-21T09:07:11.186Z</published>
-    <updated>2017-11-21T09:07:11.186Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;第一关：设置windows启动项&quot;&gt;&lt;a href=&quot;#第一关：设置windows启动项&quot; class=&quot;headerlink&quot; title=&quot;第一关：设置windows启动项&quot;&gt;&lt;/a&gt;第一关：设置windows启动项&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;在安装双系统时，选择centos会默认没有windows的启动项，因此要添加windows的引导选项，过程如下：&lt;/strong&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;开机进入CentOS系统&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;进入目录&lt;code&gt;/boot/grub2&lt;/code&gt;，打开&lt;code&gt;grub.cfg&lt;/code&gt;进行编辑&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;找到其中第70行，在指定位置添加内容 &lt;/strong&gt;&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="linux" scheme="http://fenlan.github.io/tags/linux/"/>
-    
-  </entry>
   
   <entry>
     <title>zabbix安装配置</title>
@@ -78,101 +38,6 @@
   </entry>
   
   <entry>
-    <title>获取局域网连接设备mac地址</title>
-    <link href="http://fenlan.github.io/2017/11/21/nmap_mac/"/>
-    <id>http://fenlan.github.io/2017/11/21/nmap_mac/</id>
-    <published>2017-11-21T09:05:04.780Z</published>
-    <updated>2017-11-21T09:05:04.780Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;使用工具&quot;&gt;&lt;a href=&quot;#使用工具&quot; class=&quot;headerlink&quot; title=&quot;使用工具&quot;&gt;&lt;/a&gt;使用工具&lt;/h1&gt;&lt;p&gt;&lt;strong&gt;nmap: 也就是Network Mapper,最早是linux下的网络扫描和嗅探工具包&lt;/strong&gt;&lt;br&gt;&lt;strong&gt;nmap是一个网络连接端扫描软件，用来扫描网上电脑开放的网络端口。确定哪些服务运行在哪些连接端，并且推断计算机运行哪个操作系统。他是网络管理员比用的软件之一，以及用以评估网络系统安全。 &lt;/strong&gt;&lt;br&gt;
-    
-    </summary>
-    
-    
-      <category term="linux" scheme="http://fenlan.github.io/tags/linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>服务器折腾中。。。</title>
-    <link href="http://fenlan.github.io/2017/11/21/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
-    <id>http://fenlan.github.io/2017/11/21/服务器/</id>
-    <published>2017-11-21T09:04:34.245Z</published>
-    <updated>2017-11-21T09:04:34.245Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;安装&quot;&gt;&lt;a href=&quot;#安装&quot; class=&quot;headerlink&quot; title=&quot;安装&quot;&gt;&lt;/a&gt;安装&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;需要安装apahce2,php5,mysql,命令：&lt;/strong&gt;&lt;/p&gt;
-&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;variable&quot;&gt;$sudo&lt;/span&gt; apt-get install apache2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;variable&quot;&gt;$sudo&lt;/span&gt; apt-get install php5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;variable&quot;&gt;$sudo&lt;/span&gt; apt-get install mysql&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;h4 id=&quot;使用记录&quot;&gt;&lt;a href=&quot;#使用记录&quot; class=&quot;headerlink&quot; title=&quot;使用记录&quot;&gt;&lt;/a&gt;使用记录&lt;/h4&gt;&lt;p&gt;&lt;strong&gt;apache2重启命令等&lt;/strong&gt;&lt;br&gt;
-    
-    </summary>
-    
-    
-      <category term="linux" scheme="http://fenlan.github.io/tags/linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>ubuntu安装配置</title>
-    <link href="http://fenlan.github.io/2017/11/21/ubuntu%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE/"/>
-    <id>http://fenlan.github.io/2017/11/21/ubuntu安装与配置/</id>
-    <published>2017-11-21T09:04:09.789Z</published>
-    <updated>2017-11-21T09:04:09.789Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;strong&gt;想了一下，最终还是将电脑安成windows10 + ubuntu16双系统，以后多用用ubuntu试试。我选择的安装方式使用u盘安装，在安装ubuntu时一直没有选对启动盘制作工具，之前安装windows10的时候使用的是UltraIso，这个安windows没什么问题，但是安装ubuntu时，安不上，后面上网查了很多次，也用了其他的软件，比如linuxLive USB Creator,Universal-USB-Installer等等，其中Universal-usb-installer还是ubuntu推荐的软件，但是仍然不行，就这我折腾了两天还是没成功，后来在qq上的一个业余群里面，有人叫我用USBwriter，结果就成功安装上了。&lt;/strong&gt;&lt;br&gt;
-    
-    </summary>
-    
-    
-      <category term="linux" scheme="http://fenlan.github.io/tags/linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>通过留言板的添加所得到的想法</title>
-    <link href="http://fenlan.github.io/2017/11/21/guestbook/"/>
-    <id>http://fenlan.github.io/2017/11/21/guestbook/</id>
-    <published>2017-11-21T09:03:12.254Z</published>
-    <updated>2017-11-21T09:03:12.254Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;在添加留言板时意外收获到了我想要的外部链接，但不知道适不适用与除主页上的menu以外的地方。假设一个场景，就是你要在主页上的某个地方添加一个超链接，使点击事件发生后跳到另外一个界面，设置如下：&lt;/p&gt;
-&lt;p&gt;先找到themes目录下的_config.yml这个文件打开，这个文件是themes设置文件，你可以在里面设置themes属性&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://github.com/fenlan/fenlan.github.io/blob/master/css/images/1.png?raw=true =100*20&quot; alt=&quot;1&quot;&gt;&lt;/p&gt;
-&lt;p&gt;这里面有layout布局，比如menu,content,sidebar等设置，我的留言板是在menu里面的，所以我在menu里面添加了这行代码：&lt;br&gt;
-    
-    </summary>
-    
-    
-      <category term="hexo" scheme="http://fenlan.github.io/tags/hexo/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>许久没有更新的流水账</title>
-    <link href="http://fenlan.github.io/2017/11/21/%E6%B5%81%E6%B0%B4%E8%B4%A6/"/>
-    <id>http://fenlan.github.io/2017/11/21/流水账/</id>
-    <published>2017-11-21T08:57:30.708Z</published>
-    <updated>2017-11-21T08:57:30.708Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;strong&gt;好久没有更新博客了，有很多原因。一方面，前段时间事情太多，大概花了一个月来写一个android聊天软件来参加，学校的比赛，虽然写好了，也还像个样子，但在最后答辩的时候选择了放弃。因为国创答辩失败了，恰好那个比赛的答辩和国创答辩同时进行的，所有带着沮丧的心情离开了。另一方面，换了一台电脑工作，而我的博客后台在原来的电脑上，我一直想将它迁移到新的电脑上，然而一直没有成功。因此，大概有托更了3个月的博客，现在静下心来总结一下最近的学习。&lt;/strong&gt;&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="Android" scheme="http://fenlan.github.io/tags/Android/"/>
-    
-  </entry>
-  
-  <entry>
     <title>logrotate</title>
     <link href="http://fenlan.github.io/2017/11/21/logrotate/"/>
     <id>http://fenlan.github.io/2017/11/21/logrotate/</id>
@@ -191,11 +56,53 @@
   </entry>
   
   <entry>
+    <title>Unix 时间问题(非原创)</title>
+    <link href="http://fenlan.github.io/2017/11/21/unix%E6%97%B6%E9%97%B4md/"/>
+    <id>http://fenlan.github.io/2017/11/21/unix时间md/</id>
+    <published>2017-11-21T07:18:23.000Z</published>
+    <updated>2017-11-21T09:28:32.913Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;故事缘由&quot;&gt;&lt;a href=&quot;#故事缘由&quot; class=&quot;headerlink&quot; title=&quot;故事缘由&quot;&gt;&lt;/a&gt;故事缘由&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;有时候不得不相信，有些东西就是刚刚好，刚刚好到来，刚刚好知道，刚刚好契合。因为这些刚刚好，就会不由自主的激动，感觉这些刚知道的东西发生在自己身上。这次要说的是unix时间问题，我最开始接触这个问题是我们云计算课程项目中一个小小的时间问题，当时项目中所有的时间都是通过unix时间记录。所谓unix时间，就是记录从unix元年1970年1月1日0点起到当前时间经过的秒数。这个问题最开始我并没有觉得有什么问题，但后来我在网上瞎逛的时候看见了一篇文章 &lt;a href=&quot;http://www.wttech.org/archives/3960&quot;&gt;十大著名的计算机发展史上的软件缺陷&lt;/a&gt; ,这里就讲到了一个unix时间问题，我就很好奇的去了解这一个故事，而在这个时间点，我们正在进行的操作系统课程也讲到了unix时间，所以这一堆堆事情，就刚刚好地发生了。 &lt;/strong&gt;&lt;br&gt;
+    
+    </summary>
+    
+    
+      <category term="linux" scheme="http://fenlan.github.io/tags/linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>hadoop之旅</title>
+    <link href="http://fenlan.github.io/2017/09/22/hadoop/"/>
+    <id>http://fenlan.github.io/2017/09/22/hadoop/</id>
+    <published>2017-09-22T07:18:23.000Z</published>
+    <updated>2017-11-21T09:27:58.897Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;hadoop介绍&quot;&gt;&lt;a href=&quot;#hadoop介绍&quot; class=&quot;headerlink&quot; title=&quot;hadoop介绍&quot;&gt;&lt;/a&gt;hadoop介绍&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;以下是 Hadoop 的几种定义，每种定义都针对的是企业内的不同受众：&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;对于高管：Hadoop 是 Apache 的一个开源软件项目，目的是从令人难以置信的数量/速度/多样性等有关组织的数据中获取价值。使用数据，而不是扔掉大部分数据。&lt;/li&gt;
+&lt;li&gt;对于技术管理人员：一个开源软件套件，挖掘有关您的企业的结构化和非结构化大数据。Hadoop 集成您现有的商业智能生态系统。&lt;/li&gt;
+&lt;li&gt;工程：大规模并行、无共享、基于 Java 的 map-reduce 执行环境。打算使用数百台到数千台计算机处理相同的问题，具有内置的故障恢复能力。Hadoop 生态系统中的项目提供了数据加载、更高层次的语言、自动化的云部署，以及其他功能。&lt;/li&gt;
+&lt;li&gt;安全性：由 Kerberos 保护的软件套件。&lt;/li&gt;
+&lt;/ul&gt;
+    
+    </summary>
+    
+    
+      <category term="hadoop" scheme="http://fenlan.github.io/tags/hadoop/"/>
+    
+  </entry>
+  
+  <entry>
     <title>laravel学习之旅</title>
-    <link href="http://fenlan.github.io/2017/11/21/laravel/"/>
-    <id>http://fenlan.github.io/2017/11/21/laravel/</id>
-    <published>2017-11-21T08:55:38.719Z</published>
-    <updated>2017-11-21T08:55:38.719Z</updated>
+    <link href="http://fenlan.github.io/2017/07/30/laravel/"/>
+    <id>http://fenlan.github.io/2017/07/30/laravel/</id>
+    <published>2017-07-30T07:18:23.000Z</published>
+    <updated>2017-11-21T09:27:18.281Z</updated>
     
     <summary type="html">
     
@@ -210,11 +117,217 @@
   </entry>
   
   <entry>
+    <title>正式入坑CentOS</title>
+    <link href="http://fenlan.github.io/2017/06/16/centos/"/>
+    <id>http://fenlan.github.io/2017/06/16/centos/</id>
+    <published>2017-06-16T07:18:23.000Z</published>
+    <updated>2017-11-21T09:26:38.205Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;第一关：设置windows启动项&quot;&gt;&lt;a href=&quot;#第一关：设置windows启动项&quot; class=&quot;headerlink&quot; title=&quot;第一关：设置windows启动项&quot;&gt;&lt;/a&gt;第一关：设置windows启动项&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;在安装双系统时，选择centos会默认没有windows的启动项，因此要添加windows的引导选项，过程如下：&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;开机进入CentOS系统&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;进入目录&lt;code&gt;/boot/grub2&lt;/code&gt;，打开&lt;code&gt;grub.cfg&lt;/code&gt;进行编辑&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;找到其中第70行，在指定位置添加内容 &lt;/strong&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="linux" scheme="http://fenlan.github.io/tags/linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>拖更。。。。。</title>
+    <link href="http://fenlan.github.io/2017/06/15/%E6%8B%96%E6%9B%B4/"/>
+    <id>http://fenlan.github.io/2017/06/15/拖更/</id>
+    <published>2017-06-14T16:20:43.113Z</published>
+    <updated>2016-05-29T16:49:52.005Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;&lt;strong&gt;最近游手好闲，又开始浪了，感觉最近没什么时间啊，主要是课程脱节了，马上又要期末考试了，所以可能要托更一段时间。下一步可能要搭建自己的服务器，嗯嗯，是这样，不过具体什么时候开始，不知道，先挖个坑把，慢慢填&lt;/strong&gt;&lt;/p&gt;
+
+        
+      
+    
+    </summary>
+    
+    
+      <category term="服务器" scheme="http://fenlan.github.io/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Git install and setting</title>
+    <link href="http://fenlan.github.io/2017/06/15/git-install/"/>
+    <id>http://fenlan.github.io/2017/06/15/git-install/</id>
+    <published>2017-06-14T16:20:43.113Z</published>
+    <updated>2016-05-21T07:38:56.132Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h3 id=&quot;git-install-and-setting&quot;&gt;&lt;a href=&quot;#git-install-and-setting&quot; class=&quot;headerlink&quot; title=&quot;git install and setting:&quot;&gt;&lt;/a&gt;git install and
+        
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>获取局域网连接设备mac地址</title>
+    <link href="http://fenlan.github.io/2017/03/22/nmap_mac/"/>
+    <id>http://fenlan.github.io/2017/03/22/nmap_mac/</id>
+    <published>2017-03-22T07:18:23.000Z</published>
+    <updated>2017-11-21T09:25:37.085Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;使用工具&quot;&gt;&lt;a href=&quot;#使用工具&quot; class=&quot;headerlink&quot; title=&quot;使用工具&quot;&gt;&lt;/a&gt;使用工具&lt;/h1&gt;&lt;p&gt;&lt;strong&gt;nmap: 也就是Network Mapper,最早是linux下的网络扫描和嗅探工具包&lt;/strong&gt;&lt;br&gt;&lt;strong&gt;nmap是一个网络连接端扫描软件，用来扫描网上电脑开放的网络端口。确定哪些服务运行在哪些连接端，并且推断计算机运行哪个操作系统。他是网络管理员比用的软件之一，以及用以评估网络系统安全。 &lt;/strong&gt;&lt;br&gt;
+    
+    </summary>
+    
+    
+      <category term="linux" scheme="http://fenlan.github.io/tags/linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>许久没有更新的流水账</title>
+    <link href="http://fenlan.github.io/2016/11/20/%E6%B5%81%E6%B0%B4%E8%B4%A6/"/>
+    <id>http://fenlan.github.io/2016/11/20/流水账/</id>
+    <published>2016-11-20T07:18:23.000Z</published>
+    <updated>2017-11-21T09:25:04.193Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;strong&gt;好久没有更新博客了，有很多原因。一方面，前段时间事情太多，大概花了一个月来写一个android聊天软件来参加，学校的比赛，虽然写好了，也还像个样子，但在最后答辩的时候选择了放弃。因为国创答辩失败了，恰好那个比赛的答辩和国创答辩同时进行的，所有带着沮丧的心情离开了。另一方面，换了一台电脑工作，而我的博客后台在原来的电脑上，我一直想将它迁移到新的电脑上，然而一直没有成功。因此，大概有托更了3个月的博客，现在静下心来总结一下最近的学习。&lt;/strong&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Android" scheme="http://fenlan.github.io/tags/Android/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>ubuntu安装配置</title>
+    <link href="http://fenlan.github.io/2016/08/10/ubuntu%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE/"/>
+    <id>http://fenlan.github.io/2016/08/10/ubuntu安装与配置/</id>
+    <published>2016-08-10T07:18:23.000Z</published>
+    <updated>2017-11-21T09:24:45.209Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;strong&gt;想了一下，最终还是将电脑安成windows10 + ubuntu16双系统，以后多用用ubuntu试试。我选择的安装方式使用u盘安装，在安装ubuntu时一直没有选对启动盘制作工具，之前安装windows10的时候使用的是UltraIso，这个安windows没什么问题，但是安装ubuntu时，安不上，后面上网查了很多次，也用了其他的软件，比如linuxLive USB Creator,Universal-USB-Installer等等，其中Universal-usb-installer还是ubuntu推荐的软件，但是仍然不行，就这我折腾了两天还是没成功，后来在qq上的一个业余群里面，有人叫我用USBwriter，结果就成功安装上了。&lt;/strong&gt;&lt;br&gt;
+    
+    </summary>
+    
+    
+      <category term="linux" scheme="http://fenlan.github.io/tags/linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>数据结构c++</title>
+    <link href="http://fenlan.github.io/2016/07/23/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    <id>http://fenlan.github.io/2016/07/23/数据结构/</id>
+    <published>2016-07-23T07:18:23.000Z</published>
+    <updated>2017-11-21T09:24:28.353Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;1-数据结构之队列&quot;&gt;&lt;a href=&quot;#1-数据结构之队列&quot; class=&quot;headerlink&quot; title=&quot;1.数据结构之队列&quot;&gt;&lt;/a&gt;1.数据结构之队列&lt;/h3&gt;
+    
+    </summary>
+    
+    
+      <category term="数据结构" scheme="http://fenlan.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Android在不同Activity之间传输数据</title>
+    <link href="http://fenlan.github.io/2016/06/30/Android%E6%95%B0%E6%8D%AE%E4%BC%A0%E8%BE%93/"/>
+    <id>http://fenlan.github.io/2016/06/30/Android数据传输/</id>
+    <published>2016-06-30T07:18:23.000Z</published>
+    <updated>2017-11-21T09:24:00.633Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;Android中的数据传输&quot;&gt;&lt;a href=&quot;#Android中的数据传输&quot; class=&quot;headerlink&quot; title=&quot;Android中的数据传输&quot;&gt;&lt;/a&gt;Android中的数据传输&lt;/h3&gt;
+    
+    </summary>
+    
+    
+      <category term="Android" scheme="http://fenlan.github.io/tags/Android/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>教训</title>
+    <link href="http://fenlan.github.io/2016/06/27/test/"/>
+    <id>http://fenlan.github.io/2016/06/27/test/</id>
+    <published>2016-06-27T07:18:23.000Z</published>
+    <updated>2017-11-21T09:23:36.081Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;昨天在百度上下了软件，结果有问题，然后重置电脑，然后后悔了，这个博文只是一个测试。。。&lt;/p&gt;
+
+        
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>再次挖坑</title>
+    <link href="http://fenlan.github.io/2016/06/20/%E7%88%AC%E8%99%AB/"/>
+    <id>http://fenlan.github.io/2016/06/20/爬虫/</id>
+    <published>2016-06-20T07:18:23.000Z</published>
+    <updated>2017-11-21T09:23:16.729Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h3 id=&quot;爬虫&quot;&gt;&lt;a href=&quot;#爬虫&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="爬虫" scheme="http://fenlan.github.io/tags/%E7%88%AC%E8%99%AB/"/>
+    
+  </entry>
+  
+  <entry>
     <title>java线程学习记录</title>
-    <link href="http://fenlan.github.io/2017/11/21/java-Thread/"/>
-    <id>http://fenlan.github.io/2017/11/21/java-Thread/</id>
-    <published>2017-11-21T08:55:21.510Z</published>
-    <updated>2017-11-21T08:55:21.510Z</updated>
+    <link href="http://fenlan.github.io/2016/06/18/java-Thread/"/>
+    <id>http://fenlan.github.io/2016/06/18/java-Thread/</id>
+    <published>2016-06-18T07:18:23.000Z</published>
+    <updated>2017-11-21T09:23:01.053Z</updated>
     
     <summary type="html">
     
@@ -229,69 +342,15 @@
   </entry>
   
   <entry>
-    <title>git to gihub</title>
-    <link href="http://fenlan.github.io/2017/11/21/git-to-github/"/>
-    <id>http://fenlan.github.io/2017/11/21/git-to-github/</id>
-    <published>2017-11-21T08:54:44.234Z</published>
-    <updated>2017-11-21T08:54:44.234Z</updated>
+    <title>Android Handler学习记录</title>
+    <link href="http://fenlan.github.io/2016/06/17/android-handler/"/>
+    <id>http://fenlan.github.io/2016/06/17/android-handler/</id>
+    <published>2016-06-17T09:18:23.000Z</published>
+    <updated>2017-11-21T09:22:28.201Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;&lt;strong&gt;我想想，这个东西好像是上个学期寝室大神告诉我的，然而我现在才知道怎么使用它，主要是之前没接触到这个东西，不知道这东西是干嘛用的，在建blog时接触到了，对于如此难堪的水平的我来说有必要记录一下。想想感觉不应该写在blog上，觉得好好的博客怎么写这些东西了，不过尽管如此，我还是决心写一下&lt;/strong&gt;&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="git" scheme="http://fenlan.github.io/tags/git/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>hexo评论框部署</title>
-    <link href="http://fenlan.github.io/2017/11/21/duoshuo/"/>
-    <id>http://fenlan.github.io/2017/11/21/duoshuo/</id>
-    <published>2017-11-21T08:54:24.334Z</published>
-    <updated>2017-11-21T08:54:24.334Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;这几天我被一个问题缠了很久，一直没解决，到现在算是有点清楚了，所以来写个博文记录一下。hexo本身是有默认的评论框的disqus，个人感觉这个评论框风格很好，其实我想用来着，不过想想国内要翻墙，很麻烦，所以很委屈的选择了多说，不是说多说不好，自己个人比较喜欢disqus。废话不多说，来看看我折腾的过程吧。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="hexo" scheme="http://fenlan.github.io/tags/hexo/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>搭建博客的大致流程</title>
-    <link href="http://fenlan.github.io/2017/11/21/blog/"/>
-    <id>http://fenlan.github.io/2017/11/21/blog/</id>
-    <published>2017-11-21T08:54:09.462Z</published>
-    <updated>2017-11-21T08:54:09.462Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;本想着是不是拿英文来写这个流程来锻炼一下自己的英文水平，不过想了想就不装B了，英语就拿磋样还拿出来献丑。言归正传，我以为可以在寝室大神的引导下我能快一点搭好my blog，不过是我想得太简单。经过自己踩了无数坑过后总结大概过程，具体过程网上一搜一大把，不过建议别用百度搜这种东西，能翻墙就翻墙吧。大概过程如下：&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="hexo" scheme="http://fenlan.github.io/tags/hexo/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Android在不同Activity之间传输数据</title>
-    <link href="http://fenlan.github.io/2017/11/21/Android%E6%95%B0%E6%8D%AE%E4%BC%A0%E8%BE%93/"/>
-    <id>http://fenlan.github.io/2017/11/21/Android数据传输/</id>
-    <published>2017-11-21T08:53:17.489Z</published>
-    <updated>2017-11-21T08:53:17.489Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;Android中的数据传输&quot;&gt;&lt;a href=&quot;#Android中的数据传输&quot; class=&quot;headerlink&quot; title=&quot;Android中的数据传输&quot;&gt;&lt;/a&gt;Android中的数据传输&lt;/h3&gt;
+      &lt;p&gt;&lt;strong&gt;这个需要学习三节课程，这是第一节，多的不说，直接放代码&lt;/strong&gt;&lt;/p&gt;
     
     </summary>
     
@@ -302,10 +361,10 @@
   
   <entry>
     <title>android中ProgressBar和线程学习记录</title>
-    <link href="http://fenlan.github.io/2017/11/21/android-ProgressBarAndThread/"/>
-    <id>http://fenlan.github.io/2017/11/21/android-ProgressBarAndThread/</id>
-    <published>2017-11-21T08:52:51.989Z</published>
-    <updated>2017-11-21T08:52:51.989Z</updated>
+    <link href="http://fenlan.github.io/2016/06/17/android-ProgressBarAndThread/"/>
+    <id>http://fenlan.github.io/2016/06/17/android-ProgressBarAndThread/</id>
+    <published>2016-06-17T08:18:23.000Z</published>
+    <updated>2017-11-21T09:22:14.193Z</updated>
     
     <summary type="html">
     
@@ -321,10 +380,10 @@
   
   <entry>
     <title>Intent对象使用</title>
-    <link href="http://fenlan.github.io/2017/11/21/android-Intent/"/>
-    <id>http://fenlan.github.io/2017/11/21/android-Intent/</id>
-    <published>2017-11-21T08:52:37.741Z</published>
-    <updated>2017-11-21T08:52:37.741Z</updated>
+    <link href="http://fenlan.github.io/2016/06/17/android-Intent/"/>
+    <id>http://fenlan.github.io/2016/06/17/android-Intent/</id>
+    <published>2016-06-17T07:18:23.000Z</published>
+    <updated>2017-11-21T09:21:42.669Z</updated>
     
     <summary type="html">
     
@@ -343,10 +402,10 @@
   
   <entry>
     <title>android生命周期函数记录</title>
-    <link href="http://fenlan.github.io/2017/11/21/android-activity/"/>
-    <id>http://fenlan.github.io/2017/11/21/android-activity/</id>
-    <published>2017-11-21T08:52:21.625Z</published>
-    <updated>2017-11-21T08:52:21.625Z</updated>
+    <link href="http://fenlan.github.io/2016/06/16/android-activity/"/>
+    <id>http://fenlan.github.io/2016/06/16/android-activity/</id>
+    <published>2016-06-15T16:00:00.000Z</published>
+    <updated>2017-11-21T09:20:33.725Z</updated>
     
     <summary type="html">
     
@@ -357,48 +416,6 @@
     
     
       <category term="Andriod" scheme="http://fenlan.github.io/tags/Andriod/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Android Handler学习记录</title>
-    <link href="http://fenlan.github.io/2017/11/21/android-handler/"/>
-    <id>http://fenlan.github.io/2017/11/21/android-handler/</id>
-    <published>2017-11-21T08:52:11.737Z</published>
-    <updated>2017-11-21T08:52:11.737Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;strong&gt;这个需要学习三节课程，这是第一节，多的不说，直接放代码&lt;/strong&gt;&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="Android" scheme="http://fenlan.github.io/tags/Android/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>hadoop之旅</title>
-    <link href="http://fenlan.github.io/2017/09/23/hadoop/"/>
-    <id>http://fenlan.github.io/2017/09/23/hadoop/</id>
-    <published>2017-09-22T16:35:30.662Z</published>
-    <updated>2017-09-22T16:35:30.662Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;hadoop介绍&quot;&gt;&lt;a href=&quot;#hadoop介绍&quot; class=&quot;headerlink&quot; title=&quot;hadoop介绍&quot;&gt;&lt;/a&gt;hadoop介绍&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;以下是 Hadoop 的几种定义，每种定义都针对的是企业内的不同受众：&lt;/strong&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;对于高管：Hadoop 是 Apache 的一个开源软件项目，目的是从令人难以置信的数量/速度/多样性等有关组织的数据中获取价值。使用数据，而不是扔掉大部分数据。&lt;/li&gt;
-&lt;li&gt;对于技术管理人员：一个开源软件套件，挖掘有关您的企业的结构化和非结构化大数据。Hadoop 集成您现有的商业智能生态系统。&lt;/li&gt;
-&lt;li&gt;工程：大规模并行、无共享、基于 Java 的 map-reduce 执行环境。打算使用数百台到数千台计算机处理相同的问题，具有内置的故障恢复能力。Hadoop 生态系统中的项目提供了数据加载、更高层次的语言、自动化的云部署，以及其他功能。&lt;/li&gt;
-&lt;li&gt;安全性：由 Kerberos 保护的软件套件。&lt;/li&gt;
-&lt;/ul&gt;
-    
-    </summary>
-    
-    
-      <category term="hadoop" scheme="http://fenlan.github.io/tags/hadoop/"/>
     
   </entry>
   
