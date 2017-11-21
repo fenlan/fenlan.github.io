@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://fenlan.github.io/"/>
-  <updated>2017-11-21T08:50:16.884Z</updated>
+  <updated>2017-11-21T08:57:48.552Z</updated>
   <id>http://fenlan.github.io/</id>
   
   <author>
@@ -20,8 +20,8 @@
     <title>Unix 时间问题(非原创)</title>
     <link href="http://fenlan.github.io/2017/11/21/unix%E6%97%B6%E9%97%B4md/"/>
     <id>http://fenlan.github.io/2017/11/21/unix时间md/</id>
-    <published>2017-11-21T08:50:16.884Z</published>
-    <updated>2017-11-21T08:50:16.884Z</updated>
+    <published>2017-11-21T08:57:48.552Z</published>
+    <updated>2017-11-21T08:57:48.552Z</updated>
     
     <summary type="html">
     
@@ -30,7 +30,118 @@
     </summary>
     
     
-      <category term="ubuntu" scheme="http://fenlan.github.io/tags/ubuntu/"/>
+      <category term="linux" scheme="http://fenlan.github.io/tags/linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>许久没有更新的流水账</title>
+    <link href="http://fenlan.github.io/2017/11/21/%E6%B5%81%E6%B0%B4%E8%B4%A6/"/>
+    <id>http://fenlan.github.io/2017/11/21/流水账/</id>
+    <published>2017-11-21T08:57:30.708Z</published>
+    <updated>2017-11-21T08:57:30.708Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;strong&gt;好久没有更新博客了，有很多原因。一方面，前段时间事情太多，大概花了一个月来写一个android聊天软件来参加，学校的比赛，虽然写好了，也还像个样子，但在最后答辩的时候选择了放弃。因为国创答辩失败了，恰好那个比赛的答辩和国创答辩同时进行的，所有带着沮丧的心情离开了。另一方面，换了一台电脑工作，而我的博客后台在原来的电脑上，我一直想将它迁移到新的电脑上，然而一直没有成功。因此，大概有托更了3个月的博客，现在静下心来总结一下最近的学习。&lt;/strong&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Android" scheme="http://fenlan.github.io/tags/Android/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>服务器折腾中。。。</title>
+    <link href="http://fenlan.github.io/2017/11/21/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+    <id>http://fenlan.github.io/2017/11/21/服务器/</id>
+    <published>2017-11-21T08:57:17.807Z</published>
+    <updated>2017-11-21T08:57:17.807Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;安装&quot;&gt;&lt;a href=&quot;#安装&quot; class=&quot;headerlink&quot; title=&quot;安装&quot;&gt;&lt;/a&gt;安装&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;需要安装apahce2,php5,mysql,命令：&lt;/strong&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="linux" scheme="http://fenlan.github.io/tags/linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>zabbix安装配置</title>
+    <link href="http://fenlan.github.io/2017/11/21/zabbix/"/>
+    <id>http://fenlan.github.io/2017/11/21/zabbix/</id>
+    <published>2017-11-21T08:56:57.879Z</published>
+    <updated>2017-11-21T08:56:57.879Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;下载软件包&quot;&gt;&lt;a href=&quot;#下载软件包&quot; class=&quot;headerlink&quot; title=&quot;下载软件包&quot;&gt;&lt;/a&gt;下载软件包&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;从&lt;a href=&quot;https://www.zabbix.com/download&quot;&gt;zabbix&lt;/a&gt;上下载所需要的软件包，包括&lt;code&gt;zabbix-server-mysql&lt;/code&gt;和&lt;code&gt;zabbix-frontend-php&lt;/code&gt;，如果还要安装客户端，还要下载&lt;code&gt;zabbix-agent&lt;/code&gt;。(推荐直接添加&lt;code&gt;zabbix&lt;/code&gt;源)&lt;/strong&gt;&lt;/p&gt;
+&lt;h2 id=&quot;安装软件&quot;&gt;&lt;a href=&quot;#安装软件&quot; class=&quot;headerlink&quot; title=&quot;安装软件&quot;&gt;&lt;/a&gt;安装软件&lt;/h2&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;sudo dpkg -i zabbix-server-mysql_3.4.0-1+xenial_amd64.deb&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;sudo dpkg -i zabbix-frontend-php_3.4.0-1+xenial_all.deb&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h2 id=&quot;配置Zabbix-server&quot;&gt;&lt;a href=&quot;#配置Zabbix-server&quot; class=&quot;headerlink&quot; title=&quot;配置Zabbix server&quot;&gt;&lt;/a&gt;配置Zabbix server&lt;/h2&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;sudo vim /etc/zabbix/zabbix_server.conf&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;修改其中的&lt;code&gt;DBhost&lt;/code&gt;, &lt;code&gt;DBUser&lt;/code&gt;, &lt;code&gt;DBPassword&lt;/code&gt;，如果有必要，需要设置&lt;code&gt;socket&lt;/code&gt;与&lt;code&gt;mysql&lt;/code&gt;的&lt;code&gt;socket&lt;/code&gt;相同。&lt;br&gt;
+    
+    </summary>
+    
+    
+      <category term="linux" scheme="http://fenlan.github.io/tags/linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>ubuntu安装配置</title>
+    <link href="http://fenlan.github.io/2017/11/21/ubuntu%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE/"/>
+    <id>http://fenlan.github.io/2017/11/21/ubuntu安装与配置/</id>
+    <published>2017-11-21T08:56:37.491Z</published>
+    <updated>2017-11-21T08:56:37.491Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;strong&gt;想了一下，最终还是将电脑安成windows10 + ubuntu16双系统，以后多用用ubuntu试试。我选择的安装方式使用u盘安装，在安装ubuntu时一直没有选对启动盘制作工具，之前安装windows10的时候使用的是UltraIso，这个安windows没什么问题，但是安装ubuntu时，安不上，后面上网查了很多次，也用了其他的软件，比如linuxLive USB Creator,Universal-USB-Installer等等，其中Universal-usb-installer还是ubuntu推荐的软件，但是仍然不行，就这我折腾了两天还是没成功，后来在qq上的一个业余群里面，有人叫我用USBwriter，结果就成功安装上了。&lt;/strong&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="linux" scheme="http://fenlan.github.io/tags/linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>获取局域网连接设备mac地址</title>
+    <link href="http://fenlan.github.io/2017/11/21/nmap_mac/"/>
+    <id>http://fenlan.github.io/2017/11/21/nmap_mac/</id>
+    <published>2017-11-21T08:56:17.927Z</published>
+    <updated>2017-11-21T08:56:17.927Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;使用工具&quot;&gt;&lt;a href=&quot;#使用工具&quot; class=&quot;headerlink&quot; title=&quot;使用工具&quot;&gt;&lt;/a&gt;使用工具&lt;/h1&gt;&lt;p&gt;&lt;strong&gt;nmap: 也就是Network Mapper,最早是linux下的网络扫描和嗅探工具包&lt;/strong&gt;&lt;br&gt;&lt;strong&gt;nmap是一个网络连接端扫描软件，用来扫描网上电脑开放的网络端口。确定哪些服务运行在哪些连接端，并且推断计算机运行哪个操作系统。他是网络管理员比用的软件之一，以及用以评估网络系统安全。&lt;/strong&gt;&lt;br&gt;
+    
+    </summary>
+    
+    
+      <category term="linux" scheme="http://fenlan.github.io/tags/linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>logrotate</title>
+    <link href="http://fenlan.github.io/2017/11/21/logrotate/"/>
+    <id>http://fenlan.github.io/2017/11/21/logrotate/</id>
+    <published>2017-11-21T08:55:53.271Z</published>
+    <updated>2017-11-21T08:55:53.271Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;logrotate介绍&quot;&gt;&lt;a href=&quot;#logrotate介绍&quot; class=&quot;headerlink&quot; title=&quot;logrotate介绍&quot;&gt;&lt;/a&gt;logrotate介绍&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;对于Linux系统安全来说，日志文件是及其重要的工具。日志文件包含了关于系统中发生的事件的有用信息，在排障过程中或者系统性能分析时经常被用到。当日志文件不断增长的时候，就需要定时切割，否则，写日志的速度和性能也会下降，更不便于我们归档和查询。&lt;/strong&gt;&lt;br&gt;
+    
+    </summary>
+    
+    
+      <category term="linux" scheme="http://fenlan.github.io/tags/linux/"/>
     
   </entry>
   
@@ -38,8 +149,8 @@
     <title>laravel学习之旅</title>
     <link href="http://fenlan.github.io/2017/11/21/laravel/"/>
     <id>http://fenlan.github.io/2017/11/21/laravel/</id>
-    <published>2017-11-21T08:41:44.053Z</published>
-    <updated>2017-11-21T08:41:44.053Z</updated>
+    <published>2017-11-21T08:55:38.719Z</published>
+    <updated>2017-11-21T08:55:38.719Z</updated>
     
     <summary type="html">
     
@@ -49,16 +160,107 @@
     </summary>
     
     
-      <category term="laravel mvc" scheme="http://fenlan.github.io/tags/laravel-mvc/"/>
+      <category term="laravel" scheme="http://fenlan.github.io/tags/laravel/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>java线程学习记录</title>
+    <link href="http://fenlan.github.io/2017/11/21/java-Thread/"/>
+    <id>http://fenlan.github.io/2017/11/21/java-Thread/</id>
+    <published>2017-11-21T08:55:21.510Z</published>
+    <updated>2017-11-21T08:55:21.510Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;strong&gt;在接触Android时候发现java基础没打好，所以回来重新打基础&lt;/strong&gt;&lt;/p&gt;
+&lt;h3 id=&quot;java线程基础&quot;&gt;&lt;a href=&quot;#java线程基础&quot; class=&quot;headerlink&quot; title=&quot;java线程基础&quot;&gt;&lt;/a&gt;java线程基础&lt;/h3&gt;
+    
+    </summary>
+    
+    
+      <category term="java" scheme="http://fenlan.github.io/tags/java/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>通过留言板的添加所得到的tip</title>
+    <link href="http://fenlan.github.io/2017/11/21/guestbook/"/>
+    <id>http://fenlan.github.io/2017/11/21/guestbook/</id>
+    <published>2017-11-21T08:54:56.482Z</published>
+    <updated>2017-11-21T08:54:56.482Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;在添加留言板时意外收获到了我想要的外部链接，但不知道适不适用与除主页上的menu以外的地方。假设一个场景，就是你要在主页上的某个地方添加一个超链接，使点击事件发生后跳到另外一个界面，设置如下：&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="hexo" scheme="http://fenlan.github.io/tags/hexo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>git to gihub</title>
+    <link href="http://fenlan.github.io/2017/11/21/git-to-github/"/>
+    <id>http://fenlan.github.io/2017/11/21/git-to-github/</id>
+    <published>2017-11-21T08:54:44.234Z</published>
+    <updated>2017-11-21T08:54:44.234Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;strong&gt;我想想，这个东西好像是上个学期寝室大神告诉我的，然而我现在才知道怎么使用它，主要是之前没接触到这个东西，不知道这东西是干嘛用的，在建blog时接触到了，对于如此难堪的水平的我来说有必要记录一下。想想感觉不应该写在blog上，觉得好好的博客怎么写这些东西了，不过尽管如此，我还是决心写一下&lt;/strong&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="git" scheme="http://fenlan.github.io/tags/git/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>hexo评论框部署</title>
+    <link href="http://fenlan.github.io/2017/11/21/duoshuo/"/>
+    <id>http://fenlan.github.io/2017/11/21/duoshuo/</id>
+    <published>2017-11-21T08:54:24.334Z</published>
+    <updated>2017-11-21T08:54:24.334Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;这几天我被一个问题缠了很久，一直没解决，到现在算是有点清楚了，所以来写个博文记录一下。hexo本身是有默认的评论框的disqus，个人感觉这个评论框风格很好，其实我想用来着，不过想想国内要翻墙，很麻烦，所以很委屈的选择了多说，不是说多说不好，自己个人比较喜欢disqus。废话不多说，来看看我折腾的过程吧。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="hexo" scheme="http://fenlan.github.io/tags/hexo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>搭建博客的大致流程</title>
+    <link href="http://fenlan.github.io/2017/11/21/blog/"/>
+    <id>http://fenlan.github.io/2017/11/21/blog/</id>
+    <published>2017-11-21T08:54:09.462Z</published>
+    <updated>2017-11-21T08:54:09.462Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;本想着是不是拿英文来写这个流程来锻炼一下自己的英文水平，不过想了想就不装B了，英语就拿磋样还拿出来献丑。言归正传，我以为可以在寝室大神的引导下我能快一点搭好my blog，不过是我想得太简单。经过自己踩了无数坑过后总结大概过程，具体过程网上一搜一大把，不过建议别用百度搜这种东西，能翻墙就翻墙吧。大概过程如下：&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="hexo" scheme="http://fenlan.github.io/tags/hexo/"/>
     
   </entry>
   
   <entry>
     <title>正式入坑CentOS</title>
-    <link href="http://fenlan.github.io/2017/09/25/centos/"/>
-    <id>http://fenlan.github.io/2017/09/25/centos/</id>
-    <published>2017-09-25T10:01:31.696Z</published>
-    <updated>2017-09-25T10:01:31.696Z</updated>
+    <link href="http://fenlan.github.io/2017/11/21/centos/"/>
+    <id>http://fenlan.github.io/2017/11/21/centos/</id>
+    <published>2017-11-21T08:53:41.322Z</published>
+    <updated>2017-11-21T08:53:41.322Z</updated>
     
     <summary type="html">
     
@@ -71,7 +273,103 @@
     </summary>
     
     
-      <category term="CentOS" scheme="http://fenlan.github.io/tags/CentOS/"/>
+      <category term="linux" scheme="http://fenlan.github.io/tags/linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Android在不同Activity之间传输数据</title>
+    <link href="http://fenlan.github.io/2017/11/21/Android%E6%95%B0%E6%8D%AE%E4%BC%A0%E8%BE%93/"/>
+    <id>http://fenlan.github.io/2017/11/21/Android数据传输/</id>
+    <published>2017-11-21T08:53:17.489Z</published>
+    <updated>2017-11-21T08:53:17.489Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;Android中的数据传输&quot;&gt;&lt;a href=&quot;#Android中的数据传输&quot; class=&quot;headerlink&quot; title=&quot;Android中的数据传输&quot;&gt;&lt;/a&gt;Android中的数据传输&lt;/h3&gt;
+    
+    </summary>
+    
+    
+      <category term="Android" scheme="http://fenlan.github.io/tags/Android/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>android中ProgressBar和线程学习记录</title>
+    <link href="http://fenlan.github.io/2017/11/21/android-ProgressBarAndThread/"/>
+    <id>http://fenlan.github.io/2017/11/21/android-ProgressBarAndThread/</id>
+    <published>2017-11-21T08:52:51.989Z</published>
+    <updated>2017-11-21T08:52:51.989Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;strong&gt;感觉没什么说的，就直接放代码吧&lt;/strong&gt;&lt;/p&gt;
+&lt;h3 id=&quot;代码如下&quot;&gt;&lt;a href=&quot;#代码如下&quot; class=&quot;headerlink&quot; title=&quot;代码如下&quot;&gt;&lt;/a&gt;代码如下&lt;/h3&gt;
+    
+    </summary>
+    
+    
+      <category term="Android" scheme="http://fenlan.github.io/tags/Android/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Intent对象使用</title>
+    <link href="http://fenlan.github.io/2017/11/21/android-Intent/"/>
+    <id>http://fenlan.github.io/2017/11/21/android-Intent/</id>
+    <published>2017-11-21T08:52:37.741Z</published>
+    <updated>2017-11-21T08:52:37.741Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;使用Intent对象专递数据&quot;&gt;&lt;a href=&quot;#使用Intent对象专递数据&quot; class=&quot;headerlink&quot; title=&quot;使用Intent对象专递数据&quot;&gt;&lt;/a&gt;使用Intent对象专递数据&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;在Activity之间可以通过Intent对象传递数据&lt;/li&gt;
+&lt;li&gt;使用putExtra()系列方法向Intent对象当中储存数据&lt;/li&gt;
+&lt;li&gt;使用getXXXExtra()系列方法从Intent对象当中取出数据&lt;/li&gt;
+&lt;/ol&gt;
+    
+    </summary>
+    
+    
+      <category term="Android" scheme="http://fenlan.github.io/tags/Android/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>android生命周期函数记录</title>
+    <link href="http://fenlan.github.io/2017/11/21/android-activity/"/>
+    <id>http://fenlan.github.io/2017/11/21/android-activity/</id>
+    <published>2017-11-21T08:52:21.625Z</published>
+    <updated>2017-11-21T08:52:21.625Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;函数及解释如下&quot;&gt;&lt;a href=&quot;#函数及解释如下&quot; class=&quot;headerlink&quot; title=&quot;函数及解释如下&quot;&gt;&lt;/a&gt;函数及解释如下&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;onCreate    在activity对象被第一次创建时调用&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;onStart     在activity变得可见时调用该函数&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;onResume    在activity开始准备与用户交互时调用该方法&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;onPause     当系统即将启动另外一个activity之前调用该方法&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;onStop      当前activity变得不可见时调用该方法&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;onDestroy   当前activity被销毁之前将会调用该方法&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;onRestroy   当一个activity再次启动之前将会调用该方法&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h3 id=&quot;来张图片帮助理解&quot;&gt;&lt;a href=&quot;#来张图片帮助理解&quot; class=&quot;headerlink&quot; title=&quot;来张图片帮助理解&quot;&gt;&lt;/a&gt;来张图片帮助理解&lt;/h3&gt;
+    
+    </summary>
+    
+    
+      <category term="Andriod" scheme="http://fenlan.github.io/tags/Andriod/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Android Handler学习记录</title>
+    <link href="http://fenlan.github.io/2017/11/21/android-handler/"/>
+    <id>http://fenlan.github.io/2017/11/21/android-handler/</id>
+    <published>2017-11-21T08:52:11.737Z</published>
+    <updated>2017-11-21T08:52:11.737Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;strong&gt;这个需要学习三节课程，这是第一节，多的不说，直接放代码&lt;/strong&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Android" scheme="http://fenlan.github.io/tags/Android/"/>
     
   </entry>
   
@@ -96,310 +394,6 @@
     
     
       <category term="hadoop" scheme="http://fenlan.github.io/tags/hadoop/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>zabbix安装配置</title>
-    <link href="http://fenlan.github.io/2017/09/03/zabbix/"/>
-    <id>http://fenlan.github.io/2017/09/03/zabbix/</id>
-    <published>2017-09-02T17:42:03.537Z</published>
-    <updated>2017-09-02T17:42:03.537Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;下载软件包&quot;&gt;&lt;a href=&quot;#下载软件包&quot; class=&quot;headerlink&quot; title=&quot;下载软件包&quot;&gt;&lt;/a&gt;下载软件包&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;从&lt;a href=&quot;https://www.zabbix.com/download&quot;&gt;zabbix&lt;/a&gt;上下载所需要的软件包，包括&lt;code&gt;zabbix-server-mysql&lt;/code&gt;和&lt;code&gt;zabbix-frontend-php&lt;/code&gt;，如果还要安装客户端，还要下载&lt;code&gt;zabbix-agent&lt;/code&gt;。(推荐直接添加&lt;code&gt;zabbix&lt;/code&gt;源)&lt;/strong&gt;&lt;/p&gt;
-&lt;h2 id=&quot;安装软件&quot;&gt;&lt;a href=&quot;#安装软件&quot; class=&quot;headerlink&quot; title=&quot;安装软件&quot;&gt;&lt;/a&gt;安装软件&lt;/h2&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;sudo dpkg -i zabbix-server-mysql_3.4.0-1+xenial_amd64.deb&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;sudo dpkg -i zabbix-frontend-php_3.4.0-1+xenial_all.deb&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;h2 id=&quot;配置Zabbix-server&quot;&gt;&lt;a href=&quot;#配置Zabbix-server&quot; class=&quot;headerlink&quot; title=&quot;配置Zabbix server&quot;&gt;&lt;/a&gt;配置Zabbix server&lt;/h2&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;sudo vim /etc/zabbix/zabbix_server.conf&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;修改其中的&lt;code&gt;DBhost&lt;/code&gt;, &lt;code&gt;DBUser&lt;/code&gt;, &lt;code&gt;DBPassword&lt;/code&gt;，如果有必要，需要设置&lt;code&gt;socket&lt;/code&gt;与&lt;code&gt;mysql&lt;/code&gt;的&lt;code&gt;socket&lt;/code&gt;相同。&lt;br&gt;
-    
-    </summary>
-    
-    
-      <category term="zabbix" scheme="http://fenlan.github.io/tags/zabbix/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>logrotate</title>
-    <link href="http://fenlan.github.io/2017/06/21/logrotate/"/>
-    <id>http://fenlan.github.io/2017/06/21/logrotate/</id>
-    <published>2017-06-20T16:22:57.469Z</published>
-    <updated>2017-06-20T16:22:57.469Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;logrotate介绍&quot;&gt;&lt;a href=&quot;#logrotate介绍&quot; class=&quot;headerlink&quot; title=&quot;logrotate介绍&quot;&gt;&lt;/a&gt;logrotate介绍&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;对于Linux系统安全来说，日志文件是及其重要的工具。日志文件包含了关于系统中发生的事件的有用信息，在排障过程中或者系统性能分析时经常被用到。当日志文件不断增长的时候，就需要定时切割，否则，写日志的速度和性能也会下降，更不便于我们归档和查询。&lt;/strong&gt;&lt;br&gt;
-    
-    </summary>
-    
-    
-      <category term="logrotate" scheme="http://fenlan.github.io/tags/logrotate/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Android Handler学习记录</title>
-    <link href="http://fenlan.github.io/2017/06/15/android-handler/"/>
-    <id>http://fenlan.github.io/2017/06/15/android-handler/</id>
-    <published>2017-06-14T16:20:43.113Z</published>
-    <updated>2016-06-23T12:43:24.506Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;strong&gt;这个需要学习三节课程，这是第一节，多的不说，直接放代码&lt;/strong&gt;&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="Android Handler" scheme="http://fenlan.github.io/tags/Android-Handler/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Android在不同Activity之间传输数据</title>
-    <link href="http://fenlan.github.io/2017/06/15/Android%E6%95%B0%E6%8D%AE%E4%BC%A0%E8%BE%93/"/>
-    <id>http://fenlan.github.io/2017/06/15/Android数据传输/</id>
-    <published>2017-06-14T16:20:43.113Z</published>
-    <updated>2016-07-23T04:38:39.664Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;Android中的数据传输&quot;&gt;&lt;a href=&quot;#Android中的数据传输&quot; class=&quot;headerlink&quot; title=&quot;Android中的数据传输&quot;&gt;&lt;/a&gt;Android中的数据传输&lt;/h3&gt;
-    
-    </summary>
-    
-    
-      <category term="Android 数据传输" scheme="http://fenlan.github.io/tags/Android-%E6%95%B0%E6%8D%AE%E4%BC%A0%E8%BE%93/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>hexo评论框部署</title>
-    <link href="http://fenlan.github.io/2017/06/15/duoshuo/"/>
-    <id>http://fenlan.github.io/2017/06/15/duoshuo/</id>
-    <published>2017-06-14T16:20:43.113Z</published>
-    <updated>2016-05-23T10:24:20.690Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;这几天我被一个问题缠了很久，一直没解决，到现在算是有点清楚了，所以来写个博文记录一下。hexo本身是有默认的评论框的disqus，个人感觉这个评论框风格很好，其实我想用来着，不过想想国内要翻墙，很麻烦，所以很委屈的选择了多说，不是说多说不好，自己个人比较喜欢disqus。废话不多说，来看看我折腾的过程吧。&lt;/p&gt;
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Git install and setting</title>
-    <link href="http://fenlan.github.io/2017/06/15/git-install/"/>
-    <id>http://fenlan.github.io/2017/06/15/git-install/</id>
-    <published>2017-06-14T16:20:43.113Z</published>
-    <updated>2016-05-21T07:38:56.132Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h3 id=&quot;git-install-and-setting&quot;&gt;&lt;a href=&quot;#git-install-and-setting&quot; class=&quot;headerlink&quot; title=&quot;git install and setting:&quot;&gt;&lt;/a&gt;git install and
-        
-      
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Intent对象使用</title>
-    <link href="http://fenlan.github.io/2017/06/15/android-Intent/"/>
-    <id>http://fenlan.github.io/2017/06/15/android-Intent/</id>
-    <published>2017-06-14T16:20:43.113Z</published>
-    <updated>2016-06-17T04:47:26.891Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;使用Intent对象专递数据&quot;&gt;&lt;a href=&quot;#使用Intent对象专递数据&quot; class=&quot;headerlink&quot; title=&quot;使用Intent对象专递数据&quot;&gt;&lt;/a&gt;使用Intent对象专递数据&lt;/h3&gt;&lt;ol&gt;
-&lt;li&gt;在Activity之间可以通过Intent对象传递数据&lt;/li&gt;
-&lt;li&gt;使用putExtra()系列方法向Intent对象当中储存数据&lt;/li&gt;
-&lt;li&gt;使用getXXXExtra()系列方法从Intent对象当中取出数据&lt;/li&gt;
-&lt;/ol&gt;
-    
-    </summary>
-    
-    
-      <category term="android-Intent" scheme="http://fenlan.github.io/tags/android-Intent/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>git to gihub</title>
-    <link href="http://fenlan.github.io/2017/06/15/git-to-github/"/>
-    <id>http://fenlan.github.io/2017/06/15/git-to-github/</id>
-    <published>2017-06-14T16:20:43.113Z</published>
-    <updated>2016-08-17T22:20:44.492Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;strong&gt;我想想，这个东西好像是上个学期寝室大神告诉我的，然而我现在才知道怎么使用它，主要是之前没接触到这个东西，不知道这东西是干嘛用的，在建blog时接触到了，对于如此难堪的水平的我来说有必要记录一下。想想感觉不应该写在blog上，觉得好好的博客怎么写这些东西了，不过尽管如此，我还是决心写一下&lt;/strong&gt;&lt;/p&gt;
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>通过留言板的添加所得到的tip</title>
-    <link href="http://fenlan.github.io/2017/06/15/guestbook/"/>
-    <id>http://fenlan.github.io/2017/06/15/guestbook/</id>
-    <published>2017-06-14T16:20:43.113Z</published>
-    <updated>2016-05-24T15:18:45.706Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;在添加留言板时意外收获到了我想要的外部链接，但不知道适不适用与除主页上的menu以外的地方。假设一个场景，就是你要在主页上的某个地方添加一个超链接，使点击事件发生后跳到另外一个界面，设置如下：&lt;/p&gt;
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Hello World</title>
-    <link href="http://fenlan.github.io/2017/06/15/hello-world/"/>
-    <id>http://fenlan.github.io/2017/06/15/hello-world/</id>
-    <published>2017-06-14T16:20:43.113Z</published>
-    <updated>2016-05-23T13:12:54.984Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;font face=&quot;微软雅黑&quot;&gt;&lt;br&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a
-        
-      
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>计算两个大数乘积巧算法</title>
-    <link href="http://fenlan.github.io/2017/06/15/JieCheng/"/>
-    <id>http://fenlan.github.io/2017/06/15/JieCheng/</id>
-    <published>2017-06-14T16:20:43.113Z</published>
-    <updated>2016-05-25T09:34:43.342Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;strong&gt;最近遇到了一个编程上的小问题，编程题目是这样的，计算一个数的阶乘，我当时就在想，这不是很简单吗，然后我随手写了串代码，如下&lt;/strong&gt;&lt;/p&gt;
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>android中ProgressBar和线程学习记录</title>
-    <link href="http://fenlan.github.io/2017/06/15/android-ProgressBarAndThread/"/>
-    <id>http://fenlan.github.io/2017/06/15/android-ProgressBarAndThread/</id>
-    <published>2017-06-14T16:20:43.113Z</published>
-    <updated>2016-06-17T11:09:42.142Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;strong&gt;感觉没什么说的，就直接放代码吧&lt;/strong&gt;&lt;/p&gt;
-&lt;h3 id=&quot;代码如下&quot;&gt;&lt;a href=&quot;#代码如下&quot; class=&quot;headerlink&quot; title=&quot;代码如下&quot;&gt;&lt;/a&gt;代码如下&lt;/h3&gt;
-    
-    </summary>
-    
-    
-      <category term="android-Progress And Thread" scheme="http://fenlan.github.io/tags/android-Progress-And-Thread/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>android生命周期函数记录</title>
-    <link href="http://fenlan.github.io/2017/06/15/android-activity/"/>
-    <id>http://fenlan.github.io/2017/06/15/android-activity/</id>
-    <published>2017-06-14T16:20:43.113Z</published>
-    <updated>2016-06-16T16:23:51.450Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;函数及解释如下&quot;&gt;&lt;a href=&quot;#函数及解释如下&quot; class=&quot;headerlink&quot; title=&quot;函数及解释如下&quot;&gt;&lt;/a&gt;函数及解释如下&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;onCreate    在activity对象被第一次创建时调用&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;onStart     在activity变得可见时调用该函数&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;onResume    在activity开始准备与用户交互时调用该方法&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;onPause     当系统即将启动另外一个activity之前调用该方法&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;onStop      当前activity变得不可见时调用该方法&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;onDestroy   当前activity被销毁之前将会调用该方法&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;onRestroy   当一个activity再次启动之前将会调用该方法&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;h3 id=&quot;来张图片帮助理解&quot;&gt;&lt;a href=&quot;#来张图片帮助理解&quot; class=&quot;headerlink&quot; title=&quot;来张图片帮助理解&quot;&gt;&lt;/a&gt;来张图片帮助理解&lt;/h3&gt;
-    
-    </summary>
-    
-    
-      <category term="andriod" scheme="http://fenlan.github.io/tags/andriod/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>吐槽</title>
-    <link href="http://fenlan.github.io/2017/06/15/my-note1/"/>
-    <id>http://fenlan.github.io/2017/06/15/my-note1/</id>
-    <published>2017-06-14T16:20:43.113Z</published>
-    <updated>2016-05-21T15:55:46.787Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;我必须来吐槽一下，搞了两天了来搭建自己的博客，然而出现各种莫名其妙的东西，让我很是难受，我已经合理怀疑自己的智商了。不过话说回来上次在网上瞎做了一个智商测试，测试出来我居然有143的天才智商，真的假的。&lt;/p&gt;
-
-        
-      
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>发个牢骚</title>
-    <link href="http://fenlan.github.io/2017/06/15/my-note2/"/>
-    <id>http://fenlan.github.io/2017/06/15/my-note2/</id>
-    <published>2017-06-14T16:20:43.113Z</published>
-    <updated>2016-05-23T08:13:57.218Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;今天不知道一不小心把那个代码改了，直接导致每篇博文下面的comment前面的图标不见了。室友说这点小细节不要在意，然而对于我这种患强迫症的人来说就是烦，想着去改，结果没改好，导致我的留言板也没做好。所以今天整个人都不好了。。。。最后决定以补补高数算了，晚上慢慢再找找这个小b
-        
-      
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>获取局域网连接设备mac地址</title>
-    <link href="http://fenlan.github.io/2017/06/15/nmap_mac/"/>
-    <id>http://fenlan.github.io/2017/06/15/nmap_mac/</id>
-    <published>2017-06-14T16:20:43.113Z</published>
-    <updated>2017-03-22T07:21:50.831Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;使用工具&quot;&gt;&lt;a href=&quot;#使用工具&quot; class=&quot;headerlink&quot; title=&quot;使用工具&quot;&gt;&lt;/a&gt;使用工具&lt;/h1&gt;&lt;p&gt;&lt;strong&gt;nmap: 也就是Network Mapper,最早是linux下的网络扫描和嗅探工具包&lt;/strong&gt;&lt;br&gt;&lt;strong&gt;nmap是一个网络连接端扫描软件，用来扫描网上电脑开放的网络端口。确定哪些服务运行在哪些连接端，并且推断计算机运行哪个操作系统。他是网络管理员比用的软件之一，以及用以评估网络系统安全。&lt;/strong&gt;&lt;br&gt;
-    
-    </summary>
-    
     
   </entry>
   
