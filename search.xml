@@ -138,7 +138,7 @@
     <url>%2F2016%2F06%2F16%2Fandroid-activity%2F</url>
     <content type="text"><![CDATA[函数及解释如下1234567onCreate 在activity对象被第一次创建时调用onStart 在activity变得可见时调用该函数onResume 在activity开始准备与用户交互时调用该方法onPause 当系统即将启动另外一个activity之前调用该方法onStop 当前activity变得不可见时调用该方法onDestroy 当前activity被销毁之前将会调用该方法onRestroy 当一个activity再次启动之前将会调用该方法 来张图片帮助理解 提供java源代码12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061package com.example.activitytest;import android.app.Activity;import android.content.Intent;import android.os.Bundle;import android.util.Log;import android.view.View;import android.view.View.OnClickListener;import android.widget.Button;public class MainActivity extends Activity &#123; private Button btn; private static final String TAG = "ActivityTest"; @Override protected void onCreate(Bundle savedInstanceState) &#123; super.onCreate(savedInstanceState); Log.d(TAG, "MainActivity onCreate"); setContentView(R.layout.activity_main); btn = (Button)findViewById(R.id.btn); btn.setOnClickListener(new OnClickListener() &#123; @Override public void onClick(View v) &#123; Intent intent = new Intent(MainActivity.this,SecondActivity.class); startActivity(intent); &#125; &#125;); &#125; @Override protected void onPause() &#123; Log.d(TAG, "MainActivity onPause "); super.onPause(); &#125; @Override protected void onResume() &#123; Log.d(TAG, "MainActivity onResume "); super.onResume(); &#125; @Override protected void onStart() &#123; super.onStart(); Log.d(TAG,"MainActivity onStart "); &#125; @Override protected void onStop() &#123; super.onStop(); Log.d(TAG, "MainActivity onStop "); &#125; @Override protected void onDestroy() &#123; super.onDestroy(); Log.d(TAG, "MainActivity onDestroy "); &#125; @Override protected void onRestart() &#123; super.onRestart(); Log.d(TAG, "MainActivity onRestart "); &#125;&#125;]]></content>
       <tags>
-        <tag>Andriod</tag>
+        <tag>Android</tag>
       </tags>
   </entry>
   <entry>
@@ -153,9 +153,6 @@
     <title><![CDATA[拖更。。。。。]]></title>
     <url>%2F2016%2F05%2F30%2F%E6%8B%96%E6%9B%B4%2F</url>
     <content type="text"><![CDATA[最近游手好闲，又开始浪了，感觉最近没什么时间啊，主要是课程脱节了，马上又要期末考试了，所以可能要托更一段时间。下一步可能要搭建自己的服务器，嗯嗯，是这样，不过具体什么时候开始，不知道，先挖个坑把，慢慢填]]></content>
-      <tags>
-        <tag>服务器</tag>
-      </tags>
   </entry>
   <entry>
     <title><![CDATA[git to gihub]]></title>
