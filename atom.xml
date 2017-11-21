@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://fenlan.github.io/"/>
-  <updated>2017-11-21T09:46:19.531Z</updated>
+  <updated>2017-11-21T09:28:32.913Z</updated>
   <id>http://fenlan.github.io/</id>
   
   <author>
@@ -15,28 +15,6 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>Git install and setting</title>
-    <link href="http://fenlan.github.io/2017/11/21/git-install/"/>
-    <id>http://fenlan.github.io/2017/11/21/git-install/</id>
-    <published>2017-11-21T09:46:19.531Z</published>
-    <updated>2017-11-21T09:46:19.531Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h3 id=&quot;git-install-and-setting&quot;&gt;&lt;a href=&quot;#git-install-and-setting&quot; class=&quot;headerlink&quot; title=&quot;git install and setting:&quot;&gt;&lt;/a&gt;git install and
-        
-      
-    
-    </summary>
-    
-    
-  </entry>
   
   <entry>
     <title>Unix 时间问题(非原创)</title>
@@ -411,6 +389,31 @@
     
     
       <category term="linux" scheme="http://fenlan.github.io/tags/linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>拖更。。。。。</title>
+    <link href="http://fenlan.github.io/2016/05/30/%E6%8B%96%E6%9B%B4/"/>
+    <id>http://fenlan.github.io/2016/05/30/拖更/</id>
+    <published>2016-05-30T07:18:23.000Z</published>
+    <updated>2017-11-21T09:52:23.228Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;&lt;strong&gt;最近游手好闲，又开始浪了，感觉最近没什么时间啊，主要是课程脱节了，马上又要期末考试了，所以可能要托更一段时间。下一步可能要搭建自己的服务器，嗯嗯，是这样，不过具体什么时候开始，不知道，先挖个坑把，慢慢填&lt;/strong&gt;&lt;/p&gt;
+
+        
+      
+    
+    </summary>
+    
+    
+      <category term="服务器" scheme="http://fenlan.github.io/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
     
   </entry>
   
