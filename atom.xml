@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://fenlan.github.io/"/>
-  <updated>2017-11-21T08:41:44.053Z</updated>
+  <updated>2017-11-21T08:46:08.862Z</updated>
   <id>http://fenlan.github.io/</id>
   
   <author>
@@ -15,6 +15,24 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Unix 时间问题(非原创)</title>
+    <link href="http://fenlan.github.io/2017/11/21/unix%E6%97%B6%E9%97%B4md/"/>
+    <id>http://fenlan.github.io/2017/11/21/unix时间md/</id>
+    <published>2017-11-21T08:46:08.862Z</published>
+    <updated>2017-11-21T08:46:08.862Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;故事缘由&quot;&gt;&lt;a href=&quot;#故事缘由&quot; class=&quot;headerlink&quot; title=&quot;故事缘由&quot;&gt;&lt;/a&gt;故事缘由&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;有时候不得不相信，有些东西就是刚刚好，刚刚好到来，刚刚好知道，刚刚好契合。因为这些刚刚好，就会不由自主的激动，感觉这些刚知道的东西发生在自己身上。这次要说的是unix时间问题，我最开始接触这个问题是我们云计算课程项目中一个小小的时间问题，当时项目中所有的时间都是通过unix时间记录。所谓unix时间，就是记录从unix元年1970年1月1日0点起到当前时间经过的秒数。这个问题最开始我并没有觉得有什么问题，但后来我在网上瞎逛的时候看见了一篇文章 &lt;a href=&quot;http://www.wttech.org/archives/3960&quot;&gt;十大著名的计算机发展史上的软件缺陷&lt;/a&gt; ,这里就讲到了一个unix时间问题，我就很好奇的去了解这一个故事，而在这个时间点，我们正在进行的操作系统课程也讲到了unix时间，所以这一堆堆事情，就刚刚好地发生了。&lt;/strong&gt;&lt;br&gt;
+    
+    </summary>
+    
+    
+      <category term="ubuntu" scheme="http://fenlan.github.io/tags/ubuntu/"/>
+    
+  </entry>
   
   <entry>
     <title>laravel学习之旅</title>
@@ -32,24 +50,6 @@
     
     
       <category term="laravel mvc" scheme="http://fenlan.github.io/tags/laravel-mvc/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Unix 时间问题(非原创)</title>
-    <link href="http://fenlan.github.io/2017/11/21/unix%E6%97%B6%E9%97%B4md/"/>
-    <id>http://fenlan.github.io/2017/11/21/unix时间md/</id>
-    <published>2017-11-21T08:41:19.453Z</published>
-    <updated>2017-11-21T08:41:19.453Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;故事缘由&quot;&gt;&lt;a href=&quot;#故事缘由&quot; class=&quot;headerlink&quot; title=&quot;故事缘由&quot;&gt;&lt;/a&gt;故事缘由&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;有时候不得不相信，有些东西就是刚刚好，刚刚好到来，刚刚好知道，刚刚好契合。因为这些刚刚好，就会不由自主的激动，感觉这些刚知道的东西发生在自己身上。这次要说的是unix时间问题，我最开始接触这个问题是我们云计算课程项目中一个小小的时间问题，当时项目中所有的时间都是通过unix时间记录。所谓unix时间，就是记录从unix元年1970年1月1日0点起到当前时间经过的秒数。这个问题最开始我并没有觉得有什么问题，但后来我在网上瞎逛的时候看见了一篇文章 &lt;a href=&quot;http://www.wttech.org/archives/3960&quot;&gt;十大著名的计算机发展史上的软件缺陷&lt;/a&gt; ,这里就讲到了一个unix时间问题，我就很好奇的去了解这一个故事，而在这个时间点，我们正在进行的操作系统课程也讲到了unix时间，所以这一堆堆事情，就刚刚好地发生了。&lt;/strong&gt;&lt;br&gt;
-    
-    </summary>
-    
-    
-      <category term="ubuntu" scheme="http://fenlan.github.io/tags/ubuntu/"/>
     
   </entry>
   
