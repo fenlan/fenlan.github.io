@@ -143,31 +143,6 @@
   </entry>
   
   <entry>
-    <title>拖更。。。。。</title>
-    <link href="http://fenlan.github.io/2017/06/15/%E6%8B%96%E6%9B%B4/"/>
-    <id>http://fenlan.github.io/2017/06/15/拖更/</id>
-    <published>2017-06-14T16:20:43.113Z</published>
-    <updated>2016-05-29T16:49:52.005Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;&lt;strong&gt;最近游手好闲，又开始浪了，感觉最近没什么时间啊，主要是课程脱节了，马上又要期末考试了，所以可能要托更一段时间。下一步可能要搭建自己的服务器，嗯嗯，是这样，不过具体什么时候开始，不知道，先挖个坑把，慢慢填&lt;/strong&gt;&lt;/p&gt;
-
-        
-      
-    
-    </summary>
-    
-    
-      <category term="服务器" scheme="http://fenlan.github.io/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
-    
-  </entry>
-  
-  <entry>
     <title>logrotate</title>
     <link href="http://fenlan.github.io/2017/06/14/logrotate/"/>
     <id>http://fenlan.github.io/2017/06/14/logrotate/</id>
@@ -416,6 +391,26 @@
     
     
       <category term="Andriod" scheme="http://fenlan.github.io/tags/Andriod/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>服务器折腾中。。。</title>
+    <link href="http://fenlan.github.io/2016/06/13/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+    <id>http://fenlan.github.io/2016/06/13/服务器/</id>
+    <published>2016-06-12T16:00:00.000Z</published>
+    <updated>2017-11-21T09:20:06.637Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;安装&quot;&gt;&lt;a href=&quot;#安装&quot; class=&quot;headerlink&quot; title=&quot;安装&quot;&gt;&lt;/a&gt;安装&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;需要安装apahce2,php5,mysql,命令：&lt;/strong&gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;variable&quot;&gt;$sudo&lt;/span&gt; apt-get install apache2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;variable&quot;&gt;$sudo&lt;/span&gt; apt-get install php5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;variable&quot;&gt;$sudo&lt;/span&gt; apt-get install mysql&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h4 id=&quot;使用记录&quot;&gt;&lt;a href=&quot;#使用记录&quot; class=&quot;headerlink&quot; title=&quot;使用记录&quot;&gt;&lt;/a&gt;使用记录&lt;/h4&gt;&lt;p&gt;&lt;strong&gt;apache2重启命令等&lt;/strong&gt;&lt;br&gt;
+    
+    </summary>
+    
+    
+      <category term="linux" scheme="http://fenlan.github.io/tags/linux/"/>
     
   </entry>
   

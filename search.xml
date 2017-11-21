@@ -46,14 +46,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[拖更。。。。。]]></title>
-    <url>%2F2017%2F06%2F15%2F%E6%8B%96%E6%9B%B4%2F</url>
-    <content type="text"><![CDATA[最近游手好闲，又开始浪了，感觉最近没什么时间啊，主要是课程脱节了，马上又要期末考试了，所以可能要托更一段时间。下一步可能要搭建自己的服务器，嗯嗯，是这样，不过具体什么时候开始，不知道，先挖个坑把，慢慢填]]></content>
-      <tags>
-        <tag>服务器</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[logrotate]]></title>
     <url>%2F2017%2F06%2F14%2Flogrotate%2F</url>
     <content type="text"><![CDATA[logrotate介绍对于Linux系统安全来说，日志文件是及其重要的工具。日志文件包含了关于系统中发生的事件的有用信息，在排障过程中或者系统性能分析时经常被用到。当日志文件不断增长的时候，就需要定时切割，否则，写日志的速度和性能也会下降，更不便于我们归档和查询。所以便有了使用logrotate的时候，logrotate是十分有用的工具，它可以自动对日志进行截断、压缩以及删除旧的日志文件。例如，你可以设置logrotate，让/var/log里的日志文件没30天轮循，并删除超过6个月的日志。配置完后，logrotate的运作完全自动化，不必进行任何一步的人为干预。 logrotate配置文件位置Linux系统默认安装logrotate工具，它默认的配置文件在:/etc/logrotate.conf/etc/logrotate.d/ 定时轮循机制 /etc/cron.daily/logrotate中定义了每天定时执行的任务 /etc/cron.weekly/logrotate中定义了每个星期定时执行的任务 /etc/cron.hourly/logrotate中定义了每小时定时执行的任务 /etc/cron.monthly/logrotate中定义了每个月定时执行的任务 /etc/crontab规定了轮循的时间 /etc/cron.daily/下面的任务都是每天6:25执行 /etc/cron.weekly/下面的任务都是每周日6:47执行 /etc/cron.monthly/下面的任务都是每月1号6:52执行]]></content>
@@ -160,6 +152,14 @@
     <content type="text"><![CDATA[安装需要安装apahce2,php5,mysql,命令： 123$sudo apt-get install apache2$sudo apt-get install php5$sudo apt-get install mysql 使用记录apache2重启命令等123$/etc/init.d/apache2 restart$/etc/init.d/apache2 start$/etc/init.d/apache2 stop mysql命令记录说之前我得记录一下，像我这种菜鸟，还是得用图形界面习惯一点，纯命令太难了，所以记录一下mysql的可视化软件sqlyog MySQL管理启动MySQL1sudo service mysql start 1.创建新数据库1create database xscj; 2.查看数据库1show databases; 3.选择数据库1use xscj; 4.创建表12345create table student(number varchar(6) NOT NULL,name varchar(10) NOT NULL,sex tinyint NOT NULL,birthday date); 5.查看表结构1describe student; 6.修改表1alter table student add(xuefen int default 0, beizhu text NULL); 7.插入记录1insert into student values(&apos;1513011&apos;,&apos;gaojie&apos;,1,cast(&apos;19961111&apos;as date),0,&apos;&apos;); :注释一下，cast(exp as type)为类型转换函数 检验是否插入成功1select * from student; 服务器配置更新内容更新时间：2016年11月20日鉴于之前单个下载LAMP，然后又要各种配置和模块加载，很复杂而且我一直没配置成功，最后走了一条偏激的道路。直接一条命令将所有的下载完成，并且自动将所有都配置好。详细内容 域名和虚拟主机更新时间：2016年11月24日一直想要一个自己的域名和自己的虚拟主机，在昨天突发奇想去了godadday逛了一下看有没有合适的域名，很庆幸我捡到了一个一年8块钱的域名，不知道为什么那么便宜，总之就是8块钱买了一个属于自己的域名： .在godadday上注册一个账号，然后筛选一个你觉得合适的域名下订单。 进入自己的控制台了解一下基本情况. 域名可以绑定自己配置的服务器，也可以在网上购买一个虚拟主机，通过配置域名的DNS、host names和Nameservers将域名绑定到指定的主机 下载一个ftp软件，通过ftp软件来管理自己的虚拟主机，推荐软件FileZilla 推荐虚拟主机购买网址hostinger(英国)，可获得免费的虚拟主机一年godadday购买域名，个人感觉比万网要划算hostinger购买虚拟主机，有免费的空间哦]]></content>
       <tags>
         <tag>linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[拖更。。。。。]]></title>
+    <url>%2F2016%2F05%2F30%2F%E6%8B%96%E6%9B%B4%2F</url>
+    <content type="text"><![CDATA[最近游手好闲，又开始浪了，感觉最近没什么时间啊，主要是课程脱节了，马上又要期末考试了，所以可能要托更一段时间。下一步可能要搭建自己的服务器，嗯嗯，是这样，不过具体什么时候开始，不知道，先挖个坑把，慢慢填]]></content>
+      <tags>
+        <tag>服务器</tag>
       </tags>
   </entry>
   <entry>
