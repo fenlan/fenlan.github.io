@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://fenlan.github.io/"/>
-  <updated>2017-11-21T09:06:33.446Z</updated>
+  <updated>2017-11-21T09:28:32.913Z</updated>
   <id>http://fenlan.github.io/</id>
   
   <author>
@@ -15,45 +15,6 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>zabbix安装配置</title>
-    <link href="http://fenlan.github.io/2017/11/21/zabbix/"/>
-    <id>http://fenlan.github.io/2017/11/21/zabbix/</id>
-    <published>2017-11-21T09:06:33.446Z</published>
-    <updated>2017-11-21T09:06:33.446Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;下载软件包&quot;&gt;&lt;a href=&quot;#下载软件包&quot; class=&quot;headerlink&quot; title=&quot;下载软件包&quot;&gt;&lt;/a&gt;下载软件包&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;从&lt;a href=&quot;https://www.zabbix.com/download&quot;&gt;zabbix&lt;/a&gt;上下载所需要的软件包，包括&lt;code&gt;zabbix-server-mysql&lt;/code&gt;和&lt;code&gt;zabbix-frontend-php&lt;/code&gt;，如果还要安装客户端，还要下载&lt;code&gt;zabbix-agent&lt;/code&gt;。(推荐直接添加&lt;code&gt;zabbix&lt;/code&gt;源)&lt;/strong&gt;&lt;/p&gt;
-&lt;h2 id=&quot;安装软件&quot;&gt;&lt;a href=&quot;#安装软件&quot; class=&quot;headerlink&quot; title=&quot;安装软件&quot;&gt;&lt;/a&gt;安装软件&lt;/h2&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;sudo dpkg -i zabbix-server-mysql_3.4.0-1+xenial_amd64.deb&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;sudo dpkg -i zabbix-frontend-php_3.4.0-1+xenial_all.deb&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;h2 id=&quot;配置Zabbix-server&quot;&gt;&lt;a href=&quot;#配置Zabbix-server&quot; class=&quot;headerlink&quot; title=&quot;配置Zabbix server&quot;&gt;&lt;/a&gt;配置Zabbix server&lt;/h2&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;sudo vim /etc/zabbix/zabbix_server.conf&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;修改其中的&lt;code&gt;DBhost&lt;/code&gt;, &lt;code&gt;DBUser&lt;/code&gt;, &lt;code&gt;DBPassword&lt;/code&gt;， 如果有必要，需要设置&lt;code&gt;socket&lt;/code&gt;与&lt;code&gt;mysql&lt;/code&gt;的&lt;code&gt;socket&lt;/code&gt;相同。&lt;br&gt;
-    
-    </summary>
-    
-    
-      <category term="linux" scheme="http://fenlan.github.io/tags/linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>logrotate</title>
-    <link href="http://fenlan.github.io/2017/11/21/logrotate/"/>
-    <id>http://fenlan.github.io/2017/11/21/logrotate/</id>
-    <published>2017-11-21T08:55:53.271Z</published>
-    <updated>2017-11-21T08:55:53.271Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;logrotate介绍&quot;&gt;&lt;a href=&quot;#logrotate介绍&quot; class=&quot;headerlink&quot; title=&quot;logrotate介绍&quot;&gt;&lt;/a&gt;logrotate介绍&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;对于Linux系统安全来说，日志文件是及其重要的工具。日志文件包含了关于系统中发生的事件的有用信息，在排障过程中或者系统性能分析时经常被用到。当日志文件不断增长的时候，就需要定时切割，否则，写日志的速度和性能也会下降，更不便于我们归档和查询。&lt;/strong&gt;&lt;br&gt;
-    
-    </summary>
-    
-    
-      <category term="linux" scheme="http://fenlan.github.io/tags/linux/"/>
-    
-  </entry>
   
   <entry>
     <title>Unix 时间问题(非原创)</title>
@@ -94,6 +55,27 @@
     
     
       <category term="hadoop" scheme="http://fenlan.github.io/tags/hadoop/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>zabbix安装配置</title>
+    <link href="http://fenlan.github.io/2017/08/22/zabbix/"/>
+    <id>http://fenlan.github.io/2017/08/22/zabbix/</id>
+    <published>2017-08-22T07:18:23.000Z</published>
+    <updated>2017-11-21T09:35:09.890Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;下载软件包&quot;&gt;&lt;a href=&quot;#下载软件包&quot; class=&quot;headerlink&quot; title=&quot;下载软件包&quot;&gt;&lt;/a&gt;下载软件包&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;从&lt;a href=&quot;https://www.zabbix.com/download&quot;&gt;zabbix&lt;/a&gt;上下载所需要的软件包，包括&lt;code&gt;zabbix-server-mysql&lt;/code&gt;和&lt;code&gt;zabbix-frontend-php&lt;/code&gt;，如果还要安装客户端，还要下载&lt;code&gt;zabbix-agent&lt;/code&gt;。(推荐直接添加&lt;code&gt;zabbix&lt;/code&gt;源)&lt;/strong&gt;&lt;/p&gt;
+&lt;h2 id=&quot;安装软件&quot;&gt;&lt;a href=&quot;#安装软件&quot; class=&quot;headerlink&quot; title=&quot;安装软件&quot;&gt;&lt;/a&gt;安装软件&lt;/h2&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;sudo dpkg -i zabbix-server-mysql_3.4.0-1+xenial_amd64.deb&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;sudo dpkg -i zabbix-frontend-php_3.4.0-1+xenial_all.deb&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h2 id=&quot;配置Zabbix-server&quot;&gt;&lt;a href=&quot;#配置Zabbix-server&quot; class=&quot;headerlink&quot; title=&quot;配置Zabbix server&quot;&gt;&lt;/a&gt;配置Zabbix server&lt;/h2&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;sudo vim /etc/zabbix/zabbix_server.conf&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;修改其中的&lt;code&gt;DBhost&lt;/code&gt;, &lt;code&gt;DBUser&lt;/code&gt;, &lt;code&gt;DBPassword&lt;/code&gt;， 如果有必要，需要设置&lt;code&gt;socket&lt;/code&gt;与&lt;code&gt;mysql&lt;/code&gt;的&lt;code&gt;socket&lt;/code&gt;相同。&lt;br&gt;
+    
+    </summary>
+    
+    
+      <category term="linux" scheme="http://fenlan.github.io/tags/linux/"/>
     
   </entry>
   
@@ -182,6 +164,24 @@
     
     </summary>
     
+    
+  </entry>
+  
+  <entry>
+    <title>logrotate</title>
+    <link href="http://fenlan.github.io/2017/06/14/logrotate/"/>
+    <id>http://fenlan.github.io/2017/06/14/logrotate/</id>
+    <published>2017-06-14T07:18:23.000Z</published>
+    <updated>2017-11-21T09:33:06.121Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;logrotate介绍&quot;&gt;&lt;a href=&quot;#logrotate介绍&quot; class=&quot;headerlink&quot; title=&quot;logrotate介绍&quot;&gt;&lt;/a&gt;logrotate介绍&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;对于Linux系统安全来说，日志文件是及其重要的工具。日志文件包含了关于系统中发生的事件的有用信息，在排障过程中或者系统性能分析时经常被用到。当日志文件不断增长的时候，就需要定时切割，否则，写日志的速度和性能也会下降，更不便于我们归档和查询。&lt;/strong&gt;&lt;br&gt;
+    
+    </summary>
+    
+    
+      <category term="linux" scheme="http://fenlan.github.io/tags/linux/"/>
     
   </entry>
   
