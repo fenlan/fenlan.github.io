@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://fenlan.github.io/"/>
-  <updated>2017-11-27T15:01:58.861Z</updated>
+  <updated>2017-11-28T02:31:37.810Z</updated>
   <id>http://fenlan.github.io/</id>
   
   <author>
@@ -21,13 +21,15 @@
     <link href="http://fenlan.github.io/2017/11/27/docker/"/>
     <id>http://fenlan.github.io/2017/11/27/docker/</id>
     <published>2017-11-27T07:18:23.000Z</published>
-    <updated>2017-11-27T15:01:58.861Z</updated>
+    <updated>2017-11-28T02:31:37.810Z</updated>
     
     <summary type="html">
     
       &lt;h2 id=&quot;概述&quot;&gt;&lt;a href=&quot;#概述&quot; class=&quot;headerlink&quot; title=&quot;概述&quot;&gt;&lt;/a&gt;概述&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;Docker 是世界领先的软件容器平台。开发人员利用 Docker 可以消除协作编码”在我的机器上可正常工作”的问题。运维人员利用 Docker 可以在隔离容器中并行运行和管理应用，获得更好的计算密度。企业利用 Docker 可以构建敏捷的软件交付管道，以更快的速度、更高的安全性和可靠的信誉为 Linux 和 Windows Server 应用发布新功能。&lt;/strong&gt;&lt;br&gt;&lt;strong&gt;&lt;a href=&quot;https://www.docker-cn.com/what-docker&quot;&gt;更加全面的介绍&lt;/a&gt;&lt;/strong&gt;&lt;br&gt;
     
     </summary>
+    
+      <category term="linux" scheme="http://fenlan.github.io/categories/linux/"/>
     
     
       <category term="linux" scheme="http://fenlan.github.io/tags/linux/"/>
