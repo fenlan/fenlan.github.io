@@ -41,13 +41,15 @@
     <link href="http://fenlan.github.io/2017/11/21/unix%E6%97%B6%E9%97%B4md/"/>
     <id>http://fenlan.github.io/2017/11/21/unix时间md/</id>
     <published>2017-11-21T07:18:23.000Z</published>
-    <updated>2017-11-21T09:28:32.913Z</updated>
+    <updated>2017-11-28T02:52:35.939Z</updated>
     
     <summary type="html">
     
       &lt;h2 id=&quot;故事缘由&quot;&gt;&lt;a href=&quot;#故事缘由&quot; class=&quot;headerlink&quot; title=&quot;故事缘由&quot;&gt;&lt;/a&gt;故事缘由&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;有时候不得不相信，有些东西就是刚刚好，刚刚好到来，刚刚好知道，刚刚好契合。因为这些刚刚好，就会不由自主的激动，感觉这些刚知道的东西发生在自己身上。这次要说的是unix时间问题，我最开始接触这个问题是我们云计算课程项目中一个小小的时间问题，当时项目中所有的时间都是通过unix时间记录。所谓unix时间，就是记录从unix元年1970年1月1日0点起到当前时间经过的秒数。这个问题最开始我并没有觉得有什么问题，但后来我在网上瞎逛的时候看见了一篇文章 &lt;a href=&quot;http://www.wttech.org/archives/3960&quot;&gt;十大著名的计算机发展史上的软件缺陷&lt;/a&gt; ,这里就讲到了一个unix时间问题，我就很好奇的去了解这一个故事，而在这个时间点，我们正在进行的操作系统课程也讲到了unix时间，所以这一堆堆事情，就刚刚好地发生了。 &lt;/strong&gt;&lt;br&gt;
     
     </summary>
+    
+      <category term="linux" scheme="http://fenlan.github.io/categories/linux/"/>
     
     
       <category term="linux" scheme="http://fenlan.github.io/tags/linux/"/>
@@ -59,7 +61,7 @@
     <link href="http://fenlan.github.io/2017/09/22/hadoop/"/>
     <id>http://fenlan.github.io/2017/09/22/hadoop/</id>
     <published>2017-09-22T07:18:23.000Z</published>
-    <updated>2017-11-21T09:27:58.897Z</updated>
+    <updated>2017-11-28T02:50:38.730Z</updated>
     
     <summary type="html">
     
@@ -73,6 +75,8 @@
     
     </summary>
     
+      <category term="linux" scheme="http://fenlan.github.io/categories/linux/"/>
+    
     
       <category term="hadoop" scheme="http://fenlan.github.io/tags/hadoop/"/>
     
@@ -83,7 +87,7 @@
     <link href="http://fenlan.github.io/2017/08/22/zabbix/"/>
     <id>http://fenlan.github.io/2017/08/22/zabbix/</id>
     <published>2017-08-22T07:18:23.000Z</published>
-    <updated>2017-11-21T09:35:09.890Z</updated>
+    <updated>2017-11-28T02:52:45.171Z</updated>
     
     <summary type="html">
     
@@ -93,6 +97,8 @@
 &lt;p&gt;修改其中的&lt;code&gt;DBhost&lt;/code&gt;, &lt;code&gt;DBUser&lt;/code&gt;, &lt;code&gt;DBPassword&lt;/code&gt;， 如果有必要，需要设置&lt;code&gt;socket&lt;/code&gt;与&lt;code&gt;mysql&lt;/code&gt;的&lt;code&gt;socket&lt;/code&gt;相同。&lt;br&gt;
     
     </summary>
+    
+      <category term="linux" scheme="http://fenlan.github.io/categories/linux/"/>
     
     
       <category term="linux" scheme="http://fenlan.github.io/tags/linux/"/>
@@ -104,7 +110,7 @@
     <link href="http://fenlan.github.io/2017/07/30/laravel/"/>
     <id>http://fenlan.github.io/2017/07/30/laravel/</id>
     <published>2017-07-30T07:18:23.000Z</published>
-    <updated>2017-11-21T09:27:18.281Z</updated>
+    <updated>2017-11-28T02:51:23.059Z</updated>
     
     <summary type="html">
     
@@ -112,6 +118,8 @@
 &lt;p&gt;&lt;strong&gt;2.路由参数&lt;/strong&gt;&lt;br&gt;&lt;figure class=&quot;highlight php&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;Route::get(&lt;span class=&quot;string&quot;&gt;&#39;user/&amp;#123;id&amp;#125;&#39;&lt;/span&gt;, &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;params&quot;&gt;($id)&lt;/span&gt; &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&#39;User-id-&#39;&lt;/span&gt; . $id;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;)-&amp;gt;where(&lt;span class=&quot;string&quot;&gt;&#39;id&#39;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&#39;[0-9]+&#39;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Route::get(&lt;span class=&quot;string&quot;&gt;&#39;user/&amp;#123;name?&amp;#125;&#39;&lt;/span&gt;, &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;params&quot;&gt;($name = &lt;span class=&quot;string&quot;&gt;&#39;fenlan&#39;&lt;/span&gt;)&lt;/span&gt; &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&#39;User-name-&#39;&lt;/span&gt; . $name;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;)-&amp;gt;where(&lt;span class=&quot;string&quot;&gt;&#39;name&#39;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&#39;[A-Za-z]+&#39;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
     
     </summary>
+    
+      <category term="php" scheme="http://fenlan.github.io/categories/php/"/>
     
     
       <category term="laravel" scheme="http://fenlan.github.io/tags/laravel/"/>
@@ -123,7 +131,7 @@
     <link href="http://fenlan.github.io/2017/06/16/centos/"/>
     <id>http://fenlan.github.io/2017/06/16/centos/</id>
     <published>2017-06-16T07:18:23.000Z</published>
-    <updated>2017-11-21T09:26:38.205Z</updated>
+    <updated>2017-11-28T02:48:42.032Z</updated>
     
     <summary type="html">
     
@@ -135,6 +143,8 @@
     
     </summary>
     
+      <category term="linux" scheme="http://fenlan.github.io/categories/linux/"/>
+    
     
       <category term="linux" scheme="http://fenlan.github.io/tags/linux/"/>
     
@@ -145,13 +155,15 @@
     <link href="http://fenlan.github.io/2017/06/14/logrotate/"/>
     <id>http://fenlan.github.io/2017/06/14/logrotate/</id>
     <published>2017-06-14T07:18:23.000Z</published>
-    <updated>2017-11-21T09:33:06.121Z</updated>
+    <updated>2017-11-28T02:51:36.687Z</updated>
     
     <summary type="html">
     
       &lt;h2 id=&quot;logrotate介绍&quot;&gt;&lt;a href=&quot;#logrotate介绍&quot; class=&quot;headerlink&quot; title=&quot;logrotate介绍&quot;&gt;&lt;/a&gt;logrotate介绍&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;对于Linux系统安全来说，日志文件是及其重要的工具。日志文件包含了关于系统中发生的事件的有用信息，在排障过程中或者系统性能分析时经常被用到。当日志文件不断增长的时候，就需要定时切割，否则，写日志的速度和性能也会下降，更不便于我们归档和查询。&lt;/strong&gt;&lt;br&gt;
     
     </summary>
+    
+      <category term="linux" scheme="http://fenlan.github.io/categories/linux/"/>
     
     
       <category term="linux" scheme="http://fenlan.github.io/tags/linux/"/>
@@ -163,13 +175,15 @@
     <link href="http://fenlan.github.io/2017/03/22/nmap_mac/"/>
     <id>http://fenlan.github.io/2017/03/22/nmap_mac/</id>
     <published>2017-03-22T07:18:23.000Z</published>
-    <updated>2017-11-21T09:25:37.085Z</updated>
+    <updated>2017-11-28T02:52:05.259Z</updated>
     
     <summary type="html">
     
       &lt;h1 id=&quot;使用工具&quot;&gt;&lt;a href=&quot;#使用工具&quot; class=&quot;headerlink&quot; title=&quot;使用工具&quot;&gt;&lt;/a&gt;使用工具&lt;/h1&gt;&lt;p&gt;&lt;strong&gt;nmap: 也就是Network Mapper,最早是linux下的网络扫描和嗅探工具包&lt;/strong&gt;&lt;br&gt;&lt;strong&gt;nmap是一个网络连接端扫描软件，用来扫描网上电脑开放的网络端口。确定哪些服务运行在哪些连接端，并且推断计算机运行哪个操作系统。他是网络管理员比用的软件之一，以及用以评估网络系统安全。 &lt;/strong&gt;&lt;br&gt;
     
     </summary>
+    
+      <category term="linux" scheme="http://fenlan.github.io/categories/linux/"/>
     
     
       <category term="linux" scheme="http://fenlan.github.io/tags/linux/"/>
@@ -181,13 +195,15 @@
     <link href="http://fenlan.github.io/2016/11/20/%E6%B5%81%E6%B0%B4%E8%B4%A6/"/>
     <id>http://fenlan.github.io/2016/11/20/流水账/</id>
     <published>2016-11-20T07:18:23.000Z</published>
-    <updated>2017-11-21T09:25:04.193Z</updated>
+    <updated>2017-11-28T02:53:25.403Z</updated>
     
     <summary type="html">
     
       &lt;p&gt;&lt;strong&gt;好久没有更新博客了，有很多原因。一方面，前段时间事情太多，大概花了一个月来写一个android聊天软件来参加，学校的比赛，虽然写好了，也还像个样子，但在最后答辩的时候选择了放弃。因为国创答辩失败了，恰好那个比赛的答辩和国创答辩同时进行的，所有带着沮丧的心情离开了。另一方面，换了一台电脑工作，而我的博客后台在原来的电脑上，我一直想将它迁移到新的电脑上，然而一直没有成功。因此，大概有托更了3个月的博客，现在静下心来总结一下最近的学习。&lt;/strong&gt;&lt;/p&gt;
     
     </summary>
+    
+      <category term="Android" scheme="http://fenlan.github.io/categories/Android/"/>
     
     
       <category term="Android" scheme="http://fenlan.github.io/tags/Android/"/>
@@ -199,13 +215,15 @@
     <link href="http://fenlan.github.io/2016/08/10/ubuntu%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE/"/>
     <id>http://fenlan.github.io/2016/08/10/ubuntu安装与配置/</id>
     <published>2016-08-10T07:18:23.000Z</published>
-    <updated>2017-11-21T09:24:45.209Z</updated>
+    <updated>2017-11-28T02:52:21.387Z</updated>
     
     <summary type="html">
     
       &lt;p&gt;&lt;strong&gt;想了一下，最终还是将电脑安成windows10 + ubuntu16双系统，以后多用用ubuntu试试。我选择的安装方式使用u盘安装，在安装ubuntu时一直没有选对启动盘制作工具，之前安装windows10的时候使用的是UltraIso，这个安windows没什么问题，但是安装ubuntu时，安不上，后面上网查了很多次，也用了其他的软件，比如linuxLive USB Creator,Universal-USB-Installer等等，其中Universal-usb-installer还是ubuntu推荐的软件，但是仍然不行，就这我折腾了两天还是没成功，后来在qq上的一个业余群里面，有人叫我用USBwriter，结果就成功安装上了。&lt;/strong&gt;&lt;br&gt;
     
     </summary>
+    
+      <category term="linux" scheme="http://fenlan.github.io/categories/linux/"/>
     
     
       <category term="linux" scheme="http://fenlan.github.io/tags/linux/"/>
@@ -217,13 +235,15 @@
     <link href="http://fenlan.github.io/2016/07/23/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
     <id>http://fenlan.github.io/2016/07/23/数据结构/</id>
     <published>2016-07-23T07:18:23.000Z</published>
-    <updated>2017-11-21T09:24:28.353Z</updated>
+    <updated>2017-11-28T02:53:05.971Z</updated>
     
     <summary type="html">
     
       &lt;h3 id=&quot;1-数据结构之队列&quot;&gt;&lt;a href=&quot;#1-数据结构之队列&quot; class=&quot;headerlink&quot; title=&quot;1.数据结构之队列&quot;&gt;&lt;/a&gt;1.数据结构之队列&lt;/h3&gt;
     
     </summary>
+    
+      <category term="数据结构" scheme="http://fenlan.github.io/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
     
     
       <category term="数据结构" scheme="http://fenlan.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
@@ -235,13 +255,15 @@
     <link href="http://fenlan.github.io/2016/06/30/Android%E6%95%B0%E6%8D%AE%E4%BC%A0%E8%BE%93/"/>
     <id>http://fenlan.github.io/2016/06/30/Android数据传输/</id>
     <published>2016-06-30T07:18:23.000Z</published>
-    <updated>2017-11-21T09:24:00.633Z</updated>
+    <updated>2017-11-28T02:48:18.748Z</updated>
     
     <summary type="html">
     
       &lt;h3 id=&quot;Android中的数据传输&quot;&gt;&lt;a href=&quot;#Android中的数据传输&quot; class=&quot;headerlink&quot; title=&quot;Android中的数据传输&quot;&gt;&lt;/a&gt;Android中的数据传输&lt;/h3&gt;
     
     </summary>
+    
+      <category term="Android" scheme="http://fenlan.github.io/categories/Android/"/>
     
     
       <category term="Android" scheme="http://fenlan.github.io/tags/Android/"/>
@@ -276,7 +298,7 @@
     <link href="http://fenlan.github.io/2016/06/20/%E7%88%AC%E8%99%AB/"/>
     <id>http://fenlan.github.io/2016/06/20/爬虫/</id>
     <published>2016-06-20T07:18:23.000Z</published>
-    <updated>2017-11-21T09:42:37.034Z</updated>
+    <updated>2017-11-28T02:53:37.599Z</updated>
     
     <summary type="html">
     
@@ -290,6 +312,8 @@
     
     </summary>
     
+      <category term="python" scheme="http://fenlan.github.io/categories/python/"/>
+    
     
       <category term="爬虫" scheme="http://fenlan.github.io/tags/%E7%88%AC%E8%99%AB/"/>
     
@@ -300,7 +324,7 @@
     <link href="http://fenlan.github.io/2016/06/18/java-Thread/"/>
     <id>http://fenlan.github.io/2016/06/18/java-Thread/</id>
     <published>2016-06-18T07:18:23.000Z</published>
-    <updated>2017-11-21T09:23:01.053Z</updated>
+    <updated>2017-11-28T02:50:56.970Z</updated>
     
     <summary type="html">
     
@@ -308,6 +332,8 @@
 &lt;h3 id=&quot;java线程基础&quot;&gt;&lt;a href=&quot;#java线程基础&quot; class=&quot;headerlink&quot; title=&quot;java线程基础&quot;&gt;&lt;/a&gt;java线程基础&lt;/h3&gt;
     
     </summary>
+    
+      <category term="java" scheme="http://fenlan.github.io/categories/java/"/>
     
     
       <category term="java" scheme="http://fenlan.github.io/tags/java/"/>
@@ -319,13 +345,15 @@
     <link href="http://fenlan.github.io/2016/06/17/android-handler/"/>
     <id>http://fenlan.github.io/2016/06/17/android-handler/</id>
     <published>2016-06-17T09:18:23.000Z</published>
-    <updated>2017-11-21T09:22:28.201Z</updated>
+    <updated>2017-11-28T02:47:37.507Z</updated>
     
     <summary type="html">
     
       &lt;p&gt;&lt;strong&gt;这个需要学习三节课程，这是第一节，多的不说，直接放代码&lt;/strong&gt;&lt;/p&gt;
     
     </summary>
+    
+      <category term="Android" scheme="http://fenlan.github.io/categories/Android/"/>
     
     
       <category term="Android" scheme="http://fenlan.github.io/tags/Android/"/>
@@ -337,7 +365,7 @@
     <link href="http://fenlan.github.io/2016/06/17/android-ProgressBarAndThread/"/>
     <id>http://fenlan.github.io/2016/06/17/android-ProgressBarAndThread/</id>
     <published>2016-06-17T08:18:23.000Z</published>
-    <updated>2017-11-21T09:22:14.193Z</updated>
+    <updated>2017-11-28T02:48:01.780Z</updated>
     
     <summary type="html">
     
@@ -345,6 +373,8 @@
 &lt;h3 id=&quot;代码如下&quot;&gt;&lt;a href=&quot;#代码如下&quot; class=&quot;headerlink&quot; title=&quot;代码如下&quot;&gt;&lt;/a&gt;代码如下&lt;/h3&gt;
     
     </summary>
+    
+      <category term="Android" scheme="http://fenlan.github.io/categories/Android/"/>
     
     
       <category term="Android" scheme="http://fenlan.github.io/tags/Android/"/>
@@ -356,7 +386,7 @@
     <link href="http://fenlan.github.io/2016/06/17/android-Intent/"/>
     <id>http://fenlan.github.io/2016/06/17/android-Intent/</id>
     <published>2016-06-17T07:18:23.000Z</published>
-    <updated>2017-11-21T09:21:42.669Z</updated>
+    <updated>2017-11-28T02:47:50.772Z</updated>
     
     <summary type="html">
     
@@ -368,6 +398,8 @@
     
     </summary>
     
+      <category term="Android" scheme="http://fenlan.github.io/categories/Android/"/>
+    
     
       <category term="Android" scheme="http://fenlan.github.io/tags/Android/"/>
     
@@ -378,7 +410,7 @@
     <link href="http://fenlan.github.io/2016/06/16/android-activity/"/>
     <id>http://fenlan.github.io/2016/06/16/android-activity/</id>
     <published>2016-06-15T16:00:00.000Z</published>
-    <updated>2017-11-21T10:02:30.668Z</updated>
+    <updated>2017-11-28T02:47:24.011Z</updated>
     
     <summary type="html">
     
@@ -386,6 +418,8 @@
 &lt;h3 id=&quot;来张图片帮助理解&quot;&gt;&lt;a href=&quot;#来张图片帮助理解&quot; class=&quot;headerlink&quot; title=&quot;来张图片帮助理解&quot;&gt;&lt;/a&gt;来张图片帮助理解&lt;/h3&gt;
     
     </summary>
+    
+      <category term="Android" scheme="http://fenlan.github.io/categories/Android/"/>
     
     
       <category term="Android" scheme="http://fenlan.github.io/tags/Android/"/>
@@ -397,7 +431,7 @@
     <link href="http://fenlan.github.io/2016/06/13/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
     <id>http://fenlan.github.io/2016/06/13/服务器/</id>
     <published>2016-06-12T16:00:00.000Z</published>
-    <updated>2017-11-21T09:20:06.637Z</updated>
+    <updated>2017-11-28T02:53:14.651Z</updated>
     
     <summary type="html">
     
@@ -406,6 +440,8 @@
 &lt;h4 id=&quot;使用记录&quot;&gt;&lt;a href=&quot;#使用记录&quot; class=&quot;headerlink&quot; title=&quot;使用记录&quot;&gt;&lt;/a&gt;使用记录&lt;/h4&gt;&lt;p&gt;&lt;strong&gt;apache2重启命令等&lt;/strong&gt;&lt;br&gt;
     
     </summary>
+    
+      <category term="linux" scheme="http://fenlan.github.io/categories/linux/"/>
     
     
       <category term="linux" scheme="http://fenlan.github.io/tags/linux/"/>
