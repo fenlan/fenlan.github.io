@@ -61,7 +61,7 @@
     <link href="http://fenlan.github.io/2017/09/22/hadoop/"/>
     <id>http://fenlan.github.io/2017/09/22/hadoop/</id>
     <published>2017-09-22T07:18:23.000Z</published>
-    <updated>2017-11-28T02:50:38.730Z</updated>
+    <updated>2017-11-28T03:27:00.997Z</updated>
     
     <summary type="html">
     
@@ -79,6 +79,10 @@
     
     
       <category term="hadoop" scheme="http://fenlan.github.io/tags/hadoop/"/>
+    
+      <category term="Hbase" scheme="http://fenlan.github.io/tags/Hbase/"/>
+    
+      <category term="Zookeeper" scheme="http://fenlan.github.io/tags/Zookeeper/"/>
     
   </entry>
   
@@ -131,7 +135,7 @@
     <link href="http://fenlan.github.io/2017/06/16/centos/"/>
     <id>http://fenlan.github.io/2017/06/16/centos/</id>
     <published>2017-06-16T07:18:23.000Z</published>
-    <updated>2017-11-28T03:03:00.545Z</updated>
+    <updated>2017-11-28T03:24:02.721Z</updated>
     
     <summary type="html">
     
@@ -146,7 +150,15 @@
       <category term="linux" scheme="http://fenlan.github.io/categories/linux/"/>
     
     
+      <category term="laravel" scheme="http://fenlan.github.io/tags/laravel/"/>
+    
       <category term="centos" scheme="http://fenlan.github.io/tags/centos/"/>
+    
+      <category term="python" scheme="http://fenlan.github.io/tags/python/"/>
+    
+      <category term="firewall" scheme="http://fenlan.github.io/tags/firewall/"/>
+    
+      <category term="lnmp" scheme="http://fenlan.github.io/tags/lnmp/"/>
     
   </entry>
   
@@ -175,7 +187,7 @@
     <link href="http://fenlan.github.io/2017/03/22/nmap_mac/"/>
     <id>http://fenlan.github.io/2017/03/22/nmap_mac/</id>
     <published>2017-03-22T07:18:23.000Z</published>
-    <updated>2017-11-28T03:09:56.573Z</updated>
+    <updated>2017-11-28T03:28:23.185Z</updated>
     
     <summary type="html">
     
@@ -217,7 +229,7 @@
     <link href="http://fenlan.github.io/2016/08/10/ubuntu%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE/"/>
     <id>http://fenlan.github.io/2016/08/10/ubuntu安装与配置/</id>
     <published>2016-08-10T07:18:23.000Z</published>
-    <updated>2017-11-28T03:10:13.677Z</updated>
+    <updated>2017-11-28T03:29:25.441Z</updated>
     
     <summary type="html">
     
@@ -229,6 +241,8 @@
     
     
       <category term="ubuntu" scheme="http://fenlan.github.io/tags/ubuntu/"/>
+    
+      <category term="vim" scheme="http://fenlan.github.io/tags/vim/"/>
     
   </entry>
   
@@ -437,7 +451,7 @@
     <link href="http://fenlan.github.io/2016/06/13/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
     <id>http://fenlan.github.io/2016/06/13/服务器/</id>
     <published>2016-06-12T16:00:00.000Z</published>
-    <updated>2017-11-28T03:11:02.233Z</updated>
+    <updated>2017-11-28T03:30:56.289Z</updated>
     
     <summary type="html">
     
@@ -450,7 +464,9 @@
       <category term="linux" scheme="http://fenlan.github.io/categories/linux/"/>
     
     
-      <category term="服务器" scheme="http://fenlan.github.io/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+      <category term="lnmp" scheme="http://fenlan.github.io/tags/lnmp/"/>
+    
+      <category term="mysql" scheme="http://fenlan.github.io/tags/mysql/"/>
     
   </entry>
   

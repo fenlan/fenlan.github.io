@@ -31,6 +31,8 @@
       </categories>
       <tags>
         <tag>hadoop</tag>
+        <tag>Hbase</tag>
+        <tag>Zookeeper</tag>
       </tags>
   </entry>
   <entry>
@@ -63,7 +65,11 @@
         <category>linux</category>
       </categories>
       <tags>
+        <tag>laravel</tag>
         <tag>centos</tag>
+        <tag>python</tag>
+        <tag>firewall</tag>
+        <tag>lnmp</tag>
       </tags>
   </entry>
   <entry>
@@ -109,6 +115,7 @@
       </categories>
       <tags>
         <tag>ubuntu</tag>
+        <tag>vim</tag>
       </tags>
   </entry>
   <entry>
@@ -214,7 +221,8 @@
         <category>linux</category>
       </categories>
       <tags>
-        <tag>服务器</tag>
+        <tag>lnmp</tag>
+        <tag>mysql</tag>
       </tags>
   </entry>
   <entry>
@@ -231,6 +239,7 @@
       </categories>
       <tags>
         <tag>git</tag>
+        <tag>github</tag>
       </tags>
   </entry>
   <entry>
@@ -257,7 +266,8 @@
         <category>hexo</category>
       </categories>
       <tags>
-        <tag>hexo评论框</tag>
+        <tag>disqus</tag>
+        <tag>duoshuo</tag>
       </tags>
   </entry>
   <entry>
@@ -283,6 +293,9 @@
       <categories>
         <category>git</category>
       </categories>
+      <tags>
+        <tag>git</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[吐槽]]></title>
