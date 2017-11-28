@@ -8,7 +8,7 @@
         <category>linux</category>
       </categories>
       <tags>
-        <tag>linux</tag>
+        <tag>Docker</tag>
       </tags>
   </entry>
   <entry>
@@ -19,7 +19,7 @@
         <category>linux</category>
       </categories>
       <tags>
-        <tag>linux</tag>
+        <tag>unix时间</tag>
       </tags>
   </entry>
   <entry>
@@ -41,7 +41,7 @@
         <category>linux</category>
       </categories>
       <tags>
-        <tag>linux</tag>
+        <tag>zabbix</tag>
       </tags>
   </entry>
   <entry>
@@ -63,7 +63,7 @@
         <category>linux</category>
       </categories>
       <tags>
-        <tag>linux</tag>
+        <tag>centos</tag>
       </tags>
   </entry>
   <entry>
@@ -74,7 +74,7 @@
         <category>linux</category>
       </categories>
       <tags>
-        <tag>linux</tag>
+        <tag>logrotate</tag>
       </tags>
   </entry>
   <entry>
@@ -85,7 +85,8 @@
         <category>linux</category>
       </categories>
       <tags>
-        <tag>linux</tag>
+        <tag>nmap</tag>
+        <tag>python</tag>
       </tags>
   </entry>
   <entry>
@@ -107,7 +108,7 @@
         <category>linux</category>
       </categories>
       <tags>
-        <tag>linux</tag>
+        <tag>ubuntu</tag>
       </tags>
   </entry>
   <entry>
@@ -129,7 +130,7 @@
         <category>Android</category>
       </categories>
       <tags>
-        <tag>Android</tag>
+        <tag>Android数据传输</tag>
       </tags>
   </entry>
   <entry>
@@ -156,7 +157,7 @@
         <category>java</category>
       </categories>
       <tags>
-        <tag>java</tag>
+        <tag>线程</tag>
       </tags>
   </entry>
   <entry>
@@ -167,7 +168,7 @@
         <category>Android</category>
       </categories>
       <tags>
-        <tag>Android</tag>
+        <tag>Android Handler</tag>
       </tags>
   </entry>
   <entry>
@@ -178,7 +179,7 @@
         <category>Android</category>
       </categories>
       <tags>
-        <tag>Android</tag>
+        <tag>Android - ProgressBar - 线程</tag>
       </tags>
   </entry>
   <entry>
@@ -189,7 +190,7 @@
         <category>Android</category>
       </categories>
       <tags>
-        <tag>Android</tag>
+        <tag>Android Intent</tag>
       </tags>
   </entry>
   <entry>
@@ -200,7 +201,7 @@
         <category>Android</category>
       </categories>
       <tags>
-        <tag>Android</tag>
+        <tag>Android生命周期</tag>
       </tags>
   </entry>
   <entry>
@@ -211,7 +212,7 @@
         <category>linux</category>
       </categories>
       <tags>
-        <tag>linux</tag>
+        <tag>服务器</tag>
       </tags>
   </entry>
   <entry>
@@ -254,7 +255,7 @@
         <category>hexo</category>
       </categories>
       <tags>
-        <tag>hexo</tag>
+        <tag>hexo评论框</tag>
       </tags>
   </entry>
   <entry>
@@ -270,7 +271,7 @@
         <category>hexo</category>
       </categories>
       <tags>
-        <tag>hexo</tag>
+        <tag>hexo搭建</tag>
       </tags>
   </entry>
   <entry>
