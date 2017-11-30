@@ -412,45 +412,19 @@
 
       
         
-          
-            <h2 id="Zookeeper-安装"><a href="#Zookeeper-安装" class="headerlink" title="Zookeeper 安装"></a>Zookeeper 安装</h2><h3 id="下载Zookeeper"><a href="#下载Zookeeper" class="headerlink" title="下载Zookeeper"></a>下载Zookeeper</h3><p>官方下载地址<a href="https://zookeeper.apache.org/releases.html" target="_blank" rel="external">https://zookeeper.apache.org/releases.html</a></p>
+          <h2 id="Zookeeper-安装"><a href="#Zookeeper-安装" class="headerlink" title="Zookeeper 安装"></a>Zookeeper 安装</h2><h3 id="下载Zookeeper"><a href="#下载Zookeeper" class="headerlink" title="下载Zookeeper"></a>下载Zookeeper</h3><p>官方下载地址<a href="https://zookeeper.apache.org/releases.html">https://zookeeper.apache.org/releases.html</a></p>
 <h3 id="环境搭建"><a href="#环境搭建" class="headerlink" title="环境搭建"></a>环境搭建</h3><ol>
 <li>解压下载包，并将解压的目录重命名为zookeeper</li>
 <li>将 <code>zookeeper/conf/zoo_sample.cfg</code> 拷贝一份命名为 <code>zoo.cfg</code></li>
 <li>zoo.cfg配置</li>
 </ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># The number of milliseconds of each tick</span></span><br><span class="line">tickTime=2000</span><br><span class="line"><span class="comment"># The number of ticks that the initial</span></span><br><span class="line"><span class="comment"># synchronization phase can take</span></span><br><span class="line">initLimit=10</span><br><span class="line"><span class="comment"># The number of ticks that can pass between</span></span><br><span class="line"><span class="comment"># sending a request and getting an acknowledgement</span></span><br><span class="line">syncLimit=5</span><br><span class="line"><span class="comment"># the directory where the snapshot is stored.</span></span><br><span class="line"><span class="comment"># do not use /tmp for storage, /tmp here is just</span></span><br><span class="line"><span class="comment"># example sakes.</span></span><br><span class="line">dataDir=~/zookeeper/data</span><br><span class="line">dataLogDir=~/zookeeper/logs</span><br><span class="line"><span class="comment"># the port at which the clients will connect</span></span><br><span class="line">clientPort=2181</span><br><span class="line"><span class="comment"># the maximum number of client connections.</span></span><br><span class="line"><span class="comment"># increase this if you need to handle more clients</span></span><br><span class="line"><span class="comment">#maxClientCnxns=60</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># Be sure to read the maintenance section of the</span></span><br><span class="line"><span class="comment"># administrator guide before turning on autopurge.</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># http://zookeeper.apache.org/doc/current/zookeeperAdmin.html#sc_maintenance</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># The number of snapshots to retain in dataDir</span></span><br><span class="line"><span class="comment">#autopurge.snapRetainCount=3</span></span><br><span class="line"><span class="comment"># Purge task interval in hours</span></span><br><span class="line"><span class="comment"># Set to "0" to disable auto purge feature</span></span><br><span class="line"><span class="comment">#autopurge.purgeInterval=1</span></span><br><span class="line"></span><br><span class="line">server.1=kafka-server1:2888:3888</span><br><span class="line">server.2=kafka-server2:2888:3888</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>配置文件中的<code>dataDir</code>和<code>dataLogDir</code>最好设置在zookeeper目录下，并在集群中每台主机的这两个目录下写一个<code>myid</code>文件，文件内容为集群中每台主机对应的集群编号，编号与配置文件<code>zoo.cfg</code>最后两行对应，即kafka-server1这台主机的编号为<code>1</code>，kafka-server2<code>的编号为</code>2`。</p>
-</blockquote>
-<ol>
-<li>在每台主机上<code>zookeeper/bin</code>目录下运行<code>./zkSever.sh start</code>启动集群。</li>
-<li>在每台主机上<code>zookeeper/bin</code>目录下运行<code>./zkServer.sh status</code>查看状态。<blockquote>
-<p>启动成功为看到集群中一台主机为<code>leader</code>其他主机为<code>follower</code>，如果启动失败，会提示<code>not running</code></p>
-</blockquote>
-</li>
-<li>每台主机上<code>zookeeper/bin</code>目录下运行<code>./zkServer.sh stop</code>关闭集群</li>
-</ol>
-<h2 id="kafka-安装"><a href="#kafka-安装" class="headerlink" title="kafka 安装"></a>kafka 安装</h2><h3 id="下载kafka"><a href="#下载kafka" class="headerlink" title="下载kafka"></a>下载kafka</h3><p>官方下载地址<a href="https://kafka.apache.org/" target="_blank" rel="external">https://kafka.apache.org/</a></p>
-<h3 id="环境搭建-1"><a href="#环境搭建-1" class="headerlink" title="环境搭建"></a>环境搭建</h3><p>kafka依赖于zookeeper管理，因此安装kafka要先安装zookeeper并确保zookeeper安装成功，同样启动kafka要先启动zookeeper</p>
-<ol>
-<li><p>配置<code>server.properties</code><br><code>server.properties</code>中修改三个配置: <code>breker.id</code>设置为该主机在zookeeper集群中的编号; <code>listeners</code>监听该主机的9092端口，具体值在配置文件中有提示; <code>zookeeper.connect</code>设置为zookeeper集群，例如<code>kakfa-server1:2181,kafka-server2:2181</code></p>
-</li>
-<li><p>配置<code>producer.properties</code><br><code>producer.properties</code>中配置<code>bootstrap.servers</code>为<code>kafka-server1:9092,kafka-server2:9092</code></p>
-</li>
-<li><p>配置<code>consumer.properties</code><br><code>consumer.properties</code>中配置<code>zookeeper.connect</code>为<code>kakfa-server1:2181,kafka-server2:2181</code></p>
-</li>
-<li><p>每台主机启动kafka</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bin/kafka-server-start.sh -daemon config/server.properties</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>每台主机关闭kafka</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bin/kafka-server-stop</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<h2 id="zookeeper-and-kafka"><a href="#zookeeper-and-kafka" class="headerlink" title="zookeeper and kafka"></a>zookeeper and kafka</h2><p>启动集群时，先启动zookeeper，再启动kafka；关闭集群时先关闭kafka，再关闭zookeeper</p>
-<h2 id="建议"><a href="#建议" class="headerlink" title="建议"></a>建议</h2><p>集群是否搭建成功关键在于有没有比较清楚的了解zookeeper和kafka，网上教程很多，照搬网上教程是大忌，要充分理解配置的意义，诸如<code>kafka-server1``kafka-server2</code>在集群通信问题，以及部分教程要求修改<code>/etc/hosts</code>的目的。没有充分理解配置，配置集群是一条漫长而迷茫的路。如果在linux中配置过一些东西，会有相当多的经验，经验也很重要。</p>
-
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/11/29/zookeeper-kafka/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>

@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://fenlan.github.io/"/>
-  <updated>2017-11-30T08:55:54.958Z</updated>
+  <updated>2017-11-30T08:58:47.349Z</updated>
   <id>http://fenlan.github.io/</id>
   
   <author>
@@ -21,17 +21,16 @@
     <link href="http://fenlan.github.io/2017/11/29/zookeeper-kafka/"/>
     <id>http://fenlan.github.io/2017/11/29/zookeeper-kafka/</id>
     <published>2017-11-29T07:44:18.000Z</published>
-    <updated>2017-11-30T08:55:54.958Z</updated>
+    <updated>2017-11-30T08:58:47.349Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          &lt;h2 id=&quot;Zookeeper-安装&quot;&gt;&lt;a href=&quot;#Zookeeper-安装&quot; class=&quot;headerlink&quot; title=&quot;Zookeeper 安装&quot;&gt;&lt;/a&gt;Zookeeper 安装&lt;/h2&gt;&lt;h3 id=&quot;下载Zookeeper&quot;&gt;&lt;a
-        
-      
+      &lt;h2 id=&quot;Zookeeper-安装&quot;&gt;&lt;a href=&quot;#Zookeeper-安装&quot; class=&quot;headerlink&quot; title=&quot;Zookeeper 安装&quot;&gt;&lt;/a&gt;Zookeeper 安装&lt;/h2&gt;&lt;h3 id=&quot;下载Zookeeper&quot;&gt;&lt;a href=&quot;#下载Zookeeper&quot; class=&quot;headerlink&quot; title=&quot;下载Zookeeper&quot;&gt;&lt;/a&gt;下载Zookeeper&lt;/h3&gt;&lt;p&gt;官方下载地址&lt;a href=&quot;https://zookeeper.apache.org/releases.html&quot;&gt;https://zookeeper.apache.org/releases.html&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&quot;环境搭建&quot;&gt;&lt;a href=&quot;#环境搭建&quot; class=&quot;headerlink&quot; title=&quot;环境搭建&quot;&gt;&lt;/a&gt;环境搭建&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;解压下载包，并将解压的目录重命名为zookeeper&lt;/li&gt;
+&lt;li&gt;将 &lt;code&gt;zookeeper/conf/zoo_sample.cfg&lt;/code&gt; 拷贝一份命名为 &lt;code&gt;zoo.cfg&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;zoo.cfg配置&lt;/li&gt;
+&lt;/ol&gt;
     
     </summary>
     
