@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://fenlan.github.io/"/>
-  <updated>2017-11-30T08:58:47.349Z</updated>
+  <updated>2017-11-30T11:31:12.068Z</updated>
   <id>http://fenlan.github.io/</id>
   
   <author>
@@ -17,11 +17,43 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>分布式计算</title>
+    <link href="http://fenlan.github.io/2017/11/30/%E5%88%86%E5%B8%83%E5%BC%8F%E8%AE%A1%E7%AE%97/"/>
+    <id>http://fenlan.github.io/2017/11/30/分布式计算/</id>
+    <published>2017-11-30T07:44:18.000Z</published>
+    <updated>2017-11-30T11:31:12.068Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;大数据知识图谱&quot;&gt;&lt;a href=&quot;#大数据知识图谱&quot; class=&quot;headerlink&quot; title=&quot;大数据知识图谱&quot;&gt;&lt;/a&gt;大数据知识图谱&lt;/h1&gt;&lt;p&gt;&lt;img
+        
+      
+    
+    </summary>
+    
+      <category term="分布式计算" scheme="http://fenlan.github.io/categories/%E5%88%86%E5%B8%83%E5%BC%8F%E8%AE%A1%E7%AE%97/"/>
+    
+    
+      <category term="hadoop" scheme="http://fenlan.github.io/tags/hadoop/"/>
+    
+      <category term="Kafka" scheme="http://fenlan.github.io/tags/Kafka/"/>
+    
+      <category term="storm" scheme="http://fenlan.github.io/tags/storm/"/>
+    
+      <category term="spark" scheme="http://fenlan.github.io/tags/spark/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Zookeeper Kafka 安装</title>
     <link href="http://fenlan.github.io/2017/11/29/zookeeper-kafka/"/>
     <id>http://fenlan.github.io/2017/11/29/zookeeper-kafka/</id>
     <published>2017-11-29T07:44:18.000Z</published>
-    <updated>2017-11-30T08:58:47.349Z</updated>
+    <updated>2017-11-30T11:30:07.513Z</updated>
     
     <summary type="html">
     
@@ -34,7 +66,7 @@
     
     </summary>
     
-      <category term="云计算" scheme="http://fenlan.github.io/categories/%E4%BA%91%E8%AE%A1%E7%AE%97/"/>
+      <category term="分布式计算" scheme="http://fenlan.github.io/categories/%E5%88%86%E5%B8%83%E5%BC%8F%E8%AE%A1%E7%AE%97/"/>
     
     
       <category term="Zookeeper" scheme="http://fenlan.github.io/tags/Zookeeper/"/>
@@ -88,7 +120,7 @@
     <link href="http://fenlan.github.io/2017/09/22/hadoop/"/>
     <id>http://fenlan.github.io/2017/09/22/hadoop/</id>
     <published>2017-09-22T07:18:23.000Z</published>
-    <updated>2017-11-30T08:55:40.650Z</updated>
+    <updated>2017-11-30T11:31:47.847Z</updated>
     
     <summary type="html">
     
@@ -102,7 +134,7 @@
     
     </summary>
     
-      <category term="云计算" scheme="http://fenlan.github.io/categories/%E4%BA%91%E8%AE%A1%E7%AE%97/"/>
+      <category term="分布式计算" scheme="http://fenlan.github.io/categories/%E5%88%86%E5%B8%83%E5%BC%8F%E8%AE%A1%E7%AE%97/"/>
     
     
       <category term="hadoop" scheme="http://fenlan.github.io/tags/hadoop/"/>
@@ -449,27 +481,6 @@
     
     
       <category term="Android Intent" scheme="http://fenlan.github.io/tags/Android-Intent/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>android生命周期函数记录</title>
-    <link href="http://fenlan.github.io/2016/06/16/android-activity/"/>
-    <id>http://fenlan.github.io/2016/06/16/android-activity/</id>
-    <published>2016-06-15T16:00:00.000Z</published>
-    <updated>2017-11-28T03:01:21.549Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;函数及解释如下&quot;&gt;&lt;a href=&quot;#函数及解释如下&quot; class=&quot;headerlink&quot; title=&quot;函数及解释如下&quot;&gt;&lt;/a&gt;函数及解释如下&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;onCreate    在activity对象被第一次创建时调用&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;onStart     在activity变得可见时调用该函数&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;onResume    在activity开始准备与用户交互时调用该方法&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;onPause     当系统即将启动另外一个activity之前调用该方法&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;onStop      当前activity变得不可见时调用该方法&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;onDestroy   当前activity被销毁之前将会调用该方法&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;onRestroy   当一个activity再次启动之前将会调用该方法&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;h3 id=&quot;来张图片帮助理解&quot;&gt;&lt;a href=&quot;#来张图片帮助理解&quot; class=&quot;headerlink&quot; title=&quot;来张图片帮助理解&quot;&gt;&lt;/a&gt;来张图片帮助理解&lt;/h3&gt;
-    
-    </summary>
-    
-      <category term="Android" scheme="http://fenlan.github.io/categories/Android/"/>
-    
-    
-      <category term="Android生命周期" scheme="http://fenlan.github.io/tags/Android%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/"/>
     
   </entry>
   
