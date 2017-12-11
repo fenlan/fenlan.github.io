@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://fenlan.github.io/"/>
-  <updated>2017-11-30T12:02:42.835Z</updated>
+  <updated>2017-12-11T16:44:46.582Z</updated>
   <id>http://fenlan.github.io/</id>
   
   <author>
@@ -15,6 +15,42 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>分享会资料</title>
+    <link href="http://fenlan.github.io/2017/12/11/%E5%88%86%E4%BA%AB%E4%BC%9A%E8%B5%84%E6%96%99/"/>
+    <id>http://fenlan.github.io/2017/12/11/分享会资料/</id>
+    <published>2017-12-11T07:18:23.000Z</published>
+    <updated>2017-12-11T16:44:46.582Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;ssh&quot;&gt;&lt;a href=&quot;#ssh&quot; class=&quot;headerlink&quot; title=&quot;ssh&quot;&gt;&lt;/a&gt;ssh&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;ssh服务端、客户端(ssh.config/sshd.config)端口修改&lt;/li&gt;
+&lt;li&gt;ssh公钥私钥(authorized/id_rsa/id_rsa.pub)&lt;ul&gt;
+&lt;li&gt;远程主机收到用户的登录请求，把自己的公钥发给用户&lt;/li&gt;
+&lt;li&gt;用户使用这个公钥，将登录密码加密后，发送回来&lt;/li&gt;
+&lt;li&gt;远程主机用自己的私钥，解密登录密码，如果密码正确，就同意用户登录&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;ssh免密(公钥)登录&lt;ul&gt;
+&lt;li&gt;用户将自己的公钥储存在远程主机上。&lt;/li&gt;
+&lt;li&gt;登录的时候，远程主机会向用户发送一段随机字符串，用户用自己的私钥加密后，再发回来。&lt;/li&gt;
+&lt;li&gt;远程主机用事先储存的公钥进行解密，如果成功，就证明用户是可信的，直接允许登录shell，不再要求密码&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+    
+    </summary>
+    
+      <category term="Web服务器" scheme="http://fenlan.github.io/categories/Web%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+    
+    
+      <category term="apache" scheme="http://fenlan.github.io/tags/apache/"/>
+    
+      <category term="nginx" scheme="http://fenlan.github.io/tags/nginx/"/>
+    
+  </entry>
   
   <entry>
     <title>分布式计算</title>
@@ -451,30 +487,6 @@
       <category term="ProgressBar" scheme="http://fenlan.github.io/tags/ProgressBar/"/>
     
       <category term="线程" scheme="http://fenlan.github.io/tags/%E7%BA%BF%E7%A8%8B/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Intent对象使用</title>
-    <link href="http://fenlan.github.io/2016/06/17/android-Intent/"/>
-    <id>http://fenlan.github.io/2016/06/17/android-Intent/</id>
-    <published>2016-06-17T07:18:23.000Z</published>
-    <updated>2017-11-28T03:01:51.597Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;使用Intent对象专递数据&quot;&gt;&lt;a href=&quot;#使用Intent对象专递数据&quot; class=&quot;headerlink&quot; title=&quot;使用Intent对象专递数据&quot;&gt;&lt;/a&gt;使用Intent对象专递数据&lt;/h3&gt;&lt;ol&gt;
-&lt;li&gt;在Activity之间可以通过Intent对象传递数据&lt;/li&gt;
-&lt;li&gt;使用putExtra()系列方法向Intent对象当中储存数据&lt;/li&gt;
-&lt;li&gt;使用getXXXExtra()系列方法从Intent对象当中取出数据&lt;/li&gt;
-&lt;/ol&gt;
-    
-    </summary>
-    
-      <category term="Android" scheme="http://fenlan.github.io/categories/Android/"/>
-    
-    
-      <category term="Android Intent" scheme="http://fenlan.github.io/tags/Android-Intent/"/>
     
   </entry>
   
