@@ -121,8 +121,9 @@ ssh公钥私钥(authorized/id_rsa/id_rsa.pub)
 ssh免密(公钥)登录
 用户将自己的公钥储存在远程主机上。
 登录的时候，">
-<meta property="og:image" content="https://github.com/moonbingbing/openresty-best-practices/blob/master/images/proxy.png">
-<meta property="og:updated_time" content="2017-12-11T16:52:16.272Z">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/3257886-9188ef03eca4816f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/700">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/3257886-b0ae8b42686a1424.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/700">
+<meta property="og:updated_time" content="2017-12-11T16:59:40.025Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="分享会资料">
 <meta name="twitter:description" content="ssh
@@ -136,7 +137,7 @@ ssh公钥私钥(authorized/id_rsa/id_rsa.pub)
 ssh免密(公钥)登录
 用户将自己的公钥储存在远程主机上。
 登录的时候，">
-<meta name="twitter:image" content="https://github.com/moonbingbing/openresty-best-practices/blob/master/images/proxy.png">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/3257886-9188ef03eca4816f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/700">
 
 
 
@@ -484,9 +485,9 @@ ssh免密(公钥)登录
 </blockquote>
 <h3 id="nginx反向代理"><a href="#nginx反向代理" class="headerlink" title="nginx反向代理"></a>nginx反向代理</h3><p><strong>反向代理</strong>方式是指用代理服务器来接受 internet 上的连接请求，然后将请求转发给内部网络上的服务器，并将从服务器上得到的结果返回给 internet 上请求连接的客户端，此时代理服务器对外就表现为一个反向代理服务器。</p>
 <p>举个例子，一个用户访问 <a href="http://www.example.com/readme，但是" target="_blank" rel="external">http://www.example.com/readme，但是</a> www.example.com 上并不存在 readme 页面，它是偷偷从另外一台服务器上取回来，然后作为自己的内容返回给用户。但是用户并不知情这个过程。对用户来说，就像是直接从 www.example.com 获取 readme 页面一样。这里所提到的 www.example.com 这个域名对应的服务器就设置了反向代理功能。</p>
-<p><img src="https://github.com/moonbingbing/openresty-best-practices/blob/master/images/proxy.png" alt=""></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/3257886-9188ef03eca4816f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/700" alt=""></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">http &#123;</span><br><span class="line">    include mime.types;</span><br><span class="line">    server_tokens off;</span><br><span class="line"></span><br><span class="line">	<span class="comment">## 下面配置反向代理的参数</span></span><br><span class="line">    server &#123;</span><br><span class="line">        listen    80;</span><br><span class="line"></span><br><span class="line">        <span class="comment">## 1. 用户访问 http://ip:port，则反向代理到 https://github.com</span></span><br><span class="line">        location / &#123;</span><br><span class="line">            proxy_pass  https://github.com;</span><br><span class="line">            proxy_redirect     off;</span><br><span class="line">            proxy_<span class="built_in">set</span>_header   Host             <span class="variable">$host</span>;</span><br><span class="line">            proxy_<span class="built_in">set</span>_header   X-Real-IP        <span class="variable">$remote_addr</span>;</span><br><span class="line">            proxy_<span class="built_in">set</span>_header   X-Forwarded-For  <span class="variable">$proxy_add_x_forwarded_for</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">## 2.用户访问 http://ip:port/README.md，则反向代理到</span></span><br><span class="line">        <span class="comment">##   https://github.com/.../README.md</span></span><br><span class="line">        location /README.md &#123;</span><br><span class="line">            proxy_<span class="built_in">set</span>_header  X-Real-IP  <span class="variable">$remote_addr</span>;</span><br><span class="line">            proxy_<span class="built_in">set</span>_header X-Forwarded-For <span class="variable">$proxy_add_x_forwarded_for</span>;</span><br><span class="line">            proxy_pass https://github.com/moonbingbing/openresty-best-practices/blob/master/README.md;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="正向代理"><a href="#正向代理" class="headerlink" title="正向代理"></a>正向代理</h3><p><strong>正向代理</strong>就像一个跳板，例如一个用户访问不了某网站（例如 www.google.com），但是他能访问一个代理服务器，这个代理服务器能访问 www.google.com，于是用户可以先连上代理服务器，告诉它需要访问的内容，代理服务器去取回来返回给用户。例如一些常见的翻墙工具、游戏代理就是利用正向代理的原理工作的。</p>
+<h3 id="正向代理"><a href="#正向代理" class="headerlink" title="正向代理"></a>正向代理</h3><p><strong>正向代理</strong>就像一个跳板，例如一个用户访问不了某网站（例如 www.google.com），但是他能访问一个代理服务器，这个代理服务器能访问 www.google.com，于是用户可以先连上代理服务器，告诉它需要访问的内容，代理服务器去取回来返回给用户。例如一些常见的翻墙工具、游戏代理就是利用正向代理的原理工作的。<br><img src="http://upload-images.jianshu.io/upload_images/3257886-b0ae8b42686a1424.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/700" alt=""></p>
 <h3 id="安装-Shadowsocks-Server"><a href="#安装-Shadowsocks-Server" class="headerlink" title="安装 Shadowsocks Server"></a>安装 Shadowsocks Server</h3><ol>
 <li><p>安装<code>python-pip</code></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install python-pip</span><br></pre></td></tr></table></figure>
