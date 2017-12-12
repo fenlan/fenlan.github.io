@@ -121,9 +121,10 @@ ssh公钥私钥(authorized/id_rsa/id_rsa.pub)
 ssh免密(公钥)登录
 用户将自己的公钥储存在远程主机上。
 登录的时候，">
+<meta property="og:image" content="http://fenlan.github.io/images/WebServer.png">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/3257886-9188ef03eca4816f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/700">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/3257886-b0ae8b42686a1424.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/700">
-<meta property="og:updated_time" content="2017-12-11T16:59:40.025Z">
+<meta property="og:updated_time" content="2017-12-12T02:54:08.225Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="分享会资料">
 <meta name="twitter:description" content="ssh
@@ -137,7 +138,7 @@ ssh公钥私钥(authorized/id_rsa/id_rsa.pub)
 ssh免密(公钥)登录
 用户将自己的公钥储存在远程主机上。
 登录的时候，">
-<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/3257886-9188ef03eca4816f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/700">
+<meta name="twitter:image" content="http://fenlan.github.io/images/WebServer.png">
 
 
 
@@ -463,7 +464,7 @@ ssh免密(公钥)登录
 </ol>
 <a id="more"></a>
 <h2 id="hosts文件问题"><a href="#hosts文件问题" class="headerlink" title="hosts文件问题"></a>hosts文件问题</h2><p>为新租的 vps 设置简单的别名访问<br>修改新租的 vps 中 hosts 文件，将百度域名转址为本机</p>
-<h2 id="Web服务器"><a href="#Web服务器" class="headerlink" title="Web服务器"></a>Web服务器</h2><p>Web服务器可以解析HTTP协议。当Web服务器接收到一个HTTP请求,会返回一个HTTP响应,例如送回一个HTML页面。为了处理一个请求Web服务器可以响应一个静态页面或图片，进行页面跳转或者把动态响应的产生委托给一些其它的程序例如CGI脚本，JSP脚本，servlets，ASP脚本，服务器端JavaScript，或者一些其它的服务器端技术。无论它们(译者注：脚本)的目的如何，这些服务器端的程序通常产生一个HTML的响应来让浏览器可以浏览。</p>
+<h2 id="Web服务器"><a href="#Web服务器" class="headerlink" title="Web服务器"></a>Web服务器</h2><p>Web服务器可以解析HTTP协议。当Web服务器接收到一个HTTP请求,会返回一个HTTP响应,例如送回一个HTML页面。为了处理一个请求Web服务器可以响应一个静态页面或图片，进行页面跳转或者把动态响应的产生委托给一些其它的程序例如CGI脚本，JSP脚本，servlets，ASP脚本，服务器端JavaScript，或者一些其它的服务器端技术。无论它们(译者注：脚本)的目的如何，这些服务器端的程序通常产生一个HTML的响应来让浏览器可以浏览。<br><img src="/images/WebServer.png" alt=""></p>
 <h3 id="apache-vs-nginx"><a href="#apache-vs-nginx" class="headerlink" title="apache vs. nginx"></a>apache vs. nginx</h3><ul>
 <li><code>nginx</code>优点<ul>
 <li>轻量级，起 web 服务，比 apache 占用更少的内存及资源</li>
@@ -483,6 +484,7 @@ ssh免密(公钥)登录
 <blockquote>
 <p>apache是同步多进程模型，一个连接对应一个进程；nginx是异步的，多个连接（万级别）可以对应一个进程</p>
 </blockquote>
+<h3 id="nginx虚拟主机"><a href="#nginx虚拟主机" class="headerlink" title="nginx虚拟主机"></a>nginx虚拟主机</h3><p>基于端口的虚拟主机<br>基于域名的虚拟主机</p>
 <h3 id="nginx反向代理"><a href="#nginx反向代理" class="headerlink" title="nginx反向代理"></a>nginx反向代理</h3><p><strong>反向代理</strong>方式是指用代理服务器来接受 internet 上的连接请求，然后将请求转发给内部网络上的服务器，并将从服务器上得到的结果返回给 internet 上请求连接的客户端，此时代理服务器对外就表现为一个反向代理服务器。</p>
 <p>举个例子，一个用户访问 <a href="http://www.example.com/readme，但是" target="_blank" rel="external">http://www.example.com/readme，但是</a> www.example.com 上并不存在 readme 页面，它是偷偷从另外一台服务器上取回来，然后作为自己的内容返回给用户。但是用户并不知情这个过程。对用户来说，就像是直接从 www.example.com 获取 readme 页面一样。这里所提到的 www.example.com 这个域名对应的服务器就设置了反向代理功能。</p>
 <p><img src="http://upload-images.jianshu.io/upload_images/3257886-9188ef03eca4816f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/700" alt=""></p>
@@ -754,7 +756,7 @@ ssh免密(公钥)登录
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#ssh"><span class="nav-number">1.</span> <span class="nav-text">ssh</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#hosts文件问题"><span class="nav-number">2.</span> <span class="nav-text">hosts文件问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Web服务器"><span class="nav-number">3.</span> <span class="nav-text">Web服务器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#apache-vs-nginx"><span class="nav-number">3.1.</span> <span class="nav-text">apache vs. nginx</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#nginx反向代理"><span class="nav-number">3.2.</span> <span class="nav-text">nginx反向代理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#正向代理"><span class="nav-number">3.3.</span> <span class="nav-text">正向代理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装-Shadowsocks-Server"><span class="nav-number">3.4.</span> <span class="nav-text">安装 Shadowsocks Server</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#ssh"><span class="nav-number">1.</span> <span class="nav-text">ssh</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#hosts文件问题"><span class="nav-number">2.</span> <span class="nav-text">hosts文件问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Web服务器"><span class="nav-number">3.</span> <span class="nav-text">Web服务器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#apache-vs-nginx"><span class="nav-number">3.1.</span> <span class="nav-text">apache vs. nginx</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#nginx虚拟主机"><span class="nav-number">3.2.</span> <span class="nav-text">nginx虚拟主机</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#nginx反向代理"><span class="nav-number">3.3.</span> <span class="nav-text">nginx反向代理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#正向代理"><span class="nav-number">3.4.</span> <span class="nav-text">正向代理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装-Shadowsocks-Server"><span class="nav-number">3.5.</span> <span class="nav-text">安装 Shadowsocks Server</span></a></li></ol></li></ol></div>
             
 
           </div>
