@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://fenlan.github.io/"/>
-  <updated>2017-12-14T12:36:55.808Z</updated>
+  <updated>2017-12-14T12:39:36.118Z</updated>
   <id>http://fenlan.github.io/</id>
   
   <author>
@@ -21,17 +21,11 @@
     <link href="http://fenlan.github.io/2017/12/14/%E4%BB%A3%E7%A0%81%E6%B3%A8%E5%85%A5/"/>
     <id>http://fenlan.github.io/2017/12/14/代码注入/</id>
     <published>2017-12-14T07:18:23.000Z</published>
-    <updated>2017-12-14T12:36:55.808Z</updated>
+    <updated>2017-12-14T12:39:36.118Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          &lt;h2 id=&quot;c程序代码注入&quot;&gt;&lt;a href=&quot;#c程序代码注入&quot; class=&quot;headerlink&quot; title=&quot;c程序代码注入&quot;&gt;&lt;/a&gt;c程序代码注入&lt;/h2&gt;&lt;p&gt;c程序:&lt;br&gt;&lt;figure class=&quot;highlight
-        
-      
+      &lt;h2 id=&quot;c程序代码注入&quot;&gt;&lt;a href=&quot;#c程序代码注入&quot; class=&quot;headerlink&quot; title=&quot;c程序代码注入&quot;&gt;&lt;/a&gt;c程序代码注入&lt;/h2&gt;&lt;p&gt;c程序:&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;#include &amp;lt;stdio.h&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;int main(int argc, char *argv[])&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	char src[100], dst[100], cmd[205] = &lt;span class=&quot;string&quot;&gt;&quot;cp &quot;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&lt;span class=&quot;built_in&quot;&gt;printf&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&quot;Please enter name of source file:&quot;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	gets(src);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	strcat(cmd, src);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	strcat(cmd, &lt;span class=&quot;string&quot;&gt;&quot; &quot;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&lt;span class=&quot;built_in&quot;&gt;printf&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&quot;Please enter name of destination file:&quot;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	gets(dst);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	strcat(cmd, dst);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	system(cmd);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&lt;span class=&quot;built_in&quot;&gt;return&lt;/span&gt; 0;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
     
     </summary>
     
