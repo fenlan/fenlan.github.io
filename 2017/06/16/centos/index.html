@@ -112,7 +112,7 @@
 <meta property="og:image" content="http://fenlan.github.io/images/nginxUser.png">
 <meta property="og:image" content="http://fenlan.github.io/images/cpu.png">
 <meta property="og:image" content="http://fenlan.github.io/images/laravel_problem.png">
-<meta property="og:updated_time" content="2017-12-12T14:41:51.113Z">
+<meta property="og:updated_time" content="2017-12-14T03:18:23.356Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="正式入坑CentOS">
 <meta name="twitter:description" content="第一关：设置windows启动项在安装双系统时，选择centos会默认没有windows的启动项，因此要添加windows的引导选项，过程如下：
@@ -463,7 +463,7 @@
 <li><strong>最后写个python程序，让它一直跑着随时准备发邮件</strong></li>
 <li><strong>将写好的程序运行命令写入/etc/rc.d/rc.local，让它开机运行</strong></li>
 </ul>
-<p><strong>那么命令如下：</strong><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost]$ yum install sendmail sendmail-cf mailx</span><br><span class="line">[root@localhost]$ service start sendmail</span><br><span class="line">[root@localhost]$ last | awk <span class="string">'$1=="root"'</span></span><br></pre></td></tr></table></figure></p>
+<p><strong>那么命令如下：</strong><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost]$ yum install sendmail sendmail-cf mailx</span><br><span class="line">[root@localhost]$ service sendmail start</span><br><span class="line">[root@localhost]$ last | awk <span class="string">'$1=="root"'</span></span><br></pre></td></tr></table></figure></p>
 <p><strong>接下来需要修改一个配置文件，让<code>sendmail</code>可以给整个英特网发送邮件，配置文件为<code>/etc/mail/sendmail.mc</code>，其中有一行</strong><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DAEMON_OPTIONS(<span class="string">'port=smtp,Addr=127.0.0.1, Name=MTA-v6, Family=net6'</span>)dnl</span><br></pre></td></tr></table></figure></p>
 <p><strong>将127.0.0.1改为0.0.0.0，这样就可以给整个英特网发送邮件了</strong><br><strong>python脚本如下</strong></p>
 <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">import os</span><br><span class="line"></span><br><span class="line">inst = "last | awk \'$1!=\"reboot\"\'"</span><br><span class="line">str = os.popen(inst).read()</span><br><span class="line">ssh_login = str.split("\n")</span><br><span class="line">length = len(ssh_login)</span><br><span class="line"></span><br><span class="line">while True:</span><br><span class="line">    inst1 = "last | awk \'$1!=\"reboot\"\' &gt; ssh_login.txt"</span><br><span class="line">    os.system(inst1)</span><br><span class="line">    str = os.popen(inst).read()</span><br><span class="line">    ssh_login = str.split("\n  length1 = len(ssh_login)</span><br><span class="line"></span><br><span class="line">    if length1 &gt; length:</span><br><span class="line">        login_name = ssh_login[0]</span><br><span class="line">        mail = "echo %s | mail -s \'$1!=\"reboot\"\' ××××@qq.com" % login_name</span><br><span class="line">        os.system(mail)</span><br><span class="line">        length = length1</span><br></pre></td></tr></table></figure>
@@ -617,7 +617,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">33</span>
+                <span class="site-state-item-count">34</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -628,7 +628,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-count">13</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -639,7 +639,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">37</span>
+                <span class="site-state-item-count">38</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
