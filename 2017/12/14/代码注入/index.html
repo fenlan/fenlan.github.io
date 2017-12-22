@@ -110,7 +110,7 @@
 <meta property="og:image" content="http://fenlan.github.io/images/sql5.png">
 <meta property="og:image" content="http://fenlan.github.io/images/sql6.png">
 <meta property="og:image" content="http://fenlan.github.io/images/sql7.png">
-<meta property="og:updated_time" content="2017-12-22T10:13:56.141Z">
+<meta property="og:updated_time" content="2017-12-22T10:15:42.394Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="代码注入">
 <meta name="twitter:description" content="c程序代码注入c程序:123456789101112131415#include &amp;lt;stdio.h&amp;gt;int main(int argc, char *argv[])&amp;#123;	char src[100], dst[100], cmd[205] = &quot;cp &quot;;	printf(&quot;Please enter name of source file:&quot;);	gets(src);	strcat">
@@ -501,7 +501,7 @@
 <h2 id="php-注入"><a href="#php-注入" class="headerlink" title="php 注入"></a>php 注入</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="keyword">print</span>(<span class="string">"查看文件"</span>);</span><br><span class="line"><span class="keyword">print</span>(<span class="string">"&lt;p&gt;"</span>);</span><br><span class="line">$file=$_GET[<span class="string">'filename'</span>];</span><br><span class="line">system(<span class="string">"cat $file"</span>);</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
 <p>与c代码注入类似，基本在于调用系统的命令来获取结果，诸如php获取系统版本、mysql版本、服务器时间、Web服务器类型等等系统信息，使用系统命令，都可能会产生注入漏洞。在本例中仍然可以在url中注入一些系统命令。</p>
 <h2 id="注入防范"><a href="#注入防范" class="headerlink" title="注入防范"></a>注入防范</h2><p>明白注入的基本方式和原理，很容易知道，通过输入检查来预防注入。获取到输入的字符串，对字符串进行过滤、转义等操作，只不过诸如php的不同输入检查函数，不同的函数的检查方法不一样，但有可能仍然存在编写者本身没有考虑到的可能性，这就导致了漏洞不间断出现。在使用这些检查函数时，要认真查看函数的检查方法以及过滤的东西。在此举个例子:</p>
-<p><code>mysqli_real_escape_string</code>:</p>
+<p><code>mysqli_real_escape_string( mysqli $link , string $escapestr)</code>:</p>
 <ul>
 <li>Parameters:<ul>
 <li>link: Procedural style only: A link identifier returned by mysqli_connect() or mysqli_init()</li>
