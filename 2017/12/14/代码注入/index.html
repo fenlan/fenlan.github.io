@@ -110,7 +110,7 @@
 <meta property="og:image" content="http://fenlan.github.io/images/sql5.png">
 <meta property="og:image" content="http://fenlan.github.io/images/sql6.png">
 <meta property="og:image" content="http://fenlan.github.io/images/sql7.png">
-<meta property="og:updated_time" content="2017-12-22T10:01:56.223Z">
+<meta property="og:updated_time" content="2017-12-22T10:07:32.945Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="代码注入">
 <meta name="twitter:description" content="c程序代码注入c程序:123456789101112131415#include &amp;lt;stdio.h&amp;gt;int main(int argc, char *argv[])&amp;#123;	char src[100], dst[100], cmd[205] = &quot;cp &quot;;	printf(&quot;Please enter name of source file:&quot;);	gets(src);	strcat">
@@ -444,7 +444,45 @@
 <h3 id="查询刚刚猜测的字段顺序"><a href="#查询刚刚猜测的字段顺序" class="headerlink" title="查询刚刚猜测的字段顺序"></a>查询刚刚猜测的字段顺序</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1<span class="string">' union select 1,2 #</span></span><br></pre></td></tr></table></figure>
 <p><code>sql</code>语法<code>union</code>是将两个集合去重合并，相当于原本返回<code>admin,admin</code>，现在又存在<code>1,2</code>，通过<code>union</code>后就是两行数据</p>
 <h3 id="获取当前数据库名"><a href="#获取当前数据库名" class="headerlink" title="获取当前数据库名"></a>获取当前数据库名</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1<span class="string">' union select 1,database() #</span></span><br></pre></td></tr></table></figure>
-<p><code>database()</code>是数据库系统信息函数，作用是获取当前数据库名，其他数据库信息函数有<br>| 函数 | 作用 |<br>|——–|——–|<br>|   version()     |   获取数据库的版本号   |<br>| connection_id() |   获取数据库的连接数   |<br>| database();schema() |  获取当前数据库名  |<br>| user();system_user()|  获取当前用户     |<br>| current_user()  |        获取当前用户      |<br>| charset(str)    |    获取字符串str的字符集 |<br>| collation(str)  |    获取字符串str的字符排列方式 |</p>
+<p><code>database()</code>是数据库系统信息函数，作用是获取当前数据库名，其他数据库信息函数有</p>
+<table>
+<thead>
+<tr>
+<th>函数</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>version()</td>
+<td>获取数据库的版本号</td>
+</tr>
+<tr>
+<td>connection_id()</td>
+<td>获取数据库的连接数</td>
+</tr>
+<tr>
+<td>database();schema()</td>
+<td>获取当前数据库名</td>
+</tr>
+<tr>
+<td>user();system_user()</td>
+<td>获取当前用户</td>
+</tr>
+<tr>
+<td>current_user()</td>
+<td>获取当前用户</td>
+</tr>
+<tr>
+<td>charset(str)</td>
+<td>获取字符串str的字符集</td>
+</tr>
+<tr>
+<td>collation(str)</td>
+<td>获取字符串str的字符排列方式</td>
+</tr>
+</tbody>
+</table>
 <h3 id="获取当前表名"><a href="#获取当前表名" class="headerlink" title="获取当前表名"></a>获取当前表名</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1<span class="string">' union select 1,group_concat(table_name) from information_schema.tables where table_schema=database() #</span></span><br></pre></td></tr></table></figure>
 <p><code>mysql</code>在创建时默认创建一个information_schema数据库，在MySQL中，把 information_schema 看作是一个数据库，确切说是信息数据库。其中保存着关于MySQL服务器所维护的所有其他数据库的信息。如数据库名，数据库的表，表栏的数据类型与访问权 限等。在INFORMATION_SCHEMA中，有数个只读表。它们实际上是视图，而不是基本表，因此，你将无法看到与之相关的任何文件。</p>
 <p><code>information_schema</code>数据库表说明:</p>
