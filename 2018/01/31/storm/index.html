@@ -115,7 +115,7 @@
 配置storm/conf/storm.yaml
 
 12345678910111213storm.zookeeper.servers:    - &quot;zookeeper-server1&quot;    - &quot;zookeeper-s">
-<meta property="og:updated_time" content="2018-01-31T13:04:57.112Z">
+<meta property="og:updated_time" content="2018-01-31T13:07:10.376Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Storm">
 <meta name="twitter:description" content="安装zookeeper
@@ -442,6 +442,7 @@
 <li>配置<code>storm/conf/storm.yaml</code></li>
 </ol>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">storm.zookeeper.servers:</span><br><span class="line">    - <span class="string">"zookeeper-server1"</span></span><br><span class="line">    - <span class="string">"zookeeper-server2"</span></span><br><span class="line">    - <span class="string">"zookeeper-server3"</span></span><br><span class="line">nimbus.seeds: [<span class="string">"zookeeper-server1"</span>]</span><br><span class="line"></span><br><span class="line">storm.local.dir: <span class="string">"/root/Downloads/storm/data"</span></span><br><span class="line"></span><br><span class="line">supervisor.slots.ports:</span><br><span class="line">    - 6700</span><br><span class="line">    - 6701</span><br><span class="line">    - 6702</span><br><span class="line">    - 6703</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
 <blockquote>
 <p>每一项配置顶格需要一个空格，所有配置避免使用Tab</p>
 </blockquote>

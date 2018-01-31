@@ -412,8 +412,7 @@
 
       
         
-          
-            <h2 id="安装zookeeper"><a href="#安装zookeeper" class="headerlink" title="安装zookeeper"></a>安装zookeeper</h2><blockquote>
+          <h2 id="安装zookeeper"><a href="#安装zookeeper" class="headerlink" title="安装zookeeper"></a>安装zookeeper</h2><blockquote>
 <p>安装过程查看文章<a href="http://fenlan.github.io/2017/11/29/zookeeper-kafka/">http://fenlan.github.io/2017/11/29/zookeeper-kafka/</a></p>
 </blockquote>
 <h2 id="安装Storm"><a href="#安装Storm" class="headerlink" title="安装Storm"></a>安装Storm</h2><ol>
@@ -421,25 +420,13 @@
 <li>配置<code>storm/conf/storm.yaml</code></li>
 </ol>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">storm.zookeeper.servers:</span><br><span class="line">    - <span class="string">"zookeeper-server1"</span></span><br><span class="line">    - <span class="string">"zookeeper-server2"</span></span><br><span class="line">    - <span class="string">"zookeeper-server3"</span></span><br><span class="line">nimbus.seeds: [<span class="string">"zookeeper-server1"</span>]</span><br><span class="line"></span><br><span class="line">storm.local.dir: <span class="string">"/root/Downloads/storm/data"</span></span><br><span class="line"></span><br><span class="line">supervisor.slots.ports:</span><br><span class="line">    - 6700</span><br><span class="line">    - 6701</span><br><span class="line">    - 6702</span><br><span class="line">    - 6703</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>每一项配置顶格需要一个空格，所有配置避免使用Tab</p>
-</blockquote>
-<ol>
-<li>启动<code>nohup bin/storm nimbus &amp;</code></li>
-<li>启动<code>nohup bin/storm supervisor &amp;</code></li>
-<li>启动<code>nohup bin/storm ui &amp;</code></li>
-<li>查看<code>ui</code>: zookeeper-server1:8080</li>
-<li>运行<code>WordCount</code><ul>
-<li>下载maven : <code>wget http://www-eu.apache.org/dist/maven/maven-3/3.5.2/binaries/apache-maven-3.5.2-bin.tar.gz</code></li>
-<li><code>tar -zxf apache-maven-3.5.2-bin.tar.gz</code></li>
-<li>初始化安装storm所需依赖：<code>mvn clean install -DskipTests=true</code></li>
-<li>使用Maven打包storm拓扑：<code>mvn package</code></li>
-<li>运行<code>WordCount</code> : <code>bin/storm jar storm-starter-1.1.1.jar org.apache.storm.starter.WordCountTopology wordcount</code></li>
-</ul>
-</li>
-</ol>
-
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/01/31/storm/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
