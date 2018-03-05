@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://fenlan.github.io/"/>
-  <updated>2018-03-01T10:34:28.124Z</updated>
+  <updated>2018-03-05T12:11:29.521Z</updated>
   <id>http://fenlan.github.io/</id>
   
   <author>
@@ -21,17 +21,31 @@
     <link href="http://fenlan.github.io/2018/03/01/Java%E5%B0%8F%E8%AE%B0/"/>
     <id>http://fenlan.github.io/2018/03/01/Java小记/</id>
     <published>2018-03-01T07:18:23.000Z</published>
-    <updated>2018-03-01T10:34:28.124Z</updated>
+    <updated>2018-03-05T12:11:29.521Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          &lt;h2 id=&quot;static和final的区别和用途&quot;&gt;&lt;a href=&quot;#static和final的区别和用途&quot; class=&quot;headerlink&quot;
-        
-      
+      &lt;h2 id=&quot;static和final的区别和用途&quot;&gt;&lt;a href=&quot;#static和final的区别和用途&quot; class=&quot;headerlink&quot; title=&quot;static和final的区别和用途&quot;&gt;&lt;/a&gt;static和final的区别和用途&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Static&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;修饰变量:静态变量随着类的加载时完成初始化，内存中只有一个，且JVM也只会为他分配一次内存，所有类共享静态变量，静态变量放在指定的静态共享区，遵循一改全改。&lt;/li&gt;
+&lt;li&gt;修饰方法:静态方法在类加载时就存在与静态区域，不依赖任何实例，Static方法必须实现，不能是抽象类abstract。&lt;/li&gt;
+&lt;li&gt;修饰代码块：类加载完后执行代码块中的内容。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Final&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;修饰变量：&lt;ul&gt;
+&lt;li&gt;编译时常量：类加载的过程完成初始化，编译后带入到任何计算式中，只能是基本类型。&lt;/li&gt;
+&lt;li&gt;运行时常量：基本数据类型或引用数据类型，引用不可变，但引用的内容可以变。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;修饰方法：跟final单词意思相近，最后的方法，表示不能被继承，不能被子类修改重写。&lt;/li&gt;
+&lt;li&gt;修饰类：不能被继承。&lt;/li&gt;
+&lt;li&gt;修饰形参：final形参在方法内不可变。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
     
     </summary>
     
