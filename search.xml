@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Java 基础小记]]></title>
+    <url>%2F2018%2F03%2F01%2FJava%E5%B0%8F%E8%AE%B0%2F</url>
+    <content type="text"><![CDATA[static和final的区别和用途 Static 修饰变量:静态变量随着类的加载时完成初始化，内存中只有一个，且JVM也只会为他分配一次内存，所有类共享静态变量，静态变量放在指定的静态共享区，遵循一改全改。 修饰方法:静态方法在类加载时就存在与静态区域，不依赖任何实例，Static方法必须实现，不能是抽象类abstract。 修饰代码块：类加载完后执行代码块中的内容。 Final 修饰变量： 编译时常量：类加载的过程完成初始化，编译后带入到任何计算式中，只能是基本类型。 运行时常量：基本数据类型或引用数据类型，引用不可变，但引用的内容可以变。 修饰方法：跟final单词意思相近，最后的方法，表示不能被继承，不能被子类修改重写。 修饰类：不能被继承。 修饰形参：final形参在方法内不可变。 12345678910111213141516171819202122232425262728293031323334353637383940414243class Value &#123; int i = 1;&#125;public class FinalDemo &#123; static int i = 9; final int i1 = 9; static final int i2 = 29; public static final int i3 = 39; final int i4 = (int)(Math.random()*20); static final int i5 = (int)(Math.random()*20); Value v1 = new Value(); final Value v2 = new Value(); static final Value v3 = new Value(); // final Value v4; // Error: var not init in the default constructor final int[] a = &#123;1, 2, 3, 4, 5, 6 &#125;; public void print(String id) &#123; System.out.println(id + " : " + "i4 = " + i4 + ", i5 = " + i5 + ", i = " + i); &#125; public static void main(String[] args) &#123; FinalDemo finalDemo = new FinalDemo(); // finalDemo.i1++; // Error: can't change value finalDemo.v2.i++; FinalDemo.i++; finalDemo.v1 = new Value(); for (int i = 0; i &lt; finalDemo.a.length; i++) &#123; finalDemo.a[i]++; // finalDemo.v2 = new Value(); // Error: Can't // finalDemo.v3 = new Value(); // change handle // finalDemo.a = new int[3]; // Error: can't assign a value to final var &#125; finalDemo.print("fd1"); System.out.println("Creating new FinalDemo class"); FinalDemo finalDemo2 = new FinalDemo(); finalDemo.print("fd1"); finalDemo2.print("fd2"); &#125;&#125;]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+      <tags>
+        <tag>static</tag>
+        <tag>final</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Storm]]></title>
     <url>%2F2018%2F01%2F31%2Fstorm%2F</url>
     <content type="text"><![CDATA[安装zookeeper 安装过程查看文章http://fenlan.github.io/2017/11/29/zookeeper-kafka/ 安装Storm 官网下载Storm 配置storm/conf/storm.yaml 12345678910111213storm.zookeeper.servers: - "zookeeper-server1" - "zookeeper-server2" - "zookeeper-server3"nimbus.seeds: ["zookeeper-server1"]storm.local.dir: "/root/Downloads/storm/data"supervisor.slots.ports: - 6700 - 6701 - 6702 - 6703 每一项配置顶格需要一个空格，所有配置避免使用Tab 启动nohup bin/storm nimbus &amp; 启动nohup bin/storm supervisor &amp; 启动nohup bin/storm ui &amp; 查看ui: zookeeper-server1:8080 运行WordCount 下载maven : wget http://www-eu.apache.org/dist/maven/maven-3/3.5.2/binaries/apache-maven-3.5.2-bin.tar.gz tar -zxf apache-maven-3.5.2-bin.tar.gz 初始化安装storm所需依赖：mvn clean install -DskipTests=true 使用Maven打包storm拓扑：mvn package 运行WordCount : bin/storm jar storm-starter-1.1.1.jar org.apache.storm.starter.WordCountTopology wordcount]]></content>
@@ -351,11 +363,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[吐槽]]></title>
-    <url>%2F2016%2F05%2F21%2Fmy-note1%2F</url>
-    <content type="text"><![CDATA[我必须来吐槽一下，搞了两天了来搭建自己的博客，然而出现各种莫名其妙的东西，让我很是难受，我已经合理怀疑自己的智商了。不过话说回来上次在网上瞎做了一个智商测试，测试出来我居然有143的天才智商，真的假的。]]></content>
-  </entry>
-  <entry>
     <title><![CDATA[Git install and setting]]></title>
     <url>%2F2016%2F05%2F21%2Fgit-install%2F</url>
     <content type="text"><![CDATA[git install and setting:123$ git config --global user.name "name"$ git config --global user.email "email"$ git config --global color.ui auto and then create a new directory as tutorial123$ mkdir tutorial$ cd tutorial$ git init then create a new file as text.txt123456$ git status$ git add text.txt$ git status$ git commit -m "text"$ git status$ git log next to rename the “https://…….” as origin123$ git remote add origin https://.........(do this only the first time)$ git push -u origin master(the first time)$ git push -u origin(do this the next time) do clone1$ git clone https://....... tutorial2(a new directory) do pull file in your date-base12$ git pull origin master$ git log finally do another setting to make it better,but I meet a problem.So I stop it temporarily,continue it if I have time.]]></content>
@@ -365,6 +372,11 @@
       <tags>
         <tag>git</tag>
       </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[吐槽]]></title>
+    <url>%2F2016%2F05%2F21%2Fmy-note1%2F</url>
+    <content type="text"><![CDATA[我必须来吐槽一下，搞了两天了来搭建自己的博客，然而出现各种莫名其妙的东西，让我很是难受，我已经合理怀疑自己的智商了。不过话说回来上次在网上瞎做了一个智商测试，测试出来我居然有143的天才智商，真的假的。]]></content>
   </entry>
   <entry>
     <title><![CDATA[Hello World]]></title>

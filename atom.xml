@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://fenlan.github.io/"/>
-  <updated>2018-01-31T13:07:10.376Z</updated>
+  <updated>2018-03-01T10:34:28.124Z</updated>
   <id>http://fenlan.github.io/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Java 基础小记</title>
+    <link href="http://fenlan.github.io/2018/03/01/Java%E5%B0%8F%E8%AE%B0/"/>
+    <id>http://fenlan.github.io/2018/03/01/Java小记/</id>
+    <published>2018-03-01T07:18:23.000Z</published>
+    <updated>2018-03-01T10:34:28.124Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;static和final的区别和用途&quot;&gt;&lt;a href=&quot;#static和final的区别和用途&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="Java" scheme="http://fenlan.github.io/categories/Java/"/>
+    
+    
+      <category term="static" scheme="http://fenlan.github.io/tags/static/"/>
+    
+      <category term="final" scheme="http://fenlan.github.io/tags/final/"/>
+    
+  </entry>
   
   <entry>
     <title>Storm</title>
@@ -476,27 +504,6 @@
     
     
       <category term="爬虫" scheme="http://fenlan.github.io/tags/%E7%88%AC%E8%99%AB/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>java线程学习记录</title>
-    <link href="http://fenlan.github.io/2016/06/18/java-Thread/"/>
-    <id>http://fenlan.github.io/2016/06/18/java-Thread/</id>
-    <published>2016-06-18T07:18:23.000Z</published>
-    <updated>2017-11-28T03:06:41.721Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;strong&gt;在接触Android时候发现java基础没打好，所以回来重新打基础&lt;/strong&gt;&lt;/p&gt;
-&lt;h3 id=&quot;java线程基础&quot;&gt;&lt;a href=&quot;#java线程基础&quot; class=&quot;headerlink&quot; title=&quot;java线程基础&quot;&gt;&lt;/a&gt;java线程基础&lt;/h3&gt;
-    
-    </summary>
-    
-      <category term="java" scheme="http://fenlan.github.io/categories/java/"/>
-    
-    
-      <category term="线程" scheme="http://fenlan.github.io/tags/%E7%BA%BF%E7%A8%8B/"/>
     
   </entry>
   
