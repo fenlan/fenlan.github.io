@@ -62,8 +62,8 @@
       </categories>
       <tags>
         <tag>hadoop</tag>
-        <tag>Kafka</tag>
         <tag>storm</tag>
+        <tag>Kafka</tag>
         <tag>spark</tag>
       </tags>
   </entry>

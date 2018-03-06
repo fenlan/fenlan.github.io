@@ -69,7 +69,7 @@
     <link href="http://fenlan.github.io/2018/01/31/storm/"/>
     <id>http://fenlan.github.io/2018/01/31/storm/</id>
     <published>2018-01-31T07:18:23.000Z</published>
-    <updated>2018-01-31T13:07:10.376Z</updated>
+    <updated>2018-01-31T13:08:52.492Z</updated>
     
     <summary type="html">
     
@@ -173,9 +173,9 @@
     
       <category term="hadoop" scheme="http://fenlan.github.io/tags/hadoop/"/>
     
-      <category term="Kafka" scheme="http://fenlan.github.io/tags/Kafka/"/>
-    
       <category term="storm" scheme="http://fenlan.github.io/tags/storm/"/>
+    
+      <category term="Kafka" scheme="http://fenlan.github.io/tags/Kafka/"/>
     
       <category term="spark" scheme="http://fenlan.github.io/tags/spark/"/>
     
