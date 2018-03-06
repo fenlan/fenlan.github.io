@@ -77,7 +77,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="static,final,synchronized,hashCode,equals," />
+  <meta name="keywords" content="static,final,synchronized,hashCode,equals,Collection," />
 
 
 
@@ -121,7 +121,8 @@ Static
 Final
 
 修饰变">
-<meta property="og:updated_time" content="2018-03-06T11:16:49.737Z">
+<meta property="og:image" content="http://wiki3.cosc.canterbury.ac.nz/images/8/8d/Collections-detail-1.png">
+<meta property="og:updated_time" content="2018-03-06T12:28:42.544Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java 基础小记">
 <meta name="twitter:description" content="static和final的区别和用途
@@ -135,6 +136,7 @@ Static
 Final
 
 修饰变">
+<meta name="twitter:image" content="http://wiki3.cosc.canterbury.ac.nz/images/8/8d/Collections-detail-1.png">
 
 
 
@@ -487,6 +489,7 @@ Final
 <p>对于上述第四条和第五条，个人的理解是：<code>hashCode()</code>方法原本是根据对象在内存中的位置来计算，因此如果要比较两个对象是否相等，通过原本的<code>hashCode()</code>方法计算会得到两个不同的值，因为是两个对象，原本的<code>hashCode()</code>是一个对象对应一个唯一的值，这个值与内存位置有关，而两个对象是在不同的内存位置上，如果强行想要表示这两个对象相等，就必须重写原本的<code>hashCode()</code>。</p>
 <p>同样的，对于<code>equals()</code>方法，原本是表示两个引用所指向的对象是否是一个对象，但是我们需要按照自己的意愿去表示两个不同的对象，如果某些特征相同时也表示相等，比如想要表示一个人的信息，在不同时间点记录的信息会不同，但只要身份证号一样，我们就认为这是同一个人。这就需要重写<code>equals()</code>方法，让它表示两个不同对象在意义上相同。</p>
 <p>综合上述的描述 : <code>hashCode()</code>是判断引用相等，<code>equals()</code>是判断对象相等。</p>
+<h2 id="Collection-API"><a href="#Collection-API" class="headerlink" title="Collection API"></a>Collection API</h2><p><img src="http://wiki3.cosc.canterbury.ac.nz/images/8/8d/Collections-detail-1.png" alt=""></p>
 
       
     </div>
@@ -525,6 +528,8 @@ Final
             <a href="/tags/hashCode/" rel="tag"># hashCode</a>
           
             <a href="/tags/equals/" rel="tag"># equals</a>
+          
+            <a href="/tags/Collection/" rel="tag"># Collection</a>
           
         </div>
       
@@ -646,7 +651,7 @@ Final
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">44</span>
+                <span class="site-state-item-count">45</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -743,7 +748,7 @@ Final
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#static和final的区别和用途"><span class="nav-number">1.</span> <span class="nav-text">static和final的区别和用途</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#同步机制实现原子化-synchronized"><span class="nav-number">2.</span> <span class="nav-text">同步机制实现原子化 synchronized</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#hashCode-与equals-的相关规定"><span class="nav-number">3.</span> <span class="nav-text">hashCode()与equals()的相关规定</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#static和final的区别和用途"><span class="nav-number">1.</span> <span class="nav-text">static和final的区别和用途</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#同步机制实现原子化-synchronized"><span class="nav-number">2.</span> <span class="nav-text">同步机制实现原子化 synchronized</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#hashCode-与equals-的相关规定"><span class="nav-number">3.</span> <span class="nav-text">hashCode()与equals()的相关规定</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Collection-API"><span class="nav-number">4.</span> <span class="nav-text">Collection API</span></a></li></ol></div>
             
 
           </div>
