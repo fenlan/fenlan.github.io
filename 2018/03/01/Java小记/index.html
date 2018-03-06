@@ -121,7 +121,7 @@ Static
 Final
 
 修饰变">
-<meta property="og:updated_time" content="2018-03-06T08:58:34.056Z">
+<meta property="og:updated_time" content="2018-03-06T11:10:20.252Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java 基础小记">
 <meta name="twitter:description" content="static和final的区别和用途
@@ -470,6 +470,23 @@ Final
 <p>用同步机制让<code>increment()</code> 方法原子化，将<code>increment()</code>方法同步化可以解决丢失更新的问题，因为他会让方法中的两个步骤组成不可分割的单元。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">synchronized</span> <span class="keyword">void</span> <span class="title">increment</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i = balance;</span><br><span class="line">    balance = i + <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>但同步化是需要付出额外的成本。也就是说进入同步化方法的程序会查询钥匙等性能上的损耗。其次，同步化的方法会让你的程序因为要同步并行的问题而慢下来。同步化会强制线程排队等待执行方法。最后，最可怕的是同步化可能会导致死锁现象。原则上最好制作最少量的同步化。事实上同步化的规模可以小于方法全部，可以用<code>synchronized</code>来修饰一行或数行的代码而不必整个方法都同步化。比如:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">go</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    doStuff();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">synchronized</span>(<span class="keyword">this</span>) &#123;</span><br><span class="line">        criticalStuff();</span><br><span class="line">        moreCriticalStuff();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>并行问题也是线程安全的问题，对于一个类是否线程安全，重要的决定因素便是是否存在上面提及的问题，诸如HashMap和HashTable、StringBuffer和StringBuiler、Vector和ArrayList等的区别，其中HashMap、StringBuiler、ArrayList没有实现同步化，因此是非线程安全的；HashTable、StringBuffer、Vector在原本HashMap、StringBuiler、ArrayList的方法上添加了<code>synchronized</code>修饰来保证线程安全。</p>
+<h2 id="hashCode-与equals-的相关规定"><a href="#hashCode-与equals-的相关规定" class="headerlink" title="hashCode()与equals()的相关规定"></a>hashCode()与equals()的相关规定</h2><p>API文件有对对象的状态指定出必须遵守的规则：</p>
+<ol>
+<li>如果两个对象相等，则<code>hashcode</code>必须也是相等的。</li>
+<li>如果两个对象相等，对其中一个对象调用<code>equals()</code>必须返回<code>true</code>。也就是说，若<code>a.equals(b)</code>则<code>b.equals(a)</code>。</li>
+<li>如果两个对象有相同的<code>hashcode</code>值，它们也不一定是相等的。但若两个对象相等，则<code>hashcode</code>值一定是相等的。</li>
+<li>因此若<code>equals()</code>被覆盖过，则<code>hashCode()</code>也必须被覆盖。</li>
+<li><code>hashCode()</code>的默认行为是对在<code>heap(堆)</code>上的对象产生独特的值。如果你没有<code>override</code>过<code>hashCode()</code>，则该<code>class</code>的两个对象怎样都不会被认为是相同的。</li>
+<li><code>equals()</code>的默认行为是执行==的比较。也就是说会去测试两个引用是否对上<code>heap</code>上同一个对象。如果<code>equals()</code>没有被覆盖过，两个对象永远都不会被视为相同的，因为不同的对象有不同的字节组合。</li>
+</ol>
+<p><code>a.equals(b)</code>必须与<code>a.hashCode() == b.hashCode()</code>等值。但<code>a.hashCode() == b.hashCode()</code>不一定要与<code>a.equals()</code>等值。</p>
+<p><strong>问：</strong>为什么不同对象会有相同<code>hashcode</code>的可能<br><strong>答：</strong><code>HashSet</code>使用<code>hashcode</code>来达成存取速度较快的存储方法。如果你尝试用对象来寻找<code>ArrayList</code>中相同的对象(也就是不用索引来找)，<code>ArrayList</code>会从头开始找起。但是<code>HashSet</code>这样找对象的速度就块多了，因为它使用<code>hashcode</code>来寻找符合条件的元素。因此当你想要寻找某个对象时，通过<code>hashcode</code>就可以很快算出该对象所在的位置，而不用从头一个一个找起。重点在于<code>hashcode</code>相同并不一定保证对象是相等的，因为<code>hashCode()</code>所使用的杂凑算法也许刚刚好会让多个对象传回相同的杂凑值。越糟糕的杂凑算法越容易碰撞，但这也与数据值域分布的特征有关。如果<code>HashSet</code>发现在对比的时候，同样的<code>hashcode</code>有多个对象，它会使用<code>equals()</code>来判断是否有完全的符合。也就是说，<code>hashcode</code>是用来缩小寻找成本，但最后还是要用<code>equals()</code>才能认定是否真的找到相同的项目。</p>
+<blockquote>
+<p>这与加密中的问题一样，网络中将用户的密码获取后，通过加密算法将密码加密成一个固定长度的无规律字符串保存在数据库中，密码相同，肯定加密的结果是唯一相同的，但是由于加密过后是固定长度，比如32个字节，那么着32个字节就有固定的容量，因此会出现两个不同的密码加密后是一样的字符串。</p>
+</blockquote>
+<p>对于上述第四条和第五条，个人的理解是：<code>hashCode()</code>方法原本是根据对象在内存中的位置来计算，因此如果要比较两个对象是否相等，通过原本的<code>hashCode()</code>方法计算会得到两个不同的值，因为是两个对象，原本的<code>hashCode()</code>是一个对象对应一个唯一的值，这个值与内存位置有关，而两个对象是在不同的内存位置上，如果强行想要表示这两个对象相等，就必须重写原本的<code>hashCode()</code>。</p>
+<p>同样的，对于<code>equals()</code>方法，原本是表示两个引用所指向的对象是否是一个对象，但是我们需要按照自己的意愿去表示两个不同的对象，如果某些特征相同时也表示相等，比如想要表示一个人的信息，在不同时间点记录的信息会不同，但只要身份证号一样，我们就认为这是同一个人。这就需要重写<code>equals()</code>方法，让它表示两个不同对象在意义上相同。</p>
+<p>综合上述的描述 : <code>hashCode()</code>是判断引用相等，<code>equals()</code>是判断对象相等。</p>
 
       
     </div>
@@ -720,7 +737,7 @@ Final
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#static和final的区别和用途"><span class="nav-number">1.</span> <span class="nav-text">static和final的区别和用途</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#同步机制实现原子化-synchronized"><span class="nav-number">2.</span> <span class="nav-text">同步机制实现原子化 synchronized</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#static和final的区别和用途"><span class="nav-number">1.</span> <span class="nav-text">static和final的区别和用途</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#同步机制实现原子化-synchronized"><span class="nav-number">2.</span> <span class="nav-text">同步机制实现原子化 synchronized</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#hashCode-与equals-的相关规定"><span class="nav-number">3.</span> <span class="nav-text">hashCode()与equals()的相关规定</span></a></li></ol></div>
             
 
           </div>
