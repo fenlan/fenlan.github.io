@@ -10,6 +10,9 @@
       <tags>
         <tag>static</tag>
         <tag>final</tag>
+        <tag>synchronized</tag>
+        <tag>hashCode</tag>
+        <tag>equals</tag>
       </tags>
   </entry>
   <entry>

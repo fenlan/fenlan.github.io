@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://fenlan.github.io/"/>
-  <updated>2018-03-06T11:10:20.252Z</updated>
+  <updated>2018-03-06T11:16:49.737Z</updated>
   <id>http://fenlan.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="http://fenlan.github.io/2018/03/01/Java%E5%B0%8F%E8%AE%B0/"/>
     <id>http://fenlan.github.io/2018/03/01/Java小记/</id>
     <published>2018-03-01T07:18:23.000Z</published>
-    <updated>2018-03-06T11:10:20.252Z</updated>
+    <updated>2018-03-06T11:16:49.737Z</updated>
     
     <summary type="html">
     
@@ -55,6 +55,12 @@
       <category term="static" scheme="http://fenlan.github.io/tags/static/"/>
     
       <category term="final" scheme="http://fenlan.github.io/tags/final/"/>
+    
+      <category term="synchronized" scheme="http://fenlan.github.io/tags/synchronized/"/>
+    
+      <category term="hashCode" scheme="http://fenlan.github.io/tags/hashCode/"/>
+    
+      <category term="equals" scheme="http://fenlan.github.io/tags/equals/"/>
     
   </entry>
   
