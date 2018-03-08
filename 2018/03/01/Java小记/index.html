@@ -99,13 +99,8 @@
 Static
 
 修饰变量:静态变量随着类的加载时完成初始化，内存中只有一个，且JVM也只会为他分配一次内存，所有类共享静态变量，静态变量放在指定的静态共享区，遵循一改全改。
-修饰方法:静态方法在类加载时就存在与静态区域，不依赖任何实例，Static方法必须实现，不能是抽象类abstract。
-修饰代码块：类加载完后执行代码块中的内容。
-
-
-Final
-
-修饰变">
+修饰方法:静态方法在类加载时就存在与静态区域，不依赖任何实例，Static方法必须实现，不能是抽象类abstract。使用静态方法时可以直接使用类名.方法名,不需要实例化一个对象。
+修饰代">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java 基础小记">
 <meta property="og:url" content="http://fenlan.github.io/2018/03/01/Java小记/index.html">
@@ -114,29 +109,19 @@ Final
 Static
 
 修饰变量:静态变量随着类的加载时完成初始化，内存中只有一个，且JVM也只会为他分配一次内存，所有类共享静态变量，静态变量放在指定的静态共享区，遵循一改全改。
-修饰方法:静态方法在类加载时就存在与静态区域，不依赖任何实例，Static方法必须实现，不能是抽象类abstract。
-修饰代码块：类加载完后执行代码块中的内容。
-
-
-Final
-
-修饰变">
+修饰方法:静态方法在类加载时就存在与静态区域，不依赖任何实例，Static方法必须实现，不能是抽象类abstract。使用静态方法时可以直接使用类名.方法名,不需要实例化一个对象。
+修饰代">
 <meta property="og:image" content="http://wiki3.cosc.canterbury.ac.nz/images/8/8d/Collections-detail-1.png">
 <meta property="og:image" content="http://img.blog.csdn.net/20150309140927553">
-<meta property="og:updated_time" content="2018-03-07T08:51:01.179Z">
+<meta property="og:updated_time" content="2018-03-08T03:32:55.914Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java 基础小记">
 <meta name="twitter:description" content="static和final的区别和用途
 Static
 
 修饰变量:静态变量随着类的加载时完成初始化，内存中只有一个，且JVM也只会为他分配一次内存，所有类共享静态变量，静态变量放在指定的静态共享区，遵循一改全改。
-修饰方法:静态方法在类加载时就存在与静态区域，不依赖任何实例，Static方法必须实现，不能是抽象类abstract。
-修饰代码块：类加载完后执行代码块中的内容。
-
-
-Final
-
-修饰变">
+修饰方法:静态方法在类加载时就存在与静态区域，不依赖任何实例，Static方法必须实现，不能是抽象类abstract。使用静态方法时可以直接使用类名.方法名,不需要实例化一个对象。
+修饰代">
 <meta name="twitter:image" content="http://wiki3.cosc.canterbury.ac.nz/images/8/8d/Collections-detail-1.png">
 
 
@@ -450,7 +435,7 @@ Final
 <li><p>Static</p>
 <ul>
 <li>修饰变量:静态变量随着类的加载时完成初始化，内存中只有一个，且JVM也只会为他分配一次内存，所有类共享静态变量，静态变量放在指定的静态共享区，遵循一改全改。</li>
-<li>修饰方法:静态方法在类加载时就存在与静态区域，不依赖任何实例，Static方法必须实现，不能是抽象类abstract。</li>
+<li>修饰方法:静态方法在类加载时就存在与静态区域，不依赖任何实例，Static方法必须实现，不能是抽象类abstract。使用静态方法时可以直接使用<code>类名.方法名</code>,不需要实例化一个对象。</li>
 <li>修饰代码块：类加载完后执行代码块中的内容。</li>
 </ul>
 </li>
@@ -539,6 +524,12 @@ Final
 <li><code>yield()</code> : <code>运行</code>–&gt;<code>可运行</code>,让当前运行线程回到可运行状态，以允许具有相同优先级的其他线程获得运行机会。因此，使用yield()的目的是让相同优先级的线程之间能适当的轮转执行。但是，实际中无法保证yield()达到让步目的，因为让步的线程还有可能被线程调度程序再次选中。</li>
 <li><code>wait()</code> : <code>Obj.wait()</code>，与<code>Obj.notify()</code>必须要与<code>synchronized(Obj)</code>一起使用，也就是wait,与notify是针对已经获取了Obj锁进行操作，从语法角度来说就是Obj.wait(),Obj.notify必须在synchronized(Obj){…}语句块内。从功能上来说wait就是说线程在获取对象锁后，主动释放对象锁，同时本线程休眠。直到有其它线程调用对象的notify()唤醒该线程，才能继续获取对象锁，并继续执行。相应的notify()就是对对象锁的唤醒操作。但有一点需要注意的是notify()调用后，并不是马上就释放对象锁的，而是在相应的synchronized(){}语句块执行结束，自动释放锁后，JVM会在wait()对象锁的线程中随机选取一线程，赋予其对象锁，唤醒线程，继续执行。这样就提供了在线程间同步、唤醒的操作。Thread.sleep()与Object.wait()二者都可以暂停当前线程，释放CPU控制权，主要的区别在于Object.wait()在释放CPU同时，释放了对象锁的控制</li>
 </ul>
+<h2 id="Java中的BIO、NIO、AIO"><a href="#Java中的BIO、NIO、AIO" class="headerlink" title="Java中的BIO、NIO、AIO"></a>Java中的BIO、NIO、AIO</h2><ul>
+<li><code>BIO(Blocking I/O)</code> : 同步阻塞IO，服务器中一个连接一个线程，数据的读取和写入必须阻塞在一个线程内等待其完成。</li>
+<li><code>NIO(New I/O)</code> : 同步非阻塞IO，服务器中一个请求一个线程，客户端所有连接注册到多路复用器中，多路复用器轮询所有连接，当存在连接有IO请求时才启动一个线程去处理IO。</li>
+<li><code>AIO(Asynchronous I/O)</code> : 异步非阻塞IO，服务器中一个有效请求一个线程，没有多路复用器轮询，客户端有IO请求给服务器，服务器获得请求后，由OS处理请求，处理完成后，再通知服务器创建一个线程去处理IO结果。</li>
+</ul>
+<p><a href="https://juejin.im/entry/598da7d16fb9a03c42431ed3" target="_blank" rel="external">具体理解请看这</a></p>
 <h2 id="参考资料-相关链接"><a href="#参考资料-相关链接" class="headerlink" title="参考资料/相关链接"></a>参考资料/相关链接</h2><ul>
 <li>多线程<ul>
 <li><a href="http://blog.csdn.net/evankaka/article/details/44153709" target="_blank" rel="external">http://blog.csdn.net/evankaka/article/details/44153709</a></li>
@@ -807,7 +798,7 @@ Final
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#static和final的区别和用途"><span class="nav-number">1.</span> <span class="nav-text">static和final的区别和用途</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#同步机制实现原子化-synchronized"><span class="nav-number">2.</span> <span class="nav-text">同步机制实现原子化 synchronized</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#hashCode-与equals-的相关规定"><span class="nav-number">3.</span> <span class="nav-text">hashCode()与equals()的相关规定</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Collection-API"><span class="nav-number">4.</span> <span class="nav-text">Collection API</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#多线程"><span class="nav-number">5.</span> <span class="nav-text">多线程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Java实现多线程的方式"><span class="nav-number">5.1.</span> <span class="nav-text">Java实现多线程的方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三种方式的区别"><span class="nav-number">5.2.</span> <span class="nav-text">三种方式的区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#线程状态"><span class="nav-number">5.3.</span> <span class="nav-text">线程状态</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#线程调度"><span class="nav-number">5.4.</span> <span class="nav-text">线程调度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#常用的调度"><span class="nav-number">5.5.</span> <span class="nav-text">常用的调度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#常用函数说明"><span class="nav-number">5.6.</span> <span class="nav-text">常用函数说明</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考资料-相关链接"><span class="nav-number">6.</span> <span class="nav-text">参考资料/相关链接</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#static和final的区别和用途"><span class="nav-number">1.</span> <span class="nav-text">static和final的区别和用途</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#同步机制实现原子化-synchronized"><span class="nav-number">2.</span> <span class="nav-text">同步机制实现原子化 synchronized</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#hashCode-与equals-的相关规定"><span class="nav-number">3.</span> <span class="nav-text">hashCode()与equals()的相关规定</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Collection-API"><span class="nav-number">4.</span> <span class="nav-text">Collection API</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#多线程"><span class="nav-number">5.</span> <span class="nav-text">多线程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Java实现多线程的方式"><span class="nav-number">5.1.</span> <span class="nav-text">Java实现多线程的方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三种方式的区别"><span class="nav-number">5.2.</span> <span class="nav-text">三种方式的区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#线程状态"><span class="nav-number">5.3.</span> <span class="nav-text">线程状态</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#线程调度"><span class="nav-number">5.4.</span> <span class="nav-text">线程调度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#常用的调度"><span class="nav-number">5.5.</span> <span class="nav-text">常用的调度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#常用函数说明"><span class="nav-number">5.6.</span> <span class="nav-text">常用函数说明</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Java中的BIO、NIO、AIO"><span class="nav-number">6.</span> <span class="nav-text">Java中的BIO、NIO、AIO</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考资料-相关链接"><span class="nav-number">7.</span> <span class="nav-text">参考资料/相关链接</span></a></li></ol></div>
             
 
           </div>
