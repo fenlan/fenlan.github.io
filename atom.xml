@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://fenlan.github.io/"/>
-  <updated>2018-03-17T10:26:59.003Z</updated>
+  <updated>2018-03-17T11:19:32.042Z</updated>
   <id>http://fenlan.github.io/</id>
   
   <author>
@@ -21,17 +21,13 @@
     <link href="http://fenlan.github.io/2018/03/17/Java%E7%BA%BF%E7%A8%8B%E6%B1%A0/"/>
     <id>http://fenlan.github.io/2018/03/17/Java线程池/</id>
     <published>2018-03-17T07:18:23.000Z</published>
-    <updated>2018-03-17T10:26:59.003Z</updated>
+    <updated>2018-03-17T11:19:32.042Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          &lt;h2 id=&quot;概念&quot;&gt;&lt;a href=&quot;#概念&quot; class=&quot;headerlink&quot; title=&quot;概念&quot;&gt;&lt;/a&gt;概念&lt;/h2&gt;&lt;p&gt;&lt;code&gt;Java Thread pool&lt;/code&gt; represents a group of worker threads
-        
-      
+      &lt;h2 id=&quot;概念&quot;&gt;&lt;a href=&quot;#概念&quot; class=&quot;headerlink&quot; title=&quot;概念&quot;&gt;&lt;/a&gt;概念&lt;/h2&gt;&lt;p&gt;&lt;code&gt;Java Thread pool&lt;/code&gt; represents a group of worker threads that are waiting for the job and reuse many times.&lt;br&gt;Java中创建一个线程是一个相对耗时的操作，当程序中频繁的创建和使用线程时，会产生严重的内存管理开销(significant memory management overhead)。基于这个原因，Java有了线程池的概念，在使用线程之前，创建一个线程池。当一个任务需要一个线程去运行时，程序去线程池中选择一个空闲线程去运行。当任务结束后，线程又重新放进线程池中等待下一个任务，这样就避免了频繁的创建线程，大大节省了内存管理开销。&lt;/p&gt;
+&lt;h2 id=&quot;线程池分类&quot;&gt;&lt;a href=&quot;#线程池分类&quot; class=&quot;headerlink&quot; title=&quot;线程池分类&quot;&gt;&lt;/a&gt;线程池分类&lt;/h2&gt;&lt;p&gt;&lt;code&gt;fixed thread pool&lt;/code&gt; : 固型线程池—-创建时指定创建的线程数，当任务使用完线程池中的空闲线程，则新任务将等待被占用的线程执行完任务。&lt;/p&gt;
+&lt;p&gt;固定长度线程池的优点 : 用Web服务器举例说明，Web服务器需要单独的线程去处理一个HTTP请求，当出现大量的HTTP请求，超过了系统能够承受的范围，那么这个Web服务器就会停止响应所有的请求。而如果使用固定长度线程池，虽然不能立刻服务请求，但系统会尽最大能力去处理。&lt;/p&gt;
     
     </summary>
     
