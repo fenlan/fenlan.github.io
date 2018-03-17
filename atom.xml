@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://fenlan.github.io/"/>
-  <updated>2018-03-09T09:58:25.128Z</updated>
+  <updated>2018-03-17T10:26:59.003Z</updated>
   <id>http://fenlan.github.io/</id>
   
   <author>
@@ -15,6 +15,63 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Java 线程池</title>
+    <link href="http://fenlan.github.io/2018/03/17/Java%E7%BA%BF%E7%A8%8B%E6%B1%A0/"/>
+    <id>http://fenlan.github.io/2018/03/17/Java线程池/</id>
+    <published>2018-03-17T07:18:23.000Z</published>
+    <updated>2018-03-17T10:26:59.003Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;概念&quot;&gt;&lt;a href=&quot;#概念&quot; class=&quot;headerlink&quot; title=&quot;概念&quot;&gt;&lt;/a&gt;概念&lt;/h2&gt;&lt;p&gt;&lt;code&gt;Java Thread pool&lt;/code&gt; represents a group of worker threads
+        
+      
+    
+    </summary>
+    
+      <category term="Java" scheme="http://fenlan.github.io/categories/Java/"/>
+    
+    
+      <category term="Thread" scheme="http://fenlan.github.io/tags/Thread/"/>
+    
+      <category term="线程池" scheme="http://fenlan.github.io/tags/%E7%BA%BF%E7%A8%8B%E6%B1%A0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>JVM 小记</title>
+    <link href="http://fenlan.github.io/2018/03/12/JVM/"/>
+    <id>http://fenlan.github.io/2018/03/12/JVM/</id>
+    <published>2018-03-12T07:18:23.000Z</published>
+    <updated>2018-03-17T06:23:46.139Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;类加载机制&quot;&gt;&lt;a href=&quot;#类加载机制&quot; class=&quot;headerlink&quot; title=&quot;类加载机制&quot;&gt;&lt;/a&gt;类加载机制&lt;/h2&gt;&lt;p&gt;JVM 的类加载是通过ClassLoader 及其子类完成的，加载分为三类加载&lt;/p&gt;
+&lt;h3
+        
+      
+    
+    </summary>
+    
+      <category term="Java" scheme="http://fenlan.github.io/categories/Java/"/>
+    
+    
+      <category term="JVM" scheme="http://fenlan.github.io/tags/JVM/"/>
+    
+      <category term="GC" scheme="http://fenlan.github.io/tags/GC/"/>
+    
+  </entry>
   
   <entry>
     <title>Java 基础小记</title>
@@ -477,55 +534,6 @@
     
     
       <category term="Android数据传输" scheme="http://fenlan.github.io/tags/Android%E6%95%B0%E6%8D%AE%E4%BC%A0%E8%BE%93/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>教训</title>
-    <link href="http://fenlan.github.io/2016/06/27/test/"/>
-    <id>http://fenlan.github.io/2016/06/27/test/</id>
-    <published>2016-06-27T07:18:23.000Z</published>
-    <updated>2017-11-21T09:23:36.081Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;昨天在百度上下了软件，结果有问题，然后重置电脑，然后后悔了，这个博文只是一个测试。。。&lt;/p&gt;
-
-        
-      
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>再次挖坑</title>
-    <link href="http://fenlan.github.io/2016/06/20/%E7%88%AC%E8%99%AB/"/>
-    <id>http://fenlan.github.io/2016/06/20/爬虫/</id>
-    <published>2016-06-20T07:18:23.000Z</published>
-    <updated>2017-11-28T02:53:37.599Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h3 id=&quot;爬虫&quot;&gt;&lt;a href=&quot;#爬虫&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-      <category term="python" scheme="http://fenlan.github.io/categories/python/"/>
-    
-    
-      <category term="爬虫" scheme="http://fenlan.github.io/tags/%E7%88%AC%E8%99%AB/"/>
     
   </entry>
   
