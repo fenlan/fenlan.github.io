@@ -331,7 +331,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/04/02/Kafka/" itemprop="url">Kafka 原理简述</a></h1>
+                <a class="post-title-link" href="/2018/04/02/Kafka/" itemprop="url">Kafka 简述</a></h1>
         
 
         <div class="post-meta">
@@ -412,7 +412,7 @@
 
       
         
-          <h2 id="持久化"><a href="#持久化" class="headerlink" title="持久化"></a>持久化</h2><p><code>Don.t fear the filesystem</code><br>Kafka非常依赖文件系统来存储和缓存消息，但人们在这里总是有一个错觉<code>disks are slow</code>。事实上，<code>disks</code>可以很慢，也可以很快，者取决于人们怎么用它，一个设计合理的磁盘结构通常可以和网络一样快。</p>
+          <h2 id="持久化"><a href="#持久化" class="headerlink" title="持久化"></a>持久化</h2><p><code>Don.t fear the filesystem</code><br>Kafka非常依赖文件系统来存储和缓存消息，但人们在这里总是有一个错觉<code>disks are slow</code>。事实上，<code>disks</code>可以很慢，也可以很快，这取决于人们怎么用它，一个设计合理的磁盘结构通常可以和网络一样快。</p>
 <p>这里有一个事实：磁盘读取快慢主要取决于寻道延时。<code>six 7200rpm SATA RAID-5 array</code>的磁盘<code>linear writes</code>的读取速度大概为600MB/sec，但<code>random writes</code>的读取速度为100k/sec，正因为现在操作系统通常采用随机存储的方式，导致人们对磁盘速度产生了错觉。</p>
 <p><code>持久化策略</code><br>当我们保持消息队列的时候，快用完内存空间时，并不采用操作系统的策略(尽可能保持内存中的数据，将不常用的数据块替换出去)，而是将内存中的消息全部冲洗到文件系统中。个人理解Kafka能够高吞吐的原因在于<code>Batching</code>、<code>larger network packets</code>、<code>larger sequential disk operations</code>、<code>contiguous memory block</code>，所有的策略都为了保证Kafka将随机消息写转为线性写。<br>
           <!--noindex-->
