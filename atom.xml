@@ -285,11 +285,11 @@
       <category term="分布式计算" scheme="http://fenlan.github.io/categories/%E5%88%86%E5%B8%83%E5%BC%8F%E8%AE%A1%E7%AE%97/"/>
     
     
+      <category term="Kafka" scheme="http://fenlan.github.io/tags/Kafka/"/>
+    
       <category term="hadoop" scheme="http://fenlan.github.io/tags/hadoop/"/>
     
       <category term="storm" scheme="http://fenlan.github.io/tags/storm/"/>
-    
-      <category term="Kafka" scheme="http://fenlan.github.io/tags/Kafka/"/>
     
       <category term="spark" scheme="http://fenlan.github.io/tags/spark/"/>
     
@@ -316,9 +316,9 @@
       <category term="分布式计算" scheme="http://fenlan.github.io/categories/%E5%88%86%E5%B8%83%E5%BC%8F%E8%AE%A1%E7%AE%97/"/>
     
     
-      <category term="Zookeeper" scheme="http://fenlan.github.io/tags/Zookeeper/"/>
-    
       <category term="Kafka" scheme="http://fenlan.github.io/tags/Kafka/"/>
+    
+      <category term="Zookeeper" scheme="http://fenlan.github.io/tags/Zookeeper/"/>
     
   </entry>
   

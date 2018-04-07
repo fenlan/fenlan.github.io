@@ -113,9 +113,9 @@
         <category>分布式计算</category>
       </categories>
       <tags>
+        <tag>Kafka</tag>
         <tag>hadoop</tag>
         <tag>storm</tag>
-        <tag>Kafka</tag>
         <tag>spark</tag>
       </tags>
   </entry>
@@ -127,8 +127,8 @@
         <category>分布式计算</category>
       </categories>
       <tags>
-        <tag>Zookeeper</tag>
         <tag>Kafka</tag>
+        <tag>Zookeeper</tag>
       </tags>
   </entry>
   <entry>
