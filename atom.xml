@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://fenlan.github.io/"/>
-  <updated>2018-04-06T08:17:50.730Z</updated>
+  <updated>2018-04-07T08:23:09.472Z</updated>
   <id>http://fenlan.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="http://fenlan.github.io/2018/04/02/Kafka/"/>
     <id>http://fenlan.github.io/2018/04/02/Kafka/</id>
     <published>2018-04-02T07:18:23.000Z</published>
-    <updated>2018-04-06T08:17:50.730Z</updated>
+    <updated>2018-04-07T08:23:09.472Z</updated>
     
     <summary type="html">
     
@@ -37,6 +37,10 @@
       <category term="Kafka" scheme="http://fenlan.github.io/tags/Kafka/"/>
     
       <category term="持久化" scheme="http://fenlan.github.io/tags/%E6%8C%81%E4%B9%85%E5%8C%96/"/>
+    
+      <category term="备份" scheme="http://fenlan.github.io/tags/%E5%A4%87%E4%BB%BD/"/>
+    
+      <category term="日志压缩" scheme="http://fenlan.github.io/tags/%E6%97%A5%E5%BF%97%E5%8E%8B%E7%BC%A9/"/>
     
   </entry>
   
