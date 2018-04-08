@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://fenlan.github.io/"/>
-  <updated>2018-04-07T08:23:09.472Z</updated>
+  <updated>2018-04-08T08:12:31.149Z</updated>
   <id>http://fenlan.github.io/</id>
   
   <author>
@@ -15,6 +15,106 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>C++ Java基本类型zise问题</title>
+    <link href="http://fenlan.github.io/2018/04/08/%E5%9F%BA%E6%9C%AC%E7%B1%BB%E5%9E%8B/"/>
+    <id>http://fenlan.github.io/2018/04/08/基本类型/</id>
+    <published>2018-04-08T07:18:23.000Z</published>
+    <updated>2018-04-08T08:12:31.149Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;鉴于之前多次面试题考察基本类型大小问题，今天来做个记录。&lt;/p&gt;
+&lt;h2 id=&quot;C&quot;&gt;&lt;a href=&quot;#C&quot; class=&quot;headerlink&quot; title=&quot;C++&quot;&gt;&lt;/a&gt;C++&lt;/h2&gt;&lt;p&gt;C++的基本类型有&lt;code&gt;bool&lt;/code&gt; &lt;code&gt;char&lt;/code&gt; &lt;code&gt;short&lt;/code&gt; &lt;code&gt;float&lt;/code&gt; &lt;code&gt;double&lt;/code&gt; &lt;code&gt;int&lt;/code&gt; &lt;code&gt;long&lt;/code&gt; &lt;code&gt;long long&lt;/code&gt; &lt;code&gt;pointer(指针)&lt;/code&gt;&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;数据类型&lt;/th&gt;
+&lt;th&gt;32位系统字节数&lt;/th&gt;
+&lt;th&gt;32系统二进制位数&lt;/th&gt;
+&lt;th&gt;64位系统字节数&lt;/th&gt;
+&lt;th&gt;64位系统二进制位数&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;bool&lt;/td&gt;
+&lt;td&gt;1&lt;/td&gt;
+&lt;td&gt;8&lt;/td&gt;
+&lt;td&gt;1&lt;/td&gt;
+&lt;td&gt;8&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;char&lt;/td&gt;
+&lt;td&gt;1&lt;/td&gt;
+&lt;td&gt;8&lt;/td&gt;
+&lt;td&gt;1&lt;/td&gt;
+&lt;td&gt;8&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;short&lt;/td&gt;
+&lt;td&gt;2&lt;/td&gt;
+&lt;td&gt;16&lt;/td&gt;
+&lt;td&gt;2&lt;/td&gt;
+&lt;td&gt;16&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;int&lt;/td&gt;
+&lt;td&gt;4&lt;/td&gt;
+&lt;td&gt;32&lt;/td&gt;
+&lt;td&gt;4&lt;/td&gt;
+&lt;td&gt;32&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;long&lt;/td&gt;
+&lt;td&gt;4&lt;/td&gt;
+&lt;td&gt;32&lt;/td&gt;
+&lt;td&gt;8&lt;/td&gt;
+&lt;td&gt;64&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;long long&lt;/td&gt;
+&lt;td&gt;8&lt;/td&gt;
+&lt;td&gt;64&lt;/td&gt;
+&lt;td&gt;8&lt;/td&gt;
+&lt;td&gt;64&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;float&lt;/td&gt;
+&lt;td&gt;4&lt;/td&gt;
+&lt;td&gt;32&lt;/td&gt;
+&lt;td&gt;4&lt;/td&gt;
+&lt;td&gt;32&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;double&lt;/td&gt;
+&lt;td&gt;8&lt;/td&gt;
+&lt;td&gt;64&lt;/td&gt;
+&lt;td&gt;8&lt;/td&gt;
+&lt;td&gt;64&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;pointer&lt;/td&gt;
+&lt;td&gt;4&lt;/td&gt;
+&lt;td&gt;32&lt;/td&gt;
+&lt;td&gt;8&lt;/td&gt;
+&lt;td&gt;64&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;可以看出其中只有&lt;code&gt;long&lt;/code&gt; &lt;code&gt;pointer&lt;/code&gt;是不同的，32位平台32位，64位平台64位，其实&lt;code&gt;pointer&lt;/code&gt;就是用&lt;code&gt;long&lt;/code&gt;表示的&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Java" scheme="http://fenlan.github.io/categories/Java/"/>
+    
+    
+      <category term="Java" scheme="http://fenlan.github.io/tags/Java/"/>
+    
+      <category term="C++" scheme="http://fenlan.github.io/tags/C/"/>
+    
+  </entry>
   
   <entry>
     <title>Kafka 简述</title>
@@ -527,28 +627,6 @@
     
     
       <category term="Android" scheme="http://fenlan.github.io/tags/Android/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>ubuntu安装配置</title>
-    <link href="http://fenlan.github.io/2016/08/10/ubuntu%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE/"/>
-    <id>http://fenlan.github.io/2016/08/10/ubuntu安装与配置/</id>
-    <published>2016-08-10T07:18:23.000Z</published>
-    <updated>2017-11-28T03:29:25.441Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;strong&gt;想了一下，最终还是将电脑安成windows10 + ubuntu16双系统，以后多用用ubuntu试试。我选择的安装方式使用u盘安装，在安装ubuntu时一直没有选对启动盘制作工具，之前安装windows10的时候使用的是UltraIso，这个安windows没什么问题，但是安装ubuntu时，安不上，后面上网查了很多次，也用了其他的软件，比如linuxLive USB Creator,Universal-USB-Installer等等，其中Universal-usb-installer还是ubuntu推荐的软件，但是仍然不行，就这我折腾了两天还是没成功，后来在qq上的一个业余群里面，有人叫我用USBwriter，结果就成功安装上了。&lt;/strong&gt;&lt;br&gt;
-    
-    </summary>
-    
-      <category term="linux" scheme="http://fenlan.github.io/categories/linux/"/>
-    
-    
-      <category term="vim" scheme="http://fenlan.github.io/tags/vim/"/>
-    
-      <category term="ubuntu" scheme="http://fenlan.github.io/tags/ubuntu/"/>
     
   </entry>
   
