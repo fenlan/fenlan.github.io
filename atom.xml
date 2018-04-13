@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://fenlan.github.io/"/>
-  <updated>2018-04-11T11:16:25.957Z</updated>
+  <updated>2018-04-13T06:34:32.186Z</updated>
   <id>http://fenlan.github.io/</id>
   
   <author>
@@ -15,6 +15,49 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>GET vs POST</title>
+    <link href="http://fenlan.github.io/2018/04/13/GET_POST/"/>
+    <id>http://fenlan.github.io/2018/04/13/GET_POST/</id>
+    <published>2018-04-13T07:18:23.000Z</published>
+    <updated>2018-04-13T06:34:32.186Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;在综合考虑下，决定复习一些Web方向的东西，以备不时之需。。。。&lt;/p&gt;
+&lt;h2 id=&quot;What-is-HTTP&quot;&gt;&lt;a href=&quot;#What-is-HTTP&quot; class=&quot;headerlink&quot; title=&quot;What is HTTP?&quot;&gt;&lt;/a&gt;What is HTTP?&lt;/h2&gt;&lt;p&gt;HTTP全称&lt;code&gt;Hypertext Transfer Protocol&lt;/code&gt;(就是中文常说的&lt;code&gt;超文本传输协议&lt;/code&gt;)，这个协议是为了客户端和服务端能进行通信。HTTP是客户端和服务端进行请求响应过程的协议，客户端发送请求，服务端响应这个请求并返回信息。通常一个web浏览器作为一个客户端，而一台提供web服务的机器作为服务端。&lt;/p&gt;
+&lt;h2 id=&quot;Two-HTTP-Request-Methods-GET-and-POST&quot;&gt;&lt;a href=&quot;#Two-HTTP-Request-Methods-GET-and-POST&quot; class=&quot;headerlink&quot; title=&quot;Two HTTP Request Methods: GET and POST&quot;&gt;&lt;/a&gt;Two HTTP Request Methods: GET and POST&lt;/h2&gt;&lt;p&gt;两个非常常用的请求响应方法 : GET and POST。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;GET&lt;/code&gt;- Requests data from a specified resource&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;POST&lt;/code&gt;- Submits data to be processed to a specified resource&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;The-GET-Method&quot;&gt;&lt;a href=&quot;#The-GET-Method&quot; class=&quot;headerlink&quot; title=&quot;The GET Method&quot;&gt;&lt;/a&gt;The GET Method&lt;/h3&gt;&lt;p&gt;GET请求方法会将请求信息放在URL中&lt;br&gt;&lt;figure class=&quot;highlight&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;/test/demo_form.php?name1=value1&amp;amp;name2=value2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;GET其他特性：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;GET请求能被缓存&lt;/li&gt;
+&lt;li&gt;GET请求会保留在浏览器的历史记录中&lt;/li&gt;
+&lt;li&gt;GET请求可以被标为书签&lt;/li&gt;
+&lt;li&gt;GET请求不应该用在处理敏感数据时候&lt;/li&gt;
+&lt;li&gt;GET请求有长度限制&lt;/li&gt;
+&lt;li&gt;GET只应该用在取回数据&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;总的来说，由于GET请求数据被放在URL中，以及它能缓存，便导致了上述的其他特性。诸如&lt;code&gt;GET请求会保留在浏览器的历史记录中&lt;/code&gt; &lt;code&gt;GET请求可以被标为书签&lt;/code&gt; &lt;code&gt;GET请求不应该用在处理敏感数据时候&lt;/code&gt;这三条就是因为GET请求会被缓存，且请求数据在URL中，又因为浏览器或者说操作系统对URL的长度有要求，所以GET请求有长度限制。&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="Web" scheme="http://fenlan.github.io/categories/Web/"/>
+    
+    
+      <category term="GET" scheme="http://fenlan.github.io/tags/GET/"/>
+    
+      <category term="POST" scheme="http://fenlan.github.io/tags/POST/"/>
+    
+      <category term="HTTP" scheme="http://fenlan.github.io/tags/HTTP/"/>
+    
+  </entry>
   
   <entry>
     <title>Java GC</title>
@@ -610,28 +653,6 @@
     
     
       <category term="logrotate" scheme="http://fenlan.github.io/tags/logrotate/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>获取局域网连接设备mac地址</title>
-    <link href="http://fenlan.github.io/2017/03/22/nmap_mac/"/>
-    <id>http://fenlan.github.io/2017/03/22/nmap_mac/</id>
-    <published>2017-03-22T07:18:23.000Z</published>
-    <updated>2017-11-28T03:28:23.185Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;使用工具&quot;&gt;&lt;a href=&quot;#使用工具&quot; class=&quot;headerlink&quot; title=&quot;使用工具&quot;&gt;&lt;/a&gt;使用工具&lt;/h1&gt;&lt;p&gt;&lt;strong&gt;nmap: 也就是Network Mapper,最早是linux下的网络扫描和嗅探工具包&lt;/strong&gt;&lt;br&gt;&lt;strong&gt;nmap是一个网络连接端扫描软件，用来扫描网上电脑开放的网络端口。确定哪些服务运行在哪些连接端，并且推断计算机运行哪个操作系统。他是网络管理员比用的软件之一，以及用以评估网络系统安全。 &lt;/strong&gt;&lt;br&gt;
-    
-    </summary>
-    
-      <category term="linux" scheme="http://fenlan.github.io/categories/linux/"/>
-    
-    
-      <category term="python" scheme="http://fenlan.github.io/tags/python/"/>
-    
-      <category term="nmap" scheme="http://fenlan.github.io/tags/nmap/"/>
     
   </entry>
   
