@@ -115,7 +115,7 @@
 <meta property="og:image" content="http://www.assignmenthelp.net/assignment_help/images/implementation-B_plus_tree.gif">
 <meta property="og:image" content="http://www.assignmenthelp.net/assignment_help/images/B-tree-index-files-assignment-help.gif">
 <meta property="og:image" content="https://mjromeo.files.wordpress.com/2017/01/bitmap_index_example.png?w=646">
-<meta property="og:updated_time" content="2018-04-14T09:09:45.517Z">
+<meta property="og:updated_time" content="2018-04-14T13:17:28.213Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="数据库大杂烩">
 <meta name="twitter:description" content="索引顺序索引聚集索引：　如果包含记录的文件按照某个搜索码指定的顺序排序，那么该搜索码对应的索引称为聚集索引。非聚集索引：　搜索码指定的顺序与文件中记录的物理顺序不同的索引称为非聚集索引。
@@ -495,6 +495,35 @@
 <li><strong>已提交读(read committed)</strong> : 只允许读取已提交数据，但不要求可重复度。比如在事务两次读取一个数据项期间，另一个事务更新了该数据并提交。</li>
 <li><strong>未提交读(read uncommitted)</strong> : 允许读取未提交数据。这是SQL允许的最低一致性级别。</li>
 </ul>
+<h3 id="乐观锁和悲观锁"><a href="#乐观锁和悲观锁" class="headerlink" title="乐观锁和悲观锁"></a>乐观锁和悲观锁</h3><p>为保持数据库事务的隔离性，系统必须对并发事务之间的相互作用加以控制。乐观并发控制(乐观锁)和悲观并发控制(悲观锁)是并发控制主要采用的手段。</p>
+<ul>
+<li><strong>乐观锁</strong> : 假定不会发生并发冲突，只是在提交操作时检查是否违反了数据完整性。</li>
+<li><strong>悲观锁</strong> : 假定会发生并发冲突，屏蔽一切可能违反数据完整性操作。</li>
+</ul>
+<blockquote>
+<p>补充说明一下，对于悲观锁来说，如果一个事务操作对一个资源应用了锁时，其他事务只能等待该事务解锁后，再尝试对资源上锁。悲观锁主要用于数据争用激烈的环境，以及发生并发冲突时使用锁保护的成本低于回滚事务的成本环境中。</p>
+<p>相对于悲观锁而言，乐观锁假设认为数据一般情况下不会造成冲突，所以在数据进行提交更新的时候，才会正式对数据的冲突与否进行检测，如果发生冲突了，则返回用户错误的信息，让用户决定如何去做。</p>
+</blockquote>
+<h2 id="DELETE、DROP、TRUNCATE"><a href="#DELETE、DROP、TRUNCATE" class="headerlink" title="DELETE、DROP、TRUNCATE"></a>DELETE、DROP、TRUNCATE</h2><ul>
+<li>想要彻底删除一张表时用drop</li>
+<li>想要删除表中的部分数据用delete并带上where</li>
+<li>想要删除表中数据而保留表用truncate</li>
+</ul>
+<h2 id="超键、候选键、主键、外键分别是什么"><a href="#超键、候选键、主键、外键分别是什么" class="headerlink" title="超键、候选键、主键、外键分别是什么"></a>超键、候选键、主键、外键分别是什么</h2><ul>
+<li>超键：在关系中能唯一标识元组的属性集。一个属性可以作为一个超键，多个属性组合在一起也可以作为一个超键</li>
+<li>候选键：最小超键，即没有冗余的超键</li>
+<li>主键：唯一表示一个元组的键，每个表只有一个主键，且主键不能为空</li>
+<li>一个表中存这另一个表的主键，这个键被成为外键</li>
+</ul>
+<h2 id="三范式"><a href="#三范式" class="headerlink" title="三范式"></a>三范式</h2><ul>
+<li>1NF : 保证数据库表的字段不可再拆分，原子性</li>
+<li>2NF : 不包括部分依赖，即没有属性只依赖主码的一部分</li>
+<li>3NF : 表中不存在可以确定其他非关键字的非键字段</li>
+</ul>
+<p>补充</p>
+<blockquote>
+<p>1NF 消除非主属性对码的部分函数依赖就是 2NF<br>2NF 消除非主属性对码的传递函数依赖就是 3NF<br>3NF 消除了主属性对码的部分和传递函数依赖就是 BCNF</p>
+</blockquote>
 <h2 id="个人声明"><a href="#个人声明" class="headerlink" title="个人声明"></a>个人声明</h2><p>由于文章里面的图片基本上都是在网上找的，所以可能会出现一段时间后，图片链接失效了，无法显示，如果出现这种情况，请给我留言!!!<br>谢谢!!!</p>
 
       
@@ -750,7 +779,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#索引"><span class="nav-number">1.</span> <span class="nav-text">索引</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#顺序索引"><span class="nav-number">1.1.</span> <span class="nav-text">顺序索引</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#B-树索引"><span class="nav-number">1.2.</span> <span class="nav-text">B+树索引</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#B树索引"><span class="nav-number">1.3.</span> <span class="nav-text">B树索引</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#散列索引"><span class="nav-number">1.4.</span> <span class="nav-text">散列索引</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#位图索引"><span class="nav-number">1.5.</span> <span class="nav-text">位图索引</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MySQL数据库几个基本的索引类型"><span class="nav-number">1.6.</span> <span class="nav-text">MySQL数据库几个基本的索引类型</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#视图"><span class="nav-number">2.</span> <span class="nav-text">视图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#事务"><span class="nav-number">3.</span> <span class="nav-text">事务</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#事务概念"><span class="nav-number">3.1.</span> <span class="nav-text">事务概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#事务隔离级别"><span class="nav-number">3.2.</span> <span class="nav-text">事务隔离级别</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#个人声明"><span class="nav-number">4.</span> <span class="nav-text">个人声明</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#索引"><span class="nav-number">1.</span> <span class="nav-text">索引</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#顺序索引"><span class="nav-number">1.1.</span> <span class="nav-text">顺序索引</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#B-树索引"><span class="nav-number">1.2.</span> <span class="nav-text">B+树索引</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#B树索引"><span class="nav-number">1.3.</span> <span class="nav-text">B树索引</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#散列索引"><span class="nav-number">1.4.</span> <span class="nav-text">散列索引</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#位图索引"><span class="nav-number">1.5.</span> <span class="nav-text">位图索引</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MySQL数据库几个基本的索引类型"><span class="nav-number">1.6.</span> <span class="nav-text">MySQL数据库几个基本的索引类型</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#视图"><span class="nav-number">2.</span> <span class="nav-text">视图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#事务"><span class="nav-number">3.</span> <span class="nav-text">事务</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#事务概念"><span class="nav-number">3.1.</span> <span class="nav-text">事务概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#事务隔离级别"><span class="nav-number">3.2.</span> <span class="nav-text">事务隔离级别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#乐观锁和悲观锁"><span class="nav-number">3.3.</span> <span class="nav-text">乐观锁和悲观锁</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DELETE、DROP、TRUNCATE"><span class="nav-number">4.</span> <span class="nav-text">DELETE、DROP、TRUNCATE</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#超键、候选键、主键、外键分别是什么"><span class="nav-number">5.</span> <span class="nav-text">超键、候选键、主键、外键分别是什么</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三范式"><span class="nav-number">6.</span> <span class="nav-text">三范式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#个人声明"><span class="nav-number">7.</span> <span class="nav-text">个人声明</span></a></li></ol></div>
             
 
           </div>
