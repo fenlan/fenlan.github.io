@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://fenlan.github.io/"/>
-  <updated>2018-04-13T06:34:32.186Z</updated>
+  <updated>2018-04-14T07:07:43.588Z</updated>
   <id>http://fenlan.github.io/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>数据库大杂烩</title>
+    <link href="http://fenlan.github.io/2018/04/13/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%90%84%E8%A6%81%E7%82%B9%E6%80%BB%E7%BB%93/"/>
+    <id>http://fenlan.github.io/2018/04/13/数据库各要点总结/</id>
+    <published>2018-04-13T07:18:23.000Z</published>
+    <updated>2018-04-14T07:07:43.588Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;索引&quot;&gt;&lt;a href=&quot;#索引&quot; class=&quot;headerlink&quot; title=&quot;索引&quot;&gt;&lt;/a&gt;索引&lt;/h2&gt;&lt;h3 id=&quot;顺序索引&quot;&gt;&lt;a href=&quot;#顺序索引&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="数据库" scheme="http://fenlan.github.io/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+    
+      <category term="SQL" scheme="http://fenlan.github.io/tags/SQL/"/>
+    
+      <category term="索引" scheme="http://fenlan.github.io/tags/%E7%B4%A2%E5%BC%95/"/>
+    
+  </entry>
   
   <entry>
     <title>GET vs POST</title>
@@ -64,7 +92,7 @@
     <link href="http://fenlan.github.io/2018/04/11/Java%20GC/"/>
     <id>http://fenlan.github.io/2018/04/11/Java GC/</id>
     <published>2018-04-11T07:18:23.000Z</published>
-    <updated>2018-04-13T06:47:04.010Z</updated>
+    <updated>2018-04-13T06:52:31.402Z</updated>
     
     <summary type="html">
     
@@ -633,26 +661,6 @@
       <category term="python" scheme="http://fenlan.github.io/tags/python/"/>
     
       <category term="laravel" scheme="http://fenlan.github.io/tags/laravel/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>logrotate</title>
-    <link href="http://fenlan.github.io/2017/06/14/logrotate/"/>
-    <id>http://fenlan.github.io/2017/06/14/logrotate/</id>
-    <published>2017-06-14T07:18:23.000Z</published>
-    <updated>2017-11-28T03:08:34.573Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;logrotate介绍&quot;&gt;&lt;a href=&quot;#logrotate介绍&quot; class=&quot;headerlink&quot; title=&quot;logrotate介绍&quot;&gt;&lt;/a&gt;logrotate介绍&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;对于Linux系统安全来说，日志文件是及其重要的工具。日志文件包含了关于系统中发生的事件的有用信息，在排障过程中或者系统性能分析时经常被用到。当日志文件不断增长的时候，就需要定时切割，否则，写日志的速度和性能也会下降，更不便于我们归档和查询。&lt;/strong&gt;&lt;br&gt;
-    
-    </summary>
-    
-      <category term="linux" scheme="http://fenlan.github.io/categories/linux/"/>
-    
-    
-      <category term="logrotate" scheme="http://fenlan.github.io/tags/logrotate/"/>
     
   </entry>
   
