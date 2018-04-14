@@ -115,7 +115,7 @@
 <meta property="og:image" content="http://www.assignmenthelp.net/assignment_help/images/implementation-B_plus_tree.gif">
 <meta property="og:image" content="http://www.assignmenthelp.net/assignment_help/images/B-tree-index-files-assignment-help.gif">
 <meta property="og:image" content="https://mjromeo.files.wordpress.com/2017/01/bitmap_index_example.png?w=646">
-<meta property="og:updated_time" content="2018-04-14T07:07:43.588Z">
+<meta property="og:updated_time" content="2018-04-14T07:12:30.502Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="数据库大杂烩">
 <meta name="twitter:description" content="索引顺序索引聚集索引：　如果包含记录的文件按照某个搜索码指定的顺序排序，那么该搜索码对应的索引称为聚集索引。非聚集索引：　搜索码指定的顺序与文件中记录的物理顺序不同的索引称为非聚集索引。
@@ -437,6 +437,7 @@
 <p>稠密聚集索引具有相同搜索码值的记录按照指定顺序存储；但是稠密非聚集索引必须存储指向一个指针列表，这个列表里面有具有相同搜索码值的记录指针。聚集索引只存储第一条记录的指针，其他的按照顺序查找，非聚集索引就要记录一个指针表。</p>
 </blockquote>
 <p><img src="http://www.assignmenthelp.net/assignment_help/images/dense-index-architecture.gif" alt="Dense index"></p>
+<a id="more"></a>
 <p><code>稀疏索引(sparse index)</code>： <strong>在稀疏索引中，只为搜索码的某些值建立索引索引项</strong>。只有当记录按照搜索码排列顺序存储时才能使用稀疏索引，也就是说，只有索引是聚集索引时才能使用稀疏索引。和稠密索引一样，每个索引项也包括一个搜索码值和指向该搜索码值的第一条记录的指针。为了定位一条记录，我们获取查询记录的搜索码值，再比较索引项中等于或者小于其搜索码值的最大项，然后从该索引项指向的记录开始，沿着文件中的指针查找，直到找到所需记录为止。</p>
 <p><img src="http://www.assignmenthelp.net/assignment_help/images/sparse-index-architecture.gif" alt="Sparse index"></p>
 <blockquote>
