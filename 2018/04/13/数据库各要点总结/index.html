@@ -115,7 +115,7 @@
 <meta property="og:image" content="http://www.assignmenthelp.net/assignment_help/images/implementation-B_plus_tree.gif">
 <meta property="og:image" content="http://www.assignmenthelp.net/assignment_help/images/B-tree-index-files-assignment-help.gif">
 <meta property="og:image" content="https://mjromeo.files.wordpress.com/2017/01/bitmap_index_example.png?w=646">
-<meta property="og:updated_time" content="2018-04-14T07:12:30.502Z">
+<meta property="og:updated_time" content="2018-04-14T09:09:45.517Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="数据库大杂烩">
 <meta name="twitter:description" content="索引顺序索引聚集索引：　如果包含记录的文件按照某个搜索码指定的顺序排序，那么该搜索码对应的索引称为聚集索引。非聚集索引：　搜索码指定的顺序与文件中记录的物理顺序不同的索引称为非聚集索引。
@@ -466,7 +466,36 @@
 <h3 id="位图索引"><a href="#位图索引" class="headerlink" title="位图索引"></a>位图索引</h3><p><img src="https://mjromeo.files.wordpress.com/2017/01/bitmap_index_example.png?w=646" alt="Bitmap index"></p>
 <p>简单解释一下，在图中可以发现<code>gender</code>记录项只有m、f两个值，那么系统为这两个值分别建立一个位图，对于m位图来说，记录有多少，位图就有多少位，只有当第i个记录<code>gender</code>为m时，m位图的第i位为1,其他不是m的记录位全为零。概括的说，位图就是表示某一搜索码值出现在了哪些位置，通过遍历搜索码值的位图来查找，诸如下列SQL语句<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> r <span class="keyword">WHERE</span> gender = <span class="string">'f'</span></span><br></pre></td></tr></table></figure></p>
 <p>这样的查询语句通过遍历f的位图是非常高效的。但是位图只是适用于搜索码值频繁出现，且选项少，这里所说的选项少是指比如记录人的性别只有三个选项:<code>男</code>、<code>女</code>、<code>不知道</code>，这样使用位图再适合不过了。通常情况下，位图可以和一般的B+树索引组合起来使用。</p>
-<h3 id="个人声明"><a href="#个人声明" class="headerlink" title="个人声明"></a>个人声明</h3><p>由于文章里面的图片基本上都是在网上找的，所以可能会出现一段时间后，图片链接失效了，无法显示，如果出现这种情况，请给我留言!!!<br>谢谢!!!</p>
+<h3 id="MySQL数据库几个基本的索引类型"><a href="#MySQL数据库几个基本的索引类型" class="headerlink" title="MySQL数据库几个基本的索引类型"></a>MySQL数据库几个基本的索引类型</h3><ul>
+<li><strong>普通索引</strong> : 这是最基本的MySQL数据库索引，它没有任何限制。</li>
+<li><strong>唯一索引</strong> : 它与前面的普通索引类似，不同的就是：MySQL数据库索引列的值必须唯一，但允许有空值。如果是组合索引，则列值的组合必须唯一。</li>
+<li><strong>主键索引</strong> : 它是一种特殊的唯一索引，不允许有空值。一般是在建表的时候同时创建主键索引。</li>
+<li><strong>组合索引</strong> : 多字段建立索引。</li>
+</ul>
+<h2 id="视图"><a href="#视图" class="headerlink" title="视图"></a>视图</h2><p>视图这么一个概念我一直不太准确理解，各种参考书上说得太正式，导致我越来越蒙。来我们看一看视图的定义：</p>
+<p><strong>Any relation that is not part of the logical model, but is made visiable to an user as a virtual relation, is called a <code>view</code></strong><br>翻译过来就是<strong>任何不是逻辑模型的一部分，但作为虚关系对用户可见的关系成为视图</strong></p>
+<p>在<code>Database System Concepts</code>这本书里面，作者通过一个例子来引出概念，这个例子如下：</p>
+<blockquote>
+<p>当我们有一张表示银行中每个人借贷记录的表，我们需要知道这张表里面的部分信息，而不是全部信息，基于安全原因，我们会给用户透漏诸如借贷人姓名、借贷号，而不给用户透漏借贷量，我们就需要定义一个查询语句，只返回这张表的部分信息。此外我们可能需要其他的信息，而这些信息需要union多张表，但是这样的信息查询又是比较频繁的，我们也需要定义一个查询语句，来返回结果。</p>
+</blockquote>
+<p>基于上述的例子，作者就引出了视图的概念。而我对于这个的理解是：我们需要基于两方面考虑，<strong>一个是安全性</strong>，当我们在使用mysql数据库的时候，数据库里面总是有一些视图表，里面包含了当前用户的所有数据库信息，诸如有哪些表，表里都有哪些属性这类信息。所有的可视范围在于当前用户的权限之内，权限之外就无法查看到，那么可以使用视图定义一个查询，根据用户权限，返回整个数据库中用户应该看到的东西。<strong>另一个考虑是简单性</strong>，我的理解是当我们需要较频繁进行一些查询时，我们总是要频繁的编写复杂的查询语句，为了简化，我们把这些频繁查询进行一定程度的封装，给用户展示一个简单的视图名，让用户能够直截了当的理解这个视图的作用，然后直接查询视图结果。</p>
+<p>(这一段是我自己的理解，可能有误解)可能有人会这样选择，上述为了简化查询，为什么要使用视图，不直接使用新表，新表的构建通过其他表变化触发。如果我们使用表，那么我们可能要为每个频繁查找的语句创建一个合适的表，这样的后果是，数据库的表增多，而且表与表之间的关系更加复杂。虽然我们在学习数据库的时候常常让其遵守三范式，但这样会导致如果因为前期表的设计有问题，或者后期需要变化表，那么修改起来是一个非常巨大的工程，非常困难。相反视图并不在数据库中以存储的数据值集形式存在，修改起来是很方便的。</p>
+<p>此外可能还有一个经常被问的问题是<strong>视图什么时候更新？因为视图是一种虚关系，所以是查询时更新，通俗一点就是，当底层的表有修改时，是去触发视图更新，还是当我们要用使用视图的时候更新。答案是后者，因为实质上视图还是一个查询语句，而不是表，每次使用视图，都需要重新执行视图定义的查询</strong></p>
+<h2 id="事务"><a href="#事务" class="headerlink" title="事务"></a>事务</h2><h3 id="事务概念"><a href="#事务概念" class="headerlink" title="事务概念"></a>事务概念</h3><p><strong>事务</strong>是访问并可能更新各种数据项的一个程序执行单元。我们通常要求数据库系统维护事务的以下性质</p>
+<ul>
+<li><strong>原子性(Atom)</strong>：事务的所有操作在数据库中要么全部正确反映出来，要么完全不反映。</li>
+<li><strong>一致性(Consistency)</strong>：隔离执行事务时(换言之，在没有其他事务并发执行的情况下)保持数据库的一致性</li>
+<li><strong>隔离性(Isolation)</strong>：尽管多个事务可能并发执行，但是系统保证，对于任何一对事务Ti和Tj，在Ti看来，Tj要么Ti开始之前已经完成执行，要么在Ti完成孩子后开始执行。因此，每个事务都感觉不到系统中有其他事务在并发地执行。</li>
+<li><strong>持久性(Durability)</strong>：一个事务成功完成后，它对数据库的改变必须是永久的，即使出现系统故障。</li>
+</ul>
+<p>这些性质通常成为ACID特性</p>
+<h3 id="事务隔离级别"><a href="#事务隔离级别" class="headerlink" title="事务隔离级别"></a>事务隔离级别</h3><ul>
+<li><strong>可串行化(serializable)</strong> : 通常保证可串行化调度。然而正如我们将要解释的，一些数据库系统对该隔离性级别的实现在某些情况下允许非可串行化执行。</li>
+<li><strong>可重复读(repeatable read)</strong> : 只允许读取已经提交数据，而且在一个事务两次读取一个数据项期间，其他事务不得更新该数据。但该事务不要求与其他事务可串行化。</li>
+<li><strong>已提交读(read committed)</strong> : 只允许读取已提交数据，但不要求可重复度。比如在事务两次读取一个数据项期间，另一个事务更新了该数据并提交。</li>
+<li><strong>未提交读(read uncommitted)</strong> : 允许读取未提交数据。这是SQL允许的最低一致性级别。</li>
+</ul>
+<h2 id="个人声明"><a href="#个人声明" class="headerlink" title="个人声明"></a>个人声明</h2><p>由于文章里面的图片基本上都是在网上找的，所以可能会出现一段时间后，图片链接失效了，无法显示，如果出现这种情况，请给我留言!!!<br>谢谢!!!</p>
 
       
     </div>
@@ -721,7 +750,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#索引"><span class="nav-number">1.</span> <span class="nav-text">索引</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#顺序索引"><span class="nav-number">1.1.</span> <span class="nav-text">顺序索引</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#B-树索引"><span class="nav-number">1.2.</span> <span class="nav-text">B+树索引</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#B树索引"><span class="nav-number">1.3.</span> <span class="nav-text">B树索引</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#散列索引"><span class="nav-number">1.4.</span> <span class="nav-text">散列索引</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#位图索引"><span class="nav-number">1.5.</span> <span class="nav-text">位图索引</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#个人声明"><span class="nav-number">1.6.</span> <span class="nav-text">个人声明</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#索引"><span class="nav-number">1.</span> <span class="nav-text">索引</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#顺序索引"><span class="nav-number">1.1.</span> <span class="nav-text">顺序索引</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#B-树索引"><span class="nav-number">1.2.</span> <span class="nav-text">B+树索引</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#B树索引"><span class="nav-number">1.3.</span> <span class="nav-text">B树索引</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#散列索引"><span class="nav-number">1.4.</span> <span class="nav-text">散列索引</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#位图索引"><span class="nav-number">1.5.</span> <span class="nav-text">位图索引</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MySQL数据库几个基本的索引类型"><span class="nav-number">1.6.</span> <span class="nav-text">MySQL数据库几个基本的索引类型</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#视图"><span class="nav-number">2.</span> <span class="nav-text">视图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#事务"><span class="nav-number">3.</span> <span class="nav-text">事务</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#事务概念"><span class="nav-number">3.1.</span> <span class="nav-text">事务概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#事务隔离级别"><span class="nav-number">3.2.</span> <span class="nav-text">事务隔离级别</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#个人声明"><span class="nav-number">4.</span> <span class="nav-text">个人声明</span></a></li></ol></div>
             
 
           </div>
