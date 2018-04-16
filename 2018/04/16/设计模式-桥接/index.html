@@ -103,15 +103,15 @@
 <meta property="og:site_name" content="fenlan">
 <meta property="og:description" content="概念桥接模式(Bridge)是用于把抽象化和实现化解耦，使得两者可以独立变化。这种类型的设计模式属于结构型模式，它通过提供抽象化和实现化的桥接结构来实现两者的解耦。
 桥接意图 : 将抽象部分与实现部分分离，使它们都可以独立的变化主要解决 : 在有多种可能会变化的情况下，用继承会造成类爆炸问题，扩展起来不灵活何时使用 : 实现系统可能有多个角度分类，每一种角度都可能变化如何解决 : 把这种多角度分类">
-<meta property="og:image" content="https://github.com/fenlan/Mycode/blob/master/images/bridge.png">
+<meta property="og:image" content="http://fenlan.github.io/images/bridge.png">
 <meta property="og:image" content="http://ww3.sinaimg.cn/mw690/78f9859egw1eyvh7m88sdj20jc0biq4l.jpg">
 <meta property="og:image" content="http://ww3.sinaimg.cn/mw690/78f9859egw1eyvh7mry2yj20gg0h1jsz.jpg">
-<meta property="og:updated_time" content="2018-04-16T06:51:44.367Z">
+<meta property="og:updated_time" content="2018-04-16T07:02:06.082Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="设计模式-桥接">
 <meta name="twitter:description" content="概念桥接模式(Bridge)是用于把抽象化和实现化解耦，使得两者可以独立变化。这种类型的设计模式属于结构型模式，它通过提供抽象化和实现化的桥接结构来实现两者的解耦。
 桥接意图 : 将抽象部分与实现部分分离，使它们都可以独立的变化主要解决 : 在有多种可能会变化的情况下，用继承会造成类爆炸问题，扩展起来不灵活何时使用 : 实现系统可能有多个角度分类，每一种角度都可能变化如何解决 : 把这种多角度分类">
-<meta name="twitter:image" content="https://github.com/fenlan/Mycode/blob/master/images/bridge.png">
+<meta name="twitter:image" content="http://fenlan.github.io/images/bridge.png">
 
 
 
@@ -425,7 +425,7 @@
 <h2 id="例子一"><a href="#例子一" class="headerlink" title="例子一"></a>例子一</h2><p>我们需要画出一个红色的圆、绿色的圆、红色的正方形、绿色的正方形。在这个例子中，有两个变化的方面，一个是形状、一个是颜色。</p>
 <p>普通的设计是这样的 : 有一个圆类和一个正方形类实现Shape类，而圆类下面有两个子类，红色圆和绿色圆；正方形类下面有两个子类，红色正方形、绿色正方形。但是这样的设计会出现的问题是，当我需要添加一个其他变化的颜色时，诸如蓝色，那么情况会非常糟糕。我们需要在每个形状的下面重新添加一个蓝色形状的实现。这就是桥接定义的变化。</p>
 <a id="more"></a>
-<p>为了解决这个问题，我们需要做的事情是将这两个变化放在抽象层，<br><img src="https://github.com/fenlan/Mycode/blob/master/images/bridge.png" alt=""></p>
+<p>为了解决这个问题，我们需要做的事情是将这两个变化放在抽象层，<br><img src="/images/bridge.png" alt=""></p>
 <blockquote>
 <p>补充一下，图片有点问题，其中Shape和Color都是抽象的，桥接的抽象独立变化，就是指的Shape和Color可以独立表化而不影响彼此。</p>
 </blockquote>
