@@ -235,9 +235,9 @@
         <category>分布式计算</category>
       </categories>
       <tags>
+        <tag>Zookeeper</tag>
         <tag>hadoop</tag>
         <tag>Hbase</tag>
-        <tag>Zookeeper</tag>
       </tags>
   </entry>
   <entry>
