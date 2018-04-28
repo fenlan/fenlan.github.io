@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://fenlan.github.io/"/>
-  <updated>2018-04-19T12:49:54.212Z</updated>
+  <updated>2018-04-28T07:19:05.544Z</updated>
   <id>http://fenlan.github.io/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Java Object</title>
+    <link href="http://fenlan.github.io/2018/04/28/JavaObject/"/>
+    <id>http://fenlan.github.io/2018/04/28/JavaObject/</id>
+    <published>2018-04-28T07:18:23.000Z</published>
+    <updated>2018-04-28T07:19:05.544Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;Obejct简介&quot;&gt;&lt;a href=&quot;#Obejct简介&quot; class=&quot;headerlink&quot; title=&quot;Obejct简介&quot;&gt;&lt;/a&gt;Obejct简介&lt;/h2&gt;&lt;p&gt;Object类是Java中所有类的基类，在编译时会自动导入，位于java.lang包中，而Object中具有的属性和行为，是Java语言设计背后的思维体现。Object类中的大部分方法都是native方法，用此关键字修饰的方法是Java中的本地方法，一般是用C/C++语言来实现。&lt;/p&gt;
+&lt;h2 id=&quot;native-关键字&quot;&gt;&lt;a href=&quot;#native-关键字&quot; class=&quot;headerlink&quot; title=&quot;native 关键字&quot;&gt;&lt;/a&gt;native 关键字&lt;/h2&gt;&lt;p&gt;native是与C++联合开发的时候用的！java自己开发不用的！使用native关键字说明这个方法是原生函数，也就是这个方法是用C/C++语言实现的，并且被编译成了DLL，由java去调用。 这些函数的实现体在DLL中，JDK的源代码中并不包含，你应该是看不到的。对于不同的平台它们也是不同的。这也是java的底层机制，实际上java就是在不同的平台上调用不同的native方法实现对操作系统的访问的。native 是用做java 和其他语言（如c++）进行协作时用的 也就是native 后的函数的实现不是用java写的。native的意思就是通知操作系统， 这个函数你必须给我实现，因为我要使用。 所以native关键字的函数都是操作系统实现的， java只能调用。java是跨平台的语言，既然是跨了平台，所付出的代价就是牺牲一些对底层的控制，而java要实现对底层的控制，就需要一些其他语言的帮助，这个就是native的作用了。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Java" scheme="http://fenlan.github.io/categories/Java/"/>
+    
+    
+      <category term="Java" scheme="http://fenlan.github.io/tags/Java/"/>
+    
+      <category term="线程" scheme="http://fenlan.github.io/tags/%E7%BA%BF%E7%A8%8B/"/>
+    
+      <category term="Object" scheme="http://fenlan.github.io/tags/Object/"/>
+    
+  </entry>
   
   <entry>
     <title>Zookeeper Leader选举源码解析</title>
@@ -634,29 +659,6 @@
       <category term="hadoop" scheme="http://fenlan.github.io/tags/hadoop/"/>
     
       <category term="Hbase" scheme="http://fenlan.github.io/tags/Hbase/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>zabbix安装配置</title>
-    <link href="http://fenlan.github.io/2017/08/22/zabbix/"/>
-    <id>http://fenlan.github.io/2017/08/22/zabbix/</id>
-    <published>2017-08-22T07:18:23.000Z</published>
-    <updated>2017-11-28T03:10:39.013Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;下载软件包&quot;&gt;&lt;a href=&quot;#下载软件包&quot; class=&quot;headerlink&quot; title=&quot;下载软件包&quot;&gt;&lt;/a&gt;下载软件包&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;从&lt;a href=&quot;https://www.zabbix.com/download&quot;&gt;zabbix&lt;/a&gt;上下载所需要的软件包，包括&lt;code&gt;zabbix-server-mysql&lt;/code&gt;和&lt;code&gt;zabbix-frontend-php&lt;/code&gt;，如果还要安装客户端，还要下载&lt;code&gt;zabbix-agent&lt;/code&gt;。(推荐直接添加&lt;code&gt;zabbix&lt;/code&gt;源)&lt;/strong&gt;&lt;/p&gt;
-&lt;h2 id=&quot;安装软件&quot;&gt;&lt;a href=&quot;#安装软件&quot; class=&quot;headerlink&quot; title=&quot;安装软件&quot;&gt;&lt;/a&gt;安装软件&lt;/h2&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;sudo dpkg -i zabbix-server-mysql_3.4.0-1+xenial_amd64.deb&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;sudo dpkg -i zabbix-frontend-php_3.4.0-1+xenial_all.deb&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;h2 id=&quot;配置Zabbix-server&quot;&gt;&lt;a href=&quot;#配置Zabbix-server&quot; class=&quot;headerlink&quot; title=&quot;配置Zabbix server&quot;&gt;&lt;/a&gt;配置Zabbix server&lt;/h2&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;sudo vim /etc/zabbix/zabbix_server.conf&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;修改其中的&lt;code&gt;DBhost&lt;/code&gt;, &lt;code&gt;DBUser&lt;/code&gt;, &lt;code&gt;DBPassword&lt;/code&gt;， 如果有必要，需要设置&lt;code&gt;socket&lt;/code&gt;与&lt;code&gt;mysql&lt;/code&gt;的&lt;code&gt;socket&lt;/code&gt;相同。&lt;br&gt;
-    
-    </summary>
-    
-      <category term="linux" scheme="http://fenlan.github.io/categories/linux/"/>
-    
-    
-      <category term="zabbix" scheme="http://fenlan.github.io/tags/zabbix/"/>
     
   </entry>
   
