@@ -312,6 +312,157 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://fenlan.github.io/2018/05/03/JavaVolatitle/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Gao Jie">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="fenlan">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/05/03/JavaVolatitle/" itemprop="url">Java volatitle</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-03T15:18:23+08:00">
+                2018-05-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/05/03/JavaVolatitle/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/05/03/JavaVolatitle/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="Java-Volatile-Keyword"><a href="#Java-Volatile-Keyword" class="headerlink" title="Java Volatile Keyword"></a>Java Volatile Keyword</h2><p>Java <code>volatitle</code>关键字用来标记变量”被存储在主存里”，更精确的说，<code>volatitle</code>变量的每一次读取都需要从计算机的主存读取而不是<code>CPU Cache</code>，而每一次写入都是直接写入主存，而不是<code>CPU Cache</code>。从Java 5开始<code>volatitle</code>关键字不仅仅是保证写入主存和从主存读取。</p>
+<h2 id="变量可见性问题"><a href="#变量可见性问题" class="headerlink" title="变量可见性问题"></a>变量可见性问题</h2><p>Java <code>volatitle</code>保证了变量跨线程的可见性，这么说可能有点抽象，so let me elaborate。</p>
+<p>在线程操作<code>non-volatile</code>变量的多线程应用中，由于性能原因每个线程会从主存中拷贝变量到CPU Cache(each thread may copy variables from main memory into a CPU cache while working on them)。如果你的计算机是多CPU的，每个线程可能跑在不同的CPU上，这意味着每个线程会拷贝变量到不同CPU的Cache中，就像这样:<br><img src="http://tutorials.jenkov.com/images/java-concurrency/java-volatile-1.png" alt=""></p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/05/03/JavaVolatitle/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://fenlan.github.io/2018/04/28/JavaObject/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -765,161 +916,6 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://fenlan.github.io/2018/04/13/数据库各要点总结/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Gao Jie">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="fenlan">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/04/13/数据库各要点总结/" itemprop="url">数据库大杂烩</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-13T15:18:23+08:00">
-                2018-04-13
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/数据库/" itemprop="url" rel="index">
-                    <span itemprop="name">数据库</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2018/04/13/数据库各要点总结/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/04/13/数据库各要点总结/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="索引"><a href="#索引" class="headerlink" title="索引"></a>索引</h2><h3 id="顺序索引"><a href="#顺序索引" class="headerlink" title="顺序索引"></a>顺序索引</h3><p><code>聚集索引</code>：　如果包含记录的文件按照某个搜索码指定的顺序排序，那么该搜索码对应的索引称为聚集索引。<br><code>非聚集索引</code>：　搜索码指定的顺序与文件中记录的物理顺序不同的索引称为非聚集索引。</p>
-<p>诸如在大学教师记录文件中，用教师ID作为搜索码，记录按照该搜索码顺序存放。</p>
-<p><code>稠密索引(dense index)</code> : <strong>在稠密索引中，文件中的每一个搜索码值都有一个索引项</strong>。在稠密聚集索引中，索引项包括搜索码值以及指向具有该搜索码的第一条数据记录的指针。具有相同搜索码值的其余记录顺序地存储在第一条数据记录之后，由于该索引是聚集索引，因此记录根据相同的搜索码值排序。而在稠密非聚集索引中，索引必须存储指向所有具有相同搜索码值的记录项的指针列表。</p>
-<blockquote>
-<p>稠密聚集索引具有相同搜索码值的记录按照指定顺序存储；但是稠密非聚集索引必须存储指向一个指针列表，这个列表里面有具有相同搜索码值的记录指针。聚集索引只存储第一条记录的指针，其他的按照顺序查找，非聚集索引就要记录一个指针表。</p>
-</blockquote>
-<p><img src="http://www.assignmenthelp.net/assignment_help/images/dense-index-architecture.gif" alt="Dense index"></p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/04/13/数据库各要点总结/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://fenlan.github.io/2018/04/13/GET_POST/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1043,6 +1039,161 @@
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/04/13/GET_POST/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://fenlan.github.io/2018/04/13/数据库各要点总结/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Gao Jie">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="fenlan">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/04/13/数据库各要点总结/" itemprop="url">数据库大杂烩</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-13T15:18:23+08:00">
+                2018-04-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/数据库/" itemprop="url" rel="index">
+                    <span itemprop="name">数据库</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/04/13/数据库各要点总结/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/04/13/数据库各要点总结/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="索引"><a href="#索引" class="headerlink" title="索引"></a>索引</h2><h3 id="顺序索引"><a href="#顺序索引" class="headerlink" title="顺序索引"></a>顺序索引</h3><p><code>聚集索引</code>：　如果包含记录的文件按照某个搜索码指定的顺序排序，那么该搜索码对应的索引称为聚集索引。<br><code>非聚集索引</code>：　搜索码指定的顺序与文件中记录的物理顺序不同的索引称为非聚集索引。</p>
+<p>诸如在大学教师记录文件中，用教师ID作为搜索码，记录按照该搜索码顺序存放。</p>
+<p><code>稠密索引(dense index)</code> : <strong>在稠密索引中，文件中的每一个搜索码值都有一个索引项</strong>。在稠密聚集索引中，索引项包括搜索码值以及指向具有该搜索码的第一条数据记录的指针。具有相同搜索码值的其余记录顺序地存储在第一条数据记录之后，由于该索引是聚集索引，因此记录根据相同的搜索码值排序。而在稠密非聚集索引中，索引必须存储指向所有具有相同搜索码值的记录项的指针列表。</p>
+<blockquote>
+<p>稠密聚集索引具有相同搜索码值的记录按照指定顺序存储；但是稠密非聚集索引必须存储指向一个指针列表，这个列表里面有具有相同搜索码值的记录指针。聚集索引只存储第一条记录的指针，其他的按照顺序查找，非聚集索引就要记录一个指针表。</p>
+</blockquote>
+<p><img src="http://www.assignmenthelp.net/assignment_help/images/dense-index-architecture.gif" alt="Dense index"></p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/04/13/数据库各要点总结/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1763,157 +1914,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://fenlan.github.io/2018/03/17/Java线程池/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Gao Jie">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="fenlan">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/03/17/Java线程池/" itemprop="url">Java 线程池</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-17T15:18:23+08:00">
-                2018-03-17
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/" itemprop="url" rel="index">
-                    <span itemprop="name">Java</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2018/03/17/Java线程池/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/03/17/Java线程池/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><p><code>Java Thread pool</code> represents a group of worker threads that are waiting for the job and reuse many times.<br>Java中创建一个线程是一个相对耗时的操作，当程序中频繁的创建和使用线程时，会产生严重的内存管理开销(significant memory management overhead)。基于这个原因，Java有了线程池的概念，在使用线程之前，创建一个线程池。当一个任务需要一个线程去运行时，程序去线程池中选择一个空闲线程去运行。当任务结束后，线程又重新放进线程池中等待下一个任务，这样就避免了频繁的创建线程，大大节省了内存管理开销。</p>
-<h2 id="线程池分类"><a href="#线程池分类" class="headerlink" title="线程池分类"></a>线程池分类</h2><p><code>fixed thread pool</code> : 固型线程池—-创建时指定创建的线程数，当任务使用完线程池中的空闲线程，则新任务将等待被占用的线程执行完任务。</p>
-<p>固定长度线程池的优点 : 用Web服务器举例说明，Web服务器需要单独的线程去处理一个HTTP请求，当出现大量的HTTP请求，超过了系统能够承受的范围，那么这个Web服务器就会停止响应所有的请求。而如果使用固定长度线程池，虽然不能立刻服务请求，但系统会尽最大能力去处理。</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/03/17/Java线程池/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1963,7 +1963,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">47</span>
+                <span class="site-state-item-count">48</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>

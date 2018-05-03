@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://fenlan.github.io/"/>
-  <updated>2018-05-03T06:13:19.718Z</updated>
+  <updated>2018-05-03T08:47:44.371Z</updated>
   <id>http://fenlan.github.io/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Java volatitle</title>
+    <link href="http://fenlan.github.io/2018/05/03/JavaVolatitle/"/>
+    <id>http://fenlan.github.io/2018/05/03/JavaVolatitle/</id>
+    <published>2018-05-03T07:18:23.000Z</published>
+    <updated>2018-05-03T08:47:44.371Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;Java-Volatile-Keyword&quot;&gt;&lt;a href=&quot;#Java-Volatile-Keyword&quot; class=&quot;headerlink&quot; title=&quot;Java Volatile Keyword&quot;&gt;&lt;/a&gt;Java Volatile Keyword&lt;/h2&gt;&lt;p&gt;Java &lt;code&gt;volatitle&lt;/code&gt;关键字用来标记变量”被存储在主存里”，更精确的说，&lt;code&gt;volatitle&lt;/code&gt;变量的每一次读取都需要从计算机的主存读取而不是&lt;code&gt;CPU Cache&lt;/code&gt;，而每一次写入都是直接写入主存，而不是&lt;code&gt;CPU Cache&lt;/code&gt;。从Java 5开始&lt;code&gt;volatitle&lt;/code&gt;关键字不仅仅是保证写入主存和从主存读取。&lt;/p&gt;
+&lt;h2 id=&quot;变量可见性问题&quot;&gt;&lt;a href=&quot;#变量可见性问题&quot; class=&quot;headerlink&quot; title=&quot;变量可见性问题&quot;&gt;&lt;/a&gt;变量可见性问题&lt;/h2&gt;&lt;p&gt;Java &lt;code&gt;volatitle&lt;/code&gt;保证了变量跨线程的可见性，这么说可能有点抽象，so let me elaborate。&lt;/p&gt;
+&lt;p&gt;在线程操作&lt;code&gt;non-volatile&lt;/code&gt;变量的多线程应用中，由于性能原因每个线程会从主存中拷贝变量到CPU Cache(each thread may copy variables from main memory into a CPU cache while working on them)。如果你的计算机是多CPU的，每个线程可能跑在不同的CPU上，这意味着每个线程会拷贝变量到不同CPU的Cache中，就像这样:&lt;br&gt;&lt;img src=&quot;http://tutorials.jenkov.com/images/java-concurrency/java-volatile-1.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Java" scheme="http://fenlan.github.io/categories/Java/"/>
+    
+    
+      <category term="Java" scheme="http://fenlan.github.io/tags/Java/"/>
+    
+      <category term="线程" scheme="http://fenlan.github.io/tags/%E7%BA%BF%E7%A8%8B/"/>
+    
+  </entry>
   
   <entry>
     <title>Java Object</title>
@@ -91,34 +115,6 @@
   </entry>
   
   <entry>
-    <title>数据库大杂烩</title>
-    <link href="http://fenlan.github.io/2018/04/13/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%90%84%E8%A6%81%E7%82%B9%E6%80%BB%E7%BB%93/"/>
-    <id>http://fenlan.github.io/2018/04/13/数据库各要点总结/</id>
-    <published>2018-04-13T07:18:23.000Z</published>
-    <updated>2018-04-14T13:21:39.387Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;索引&quot;&gt;&lt;a href=&quot;#索引&quot; class=&quot;headerlink&quot; title=&quot;索引&quot;&gt;&lt;/a&gt;索引&lt;/h2&gt;&lt;h3 id=&quot;顺序索引&quot;&gt;&lt;a href=&quot;#顺序索引&quot; class=&quot;headerlink&quot; title=&quot;顺序索引&quot;&gt;&lt;/a&gt;顺序索引&lt;/h3&gt;&lt;p&gt;&lt;code&gt;聚集索引&lt;/code&gt;：　如果包含记录的文件按照某个搜索码指定的顺序排序，那么该搜索码对应的索引称为聚集索引。&lt;br&gt;&lt;code&gt;非聚集索引&lt;/code&gt;：　搜索码指定的顺序与文件中记录的物理顺序不同的索引称为非聚集索引。&lt;/p&gt;
-&lt;p&gt;诸如在大学教师记录文件中，用教师ID作为搜索码，记录按照该搜索码顺序存放。&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;稠密索引(dense index)&lt;/code&gt; : &lt;strong&gt;在稠密索引中，文件中的每一个搜索码值都有一个索引项&lt;/strong&gt;。在稠密聚集索引中，索引项包括搜索码值以及指向具有该搜索码的第一条数据记录的指针。具有相同搜索码值的其余记录顺序地存储在第一条数据记录之后，由于该索引是聚集索引，因此记录根据相同的搜索码值排序。而在稠密非聚集索引中，索引必须存储指向所有具有相同搜索码值的记录项的指针列表。&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;稠密聚集索引具有相同搜索码值的记录按照指定顺序存储；但是稠密非聚集索引必须存储指向一个指针列表，这个列表里面有具有相同搜索码值的记录指针。聚集索引只存储第一条记录的指针，其他的按照顺序查找，非聚集索引就要记录一个指针表。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;&lt;img src=&quot;http://www.assignmenthelp.net/assignment_help/images/dense-index-architecture.gif&quot; alt=&quot;Dense index&quot;&gt;&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="数据库" scheme="http://fenlan.github.io/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
-    
-    
-      <category term="SQL" scheme="http://fenlan.github.io/tags/SQL/"/>
-    
-      <category term="索引" scheme="http://fenlan.github.io/tags/%E7%B4%A2%E5%BC%95/"/>
-    
-  </entry>
-  
-  <entry>
     <title>GET vs POST</title>
     <link href="http://fenlan.github.io/2018/04/13/GET_POST/"/>
     <id>http://fenlan.github.io/2018/04/13/GET_POST/</id>
@@ -158,6 +154,34 @@
       <category term="POST" scheme="http://fenlan.github.io/tags/POST/"/>
     
       <category term="HTTP" scheme="http://fenlan.github.io/tags/HTTP/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>数据库大杂烩</title>
+    <link href="http://fenlan.github.io/2018/04/13/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%90%84%E8%A6%81%E7%82%B9%E6%80%BB%E7%BB%93/"/>
+    <id>http://fenlan.github.io/2018/04/13/数据库各要点总结/</id>
+    <published>2018-04-13T07:18:23.000Z</published>
+    <updated>2018-04-14T13:21:39.387Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;索引&quot;&gt;&lt;a href=&quot;#索引&quot; class=&quot;headerlink&quot; title=&quot;索引&quot;&gt;&lt;/a&gt;索引&lt;/h2&gt;&lt;h3 id=&quot;顺序索引&quot;&gt;&lt;a href=&quot;#顺序索引&quot; class=&quot;headerlink&quot; title=&quot;顺序索引&quot;&gt;&lt;/a&gt;顺序索引&lt;/h3&gt;&lt;p&gt;&lt;code&gt;聚集索引&lt;/code&gt;：　如果包含记录的文件按照某个搜索码指定的顺序排序，那么该搜索码对应的索引称为聚集索引。&lt;br&gt;&lt;code&gt;非聚集索引&lt;/code&gt;：　搜索码指定的顺序与文件中记录的物理顺序不同的索引称为非聚集索引。&lt;/p&gt;
+&lt;p&gt;诸如在大学教师记录文件中，用教师ID作为搜索码，记录按照该搜索码顺序存放。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;稠密索引(dense index)&lt;/code&gt; : &lt;strong&gt;在稠密索引中，文件中的每一个搜索码值都有一个索引项&lt;/strong&gt;。在稠密聚集索引中，索引项包括搜索码值以及指向具有该搜索码的第一条数据记录的指针。具有相同搜索码值的其余记录顺序地存储在第一条数据记录之后，由于该索引是聚集索引，因此记录根据相同的搜索码值排序。而在稠密非聚集索引中，索引必须存储指向所有具有相同搜索码值的记录项的指针列表。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;稠密聚集索引具有相同搜索码值的记录按照指定顺序存储；但是稠密非聚集索引必须存储指向一个指针列表，这个列表里面有具有相同搜索码值的记录指针。聚集索引只存储第一条记录的指针，其他的按照顺序查找，非聚集索引就要记录一个指针表。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;img src=&quot;http://www.assignmenthelp.net/assignment_help/images/dense-index-architecture.gif&quot; alt=&quot;Dense index&quot;&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="数据库" scheme="http://fenlan.github.io/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+    
+      <category term="SQL" scheme="http://fenlan.github.io/tags/SQL/"/>
+    
+      <category term="索引" scheme="http://fenlan.github.io/tags/%E7%B4%A2%E5%BC%95/"/>
     
   </entry>
   
@@ -629,36 +653,6 @@
     
     
       <category term="unix时间" scheme="http://fenlan.github.io/tags/unix%E6%97%B6%E9%97%B4/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>hadoop之旅</title>
-    <link href="http://fenlan.github.io/2017/09/22/hadoop/"/>
-    <id>http://fenlan.github.io/2017/09/22/hadoop/</id>
-    <published>2017-09-22T07:18:23.000Z</published>
-    <updated>2017-11-30T11:31:47.847Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;hadoop介绍&quot;&gt;&lt;a href=&quot;#hadoop介绍&quot; class=&quot;headerlink&quot; title=&quot;hadoop介绍&quot;&gt;&lt;/a&gt;hadoop介绍&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;以下是 Hadoop 的几种定义，每种定义都针对的是企业内的不同受众：&lt;/strong&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;对于高管：Hadoop 是 Apache 的一个开源软件项目，目的是从令人难以置信的数量/速度/多样性等有关组织的数据中获取价值。使用数据，而不是扔掉大部分数据。&lt;/li&gt;
-&lt;li&gt;对于技术管理人员：一个开源软件套件，挖掘有关您的企业的结构化和非结构化大数据。Hadoop 集成您现有的商业智能生态系统。&lt;/li&gt;
-&lt;li&gt;工程：大规模并行、无共享、基于 Java 的 map-reduce 执行环境。打算使用数百台到数千台计算机处理相同的问题，具有内置的故障恢复能力。Hadoop 生态系统中的项目提供了数据加载、更高层次的语言、自动化的云部署，以及其他功能。&lt;/li&gt;
-&lt;li&gt;安全性：由 Kerberos 保护的软件套件。&lt;/li&gt;
-&lt;/ul&gt;
-    
-    </summary>
-    
-      <category term="分布式计算" scheme="http://fenlan.github.io/categories/%E5%88%86%E5%B8%83%E5%BC%8F%E8%AE%A1%E7%AE%97/"/>
-    
-    
-      <category term="Zookeeper" scheme="http://fenlan.github.io/tags/Zookeeper/"/>
-    
-      <category term="hadoop" scheme="http://fenlan.github.io/tags/hadoop/"/>
-    
-      <category term="Hbase" scheme="http://fenlan.github.io/tags/Hbase/"/>
     
   </entry>
   
