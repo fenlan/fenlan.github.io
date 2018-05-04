@@ -518,11 +518,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[吐槽]]></title>
-    <url>%2F2016%2F05%2F21%2Fmy-note1%2F</url>
-    <content type="text"><![CDATA[我必须来吐槽一下，搞了两天了来搭建自己的博客，然而出现各种莫名其妙的东西，让我很是难受，我已经合理怀疑自己的智商了。不过话说回来上次在网上瞎做了一个智商测试，测试出来我居然有143的天才智商，真的假的。]]></content>
-  </entry>
-  <entry>
     <title><![CDATA[Git install and setting]]></title>
     <url>%2F2016%2F05%2F21%2Fgit-install%2F</url>
     <content type="text"><![CDATA[git install and setting:123$ git config --global user.name "name"$ git config --global user.email "email"$ git config --global color.ui auto and then create a new directory as tutorial123$ mkdir tutorial$ cd tutorial$ git init then create a new file as text.txt123456$ git status$ git add text.txt$ git status$ git commit -m "text"$ git status$ git log next to rename the “https://…….” as origin123$ git remote add origin https://.........(do this only the first time)$ git push -u origin master(the first time)$ git push -u origin(do this the next time) do clone1$ git clone https://....... tutorial2(a new directory) do pull file in your date-base12$ git pull origin master$ git log finally do another setting to make it better,but I meet a problem.So I stop it temporarily,continue it if I have time.]]></content>
@@ -532,6 +527,11 @@
       <tags>
         <tag>git</tag>
       </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[吐槽]]></title>
+    <url>%2F2016%2F05%2F21%2Fmy-note1%2F</url>
+    <content type="text"><![CDATA[我必须来吐槽一下，搞了两天了来搭建自己的博客，然而出现各种莫名其妙的东西，让我很是难受，我已经合理怀疑自己的智商了。不过话说回来上次在网上瞎做了一个智商测试，测试出来我居然有143的天才智商，真的假的。]]></content>
   </entry>
   <entry>
     <title><![CDATA[Hello World]]></title>
