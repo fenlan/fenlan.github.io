@@ -77,7 +77,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Java,线程," />
+  <meta name="keywords" content="Java,线程,Happens-Before," />
 
 
 
@@ -107,7 +107,7 @@
 <meta property="og:image" content="http://tutorials.jenkov.com/images/java-concurrency/java-volatile-2.png">
 <meta property="og:image" content="http://tutorials.jenkov.com/images/java-concurrency/java-volatile-3.png">
 <meta property="og:image" content="http://www.qdpma.com/SystemArchitecture_files/CPU_4c.png">
-<meta property="og:updated_time" content="2018-05-04T05:52:25.919Z">
+<meta property="og:updated_time" content="2018-05-04T05:56:35.884Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java volatitle">
 <meta name="twitter:description" content="Java Volatile KeywordJava volatitle关键字用来标记变量”被存储在主存里”，更精确的说，volatitle变量的每一次读取都需要从计算机的主存读取而不是CPU Cache，而每一次写入都是直接写入主存，而不是CPU Cache。从Java 5开始volatitle关键字不仅仅是保证写入主存和从主存读取。
@@ -450,7 +450,7 @@
 <blockquote>
 <p>特别注意，在写入时，把<code>volatitle</code>变量写入放在最后，这样当运行到<code>volatitle</code>变量写入时，会同时把其他非<code>volatitle</code>写入主存，但当<code>volatitle</code>写在最开始时，后面的非<code>volatitle</code>便不会写入最新值。读取相反，将<code>volatitle</code>读取放在最前，线程会读取所有值最新的主存值，如果放在最后面，那么前面读取的变量不是从主存直接读取的。</p>
 </blockquote>
-<h2 id="The-Java-volatile-Happens-Before-Guarantee"><a href="#The-Java-volatile-Happens-Before-Guarantee" class="headerlink" title="The Java volatile Happens-Before Guarantee"></a>The Java volatile Happens-Before Guarantee</h2><p>为了解决指令重组问题，Java <code>volatitle</code>关键字除了可见性保证，还给了一个<code>happens-before</code>保证，<code>happens-before</code>保证如下：</p>
+<h2 id="Happens-Before"><a href="#Happens-Before" class="headerlink" title="Happens-Before"></a>Happens-Before</h2><p>为了解决指令重组问题，Java <code>volatitle</code>关键字除了可见性保证，还给了一个<code>happens-before</code>保证，<code>happens-before</code>保证如下：</p>
 <ul>
 <li>如果读写发生在写入<code>volatitle</code>变量之前，那么读写其他变量的指令不能被重组到写入<code>volatitle</code>变量之后。写入<code>volatitle</code>变量之前的读写被保证<code>happens before</code>写<code>volatitle</code>变量。需要注意，写入<code>volatitle</code>变量之后的读写其他变量仍然有可能被重组到写入<code>volatitle</code>变量之前。因此<strong>From after to before is allowed, but from before to after is not allowed</strong>（<code>volatitle</code>写操作之后的指令被重组到写之前是允许的，而写操作之前的指令不允许被重组到写之后）</li>
 <li>读<code>volatitle</code>变量之后的读写操作不能被重组到<code>volatitle</code>之前，但同样注意发生在读<code>volatitle</code>之前的指令可以重组到读<code>volatitle</code>之后。因此<strong>From before to after is allowed, but from after to before is not allowed</strong>(<code>volatitle</code>读之前的指令被重组到读之后值允许的，而读操作之后的指令不允许被重组到读值前)</li>
@@ -501,6 +501,8 @@
             <a href="/tags/Java/" rel="tag"># Java</a>
           
             <a href="/tags/线程/" rel="tag"># 线程</a>
+          
+            <a href="/tags/Happens-Before/" rel="tag"># Happens-Before</a>
           
         </div>
       
@@ -622,7 +624,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">67</span>
+                <span class="site-state-item-count">68</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -723,7 +725,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Java-Volatile-Keyword"><span class="nav-number">1.</span> <span class="nav-text">Java Volatile Keyword</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#变量可见性问题"><span class="nav-number">2.</span> <span class="nav-text">变量可见性问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Java-volatitle可见性保证"><span class="nav-number">3.</span> <span class="nav-text">Java volatitle可见性保证</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Full-volatile-Visibility-Guarantee"><span class="nav-number">4.</span> <span class="nav-text">Full volatile Visibility Guarantee</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#指令重排"><span class="nav-number">5.</span> <span class="nav-text">指令重排</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#The-Java-volatile-Happens-Before-Guarantee"><span class="nav-number">6.</span> <span class="nav-text">The Java volatile Happens-Before Guarantee</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#volatile-is-Not-Always-Enough"><span class="nav-number">7.</span> <span class="nav-text">volatile is Not Always Enough</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#When-is-volatile-Enough"><span class="nav-number">8.</span> <span class="nav-text">When is volatile Enough?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#性能问题"><span class="nav-number">9.</span> <span class="nav-text">性能问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考链接"><span class="nav-number">10.</span> <span class="nav-text">参考链接</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Java-Volatile-Keyword"><span class="nav-number">1.</span> <span class="nav-text">Java Volatile Keyword</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#变量可见性问题"><span class="nav-number">2.</span> <span class="nav-text">变量可见性问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Java-volatitle可见性保证"><span class="nav-number">3.</span> <span class="nav-text">Java volatitle可见性保证</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Full-volatile-Visibility-Guarantee"><span class="nav-number">4.</span> <span class="nav-text">Full volatile Visibility Guarantee</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#指令重排"><span class="nav-number">5.</span> <span class="nav-text">指令重排</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Happens-Before"><span class="nav-number">6.</span> <span class="nav-text">Happens-Before</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#volatile-is-Not-Always-Enough"><span class="nav-number">7.</span> <span class="nav-text">volatile is Not Always Enough</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#When-is-volatile-Enough"><span class="nav-number">8.</span> <span class="nav-text">When is volatile Enough?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#性能问题"><span class="nav-number">9.</span> <span class="nav-text">性能问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考链接"><span class="nav-number">10.</span> <span class="nav-text">参考链接</span></a></li></ol></div>
             
 
           </div>
