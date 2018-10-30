@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://fenlan.github.io/"/>
-  <updated>2018-05-04T05:56:35.884Z</updated>
+  <updated>2018-04-19T12:49:54.000Z</updated>
   <id>http://fenlan.github.io/</id>
   
   <author>
@@ -17,11 +17,35 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Zookeeper Leader选举源码解析</title>
+    <link href="http://fenlan.github.io/2018/10/12/ZookeeperLeaderElection/"/>
+    <id>http://fenlan.github.io/2018/10/12/ZookeeperLeaderElection/</id>
+    <published>2018-10-12T14:52:56.724Z</published>
+    <updated>2018-04-19T12:49:54.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;Zookeeper简介&quot;&gt;&lt;a href=&quot;#Zookeeper简介&quot; class=&quot;headerlink&quot; title=&quot;Zookeeper简介&quot;&gt;&lt;/a&gt;Zookeeper简介&lt;/h2&gt;&lt;p&gt;Zookeeper 是Apache Hadoop开源项目中的子项目，提供了一个分布式的协调服务框架。Zookeeper暴露了一组简单的操作原语(Primitive)集合，分布式应用能够基于这些原语实现更加高层的服务，包括同步机制、配置管理、服务器集群管理和统一命名服务等。&lt;/p&gt;
+&lt;p&gt;作为一个分布式的服务框架，Zookeeper主要解决分布式集群中应用系统的一致性问题，它采用类似文件系统目录的节点树的结构作为数据存储模型，并对已存储数据的状态变化进行维护和监控，通过监控这些数据状态的变化实现基于数据的集群管理。&lt;/p&gt;
+&lt;p&gt;Zookeeper 采用服务器集群的方式提供基本服务，服务器集群成为组，组中的成员具有两种角色，即一个唯一的领导者和若干个成员服务器，组能够为多个客户端提供服务。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="分布式计算" scheme="http://fenlan.github.io/categories/%E5%88%86%E5%B8%83%E5%BC%8F%E8%AE%A1%E7%AE%97/"/>
+    
+    
+      <category term="Zookeeper" scheme="http://fenlan.github.io/tags/Zookeeper/"/>
+    
+      <category term="FastLeaderElection" scheme="http://fenlan.github.io/tags/FastLeaderElection/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Java volatitle</title>
     <link href="http://fenlan.github.io/2018/05/03/JavaVolatitle/"/>
     <id>http://fenlan.github.io/2018/05/03/JavaVolatitle/</id>
     <published>2018-05-03T07:18:23.000Z</published>
-    <updated>2018-05-04T05:56:35.884Z</updated>
+    <updated>2018-05-04T05:56:35.000Z</updated>
     
     <summary type="html">
     
@@ -47,7 +71,7 @@
     <link href="http://fenlan.github.io/2018/04/28/JavaObject/"/>
     <id>http://fenlan.github.io/2018/04/28/JavaObject/</id>
     <published>2018-04-28T07:18:23.000Z</published>
-    <updated>2018-05-03T06:17:40.203Z</updated>
+    <updated>2018-05-03T06:17:40.000Z</updated>
     
     <summary type="html">
     
@@ -61,33 +85,9 @@
     
       <category term="Java" scheme="http://fenlan.github.io/tags/Java/"/>
     
-      <category term="Object" scheme="http://fenlan.github.io/tags/Object/"/>
-    
       <category term="线程" scheme="http://fenlan.github.io/tags/%E7%BA%BF%E7%A8%8B/"/>
     
-  </entry>
-  
-  <entry>
-    <title>Zookeeper Leader选举源码解析</title>
-    <link href="http://fenlan.github.io/2018/04/19/ZookeeperLeaderElection/"/>
-    <id>http://fenlan.github.io/2018/04/19/ZookeeperLeaderElection/</id>
-    <published>2018-04-19T12:49:54.212Z</published>
-    <updated>2018-04-19T12:49:54.212Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;Zookeeper简介&quot;&gt;&lt;a href=&quot;#Zookeeper简介&quot; class=&quot;headerlink&quot; title=&quot;Zookeeper简介&quot;&gt;&lt;/a&gt;Zookeeper简介&lt;/h2&gt;&lt;p&gt;Zookeeper 是Apache Hadoop开源项目中的子项目，提供了一个分布式的协调服务框架。Zookeeper暴露了一组简单的操作原语(Primitive)集合，分布式应用能够基于这些原语实现更加高层的服务，包括同步机制、配置管理、服务器集群管理和统一命名服务等。&lt;/p&gt;
-&lt;p&gt;作为一个分布式的服务框架，Zookeeper主要解决分布式集群中应用系统的一致性问题，它采用类似文件系统目录的节点树的结构作为数据存储模型，并对已存储数据的状态变化进行维护和监控，通过监控这些数据状态的变化实现基于数据的集群管理。&lt;/p&gt;
-&lt;p&gt;Zookeeper 采用服务器集群的方式提供基本服务，服务器集群成为组，组中的成员具有两种角色，即一个唯一的领导者和若干个成员服务器，组能够为多个客户端提供服务。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="分布式计算" scheme="http://fenlan.github.io/categories/%E5%88%86%E5%B8%83%E5%BC%8F%E8%AE%A1%E7%AE%97/"/>
-    
-    
-      <category term="Zookeeper" scheme="http://fenlan.github.io/tags/Zookeeper/"/>
-    
-      <category term="FastLeaderElection" scheme="http://fenlan.github.io/tags/FastLeaderElection/"/>
+      <category term="Object" scheme="http://fenlan.github.io/tags/Object/"/>
     
   </entry>
   
@@ -96,7 +96,7 @@
     <link href="http://fenlan.github.io/2018/04/16/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E6%A1%A5%E6%8E%A5/"/>
     <id>http://fenlan.github.io/2018/04/16/设计模式-桥接/</id>
     <published>2018-04-16T07:18:23.000Z</published>
-    <updated>2018-04-16T07:08:02.188Z</updated>
+    <updated>2018-04-16T07:08:02.000Z</updated>
     
     <summary type="html">
     
@@ -117,39 +117,11 @@
   </entry>
   
   <entry>
-    <title>数据库大杂烩</title>
-    <link href="http://fenlan.github.io/2018/04/13/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%90%84%E8%A6%81%E7%82%B9%E6%80%BB%E7%BB%93/"/>
-    <id>http://fenlan.github.io/2018/04/13/数据库各要点总结/</id>
-    <published>2018-04-13T07:18:23.000Z</published>
-    <updated>2018-04-14T13:21:39.387Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;索引&quot;&gt;&lt;a href=&quot;#索引&quot; class=&quot;headerlink&quot; title=&quot;索引&quot;&gt;&lt;/a&gt;索引&lt;/h2&gt;&lt;h3 id=&quot;顺序索引&quot;&gt;&lt;a href=&quot;#顺序索引&quot; class=&quot;headerlink&quot; title=&quot;顺序索引&quot;&gt;&lt;/a&gt;顺序索引&lt;/h3&gt;&lt;p&gt;&lt;code&gt;聚集索引&lt;/code&gt;：　如果包含记录的文件按照某个搜索码指定的顺序排序，那么该搜索码对应的索引称为聚集索引。&lt;br&gt;&lt;code&gt;非聚集索引&lt;/code&gt;：　搜索码指定的顺序与文件中记录的物理顺序不同的索引称为非聚集索引。&lt;/p&gt;
-&lt;p&gt;诸如在大学教师记录文件中，用教师ID作为搜索码，记录按照该搜索码顺序存放。&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;稠密索引(dense index)&lt;/code&gt; : &lt;strong&gt;在稠密索引中，文件中的每一个搜索码值都有一个索引项&lt;/strong&gt;。在稠密聚集索引中，索引项包括搜索码值以及指向具有该搜索码的第一条数据记录的指针。具有相同搜索码值的其余记录顺序地存储在第一条数据记录之后，由于该索引是聚集索引，因此记录根据相同的搜索码值排序。而在稠密非聚集索引中，索引必须存储指向所有具有相同搜索码值的记录项的指针列表。&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;稠密聚集索引具有相同搜索码值的记录按照指定顺序存储；但是稠密非聚集索引必须存储指向一个指针列表，这个列表里面有具有相同搜索码值的记录指针。聚集索引只存储第一条记录的指针，其他的按照顺序查找，非聚集索引就要记录一个指针表。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;&lt;img src=&quot;http://www.assignmenthelp.net/assignment_help/images/dense-index-architecture.gif&quot; alt=&quot;Dense index&quot;&gt;&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="数据库" scheme="http://fenlan.github.io/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
-    
-    
-      <category term="SQL" scheme="http://fenlan.github.io/tags/SQL/"/>
-    
-      <category term="索引" scheme="http://fenlan.github.io/tags/%E7%B4%A2%E5%BC%95/"/>
-    
-  </entry>
-  
-  <entry>
     <title>GET vs POST</title>
     <link href="http://fenlan.github.io/2018/04/13/GET_POST/"/>
     <id>http://fenlan.github.io/2018/04/13/GET_POST/</id>
     <published>2018-04-13T07:18:23.000Z</published>
-    <updated>2018-04-13T06:34:32.186Z</updated>
+    <updated>2018-04-13T06:34:32.000Z</updated>
     
     <summary type="html">
     
@@ -188,11 +160,39 @@
   </entry>
   
   <entry>
+    <title>数据库大杂烩</title>
+    <link href="http://fenlan.github.io/2018/04/13/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%90%84%E8%A6%81%E7%82%B9%E6%80%BB%E7%BB%93/"/>
+    <id>http://fenlan.github.io/2018/04/13/数据库各要点总结/</id>
+    <published>2018-04-13T07:18:23.000Z</published>
+    <updated>2018-04-14T13:21:39.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;索引&quot;&gt;&lt;a href=&quot;#索引&quot; class=&quot;headerlink&quot; title=&quot;索引&quot;&gt;&lt;/a&gt;索引&lt;/h2&gt;&lt;h3 id=&quot;顺序索引&quot;&gt;&lt;a href=&quot;#顺序索引&quot; class=&quot;headerlink&quot; title=&quot;顺序索引&quot;&gt;&lt;/a&gt;顺序索引&lt;/h3&gt;&lt;p&gt;&lt;code&gt;聚集索引&lt;/code&gt;：　如果包含记录的文件按照某个搜索码指定的顺序排序，那么该搜索码对应的索引称为聚集索引。&lt;br&gt;&lt;code&gt;非聚集索引&lt;/code&gt;：　搜索码指定的顺序与文件中记录的物理顺序不同的索引称为非聚集索引。&lt;/p&gt;
+&lt;p&gt;诸如在大学教师记录文件中，用教师ID作为搜索码，记录按照该搜索码顺序存放。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;稠密索引(dense index)&lt;/code&gt; : &lt;strong&gt;在稠密索引中，文件中的每一个搜索码值都有一个索引项&lt;/strong&gt;。在稠密聚集索引中，索引项包括搜索码值以及指向具有该搜索码的第一条数据记录的指针。具有相同搜索码值的其余记录顺序地存储在第一条数据记录之后，由于该索引是聚集索引，因此记录根据相同的搜索码值排序。而在稠密非聚集索引中，索引必须存储指向所有具有相同搜索码值的记录项的指针列表。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;稠密聚集索引具有相同搜索码值的记录按照指定顺序存储；但是稠密非聚集索引必须存储指向一个指针列表，这个列表里面有具有相同搜索码值的记录指针。聚集索引只存储第一条记录的指针，其他的按照顺序查找，非聚集索引就要记录一个指针表。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;img src=&quot;http://www.assignmenthelp.net/assignment_help/images/dense-index-architecture.gif&quot; alt=&quot;Dense index&quot;&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="数据库" scheme="http://fenlan.github.io/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+    
+      <category term="SQL" scheme="http://fenlan.github.io/tags/SQL/"/>
+    
+      <category term="索引" scheme="http://fenlan.github.io/tags/%E7%B4%A2%E5%BC%95/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Java GC</title>
     <link href="http://fenlan.github.io/2018/04/11/Java%20GC/"/>
     <id>http://fenlan.github.io/2018/04/11/Java GC/</id>
     <published>2018-04-11T07:18:23.000Z</published>
-    <updated>2018-04-16T07:07:58.144Z</updated>
+    <updated>2018-04-16T07:07:58.000Z</updated>
     
     <summary type="html">
     
@@ -217,7 +217,7 @@
     <link href="http://fenlan.github.io/2018/04/08/%E5%9F%BA%E6%9C%AC%E7%B1%BB%E5%9E%8B/"/>
     <id>http://fenlan.github.io/2018/04/08/基本类型/</id>
     <published>2018-04-08T07:18:23.000Z</published>
-    <updated>2018-04-08T08:51:06.196Z</updated>
+    <updated>2018-04-08T08:51:06.000Z</updated>
     
     <summary type="html">
     
@@ -317,7 +317,7 @@
     <link href="http://fenlan.github.io/2018/04/02/Kafka/"/>
     <id>http://fenlan.github.io/2018/04/02/Kafka/</id>
     <published>2018-04-02T07:18:23.000Z</published>
-    <updated>2018-04-07T08:23:09.472Z</updated>
+    <updated>2018-04-07T08:23:09.000Z</updated>
     
     <summary type="html">
     
@@ -345,7 +345,7 @@
     <link href="http://fenlan.github.io/2018/04/01/Redis/"/>
     <id>http://fenlan.github.io/2018/04/01/Redis/</id>
     <published>2018-04-01T07:18:23.000Z</published>
-    <updated>2018-04-01T14:32:17.195Z</updated>
+    <updated>2018-04-01T14:32:17.000Z</updated>
     
     <summary type="html">
     
@@ -376,7 +376,7 @@
     <link href="http://fenlan.github.io/2018/03/17/Java%E7%BA%BF%E7%A8%8B%E6%B1%A0/"/>
     <id>http://fenlan.github.io/2018/03/17/Java线程池/</id>
     <published>2018-03-17T07:18:23.000Z</published>
-    <updated>2018-03-17T11:19:32.042Z</updated>
+    <updated>2018-03-17T11:19:32.000Z</updated>
     
     <summary type="html">
     
@@ -400,7 +400,7 @@
     <link href="http://fenlan.github.io/2018/03/12/JVM/"/>
     <id>http://fenlan.github.io/2018/03/12/JVM/</id>
     <published>2018-03-12T07:18:23.000Z</published>
-    <updated>2018-03-17T06:23:46.139Z</updated>
+    <updated>2018-03-17T06:23:46.000Z</updated>
     
     <summary type="html">
     
@@ -429,7 +429,7 @@
     <link href="http://fenlan.github.io/2018/03/01/Java%E5%B0%8F%E8%AE%B0/"/>
     <id>http://fenlan.github.io/2018/03/01/Java小记/</id>
     <published>2018-03-01T07:18:23.000Z</published>
-    <updated>2018-03-09T09:58:25.128Z</updated>
+    <updated>2018-03-09T09:58:25.000Z</updated>
     
     <summary type="html">
     
@@ -479,7 +479,7 @@
     <link href="http://fenlan.github.io/2018/01/31/storm/"/>
     <id>http://fenlan.github.io/2018/01/31/storm/</id>
     <published>2018-01-31T07:18:23.000Z</published>
-    <updated>2018-01-31T13:08:52.492Z</updated>
+    <updated>2018-01-31T13:08:52.000Z</updated>
     
     <summary type="html">
     
@@ -510,7 +510,7 @@
     <link href="http://fenlan.github.io/2017/12/14/%E4%BB%A3%E7%A0%81%E6%B3%A8%E5%85%A5/"/>
     <id>http://fenlan.github.io/2017/12/14/代码注入/</id>
     <published>2017-12-14T07:18:23.000Z</published>
-    <updated>2017-12-22T10:15:42.394Z</updated>
+    <updated>2017-12-22T10:15:42.000Z</updated>
     
     <summary type="html">
     
@@ -532,7 +532,7 @@
     <link href="http://fenlan.github.io/2017/12/11/%E5%88%86%E4%BA%AB%E4%BC%9A%E8%B5%84%E6%96%99/"/>
     <id>http://fenlan.github.io/2017/12/11/分享会资料/</id>
     <published>2017-12-11T07:18:23.000Z</published>
-    <updated>2018-01-10T12:13:15.492Z</updated>
+    <updated>2018-01-10T12:13:15.000Z</updated>
     
     <summary type="html">
     
@@ -570,7 +570,7 @@
     <link href="http://fenlan.github.io/2017/11/30/%E5%88%86%E5%B8%83%E5%BC%8F%E8%AE%A1%E7%AE%97/"/>
     <id>http://fenlan.github.io/2017/11/30/分布式计算/</id>
     <published>2017-11-30T07:44:18.000Z</published>
-    <updated>2017-11-30T12:02:42.835Z</updated>
+    <updated>2017-11-30T12:02:42.000Z</updated>
     
     <summary type="html">
     
@@ -596,7 +596,7 @@
     <link href="http://fenlan.github.io/2017/11/29/zookeeper-kafka/"/>
     <id>http://fenlan.github.io/2017/11/29/zookeeper-kafka/</id>
     <published>2017-11-29T07:44:18.000Z</published>
-    <updated>2017-11-30T11:30:07.513Z</updated>
+    <updated>2017-11-30T11:30:07.000Z</updated>
     
     <summary type="html">
     
@@ -623,7 +623,7 @@
     <link href="http://fenlan.github.io/2017/11/27/docker/"/>
     <id>http://fenlan.github.io/2017/11/27/docker/</id>
     <published>2017-11-27T07:18:23.000Z</published>
-    <updated>2017-11-28T08:23:26.486Z</updated>
+    <updated>2017-11-28T08:23:26.000Z</updated>
     
     <summary type="html">
     
@@ -643,7 +643,7 @@
     <link href="http://fenlan.github.io/2017/11/21/unix%E6%97%B6%E9%97%B4md/"/>
     <id>http://fenlan.github.io/2017/11/21/unix时间md/</id>
     <published>2017-11-21T07:18:23.000Z</published>
-    <updated>2017-11-28T03:10:28.765Z</updated>
+    <updated>2017-11-28T03:10:28.000Z</updated>
     
     <summary type="html">
     
