@@ -117,34 +117,6 @@
   </entry>
   
   <entry>
-    <title>数据库大杂烩</title>
-    <link href="http://fenlan.github.io/2018/04/13/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%90%84%E8%A6%81%E7%82%B9%E6%80%BB%E7%BB%93/"/>
-    <id>http://fenlan.github.io/2018/04/13/数据库各要点总结/</id>
-    <published>2018-04-13T07:18:23.000Z</published>
-    <updated>2018-04-14T13:21:39.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;索引&quot;&gt;&lt;a href=&quot;#索引&quot; class=&quot;headerlink&quot; title=&quot;索引&quot;&gt;&lt;/a&gt;索引&lt;/h2&gt;&lt;h3 id=&quot;顺序索引&quot;&gt;&lt;a href=&quot;#顺序索引&quot; class=&quot;headerlink&quot; title=&quot;顺序索引&quot;&gt;&lt;/a&gt;顺序索引&lt;/h3&gt;&lt;p&gt;&lt;code&gt;聚集索引&lt;/code&gt;：　如果包含记录的文件按照某个搜索码指定的顺序排序，那么该搜索码对应的索引称为聚集索引。&lt;br&gt;&lt;code&gt;非聚集索引&lt;/code&gt;：　搜索码指定的顺序与文件中记录的物理顺序不同的索引称为非聚集索引。&lt;/p&gt;
-&lt;p&gt;诸如在大学教师记录文件中，用教师ID作为搜索码，记录按照该搜索码顺序存放。&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;稠密索引(dense index)&lt;/code&gt; : &lt;strong&gt;在稠密索引中，文件中的每一个搜索码值都有一个索引项&lt;/strong&gt;。在稠密聚集索引中，索引项包括搜索码值以及指向具有该搜索码的第一条数据记录的指针。具有相同搜索码值的其余记录顺序地存储在第一条数据记录之后，由于该索引是聚集索引，因此记录根据相同的搜索码值排序。而在稠密非聚集索引中，索引必须存储指向所有具有相同搜索码值的记录项的指针列表。&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;稠密聚集索引具有相同搜索码值的记录按照指定顺序存储；但是稠密非聚集索引必须存储指向一个指针列表，这个列表里面有具有相同搜索码值的记录指针。聚集索引只存储第一条记录的指针，其他的按照顺序查找，非聚集索引就要记录一个指针表。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;&lt;img src=&quot;http://www.assignmenthelp.net/assignment_help/images/dense-index-architecture.gif&quot; alt=&quot;Dense index&quot;&gt;&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="数据库" scheme="http://fenlan.github.io/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
-    
-    
-      <category term="SQL" scheme="http://fenlan.github.io/tags/SQL/"/>
-    
-      <category term="索引" scheme="http://fenlan.github.io/tags/%E7%B4%A2%E5%BC%95/"/>
-    
-  </entry>
-  
-  <entry>
     <title>GET vs POST</title>
     <link href="http://fenlan.github.io/2018/04/13/GET_POST/"/>
     <id>http://fenlan.github.io/2018/04/13/GET_POST/</id>
@@ -184,6 +156,34 @@
       <category term="POST" scheme="http://fenlan.github.io/tags/POST/"/>
     
       <category term="HTTP" scheme="http://fenlan.github.io/tags/HTTP/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>数据库大杂烩</title>
+    <link href="http://fenlan.github.io/2018/04/13/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%90%84%E8%A6%81%E7%82%B9%E6%80%BB%E7%BB%93/"/>
+    <id>http://fenlan.github.io/2018/04/13/数据库各要点总结/</id>
+    <published>2018-04-13T07:18:23.000Z</published>
+    <updated>2018-04-14T13:21:39.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;索引&quot;&gt;&lt;a href=&quot;#索引&quot; class=&quot;headerlink&quot; title=&quot;索引&quot;&gt;&lt;/a&gt;索引&lt;/h2&gt;&lt;h3 id=&quot;顺序索引&quot;&gt;&lt;a href=&quot;#顺序索引&quot; class=&quot;headerlink&quot; title=&quot;顺序索引&quot;&gt;&lt;/a&gt;顺序索引&lt;/h3&gt;&lt;p&gt;&lt;code&gt;聚集索引&lt;/code&gt;：　如果包含记录的文件按照某个搜索码指定的顺序排序，那么该搜索码对应的索引称为聚集索引。&lt;br&gt;&lt;code&gt;非聚集索引&lt;/code&gt;：　搜索码指定的顺序与文件中记录的物理顺序不同的索引称为非聚集索引。&lt;/p&gt;
+&lt;p&gt;诸如在大学教师记录文件中，用教师ID作为搜索码，记录按照该搜索码顺序存放。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;稠密索引(dense index)&lt;/code&gt; : &lt;strong&gt;在稠密索引中，文件中的每一个搜索码值都有一个索引项&lt;/strong&gt;。在稠密聚集索引中，索引项包括搜索码值以及指向具有该搜索码的第一条数据记录的指针。具有相同搜索码值的其余记录顺序地存储在第一条数据记录之后，由于该索引是聚集索引，因此记录根据相同的搜索码值排序。而在稠密非聚集索引中，索引必须存储指向所有具有相同搜索码值的记录项的指针列表。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;稠密聚集索引具有相同搜索码值的记录按照指定顺序存储；但是稠密非聚集索引必须存储指向一个指针列表，这个列表里面有具有相同搜索码值的记录指针。聚集索引只存储第一条记录的指针，其他的按照顺序查找，非聚集索引就要记录一个指针表。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;img src=&quot;http://www.assignmenthelp.net/assignment_help/images/dense-index-architecture.gif&quot; alt=&quot;Dense index&quot;&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="数据库" scheme="http://fenlan.github.io/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+    
+      <category term="SQL" scheme="http://fenlan.github.io/tags/SQL/"/>
+    
+      <category term="索引" scheme="http://fenlan.github.io/tags/%E7%B4%A2%E5%BC%95/"/>
     
   </entry>
   
