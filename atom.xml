@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://fenlan.github.io/"/>
-  <updated>2018-04-19T12:49:54.000Z</updated>
+  <updated>2018-11-22T14:05:25.603Z</updated>
   <id>http://fenlan.github.io/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>朴素贝叶斯分类算法</title>
+    <link href="http://fenlan.github.io/2018/11/22/%E8%B4%9D%E5%8F%B6%E6%96%AF%E5%88%86%E7%B1%BB%E7%AE%97%E6%B3%95/"/>
+    <id>http://fenlan.github.io/2018/11/22/贝叶斯分类算法/</id>
+    <published>2018-11-22T07:18:23.000Z</published>
+    <updated>2018-11-22T14:05:25.603Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;分类问题&quot;&gt;&lt;a href=&quot;#分类问题&quot; class=&quot;headerlink&quot; title=&quot;分类问题&quot;&gt;&lt;/a&gt;分类问题&lt;/h2&gt;&lt;p&gt;维基百科定义：分类问题是机器学习非常重要的一个组成部分，它的目标是根据已知样本的某些特征，判断一个新的样本属于哪种已知的样本类。分类问题也被称为监督式学习(supervised learning)，根据已知训练区提供的样本，通过计算选择特征参数，建立判别函数以对样本进行的分类。 与之相对的称为非监督式学习(unsupervised learning)，也叫做聚类分析。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="算法" scheme="http://fenlan.github.io/categories/%E7%AE%97%E6%B3%95/"/>
+    
+    
+      <category term="分类算法" scheme="http://fenlan.github.io/tags/%E5%88%86%E7%B1%BB%E7%AE%97%E6%B3%95/"/>
+    
+      <category term="数据挖掘" scheme="http://fenlan.github.io/tags/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98/"/>
+    
+      <category term="Elasticsearch" scheme="http://fenlan.github.io/tags/Elasticsearch/"/>
+    
+  </entry>
   
   <entry>
     <title>Zookeeper Leader选举源码解析</title>
@@ -85,9 +109,9 @@
     
       <category term="Java" scheme="http://fenlan.github.io/tags/Java/"/>
     
-      <category term="Object" scheme="http://fenlan.github.io/tags/Object/"/>
-    
       <category term="线程" scheme="http://fenlan.github.io/tags/%E7%BA%BF%E7%A8%8B/"/>
+    
+      <category term="Object" scheme="http://fenlan.github.io/tags/Object/"/>
     
   </entry>
   
@@ -204,9 +228,9 @@
       <category term="Java" scheme="http://fenlan.github.io/categories/Java/"/>
     
     
-      <category term="GC" scheme="http://fenlan.github.io/tags/GC/"/>
-    
       <category term="Java" scheme="http://fenlan.github.io/tags/Java/"/>
+    
+      <category term="GC" scheme="http://fenlan.github.io/tags/GC/"/>
     
       <category term="JMM" scheme="http://fenlan.github.io/tags/JMM/"/>
     
@@ -612,9 +636,9 @@
       <category term="分布式计算" scheme="http://fenlan.github.io/categories/%E5%88%86%E5%B8%83%E5%BC%8F%E8%AE%A1%E7%AE%97/"/>
     
     
-      <category term="Kafka" scheme="http://fenlan.github.io/tags/Kafka/"/>
-    
       <category term="Zookeeper" scheme="http://fenlan.github.io/tags/Zookeeper/"/>
+    
+      <category term="Kafka" scheme="http://fenlan.github.io/tags/Kafka/"/>
     
   </entry>
   
@@ -635,26 +659,6 @@
     
     
       <category term="Docker" scheme="http://fenlan.github.io/tags/Docker/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Unix 时间问题(非原创)</title>
-    <link href="http://fenlan.github.io/2017/11/21/unix%E6%97%B6%E9%97%B4md/"/>
-    <id>http://fenlan.github.io/2017/11/21/unix时间md/</id>
-    <published>2017-11-21T07:18:23.000Z</published>
-    <updated>2017-11-28T03:10:28.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;故事缘由&quot;&gt;&lt;a href=&quot;#故事缘由&quot; class=&quot;headerlink&quot; title=&quot;故事缘由&quot;&gt;&lt;/a&gt;故事缘由&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;有时候不得不相信，有些东西就是刚刚好，刚刚好到来，刚刚好知道，刚刚好契合。因为这些刚刚好，就会不由自主的激动，感觉这些刚知道的东西发生在自己身上。这次要说的是unix时间问题，我最开始接触这个问题是我们云计算课程项目中一个小小的时间问题，当时项目中所有的时间都是通过unix时间记录。所谓unix时间，就是记录从unix元年1970年1月1日0点起到当前时间经过的秒数。这个问题最开始我并没有觉得有什么问题，但后来我在网上瞎逛的时候看见了一篇文章 &lt;a href=&quot;http://www.wttech.org/archives/3960&quot;&gt;十大著名的计算机发展史上的软件缺陷&lt;/a&gt; ,这里就讲到了一个unix时间问题，我就很好奇的去了解这一个故事，而在这个时间点，我们正在进行的操作系统课程也讲到了unix时间，所以这一堆堆事情，就刚刚好地发生了。 &lt;/strong&gt;&lt;br&gt;
-    
-    </summary>
-    
-      <category term="linux" scheme="http://fenlan.github.io/categories/linux/"/>
-    
-    
-      <category term="unix时间" scheme="http://fenlan.github.io/tags/unix%E6%97%B6%E9%97%B4/"/>
     
   </entry>
   
