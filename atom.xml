@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://fenlan.github.io/"/>
-  <updated>2018-11-23T02:47:59.847Z</updated>
+  <updated>2018-11-23T02:57:40.719Z</updated>
   <id>http://fenlan.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="http://fenlan.github.io/2018/11/22/%E8%B4%9D%E5%8F%B6%E6%96%AF%E5%88%86%E7%B1%BB%E7%AE%97%E6%B3%95/"/>
     <id>http://fenlan.github.io/2018/11/22/贝叶斯分类算法/</id>
     <published>2018-11-22T07:18:23.000Z</published>
-    <updated>2018-11-23T02:47:59.847Z</updated>
+    <updated>2018-11-23T02:57:40.719Z</updated>
     
     <summary type="html">
     
@@ -109,9 +109,9 @@
     
       <category term="Java" scheme="http://fenlan.github.io/tags/Java/"/>
     
-      <category term="线程" scheme="http://fenlan.github.io/tags/%E7%BA%BF%E7%A8%8B/"/>
-    
       <category term="Object" scheme="http://fenlan.github.io/tags/Object/"/>
+    
+      <category term="线程" scheme="http://fenlan.github.io/tags/%E7%BA%BF%E7%A8%8B/"/>
     
   </entry>
   
