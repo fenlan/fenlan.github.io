@@ -96,8 +96,8 @@
         <category>Java</category>
       </categories>
       <tags>
-        <tag>GC</tag>
         <tag>Java</tag>
+        <tag>GC</tag>
         <tag>JMM</tag>
       </tags>
   </entry>
@@ -160,8 +160,8 @@
         <category>Java</category>
       </categories>
       <tags>
-        <tag>JVM</tag>
         <tag>GC</tag>
+        <tag>JVM</tag>
       </tags>
   </entry>
   <entry>

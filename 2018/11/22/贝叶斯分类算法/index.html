@@ -95,19 +95,22 @@
 
 
 
-<meta name="description" content="分类问题维基百科定义：分类问题是机器学习非常重要的一个组成部分，它的目标是根据已知样本的某些特征，判断一个新的样本属于哪种已知的样本类。分类问题也被称为监督式学习(supervised learning)，根据已知训练区提供的样本，通过计算选择特征参数，建立判别函数以对样本进行的分类。 与之相对的称为非监督式学习(unsupervised learning)，也叫做聚类分析。">
+<meta name="description" content="分类问题维基百科定义：分类问题是机器学习非常重要的一个组成部分，它的目标是根据已知样本的某些特征，判断一个新的样本属于哪种已知的样本类。分类问题也被称为监督式学习(supervised learning)，根据已知训练区提供的样本，通过计算选择特征参数，建立判别函数以对样本进行的分类。 与之相对的称为非监督式学习(unsupervised learning)，也叫做聚类分析。
+数学定义：已知集合C">
 <meta property="og:type" content="article">
 <meta property="og:title" content="朴素贝叶斯分类算法">
 <meta property="og:url" content="http://fenlan.github.io/2018/11/22/贝叶斯分类算法/index.html">
 <meta property="og:site_name" content="fenlan">
-<meta property="og:description" content="分类问题维基百科定义：分类问题是机器学习非常重要的一个组成部分，它的目标是根据已知样本的某些特征，判断一个新的样本属于哪种已知的样本类。分类问题也被称为监督式学习(supervised learning)，根据已知训练区提供的样本，通过计算选择特征参数，建立判别函数以对样本进行的分类。 与之相对的称为非监督式学习(unsupervised learning)，也叫做聚类分析。">
+<meta property="og:description" content="分类问题维基百科定义：分类问题是机器学习非常重要的一个组成部分，它的目标是根据已知样本的某些特征，判断一个新的样本属于哪种已知的样本类。分类问题也被称为监督式学习(supervised learning)，根据已知训练区提供的样本，通过计算选择特征参数，建立判别函数以对样本进行的分类。 与之相对的称为非监督式学习(unsupervised learning)，也叫做聚类分析。
+数学定义：已知集合C">
 <meta property="og:image" content="https://pic1.zhimg.com/80/v2-15b16ce6d37b616a5443c0f7e42e03ec_hd.png">
 <meta property="og:image" content="http://fenlan.github.io/images/bayes.png">
 <meta property="og:image" content="https://pic2.zhimg.com/80/v2-a2a73f43adcbb0bf4b9bae19b9495f81_hd.png">
-<meta property="og:updated_time" content="2018-11-23T02:57:40.719Z">
+<meta property="og:updated_time" content="2018-11-23T03:08:56.858Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="朴素贝叶斯分类算法">
-<meta name="twitter:description" content="分类问题维基百科定义：分类问题是机器学习非常重要的一个组成部分，它的目标是根据已知样本的某些特征，判断一个新的样本属于哪种已知的样本类。分类问题也被称为监督式学习(supervised learning)，根据已知训练区提供的样本，通过计算选择特征参数，建立判别函数以对样本进行的分类。 与之相对的称为非监督式学习(unsupervised learning)，也叫做聚类分析。">
+<meta name="twitter:description" content="分类问题维基百科定义：分类问题是机器学习非常重要的一个组成部分，它的目标是根据已知样本的某些特征，判断一个新的样本属于哪种已知的样本类。分类问题也被称为监督式学习(supervised learning)，根据已知训练区提供的样本，通过计算选择特征参数，建立判别函数以对样本进行的分类。 与之相对的称为非监督式学习(unsupervised learning)，也叫做聚类分析。
+数学定义：已知集合C">
 <meta name="twitter:image" content="https://pic1.zhimg.com/80/v2-15b16ce6d37b616a5443c0f7e42e03ec_hd.png">
 
 
@@ -418,9 +421,9 @@
 
       
         <h2 id="分类问题"><a href="#分类问题" class="headerlink" title="分类问题"></a>分类问题</h2><p>维基百科定义：分类问题是机器学习非常重要的一个组成部分，它的目标是根据已知样本的某些特征，判断一个新的样本属于哪种已知的样本类。分类问题也被称为监督式学习(supervised learning)，根据已知训练区提供的样本，通过计算选择特征参数，建立判别函数以对样本进行的分类。 与之相对的称为非监督式学习(unsupervised learning)，也叫做聚类分析。</p>
-<a id="more"></a>
 <p>数学定义：已知集合<code>C = {y1,y2,...ym}</code>和<code>I = {x1,x2,...xn}</code>，确定映射规则<code>y = f(x)</code>，使得任意<code>xi ∈ I</code>有且仅有一个<code>yi ∈ C</code> ,使得<code>yi ∈ f(xi)</code>成立。</p>
 <p>在用户画像、NLP、预测、推荐等领域都需要研究分类问题。诸如NLP中情感分析，需要通过分类算法来分析文本的情感极性，这对于舆论监督有很好的帮助。</p>
+<a id="more"></a>
 <h2 id="朴素贝叶斯分类算法综述"><a href="#朴素贝叶斯分类算法综述" class="headerlink" title="朴素贝叶斯分类算法综述"></a>朴素贝叶斯分类算法综述</h2><p>贝叶斯分类算法是一类算法的总称，这类算法都是以贝叶斯定理为基础，故统称贝叶斯分类算法。其中朴素贝叶斯分类算法是贝叶斯分类算法中最简单、最常见的一种分类方法。</p>
 <p>贝叶斯分类算法核心便是概率论中的贝叶斯公式<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">P(B|A) = P(A|B)P(B)/P(A)</span><br></pre></td></tr></table></figure></p>
 <p><img src="https://pic1.zhimg.com/80/v2-15b16ce6d37b616a5443c0f7e42e03ec_hd.png" alt=""><br>其中P(B|A)是指在事件A发生的情况下事件B发生的概率。<br>在贝叶斯定理中，每个名词都有约定俗成的名称：</p>
