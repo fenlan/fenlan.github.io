@@ -102,8 +102,9 @@
 <meta property="og:site_name" content="fenlan">
 <meta property="og:description" content="分类问题维基百科定义：分类问题是机器学习非常重要的一个组成部分，它的目标是根据已知样本的某些特征，判断一个新的样本属于哪种已知的样本类。分类问题也被称为监督式学习(supervised learning)，根据已知训练区提供的样本，通过计算选择特征参数，建立判别函数以对样本进行的分类。 与之相对的称为非监督式学习(unsupervised learning)，也叫做聚类分析。">
 <meta property="og:image" content="https://pic1.zhimg.com/80/v2-15b16ce6d37b616a5443c0f7e42e03ec_hd.png">
+<meta property="og:image" content="https://github.com/fenlan/Mycode/blob/master/images/bayes.png">
 <meta property="og:image" content="https://pic2.zhimg.com/80/v2-a2a73f43adcbb0bf4b9bae19b9495f81_hd.png">
-<meta property="og:updated_time" content="2018-11-22T14:05:25.603Z">
+<meta property="og:updated_time" content="2018-11-23T02:47:59.847Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="朴素贝叶斯分类算法">
 <meta name="twitter:description" content="分类问题维基百科定义：分类问题是机器学习非常重要的一个组成部分，它的目标是根据已知样本的某些特征，判断一个新的样本属于哪种已知的样本类。分类问题也被称为监督式学习(supervised learning)，根据已知训练区提供的样本，通过计算选择特征参数，建立判别函数以对样本进行的分类。 与之相对的称为非监督式学习(unsupervised learning)，也叫做聚类分析。">
@@ -429,6 +430,7 @@
 <li>P(B|A)是已知A发生后B的条件概率，也由于得自A的取值而被称作B的后验概率。</li>
 <li>P(B)是B的先验概率或边缘概率。</li>
 </ul>
+<p>贝叶斯公式推导:<br><img src="https://github.com/fenlan/Mycode/blob/master/images/bayes.png" alt=""></p>
 <p>那朴素贝叶斯算法如何使用贝叶斯定理呢？将贝叶斯公式中的变量换成实体可有<br><img src="https://pic2.zhimg.com/80/v2-a2a73f43adcbb0bf4b9bae19b9495f81_hd.png" alt=""></p>
 <h2 id="例子分析"><a href="#例子分析" class="headerlink" title="例子分析"></a>例子分析</h2><p>给定如下苹果数据</p>
 <table>
@@ -655,7 +657,7 @@
 </li>
 <li><p>面对大数据文本时人为判断训练样本的情感词极性是一个繁重的活</p>
 <blockquote>
-<p>这是文本分析比较普遍的问题，有效样本越多，算法结果越精准</p>
+<p>这是文本分析比较普遍的问题，有效样本越多，算法结果越精准。但是我们可以谨慎选择一个比较合理的基本训练样本，计算未知样本的情感极性，分类结束后，我们将样本加入到训练样本中，迭代式的增加样本数量。为什么说是谨慎的选择呢，从上面的例子可以看到，原本的基础训练样本影响到后面添加进来的样本，随着迭代次数的增加，整个训练样本会越来越不合理。</p>
 </blockquote>
 </li>
 <li><p>在大数据集上的计算困难，利用原始的方式非常困难</p>
@@ -663,8 +665,28 @@
 <p>利用现有的文本引擎工具<code>Elasticsearch</code>能够很好的解决这个问题。</p>
 </blockquote>
 </li>
+<li><p>在这个问题分析过程中，我们默认了我们使用的HanLP关键词提取能够提取到我们想要的关键词，但事实关键词提取也是一个非常困难的问题，对这类的研究也很复杂，而我们的情感分析的准确度也高度依赖关键词提取效果。</p>
+<blockquote>
+<p>HanLP的分词、关键词提取也高度依赖了背后的分词词典，随着网络信息传播，往往会出现新的词汇，我们需要定时的收集新词汇，添加到HanLP的分词字典中(可以想要这个要求是很合理的，我们在理解网络词汇的时候也是不断学习的，因此没有理由让分词词典一成不变)</p>
+</blockquote>
+</li>
 </ol>
 <h3 id="Elasticsearch"><a href="#Elasticsearch" class="headerlink" title="Elasticsearch"></a>Elasticsearch</h3><p>Elasticsearch是NLP研究过程中非常强大的工具，它类似关系性数据库，拥有数据库(index)，数据库中有表(type)，表上有属性(字段)。但是不同的是Elasticsearch可以为每个字段建立的索引，这个索引不同于mysql的B+树，而是倒排索引，这个索引记录一个字段的所有直，并记录每个值出现在那些记录里里面。在我们使用朴素贝叶斯计算时，想要获取某个条件下的概率，只需要编写简单的查询语句就可以得出结果，而这个搜索引擎可以在PB级数据量上进行秒级查询。</p>
+<p>Elasticsearch索引设计： 提取留言文本关键词，关键词作为一条记录的字段名，字段名的值为情感权值，同时还有一个训练样本的感情极性字段，例如<code>s8打的完全不配赢是真的，整个18年的努力和荣誉也是真的，吹rng牛逼是真的，骂rng辣鸡也是真的。 想再劈头盖脸骂一顿是真的，希望19年可以重拾荣耀也是真的。</code>的存储模式为：<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;id:1, 努力:4, 荣誉:2，辣鸡:1/4，披头盖脸:1/2，重拾荣誉:2，牛逼:2，极性:"积极"&#125;</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>请注意当一个词语对最后的情感结论是负作用，那么这个词根据情感词典的权值取权值的倒数</p>
+</blockquote>
+<h2 id="朴素贝叶斯分类算法的优缺点"><a href="#朴素贝叶斯分类算法的优缺点" class="headerlink" title="朴素贝叶斯分类算法的优缺点"></a>朴素贝叶斯分类算法的优缺点</h2><h3 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h3><ol>
+<li>对大数量训练和查询时具有较高的速度。即使使用超大规模的训练集，针对每个项目通常也只会有相对较少的特征数，并且对项目的训练和分类也仅仅是特征概率的数学运算而已。</li>
+<li>朴素贝叶斯模型发源于古典数学理论，有稳定的分类效率。</li>
+<li>支持增量式运算。即可以实时的对新增的样本进行训练。</li>
+<li>朴素贝叶斯对结果解释容易理解。</li>
+</ol>
+<h3 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h3><ol>
+<li>由于使用了样本属性独立性的假设，所以如果样本属性有关联时其效果不好。</li>
+<li>理论上，朴素贝叶斯模型与其他分类方法相比具有最小的误差率。但是实际上并非总是如此，这是因为朴素贝叶斯模型给定输出类别的情况下,假设属性之间相互独立，这个假设在实际应用中往往是不成立的，在属性个数比较多或者属性之间相关性较大时，分类效果不好。而在属性相关性较小时，朴素贝叶斯性能最为良好。对于这一点，有半朴素贝叶斯之类的算法通过考虑部分关联性适度改进。</li>
+<li>由于我们是通过先验和数据来决定后验的概率从而决定分类，所以分类决策存在一定的错误率。</li>
+</ol>
 
       
     </div>
@@ -921,7 +943,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#分类问题"><span class="nav-number">1.</span> <span class="nav-text">分类问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#朴素贝叶斯分类算法综述"><span class="nav-number">2.</span> <span class="nav-text">朴素贝叶斯分类算法综述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#例子分析"><span class="nav-number">3.</span> <span class="nav-text">例子分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#利用朴素贝叶斯对文本进行简单的情感分析"><span class="nav-number">4.</span> <span class="nav-text">利用朴素贝叶斯对文本进行简单的情感分析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#问题分析"><span class="nav-number">4.1.</span> <span class="nav-text">问题分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#问题过程示例"><span class="nav-number">4.2.</span> <span class="nav-text">问题过程示例</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#问题"><span class="nav-number">4.3.</span> <span class="nav-text">问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Elasticsearch"><span class="nav-number">4.4.</span> <span class="nav-text">Elasticsearch</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#分类问题"><span class="nav-number">1.</span> <span class="nav-text">分类问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#朴素贝叶斯分类算法综述"><span class="nav-number">2.</span> <span class="nav-text">朴素贝叶斯分类算法综述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#例子分析"><span class="nav-number">3.</span> <span class="nav-text">例子分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#利用朴素贝叶斯对文本进行简单的情感分析"><span class="nav-number">4.</span> <span class="nav-text">利用朴素贝叶斯对文本进行简单的情感分析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#问题分析"><span class="nav-number">4.1.</span> <span class="nav-text">问题分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#问题过程示例"><span class="nav-number">4.2.</span> <span class="nav-text">问题过程示例</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#问题"><span class="nav-number">4.3.</span> <span class="nav-text">问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Elasticsearch"><span class="nav-number">4.4.</span> <span class="nav-text">Elasticsearch</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#朴素贝叶斯分类算法的优缺点"><span class="nav-number">5.</span> <span class="nav-text">朴素贝叶斯分类算法的优缺点</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#优点"><span class="nav-number">5.1.</span> <span class="nav-text">优点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#缺点"><span class="nav-number">5.2.</span> <span class="nav-text">缺点</span></a></li></ol></li></ol></div>
             
 
           </div>
