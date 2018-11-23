@@ -106,7 +106,7 @@
 <meta property="og:image" content="https://pic1.zhimg.com/80/v2-15b16ce6d37b616a5443c0f7e42e03ec_hd.png">
 <meta property="og:image" content="http://fenlan.github.io/images/bayes.png">
 <meta property="og:image" content="https://pic2.zhimg.com/80/v2-a2a73f43adcbb0bf4b9bae19b9495f81_hd.png">
-<meta property="og:updated_time" content="2018-11-23T03:08:56.858Z">
+<meta property="og:updated_time" content="2018-11-23T08:21:56.243Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="朴素贝叶斯分类算法">
 <meta name="twitter:description" content="分类问题维基百科定义：分类问题是机器学习非常重要的一个组成部分，它的目标是根据已知样本的某些特征，判断一个新的样本属于哪种已知的样本类。分类问题也被称为监督式学习(supervised learning)，根据已知训练区提供的样本，通过计算选择特征参数，建立判别函数以对样本进行的分类。 与之相对的称为非监督式学习(unsupervised learning)，也叫做聚类分析。
@@ -679,6 +679,7 @@
 <blockquote>
 <p>请注意当一个词语对最后的情感结论是负作用，那么这个词根据情感词典的权值取权值的倒数</p>
 </blockquote>
+<p>对一条测试样本，测试样本如上述步骤进行关键词提取，通过Elasticsearch查询语句获取贝叶斯定理中的概率，计算积极和消极概率得出结论。(得出结论后也可以将新样本加进训练样本)</p>
 <h2 id="朴素贝叶斯分类算法的优缺点"><a href="#朴素贝叶斯分类算法的优缺点" class="headerlink" title="朴素贝叶斯分类算法的优缺点"></a>朴素贝叶斯分类算法的优缺点</h2><h3 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h3><ol>
 <li>对大数量训练和查询时具有较高的速度。即使使用超大规模的训练集，针对每个项目通常也只会有相对较少的特征数，并且对项目的训练和分类也仅仅是特征概率的数学运算而已。</li>
 <li>朴素贝叶斯模型发源于古典数学理论，有稳定的分类效率。</li>
