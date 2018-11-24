@@ -106,7 +106,7 @@
 <meta property="og:image" content="https://pic1.zhimg.com/80/v2-15b16ce6d37b616a5443c0f7e42e03ec_hd.png">
 <meta property="og:image" content="http://fenlan.github.io/images/bayes.png">
 <meta property="og:image" content="https://pic2.zhimg.com/80/v2-a2a73f43adcbb0bf4b9bae19b9495f81_hd.png">
-<meta property="og:updated_time" content="2018-11-23T08:21:56.243Z">
+<meta property="og:updated_time" content="2018-11-24T13:02:02.942Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="朴素贝叶斯分类算法">
 <meta name="twitter:description" content="分类问题维基百科定义：分类问题是机器学习非常重要的一个组成部分，它的目标是根据已知样本的某些特征，判断一个新的样本属于哪种已知的样本类。分类问题也被称为监督式学习(supervised learning)，根据已知训练区提供的样本，通过计算选择特征参数，建立判别函数以对样本进行的分类。 与之相对的称为非监督式学习(unsupervised learning)，也叫做聚类分析。
@@ -648,7 +648,7 @@
 <p>别问我为什么取的都是积极的。。。。。。我要保持积极!!!</p>
 </blockquote>
 <p>然后对一条留言进行测试<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1. 你们接着打我就接着看！加油！我们等你！ =&gt; [接着打，接着看，加油，等你]</span><br></pre></td></tr></table></figure></p>
-<p>再计算<code>P(积极|接着打、接着看、加油、等你)</code>和<code>P(消极|接着打，接着看，加油，等你)</code>并计较大小得出结论，<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">P(积极|接着打、接着看、加油、等你) = P(接着打、接着看、加油、等你|积极)*P(积极) / P(接着打、接着看、加油、等你)</span><br><span class="line">                              = P(接着打|积极)*P(接着看|积极)*P(加油|积极)*P(等你|积极)*P(积极) / P(接着打、接着看、加油、等你)</span><br><span class="line">                              = [(<span class="number">0</span>+<span class="number">1</span>)/(<span class="number">6</span>)]*[(<span class="number">0</span>+<span class="number">1</span>)/(<span class="number">6</span>)]*(<span class="number">3</span>/<span class="number">6</span>)*[(<span class="number">0</span>+<span class="number">1</span>)/(<span class="number">6</span>)]*(<span class="number">6</span>/<span class="number">7</span>) / P(接着打、接着看、加油、等你)</span><br><span class="line">                              = (<span class="number">18</span>/<span class="number">9072</span>) / P(接着打、接着看、加油、等你)</span><br><span class="line"></span><br><span class="line">P(消极|接着打、接着看、加油、等你) = P(接着打、接着看、加油、等你|消极)*P(消极) / P(接着打、接着看、加油、等你)</span><br><span class="line">                              = P(接着打|消极)*P(接着看|消极)*P(加油|消极)*P(等你|消极)*P(消极) / P(接着打、接着看、加油、等你)</span><br><span class="line">                              = [(<span class="number">0</span>+<span class="number">1</span>)/<span class="number">1</span>]*[(<span class="number">0</span>+<span class="number">1</span>)/<span class="number">1</span>]*(<span class="number">1</span>/<span class="number">1</span>)*[(<span class="number">0</span>+<span class="number">1</span>)/<span class="number">1</span>]*(<span class="number">1</span>/<span class="number">7</span>) / P(接着打、接着看、加油、等你)</span><br><span class="line">                              = (<span class="number">1</span>/<span class="number">7</span>) / P(接着打、接着看、加油、等你)</span><br></pre></td></tr></table></figure></p>
+<p>再计算<code>P(积极|接着打、接着看、加油、等你)</code>和<code>P(消极|接着打，接着看，加油，等你)</code>并比较大小得出结论，<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">P(积极|接着打、接着看、加油、等你) = P(接着打、接着看、加油、等你|积极)*P(积极) / P(接着打、接着看、加油、等你)</span><br><span class="line">                              = P(接着打|积极)*P(接着看|积极)*P(加油|积极)*P(等你|积极)*P(积极) / P(接着打、接着看、加油、等你)</span><br><span class="line">                              = [(<span class="number">0</span>+<span class="number">1</span>)/(<span class="number">6</span>)]*[(<span class="number">0</span>+<span class="number">1</span>)/(<span class="number">6</span>)]*(<span class="number">3</span>/<span class="number">6</span>)*[(<span class="number">0</span>+<span class="number">1</span>)/(<span class="number">6</span>)]*(<span class="number">6</span>/<span class="number">7</span>) / P(接着打、接着看、加油、等你)</span><br><span class="line">                              = (<span class="number">18</span>/<span class="number">9072</span>) / P(接着打、接着看、加油、等你)</span><br><span class="line"></span><br><span class="line">P(消极|接着打、接着看、加油、等你) = P(接着打、接着看、加油、等你|消极)*P(消极) / P(接着打、接着看、加油、等你)</span><br><span class="line">                              = P(接着打|消极)*P(接着看|消极)*P(加油|消极)*P(等你|消极)*P(消极) / P(接着打、接着看、加油、等你)</span><br><span class="line">                              = [(<span class="number">0</span>+<span class="number">1</span>)/<span class="number">1</span>]*[(<span class="number">0</span>+<span class="number">1</span>)/<span class="number">1</span>]*(<span class="number">1</span>/<span class="number">1</span>)*[(<span class="number">0</span>+<span class="number">1</span>)/<span class="number">1</span>]*(<span class="number">1</span>/<span class="number">7</span>) / P(接着打、接着看、加油、等你)</span><br><span class="line">                              = (<span class="number">1</span>/<span class="number">7</span>) / P(接着打、接着看、加油、等你)</span><br></pre></td></tr></table></figure></p>
 <blockquote>
 <p>这不是打脸了吗？仔细分析，问题有两个，第一我们选取的样本中消极太少权重太小，单条记录对结果影响太大，因此对训练样本的选取很重要;第二，我们所选择的总样本数量太少，而这样的文本分析应该是基于大数据来分析的</p>
 </blockquote>
@@ -660,7 +660,7 @@
 </li>
 <li><p>面对大数据文本时人为判断训练样本的情感词极性是一个繁重的活</p>
 <blockquote>
-<p>这是文本分析比较普遍的问题，有效样本越多，算法结果越精准。但是我们可以谨慎选择一个比较合理的基本训练样本，计算未知样本的情感极性，分类结束后，我们将样本加入到训练样本中，迭代式的增加样本数量。为什么说是谨慎的选择呢，从上面的例子可以看到，原本的基础训练样本影响到后面添加进来的样本，随着迭代次数的增加，整个训练样本会越来越不合理。</p>
+<p>这是文本分析比较普遍的问题，有效样本越多，算法结果越精准。但是我们可以谨慎选择一个比较合理的基础训练样本，计算未知样本的情感极性，分类结束后，我们将样本加入到训练样本中，迭代式的增加样本数量。为什么说是谨慎的选择呢，从上面的例子可以看到，原本的基础训练样本影响到后面添加进来的样本，如果基础训练样本不合理，随着迭代次数的增加，整个训练样本会越来越不合理。</p>
 </blockquote>
 </li>
 <li><p>在大数据集上的计算困难，利用原始的方式非常困难</p>
@@ -747,6 +747,10 @@
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/2018/11/24/决策树分类算法/" rel="prev" title="决策树分类算法">
+                决策树分类算法 <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -824,7 +828,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">49</span>
+                <span class="site-state-item-count">50</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -846,7 +850,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">71</span>
+                <span class="site-state-item-count">72</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

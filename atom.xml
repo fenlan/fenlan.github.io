@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://fenlan.github.io/"/>
-  <updated>2018-11-23T08:21:56.243Z</updated>
+  <updated>2018-11-24T13:02:08.410Z</updated>
   <id>http://fenlan.github.io/</id>
   
   <author>
@@ -17,11 +17,41 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>决策树分类算法</title>
+    <link href="http://fenlan.github.io/2018/11/24/%E5%86%B3%E7%AD%96%E6%A0%91%E5%88%86%E7%B1%BB%E7%AE%97%E6%B3%95/"/>
+    <id>http://fenlan.github.io/2018/11/24/决策树分类算法/</id>
+    <published>2018-11-24T07:18:23.000Z</published>
+    <updated>2018-11-24T13:02:08.410Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;决策树简介&quot;&gt;&lt;a href=&quot;#决策树简介&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="算法" scheme="http://fenlan.github.io/categories/%E7%AE%97%E6%B3%95/"/>
+    
+    
+      <category term="分类算法" scheme="http://fenlan.github.io/tags/%E5%88%86%E7%B1%BB%E7%AE%97%E6%B3%95/"/>
+    
+      <category term="数据挖掘" scheme="http://fenlan.github.io/tags/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98/"/>
+    
+      <category term="信息熵" scheme="http://fenlan.github.io/tags/%E4%BF%A1%E6%81%AF%E7%86%B5/"/>
+    
+  </entry>
+  
+  <entry>
     <title>朴素贝叶斯分类算法</title>
     <link href="http://fenlan.github.io/2018/11/22/%E8%B4%9D%E5%8F%B6%E6%96%AF%E5%88%86%E7%B1%BB%E7%AE%97%E6%B3%95/"/>
     <id>http://fenlan.github.io/2018/11/22/贝叶斯分类算法/</id>
     <published>2018-11-22T07:18:23.000Z</published>
-    <updated>2018-11-23T08:21:56.243Z</updated>
+    <updated>2018-11-24T13:02:02.942Z</updated>
     
     <summary type="html">
     
@@ -230,9 +260,9 @@
       <category term="Java" scheme="http://fenlan.github.io/categories/Java/"/>
     
     
-      <category term="Java" scheme="http://fenlan.github.io/tags/Java/"/>
-    
       <category term="GC" scheme="http://fenlan.github.io/tags/GC/"/>
+    
+      <category term="Java" scheme="http://fenlan.github.io/tags/Java/"/>
     
       <category term="JMM" scheme="http://fenlan.github.io/tags/JMM/"/>
     
@@ -444,9 +474,9 @@
       <category term="Java" scheme="http://fenlan.github.io/categories/Java/"/>
     
     
-      <category term="GC" scheme="http://fenlan.github.io/tags/GC/"/>
-    
       <category term="JVM" scheme="http://fenlan.github.io/tags/JVM/"/>
+    
+      <category term="GC" scheme="http://fenlan.github.io/tags/GC/"/>
     
   </entry>
   
@@ -641,26 +671,6 @@
       <category term="Kafka" scheme="http://fenlan.github.io/tags/Kafka/"/>
     
       <category term="Zookeeper" scheme="http://fenlan.github.io/tags/Zookeeper/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Docker</title>
-    <link href="http://fenlan.github.io/2017/11/27/docker/"/>
-    <id>http://fenlan.github.io/2017/11/27/docker/</id>
-    <published>2017-11-27T07:18:23.000Z</published>
-    <updated>2017-11-28T08:23:26.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;概述&quot;&gt;&lt;a href=&quot;#概述&quot; class=&quot;headerlink&quot; title=&quot;概述&quot;&gt;&lt;/a&gt;概述&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;Docker 是世界领先的软件容器平台。开发人员利用 Docker 可以消除协作编码”在我的机器上可正常工作”的问题。运维人员利用 Docker 可以在隔离容器中并行运行和管理应用，获得更好的计算密度。企业利用 Docker 可以构建敏捷的软件交付管道，以更快的速度、更高的安全性和可靠的信誉为 Linux 和 Windows Server 应用发布新功能。&lt;/strong&gt;&lt;br&gt;&lt;strong&gt;&lt;a href=&quot;https://www.docker-cn.com/what-docker&quot;&gt;更加全面的介绍&lt;/a&gt;&lt;/strong&gt;&lt;br&gt;
-    
-    </summary>
-    
-      <category term="linux" scheme="http://fenlan.github.io/categories/linux/"/>
-    
-    
-      <category term="Docker" scheme="http://fenlan.github.io/tags/Docker/"/>
     
   </entry>
   
