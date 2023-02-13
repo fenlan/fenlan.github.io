@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"fenlan.github.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"disqus","storage":true,"lazyload":false,"nav":null,"activeClass":"disqus"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="第一关：设置windows启动项在安装双系统时，选择centos会默认没有windows的启动项，因此要添加windows的引导选项，过程如下：  开机进入CentOS系统 进入目录&#x2F;boot&#x2F;grub2，打开grub.cfg进行编辑 找到其中第70行，在指定位置添加内容">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CentOS">
+<meta property="og:url" content="http://fenlan.github.io/2017/06/16/centos/index.html">
+<meta property="og:site_name" content="fenlan">
+<meta property="og:description" content="第一关：设置windows启动项在安装双系统时，选择centos会默认没有windows的启动项，因此要添加windows的引导选项，过程如下：  开机进入CentOS系统 进入目录&#x2F;boot&#x2F;grub2，打开grub.cfg进行编辑 找到其中第70行，在指定位置添加内容">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://fenlan.github.io/images/nginxUser.png">
+<meta property="og:image" content="http://fenlan.github.io/images/cpu.png">
+<meta property="og:image" content="http://fenlan.github.io/images/laravel_problem.png">
+<meta property="article:published_time" content="2017-06-16T07:18:23.000Z">
+<meta property="article:modified_time" content="2023-01-18T08:50:41.338Z">
+<meta property="article:author" content="Gao Jie">
+<meta property="article:tag" content="centos">
+<meta property="article:tag" content="firewall">
+<meta property="article:tag" content="lnmp">
+<meta property="article:tag" content="python">
+<meta property="article:tag" content="laravel">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://fenlan.github.io/images/nginxUser.png">
+
+<link rel="canonical" href="http://fenlan.github.io/2017/06/16/centos/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>CentOS | fenlan</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">fenlan</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">Everything gonna be fine in the end, if it's not fine, it's not the end.</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://fenlan.github.io/2017/06/16/centos/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Gao Jie">
+      <meta itemprop="description" content="Everything gonna be fine in the end">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="fenlan">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          CentOS
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2017-06-16 15:18:23" itemprop="dateCreated datePublished" datetime="2017-06-16T15:18:23+08:00">2017-06-16</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-01-18 16:50:41" itemprop="dateModified" datetime="2023-01-18T16:50:41+08:00">2023-01-18</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/linux/" itemprop="url" rel="index"><span itemprop="name">linux</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/2017/06/16/centos/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/06/16/centos/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="第一关：设置windows启动项"><a href="#第一关：设置windows启动项" class="headerlink" title="第一关：设置windows启动项"></a>第一关：设置windows启动项</h2><p><strong>在安装双系统时，选择centos会默认没有windows的启动项，因此要添加windows的引导选项，过程如下：</strong></p>
+<ul>
+<li><strong>开机进入CentOS系统</strong></li>
+<li><strong>进入目录<code>/boot/grub2</code>，打开<code>grub.cfg</code>进行编辑</strong></li>
+<li><strong>找到其中第70行，在指定位置添加内容 </strong><span id="more"></span>
+<strong>添加内容如下：</strong><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">### END /etc/grub.d/00 header ###</span></span><br><span class="line">menuentry <span class="string">&#x27;Windows 10&#x27;</span> &#123;</span><br><span class="line">	<span class="built_in">set</span> root=(hd0,1)</span><br><span class="line">    chainloader +1</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">### BEGIN /etc/grub.d/10_linux ###</span></span><br></pre></td></tr></table></figure></li>
+<li><strong>重启系统，引导菜单中新增了windows 10选项</strong></li>
+</ul>
+<h2 id="第二关：防火墙"><a href="#第二关：防火墙" class="headerlink" title="第二关：防火墙"></a>第二关：防火墙</h2><p><strong>下载防火墙服务：</strong><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost]$ yum install iptables-services</span><br></pre></td></tr></table></figure><br><strong>查看防火墙状态：</strong><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost]$ nmap localhost -p 0-10000</span><br></pre></td></tr></table></figure><br><strong>启用ssh服务：</strong><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost]$ yum install openssh-server</span><br><span class="line">[root@localhost]$ chkconfig sshd on</span><br><span class="line">[root@localhost]$ service sshd restart</span><br><span class="line">[root@localhost]$ /etc/init.d/sshd start</span><br></pre></td></tr></table></figure><br><strong>在CentOS 7之前，系统默认的防火墙为<code>iptables</code>，因此上述为<code>iptables</code>版防火墙设置，下列为<code>firewall</code>版防火墙设置，<code>firewall</code>是centOS 7系统默认的防火墙，想必也是之后的趋势。</strong><br><strong>查看<code>firewall</code>状态：</strong><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost]$ systemctl status firewalld.service</span><br></pre></td></tr></table></figure><br><strong>开启<code>firewall</code>服务（两者均可）</strong><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost]$ systemctl start firewalld.service</span><br><span class="line">[root@localhost]$ service firewalld start</span><br></pre></td></tr></table></figure><br><strong>开启<code>ssh</code>服务：</strong><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost]$ yum install openssh-server</span><br></pre></td></tr></table></figure><br><strong>更改默认<code>ssh</code>端口：</strong><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost]$ vim /etc/ssh/sshd_config</span><br></pre></td></tr></table></figure><br><strong>修改里面的端口为自己想要设置的端口，保存退出，由于系统默认不支持<code>ssh</code>使用22端口之外的端口，因此需要做修改：</strong><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost]$ semanage port -a -t ssh_port_t -p tcp ××××</span><br><span class="line">[root@localhost]$ semanage port -l | grep ssh</span><br><span class="line">[root@localhost]$ systemctl restart sshd.service</span><br><span class="line">[root@localhost]$ firewall-cmd --permanent --zone=public --add-port=××××/tcp</span><br><span class="line">[root@localhost]$ firewall-cmd --reload</span><br><span class="line">[root@localhost]$ ss -tnlp | grep ssh</span><br></pre></td></tr></table></figure></p>
+<h2 id="第三关：lnmp配置"><a href="#第三关：lnmp配置" class="headerlink" title="第三关：lnmp配置"></a>第三关：lnmp配置</h2><p><strong>安装<code>nginx</code>:</strong><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost]$ yum install epel-release</span><br><span class="line">[root@localhost]$ yum -y install nginx</span><br><span class="line">[root@localhost]$ service nginx start</span><br></pre></td></tr></table></figure><br>或者<code>/etc/yum.repo.d/nginx.repo</code><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[nginx]</span><br><span class="line">baseurl=http://nginx.org/packages/centos/<span class="variable">$releasever</span>/<span class="variable">$basearch</span>/</span><br><span class="line">gpgcheck=0</span><br><span class="line">enabled=1</span><br><span class="line"></span><br></pre></td></tr></table></figure><br><strong>安装<code>php7.0</code>(CentOS 7.x):</strong><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm</span><br><span class="line">rpm -Uvh https://mirror.webtatic.com/yum/el7/webtatic-release.rpm</span><br><span class="line">yum install php70w php70w-opcache</span><br><span class="line">yum install php70w-fpm php70w-opcache</span><br></pre></td></tr></table></figure><br><strong>安装php7.0不太容易，建议多在网上查</strong></p>
+<p><strong>设置<code>nginx</code>，更改root目录问题：</strong><br><strong>之前将<code>nginx</code>的root目录改了过后出现了403问题，搞了好久还是没有一个很完整的解决方案，不过找到一个方案，但还是不太理解。将<code>nginx</code>中的配置文件的<code>user nginx</code> 改为自己的用户名，即更改过后root目录的所有者。</strong><br><img src="/images/nginxUser.png" alt=""><br><strong>困惑点在于<code>nginx</code>默认的目录<code>/usr/share/nginx/html</code>的所有者为<code>root</code>但没有出现403</strong></p>
+<p><strong>安装<code>mysql</code>:</strong><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># yum install mysql</span></span><br><span class="line"><span class="comment"># yum install mysql-devel</span></span><br><span class="line"><span class="comment"># wget http://dev.mysql.com/get/mysql-community-release-el7-5.noarch.rpm</span></span><br><span class="line"><span class="comment"># rpm -ivh mysql-community-release-el7-5.noarch.rpm</span></span><br><span class="line"><span class="comment"># yum install mysql-community-server</span></span><br><span class="line"><span class="comment"># service mysqld restart</span></span><br></pre></td></tr></table></figure></p>
+<p><strong>配置问题</strong><br><strong>1.配置<code>php.ini</code>: 只修改一行代码，通过<code>vim</code>查找<code>cgi.fix_pathinfo</code>，并将其修改为0,去注释.</strong><br><strong>2.配置<code>www.conf</code>: 修改<code>listen</code>选项设置为<code>127.0.0.1:9000</code>; 设置<code>user</code>为<code>/home</code>下的一个用户,<code>group</code>也同样设置</strong><br><strong>3.配置<code>nginx.conf</code>,将<code>user</code>改为<code>www.conf</code>里面的<code>user</code>相同，网站根目录必须在<code>nginx</code>的<code>user</code>下,具体配置如下</strong><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">location ~ \.php$ &#123;</span><br><span class="line">        fastcgi_pass   127.0.0.1:9000;</span><br><span class="line">        fastcgi_index  index.php;</span><br><span class="line">        fastcgi_param  SCRIPT_FILENAME  $document_root<span class="variable">$fastcgi_script_name</span>;</span><br><span class="line">        include        fastcgi_params;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="第四关：ssh登录邮件通知（后面有彩蛋哟）"><a href="#第四关：ssh登录邮件通知（后面有彩蛋哟）" class="headerlink" title="第四关：ssh登录邮件通知（后面有彩蛋哟）"></a>第四关：ssh登录邮件通知（后面有彩蛋哟）</h2><p><strong>游手好闲地折腾了几天，突发奇想，前几天租了一个vps，想随时检测有没有人通过ssh登录我的vps，如果有人登录，就发邮件通知，于是有了以下的折腾：</strong></p>
+<ul>
+<li><strong>首先安装必备的软件<code>sendmail</code> 和<code>mailx</code></strong></li>
+<li><strong>通过<code>last</code>命令和<code>awk</code>结合获取ssh登录情况</strong></li>
+<li><strong>最后写个python程序，让它一直跑着随时准备发邮件</strong></li>
+<li><strong>将写好的程序运行命令写入/etc/rc.d/rc.local，让它开机运行</strong></li>
+</ul>
+<p><strong>那么命令如下：</strong><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost]$ yum install sendmail sendmail-cf mailx</span><br><span class="line">[root@localhost]$ service sendmail start</span><br><span class="line">[root@localhost]$ last | awk <span class="string">&#x27;$1==&quot;root&quot;&#x27;</span></span><br></pre></td></tr></table></figure><br><strong>接下来需要修改一个配置文件，让<code>sendmail</code>可以给整个英特网发送邮件，配置文件为<code>/etc/mail/sendmail.mc</code>，其中有一行</strong><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DAEMON_OPTIONS(<span class="string">&#x27;port=smtp,Addr=127.0.0.1, Name=MTA-v6, Family=net6&#x27;</span>)dnl</span><br></pre></td></tr></table></figure><br><strong>将127.0.0.1改为0.0.0.0，这样就可以给整个英特网发送邮件了</strong><br><strong>python脚本如下</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"></span><br><span class="line">inst = <span class="string">&quot;last | awk \&#x27;$1!=\&quot;reboot\&quot;\&#x27;&quot;</span></span><br><span class="line"><span class="built_in">str</span> = os.popen(inst).read()</span><br><span class="line">ssh_login = <span class="built_in">str</span>.split(<span class="string">&quot;\n&quot;</span>)</span><br><span class="line">length = <span class="built_in">len</span>(ssh_login)</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">    inst1 = <span class="string">&quot;last | awk \&#x27;$1!=\&quot;reboot\&quot;\&#x27; &gt; ssh_login.txt&quot;</span></span><br><span class="line">    os.system(inst1)</span><br><span class="line">    <span class="built_in">str</span> = os.popen(inst).read()</span><br><span class="line">    ssh_login = <span class="built_in">str</span>.split(<span class="string">&quot;\n  length1 = len(ssh_login)</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    if length1 &gt; length:</span></span><br><span class="line"><span class="string">        login_name = ssh_login[0]</span></span><br><span class="line"><span class="string">        mail = &quot;</span>echo %s | mail -s \<span class="string">&#x27;$1!=\&quot;reboot\&quot;\&#x27; ××××@qq.com&quot; % login_name</span></span><br><span class="line"><span class="string">        os.system(mail)</span></span><br><span class="line"><span class="string">        length = length1</span></span><br></pre></td></tr></table></figure>
+<p><strong>最重要的一点：qq邮箱发送成功一次过后vps的域名就会被拉黑，被认为是垃圾邮件，因此需要在邮箱管理界面设置域名白名单<code>localhost.localdomain</code>，然后大功告成，哈哈</strong></p>
+<p><strong>你以为这样就了事了？如果你将这个程序通过开机启动让它一直跑着，那么很开心的告诉你，你的机器cpu用不了多久就会被占满，所以，这个方法还是不行滴，这只是一种理想思路，想要处理的话可以选择指定时间运行一次或者每隔一段时间运行一次。接下来我去找个比较好的方式来实现这个功能，并实现每天发送当天的日志文件。</strong></p>
+<p><strong>我的vps跑了几个小时后的cpu受不了了，跑了不到两个小时，就被厂家限制了。</strong><br><img src="/images/cpu.png" alt=""></p>
+<h2 id="第五关：python实现邮件发送"><a href="#第五关：python实现邮件发送" class="headerlink" title="第五关：python实现邮件发送"></a>第五关：python实现邮件发送</h2><p><strong>没时间了，直接贴代码</strong><br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> email <span class="keyword">import</span> encoders</span><br><span class="line"><span class="keyword">from</span> email.header <span class="keyword">import</span> Header</span><br><span class="line"><span class="keyword">from</span> email.mime.text <span class="keyword">import</span> MIMEText</span><br><span class="line"><span class="keyword">from</span> email.utils <span class="keyword">import</span> parseaddr, formataddr</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> smtplib</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">_format_addr</span>(<span class="params">s</span>):</span><br><span class="line">    name, addr = parseaddr(s)</span><br><span class="line">    <span class="keyword">return</span> formataddr((Header(name, <span class="string">&#x27;utf-8&#x27;</span>).encode(), addr))</span><br><span class="line"></span><br><span class="line">from_addr = <span class="string">&quot;××××××××××@qq.com&quot;</span></span><br><span class="line">password = <span class="string">&quot;××××××××××&quot;</span>　　　<span class="comment"># SMTP独立密码</span></span><br><span class="line">to_addr = <span class="string">&quot;××××××××××@qq.com&quot;</span></span><br><span class="line">smtp_server = <span class="string">&quot;smtp.qq.com&quot;</span></span><br><span class="line"></span><br><span class="line">msg = MIMEText(<span class="string">&#x27;hello, send by Python...&#x27;</span>, <span class="string">&#x27;plain&#x27;</span>, <span class="string">&#x27;utf-8&#x27;</span>)</span><br><span class="line">msg[<span class="string">&#x27;From&#x27;</span>] = _format_addr(<span class="string">&#x27;fenlan &lt;%s&gt;&#x27;</span> % from_addr)</span><br><span class="line">msg[<span class="string">&#x27;To&#x27;</span>] = _format_addr(<span class="string">&#x27;管理员 &lt;%s&gt;&#x27;</span> % to_addr)</span><br><span class="line">msg[<span class="string">&#x27;Subject&#x27;</span>] = Header(<span class="string">&#x27;vps远程登录日志&#x27;</span>, <span class="string">&#x27;utf-8&#x27;</span>).encode()</span><br><span class="line"></span><br><span class="line">server = smtplib.SMTP_SSL(smtp_server, <span class="number">465</span>)</span><br><span class="line">server.login(from_addr, password)</span><br><span class="line">server.sendmail(from_addr, [to_addr], msg.as_string())</span><br><span class="line">server.quit()</span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
+<h2 id="第六关：搭建laravel框架"><a href="#第六关：搭建laravel框架" class="headerlink" title="第六关：搭建laravel框架"></a>第六关：搭建laravel框架</h2><p><strong>首先安装<code>composer</code>(一个php工具，具体查看官网)</strong><br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">php -r <span class="string">&quot;copy(&#x27;https://getcomposer.org/installer&#x27;, &#x27;composer-setup.php&#x27;);&quot;</span></span><br><span class="line">php -r <span class="string">&quot;if (hash_file(&#x27;SHA384&#x27;, &#x27;composer-setup.php&#x27;) === &#x27;669656bab3166a7aff8a7506b8cb2d1c292f042046c5a994c43155c0be6190fa0355160742ab2e1c88d40d5be660b410&#x27;) &#123; echo &#x27;Installer verified&#x27;; &#125; else &#123; echo &#x27;Installer corrupt&#x27;; unlink(&#x27;composer-setup.php&#x27;); &#125; echo PHP_EOL;&quot;</span></span><br><span class="line">php composer-setup.php</span><br><span class="line">php -r <span class="string">&quot;unlink(&#x27;composer-setup.php&#x27;);&quot;</span></span><br></pre></td></tr></table></figure><br><strong>然后全局使用<code>composer</code></strong><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mv</span> composer.phar /usr/local/bin/composer</span><br></pre></td></tr></table></figure></p>
+<p><strong>接着安装<code>laravel</code></strong><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">composer create-project --prefer-dist laravel/laravel your_project_name</span><br></pre></td></tr></table></figure><br><strong>进入项目目录更新<code>composer</code></strong><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">composer update</span><br></pre></td></tr></table></figure><br><strong>在这里我遇到了一个问题，我搭建三次只遇见过一次</strong><br><img src="/images/laravel_problem.png" alt=""><br><strong>根据提示进入里面说的网站上，跟着网站描述解决问题就ok</strong></p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/centos/" rel="tag"><i class="fa fa-tag"></i> centos</a>
+              <a href="/tags/firewall/" rel="tag"><i class="fa fa-tag"></i> firewall</a>
+              <a href="/tags/lnmp/" rel="tag"><i class="fa fa-tag"></i> lnmp</a>
+              <a href="/tags/python/" rel="tag"><i class="fa fa-tag"></i> python</a>
+              <a href="/tags/laravel/" rel="tag"><i class="fa fa-tag"></i> laravel</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2017/06/14/logrotate/" rel="prev" title="logrotate">
+      <i class="fa fa-chevron-left"></i> logrotate
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2017/07/30/laravel/" rel="next" title="laravel学习之旅">
+      laravel学习之旅 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    
+  <div class="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+  </div>
+  
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%B8%80%E5%85%B3%EF%BC%9A%E8%AE%BE%E7%BD%AEwindows%E5%90%AF%E5%8A%A8%E9%A1%B9"><span class="nav-number">1.</span> <span class="nav-text">第一关：设置windows启动项</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%BA%8C%E5%85%B3%EF%BC%9A%E9%98%B2%E7%81%AB%E5%A2%99"><span class="nav-number">2.</span> <span class="nav-text">第二关：防火墙</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%B8%89%E5%85%B3%EF%BC%9Alnmp%E9%85%8D%E7%BD%AE"><span class="nav-number">3.</span> <span class="nav-text">第三关：lnmp配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E5%9B%9B%E5%85%B3%EF%BC%9Assh%E7%99%BB%E5%BD%95%E9%82%AE%E4%BB%B6%E9%80%9A%E7%9F%A5%EF%BC%88%E5%90%8E%E9%9D%A2%E6%9C%89%E5%BD%A9%E8%9B%8B%E5%93%9F%EF%BC%89"><span class="nav-number">4.</span> <span class="nav-text">第四关：ssh登录邮件通知（后面有彩蛋哟）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%BA%94%E5%85%B3%EF%BC%9Apython%E5%AE%9E%E7%8E%B0%E9%82%AE%E4%BB%B6%E5%8F%91%E9%80%81"><span class="nav-number">5.</span> <span class="nav-text">第五关：python实现邮件发送</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E5%85%AD%E5%85%B3%EF%BC%9A%E6%90%AD%E5%BB%BAlaravel%E6%A1%86%E6%9E%B6"><span class="nav-number">6.</span> <span class="nav-text">第六关：搭建laravel框架</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Gao Jie"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">Gao Jie</p>
+  <div class="site-description" itemprop="description">Everything gonna be fine in the end</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">51</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">17</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">75</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/fenlan" title="GitHub → https://github.com/fenlan" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/fenlan96" title="Twitter → https://twitter.com/fenlan96" rel="noopener" target="_blank"><i class="fab fa-twitter fa-fw"></i>Twitter</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.facebook.com/lan.fen.104" title="Facebook → https://www.facebook.com/lan.fen.104" rel="noopener" target="_blank"><i class="fab fa-facebook-f fa-fw"></i>Facebook</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="http://23.83.230.171" title="http://23.83.230.171" rel="noopener" target="_blank">bookshop</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://github.com/fenlan/ChatTool" title="https://github.com/fenlan/ChatTool" rel="noopener" target="_blank">ChatTool</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://github.com/fenlan/cloudcourse-web" title="https://github.com/fenlan/cloudcourse-web" rel="noopener" target="_blank">cloudcourse</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://github.com/fenlan/storm-nginx-log" title="https://github.com/fenlan/storm-nginx-log" rel="noopener" target="_blank">nginx实时日志统计</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 2016 – 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Gao Jie</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+<script>
+  function loadCount() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://fenlan1.disqus.com/count.js';
+    s.id = 'dsq-count-scr';
+    (d.head || d.body).appendChild(s);
+  }
+  // defer loading until the whole page loading is completed
+  window.addEventListener('load', loadCount, false);
+</script>
+<script>
+  var disqus_config = function() {
+    this.page.url = "http://fenlan.github.io/2017/06/16/centos/";
+    this.page.identifier = "2017/06/16/centos/";
+    this.page.title = "CentOS";
+    };
+  NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
+    if (window.DISQUS) {
+      DISQUS.reset({
+        reload: true,
+        config: disqus_config
+      });
+    } else {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://fenlan1.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', '' + +new Date());
+      (d.head || d.body).appendChild(s);
+    }
+  });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"fenlan.github.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"disqus","storage":true,"lazyload":false,"nav":null,"activeClass":"disqus"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="Java堆空间划分">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java GC">
+<meta property="og:url" content="http://fenlan.github.io/2018/04/11/Java%20GC/index.html">
+<meta property="og:site_name" content="fenlan">
+<meta property="og:description" content="Java堆空间划分">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://fenlan.github.io/images/r_heap1.PNG">
+<meta property="og:image" content="http://dl2.iteye.com/upload/attachment/0088/6262/6af6a224-8b2d-3f23-8b58-79263cfda9c4.png">
+<meta property="og:image" content="http://image.codes51.com/Article/image/20160321/20160321124229_9001.png">
+<meta property="og:image" content="https://weiwei02.coding.me/images/java/jvm/%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E5%A4%8D%E5%88%B6.png">
+<meta property="og:image" content="http://fenlan.github.io/images/nginxlog.png">
+<meta property="og:image" content="http://image.codes51.com/Article/image/20160321/20160321124230_0720.png">
+<meta property="article:published_time" content="2018-04-11T07:18:23.000Z">
+<meta property="article:modified_time" content="2023-01-18T08:50:41.334Z">
+<meta property="article:author" content="Gao Jie">
+<meta property="article:tag" content="GC">
+<meta property="article:tag" content="Java">
+<meta property="article:tag" content="JMM">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://fenlan.github.io/images/r_heap1.PNG">
+
+<link rel="canonical" href="http://fenlan.github.io/2018/04/11/Java%20GC/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>Java GC | fenlan</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">fenlan</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">Everything gonna be fine in the end, if it's not fine, it's not the end.</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://fenlan.github.io/2018/04/11/Java%20GC/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Gao Jie">
+      <meta itemprop="description" content="Everything gonna be fine in the end">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="fenlan">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Java GC
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-04-11 15:18:23" itemprop="dateCreated datePublished" datetime="2018-04-11T15:18:23+08:00">2018-04-11</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-01-18 16:50:41" itemprop="dateModified" datetime="2023-01-18T16:50:41+08:00">2023-01-18</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/2018/04/11/Java%20GC/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/04/11/Java GC/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="Java堆空间划分"><a href="#Java堆空间划分" class="headerlink" title="Java堆空间划分"></a>Java堆空间划分</h2><p><img src="/images/r_heap1.PNG" alt=""></p>
+<p><img src="http://dl2.iteye.com/upload/attachment/0088/6262/6af6a224-8b2d-3f23-8b58-79263cfda9c4.png" alt=""></p>
+<span id="more"></span>
+<h2 id="引用计数法-Reference-Counting"><a href="#引用计数法-Reference-Counting" class="headerlink" title="引用计数法(Reference Counting)"></a>引用计数法(Reference Counting)</h2><p>引用计数法是最经典也是最古老的一种垃圾收集方法，它的实现很简单，只要为每个对象设置一个整型的计数器即可。但是引用计数法有两个严重的问题：</p>
+<ul>
+<li>无法处理循环引用的情况。因此在Java的垃圾回收器中，没有使用这种算法。</li>
+<li>引用计数器要求在每次因引用产生和消除的时候，需要伴随一个加法操作和减法操作，对系统性能会有一定的影响。</li>
+</ul>
+<blockquote>
+<p>一个简单的循环引用问题描述如下：有对象A和对象B，对象A中含有对象B的引用，对象B中含有对象A的引用。此时，对象A和对象B的计数器都不为0。但是在系统中，却不存在任何第3飞蛾对象引用了A或B。也就是说，A和B是应该被回收的垃圾对象，但是由于垃圾对象间相互引用，从而使垃圾回收器无法识别，引起内存泄漏。</p>
+</blockquote>
+<h2 id="标记清除法-Mark-Sweep"><a href="#标记清除法-Mark-Sweep" class="headerlink" title="标记清除法(Mark-Sweep)"></a>标记清除法(Mark-Sweep)</h2><p><img src="http://image.codes51.com/Article/image/20160321/20160321124229_9001.png" alt=""><br>标记清除算法是现代垃圾回收算法的思想基础。标记清除算法将垃圾回收分为两个阶段：标记阶段、清除阶段。一种可行的实现是，在标记阶段，首先通过跟节点标记所有从跟节点开始的可达对象。因此，未标记的对象就是未被利用的垃圾对象。然后在清除阶段，清除所有未被标记的对象。<strong>标记清除算法可能会产生最大问题是空间碎片。</strong></p>
+<h2 id="复制算法-Copying"><a href="#复制算法-Copying" class="headerlink" title="复制算法(Copying)"></a>复制算法(Copying)</h2><p><img src="https://weiwei02.coding.me/images/java/jvm/%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E5%A4%8D%E5%88%B6.png" alt=""><br>复制算法的核心思想是：将原有的内存空间分为两块，每次只使用其中一块，在垃圾回收时，将正在使用的内存中的存活对象复制到未使用的内存块中，之后清除正在使用的内存块中的所有对象，交换两个内存的角色，完成垃圾回收。</p>
+<p>如果系统中的垃圾对象很多，复制算法需要赋值的存活对象数量就会相对较少。因此，在真正需要垃圾回收的时刻，复制算法的效率是很高的。又由于对象是在垃圾回收过程中，统一被复制到新的内存空间中的，因此可确保回收后的内存空间是没有碎片的。虽然有以上两大优点，但是复制算法的代价却是将系统内存折半，因此单纯的复制算法也很难让人接收。现代Java回收机制中新生代的Survivor区域在使用这样的回收算法，因为新生代垃圾对象比存活对象多，复制算法高效。新生代Survivor区是两个比较小，但大小相等的内存块，在我的调优参数设置中，Survivor区通常只占用新生代区域的1/8，但也不是固定的，多尝试比例可以有较好的收获。</p>
+<blockquote>
+<p>题外话，我的一个项目上线初期，默认的JVM参数，CPU占用一直高居25%，但是调整后一直保持在20%以下，但同时内存占用却上升了。至于如何调整的，我还需要再深入一下。</p>
+<p>记录一下详细的配置过程 : 第一次上线，所有的配置都是默认的，记录Java堆各个代的情况，根据情况进行调整；第二次上线，采取减少堆的大小: <code>-Xmx250m -Xms40m -Xmn15m -XX:SurvivorRatio=10</code> 效果显著，在原来CPU高居25%-30%的情况下，顺利降到20%以下；第三次上线，采取增大堆的大小： <code>-Xmx250m -Xms75m -Xmn25m -XX:SurvivorRatio=10</code>，效果更好，已经降到16%以下。</p>
+</blockquote>
+<p><img src="/images/nginxlog.png" alt=""></p>
+<p><code>在这里补充一下Java垃圾回收的大致过程</code>：<br>在垃圾回收时，eden空间中的存活对象会被复制到未使用的survivor空间中(假设死to)，正在使用的suvivor空间(假设是from)中的年轻对象也会被赋值到to空间中(大对象，或者老年对象会直接进入老年代，如果to空间已满，则对象也会直接进入老年代)。此时eden空间和from空间中的剩余对象就是垃圾对象，可以直接清空，to空间则存放此次回收后的存活对象。这种改进的复制算法，既保证了空间的连续性，又避免了大量的内存空间浪费。</p>
+<h2 id="标记压缩-Mark-Compact"><a href="#标记压缩-Mark-Compact" class="headerlink" title="标记压缩(Mark-Compact)"></a>标记压缩(Mark-Compact)</h2><p><img src="http://image.codes51.com/Article/image/20160321/20160321124230_0720.png" alt=""><br>复制算法的高效性是建立在存活对象少，垃圾对象多的前提下的，这种情况在新生代经常发生，但是在老年代，更常见的情况是大部分对象都是存活对象。如果依然使用复制算法，复制成本也将很高。因此基于老年代垃圾回收的特性，需要使用其他的算法。</p>
+<p>标记压缩算法是一种老年代的回收算法。它在标记清除算法的基础上做了一些优化。和标记算法一样，标记压缩算法也首先需要从跟节点开始，对所有可达对象做标记。但之后，它不是简单地清理未标记的对象，而是将所有的存活对象压缩到内存的一端。之后清理边界外所有的空间。这种方法避免了碎片的产生，又不需要两块相同的内存空间，因此其性价比比较高。</p>
+<h2 id="分代算法-Generational-Collecting"><a href="#分代算法-Generational-Collecting" class="headerlink" title="分代算法(Generational Collecting)"></a>分代算法(Generational Collecting)</h2><p>上述介绍的算法中，并没有一种算法可以完全替代其他算法，它们都具有自己独特的优势和特点。因此根据垃圾回收对象的特性，使用合适的算法回收，才是明智的选择。<br>分代算法就是基于这种思想，他将内存区间根据对象特点分成几块，根据每块内存空间的特点，使用不同的回收算法，以提高垃圾回收的效率。</p>
+<p>一般来说Java虚拟机会将所有的新建对象都放入成为新生代的内存区域，新生代的特点死对象朝生夕灭，大约90%的新建对象会被很快回收，因此，新生代比较适合使用复制算法。当一个对象经过几次回收后依然存活，对象就会被放入成为老年代的内存空间。在老年代中，几乎所有的对象都是经过几次垃圾回收后依然得以存活的。因此，可以认为这些对象在一段时间期内，甚至在应用程序的整个生命周期中，将是常驻内存的。那么这些对象回收就应该采用<code>标记压缩</code>或<code>标记清除</code>算法，以提高垃圾回收效率。</p>
+<p>对于新生代和老年代来说，通常新生代回收频率很高，但是每次回收的耗时都很短，而老年代回收频率比较低，但是会消耗更多的时间。<strong>同时这引来一个问题，当老年代中的对象持有新生代对象的引用时怎么办？</strong>为了解决这个问题，虚拟机可能使用一种叫做卡表(Card Table)的数据结构。卡表为一个比特位集合，每一个比特位可以用来表示老年代的某一区域中的所有对象是否持有新生代对象的引用。这样在新生代GC时，可以不用花大量的时间扫描所有老年代对象，来确定每一个对象的引用关系，而可以先扫描卡表，当卡表的标记为1时才扫描给定区域的老年代对象；而当卡表位为0时就不用是扫描所在区域的老年代对象。</p>
+<h2 id="分区算法-Region"><a href="#分区算法-Region" class="headerlink" title="分区算法(Region)"></a>分区算法(Region)</h2><p>分代算法是按照对象的生命周期长短划分成两部分，分区算法将真个给堆空间划分为连续的不同小区间，每个区间都独立使用，独立回收。这种算法的好处是可以控制一次回收多少个小区间。</p>
+<p>一般来说，在相同条件下，堆空间越大，一次GC时所需要的时间就越长，从而产生的停顿也越长。为了更好地控制GC产生的停顿时间，将一块大的内存区域分割成多个小块，根据目标停顿时间，每次合理地回收若干个小区间，而不是整个堆空间，从而减少一次GC所产生的停顿。</p>
+<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/u010429311/article/details/52724075">Java垃圾回收算法</a></li>
+<li><a target="_blank" rel="noopener" href="https://weiwei02.github.io/2017/08/18/jvm/gc%E7%AE%97%E6%B3%95/">JVM虚拟机-垃圾回收算法</a></li>
+<li>实战Java虚拟机(图书)</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/GC/" rel="tag"><i class="fa fa-tag"></i> GC</a>
+              <a href="/tags/Java/" rel="tag"><i class="fa fa-tag"></i> Java</a>
+              <a href="/tags/JMM/" rel="tag"><i class="fa fa-tag"></i> JMM</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2018/04/08/%E5%9F%BA%E6%9C%AC%E7%B1%BB%E5%9E%8B/" rel="prev" title="C++ Java基本类型size问题">
+      <i class="fa fa-chevron-left"></i> C++ Java基本类型size问题
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2018/04/13/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%90%84%E8%A6%81%E7%82%B9%E6%80%BB%E7%BB%93/" rel="next" title="数据库大杂烩">
+      数据库大杂烩 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    
+  <div class="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+  </div>
+  
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Java%E5%A0%86%E7%A9%BA%E9%97%B4%E5%88%92%E5%88%86"><span class="nav-number">1.</span> <span class="nav-text">Java堆空间划分</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%95%E7%94%A8%E8%AE%A1%E6%95%B0%E6%B3%95-Reference-Counting"><span class="nav-number">2.</span> <span class="nav-text">引用计数法(Reference Counting)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A0%87%E8%AE%B0%E6%B8%85%E9%99%A4%E6%B3%95-Mark-Sweep"><span class="nav-number">3.</span> <span class="nav-text">标记清除法(Mark-Sweep)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A4%8D%E5%88%B6%E7%AE%97%E6%B3%95-Copying"><span class="nav-number">4.</span> <span class="nav-text">复制算法(Copying)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A0%87%E8%AE%B0%E5%8E%8B%E7%BC%A9-Mark-Compact"><span class="nav-number">5.</span> <span class="nav-text">标记压缩(Mark-Compact)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%86%E4%BB%A3%E7%AE%97%E6%B3%95-Generational-Collecting"><span class="nav-number">6.</span> <span class="nav-text">分代算法(Generational Collecting)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%86%E5%8C%BA%E7%AE%97%E6%B3%95-Region"><span class="nav-number">7.</span> <span class="nav-text">分区算法(Region)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E9%93%BE%E6%8E%A5"><span class="nav-number">8.</span> <span class="nav-text">参考链接</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Gao Jie"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">Gao Jie</p>
+  <div class="site-description" itemprop="description">Everything gonna be fine in the end</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">51</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">17</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">75</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/fenlan" title="GitHub → https://github.com/fenlan" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/fenlan96" title="Twitter → https://twitter.com/fenlan96" rel="noopener" target="_blank"><i class="fab fa-twitter fa-fw"></i>Twitter</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.facebook.com/lan.fen.104" title="Facebook → https://www.facebook.com/lan.fen.104" rel="noopener" target="_blank"><i class="fab fa-facebook-f fa-fw"></i>Facebook</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="http://23.83.230.171" title="http://23.83.230.171" rel="noopener" target="_blank">bookshop</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://github.com/fenlan/ChatTool" title="https://github.com/fenlan/ChatTool" rel="noopener" target="_blank">ChatTool</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://github.com/fenlan/cloudcourse-web" title="https://github.com/fenlan/cloudcourse-web" rel="noopener" target="_blank">cloudcourse</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://github.com/fenlan/storm-nginx-log" title="https://github.com/fenlan/storm-nginx-log" rel="noopener" target="_blank">nginx实时日志统计</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 2016 – 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Gao Jie</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+<script>
+  function loadCount() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://fenlan1.disqus.com/count.js';
+    s.id = 'dsq-count-scr';
+    (d.head || d.body).appendChild(s);
+  }
+  // defer loading until the whole page loading is completed
+  window.addEventListener('load', loadCount, false);
+</script>
+<script>
+  var disqus_config = function() {
+    this.page.url = "http://fenlan.github.io/2018/04/11/Java%20GC/";
+    this.page.identifier = "2018/04/11/Java GC/";
+    this.page.title = "Java GC";
+    };
+  NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
+    if (window.DISQUS) {
+      DISQUS.reset({
+        reload: true,
+        config: disqus_config
+      });
+    } else {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://fenlan1.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', '' + +new Date());
+      (d.head || d.body).appendChild(s);
+    }
+  });
+</script>
+
+</body>
+</html>

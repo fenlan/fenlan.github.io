@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"fenlan.github.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"disqus","storage":true,"lazyload":false,"nav":null,"activeClass":"disqus"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="一点点音讯本人成都在职三好员工一枚，目前游走在一些有趣却又觉得用处不大的东西之间，个人意向分布式计算和Java后台。写过java、c++、php，干过Android开发，做过laravel spring boot项目。对linux情有独钟，但好像也没有特别清楚的方向去深究，自学能力较好，想做全栈还是个菜鸟。学习了一段时间kafka、storm，对spark有一定了解，了解Redis持久化。 有幸于">
+<meta property="og:type" content="website">
+<meta property="og:title" content="About Me">
+<meta property="og:url" content="http://fenlan.github.io/about/index.html">
+<meta property="og:site_name" content="fenlan">
+<meta property="og:description" content="一点点音讯本人成都在职三好员工一枚，目前游走在一些有趣却又觉得用处不大的东西之间，个人意向分布式计算和Java后台。写过java、c++、php，干过Android开发，做过laravel spring boot项目。对linux情有独钟，但好像也没有特别清楚的方向去深究，自学能力较好，想做全栈还是个菜鸟。学习了一段时间kafka、storm，对spark有一定了解，了解Redis持久化。 有幸于">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://m13.mask9.com/sites/default/files/styles/l/public/imagepad/20130929/20130929035607-3c3730f510e613e4b06b3b6c6f83fd3f831b9ee1.28/animation-qinshimingyue-mask9.jpg">
+<meta property="og:image" content="http://fenlan.github.io/images/mr_robot.png">
+<meta property="og:image" content="http://fenlan.github.io/images/stitchers.png">
+<meta property="og:image" content="http://fenlan.github.io/images/the_matrix.png">
+<meta property="og:image" content="http://fenlan.github.io/images/cobra.png">
+<meta property="article:published_time" content="2017-11-28T05:06:34.000Z">
+<meta property="article:modified_time" content="2023-02-13T06:50:54.561Z">
+<meta property="article:author" content="Gao Jie">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://m13.mask9.com/sites/default/files/styles/l/public/imagepad/20130929/20130929035607-3c3730f510e613e4b06b3b6c6f83fd3f831b9ee1.28/animation-qinshimingyue-mask9.jpg">
+
+<link rel="canonical" href="http://fenlan.github.io/about/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : false,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>About Me | fenlan
+</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">fenlan</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">Everything gonna be fine in the end, if it's not fine, it's not the end.</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+  
+  
+
+          <div class="content page posts-expand">
+            
+
+    
+    
+    
+    <div class="post-block" lang="zh-CN">
+      <header class="post-header">
+
+<h1 class="post-title" itemprop="name headline">About Me
+</h1>
+
+<div class="post-meta">
+  
+
+</div>
+
+</header>
+
+      
+      
+      
+      <div class="post-body">
+          <h2 id="一点点音讯"><a href="#一点点音讯" class="headerlink" title="一点点音讯"></a>一点点音讯</h2><p>本人成都在职三好员工一枚，目前游走在一些有趣却又觉得用处不大的东西之间，个人意向<code>分布式计算</code>和<code>Java后台</code>。写过<code>java</code>、<code>c++</code>、<code>php</code>，干过<code>Android</code>开发，做过<code>laravel</code> <code>spring boot</code>项目。对<code>linux</code>情有独钟，但好像也没有特别清楚的方向去深究，自学能力较好，想做全栈还是个菜鸟。学习了一段时间<code>kafka</code>、<code>storm</code>，对<code>spark</code>有一定了解，了解<code>Redis</code>持久化。</p>
+<p>有幸于<code>2018年5月21日 - 2018年10月16日</code>期间在完美世界实习，接触到了<code>Elasticsearch</code>，实习中使用了<code>Storm</code>、<code>Hbase</code>、<code>Kafka</code>、<code>Elasticsearch</code>、<code>Vue</code>等技术，目前正在学习<code>flink</code>。</p>
+<p>异于喜欢二次元的宅男，本人只追国漫秦时七八载，贴上痴迷的大叔二叔<br><img src="http://m13.mask9.com/sites/default/files/styles/l/public/imagepad/20130929/20130929035607-3c3730f510e613e4b06b3b6c6f83fd3f831b9ee1.28/animation-qinshimingyue-mask9.jpg" alt=""></p>
+<p>生活挑剔多变，性格沉闷，话少却爱吹牛，稍带一点强迫症症状。游戏玩得偏少，已剧慌好久，但极爱看美帝科幻。</p>
+<h2 id="个人项目"><a href="#个人项目" class="headerlink" title="个人项目"></a>个人项目</h2><table>
+<thead>
+<tr>
+<th>项目</th>
+<th>简介</th>
+<th>地址</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ChatTool</td>
+<td>利用极光推送编写的类似QQ的简易聊天软件</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/fenlan/ChatTool">https://github.com/fenlan/ChatTool</a>　</td>
+</tr>
+<tr>
+<td>BookShop</td>
+<td>利用laravel框架编写的网上书店</td>
+<td><a target="_blank" rel="noopener" href="http://fenlan96.com/">http://fenlan96.com/</a></td>
+</tr>
+<tr>
+<td>云计算课程项目</td>
+<td>利用kafka、redis、hbase、spark构建的一套消息接收、处理、呈现系统</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/fenlan?tab=repositories">https://github.com/fenlan?tab=repositories</a></td>
+</tr>
+<tr>
+<td>nginx实时日志统计</td>
+<td>利用Storm框架进行实时计算的nginx日志统计系统　</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/fenlan/storm-nginx-log">https://github.com/fenlan/storm-nginx-log</a></td>
+</tr>
+<tr>
+<td>游戏发言與情</td>
+<td>利用Storm解析游戏发言日志，并利用Elasticsearch作为搜索引擎做数据聚合，文本分析等</td>
+<td>无</td>
+</tr>
+</tbody>
+</table>
+<h2 id="推荐几部剧"><a href="#推荐几部剧" class="headerlink" title="推荐几部剧"></a>推荐几部剧</h2><p><img src="/images/mr_robot.png" alt="Mr. Robot"></p>
+<p align="center">Mr. Robot</p><br><img src="/images/stitchers.png" alt="Stitchers"><br><p align="center">Stitchers</p><br><img src="/images/the_matrix.png" alt="The Matrix"><br><p align="center">The Matrix</p><br><img src="/images/cobra.png" alt="G.I. Joe: The Rise of Cobra"><br><p align="center">G.I. Joe: The Rise of Cobra</p>
+      </div>
+      
+      
+      
+    </div>
+    
+
+    
+    
+    
+
+
+          </div>
+          
+    
+  <div class="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+  </div>
+  
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E7%82%B9%E7%82%B9%E9%9F%B3%E8%AE%AF"><span class="nav-number">1.</span> <span class="nav-text">一点点音讯</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%AA%E4%BA%BA%E9%A1%B9%E7%9B%AE"><span class="nav-number">2.</span> <span class="nav-text">个人项目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8E%A8%E8%8D%90%E5%87%A0%E9%83%A8%E5%89%A7"><span class="nav-number">3.</span> <span class="nav-text">推荐几部剧</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Gao Jie"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">Gao Jie</p>
+  <div class="site-description" itemprop="description">Everything gonna be fine in the end</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">51</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">17</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">75</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/fenlan" title="GitHub → https://github.com/fenlan" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/fenlan96" title="Twitter → https://twitter.com/fenlan96" rel="noopener" target="_blank"><i class="fab fa-twitter fa-fw"></i>Twitter</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.facebook.com/lan.fen.104" title="Facebook → https://www.facebook.com/lan.fen.104" rel="noopener" target="_blank"><i class="fab fa-facebook-f fa-fw"></i>Facebook</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="http://23.83.230.171" title="http://23.83.230.171" rel="noopener" target="_blank">bookshop</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://github.com/fenlan/ChatTool" title="https://github.com/fenlan/ChatTool" rel="noopener" target="_blank">ChatTool</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://github.com/fenlan/cloudcourse-web" title="https://github.com/fenlan/cloudcourse-web" rel="noopener" target="_blank">cloudcourse</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://github.com/fenlan/storm-nginx-log" title="https://github.com/fenlan/storm-nginx-log" rel="noopener" target="_blank">nginx实时日志统计</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 2016 – 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Gao Jie</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+<script>
+  function loadCount() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://fenlan1.disqus.com/count.js';
+    s.id = 'dsq-count-scr';
+    (d.head || d.body).appendChild(s);
+  }
+  // defer loading until the whole page loading is completed
+  window.addEventListener('load', loadCount, false);
+</script>
+<script>
+  var disqus_config = function() {
+    this.page.url = "http://fenlan.github.io/about/index.html";
+    this.page.identifier = "about/index.html";
+    this.page.title = "About Me";
+    };
+  NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
+    if (window.DISQUS) {
+      DISQUS.reset({
+        reload: true,
+        config: disqus_config
+      });
+    } else {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://fenlan1.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', '' + +new Date());
+      (d.head || d.body).appendChild(s);
+    }
+  });
+</script>
+
+</body>
+</html>

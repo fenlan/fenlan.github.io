@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"fenlan.github.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"disqus","storage":true,"lazyload":false,"nav":null,"activeClass":"disqus"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="路由1.基本路由123Route::get(&amp;#x27;basic1&amp;#x27;, function () &amp;#123;    return &amp;#x27;Hello World&amp;#x27;;&amp;#125;); 2.路由参数1234567Route::get(&amp;#x27;user&#x2F;&amp;#123;id&amp;#125;&amp;#x27;, function ($id) &amp;#123;    return &amp;#x27;U">
+<meta property="og:type" content="article">
+<meta property="og:title" content="laravel学习之旅">
+<meta property="og:url" content="http://fenlan.github.io/2017/07/30/laravel/index.html">
+<meta property="og:site_name" content="fenlan">
+<meta property="og:description" content="路由1.基本路由123Route::get(&amp;#x27;basic1&amp;#x27;, function () &amp;#123;    return &amp;#x27;Hello World&amp;#x27;;&amp;#125;); 2.路由参数1234567Route::get(&amp;#x27;user&#x2F;&amp;#123;id&amp;#125;&amp;#x27;, function ($id) &amp;#123;    return &amp;#x27;U">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://fenlan.github.io/images/laravel_problem_1.png">
+<meta property="article:published_time" content="2017-07-30T07:18:23.000Z">
+<meta property="article:modified_time" content="2023-01-18T08:50:41.340Z">
+<meta property="article:author" content="Gao Jie">
+<meta property="article:tag" content="laravel">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://fenlan.github.io/images/laravel_problem_1.png">
+
+<link rel="canonical" href="http://fenlan.github.io/2017/07/30/laravel/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>laravel学习之旅 | fenlan</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">fenlan</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">Everything gonna be fine in the end, if it's not fine, it's not the end.</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://fenlan.github.io/2017/07/30/laravel/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Gao Jie">
+      <meta itemprop="description" content="Everything gonna be fine in the end">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="fenlan">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          laravel学习之旅
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2017-07-30 15:18:23" itemprop="dateCreated datePublished" datetime="2017-07-30T15:18:23+08:00">2017-07-30</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-01-18 16:50:41" itemprop="dateModified" datetime="2023-01-18T16:50:41+08:00">2023-01-18</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/php/" itemprop="url" rel="index"><span itemprop="name">php</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/2017/07/30/laravel/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/07/30/laravel/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="路由"><a href="#路由" class="headerlink" title="路由"></a>路由</h2><p><strong>1.基本路由</strong><br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Route</span>::<span class="title function_ invoke__">get</span>(<span class="string">&#x27;basic1&#x27;</span>, function () &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&#x27;Hello World&#x27;</span>;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<p><strong>2.路由参数</strong><br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Route</span>::<span class="title function_ invoke__">get</span>(<span class="string">&#x27;user/&#123;id&#125;&#x27;</span>, function (<span class="variable">$id</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&#x27;User-id-&#x27;</span> . <span class="variable">$id</span>;</span><br><span class="line">&#125;)-&gt;<span class="title function_ invoke__">where</span>(<span class="string">&#x27;id&#x27;</span>, <span class="string">&#x27;[0-9]+&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="title class_">Route</span>::<span class="title function_ invoke__">get</span>(<span class="string">&#x27;user/&#123;name?&#125;&#x27;</span>, function (<span class="variable">$name</span> = <span class="string">&#x27;fenlan&#x27;</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&#x27;User-name-&#x27;</span> . <span class="variable">$name</span>;</span><br><span class="line">&#125;)-&gt;<span class="title function_ invoke__">where</span>(<span class="string">&#x27;name&#x27;</span>, <span class="string">&#x27;[A-Za-z]+&#x27;</span>);</span><br></pre></td></tr></table></figure><br><span id="more"></span><br><strong>3.路由群组</strong><br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Route</span>::<span class="title function_ invoke__">group</span>([<span class="string">&#x27;prefix&#x27;</span> =&gt; <span class="string">&#x27;member&#x27;</span>], function () &#123;</span><br><span class="line">    <span class="title class_">Route</span>::<span class="title function_ invoke__">get</span>(<span class="string">&#x27;user/member-center&#x27;</span>, [<span class="string">&#x27;as&#x27;</span> =&gt; <span class="string">&#x27;center&#x27;</span>, function () &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="title function_ invoke__">route</span>(<span class="string">&#x27;center&#x27;</span>);</span><br><span class="line">    &#125;]);</span><br><span class="line">    <span class="title class_">Route</span>::<span class="title function_ invoke__">any</span>(<span class="string">&#x27;multy1&#x27;</span>, function () &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&#x27;member-multy1&#x27;</span>;</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<p><strong>4.控制器关联</strong><br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Route</span>::<span class="title function_ invoke__">get</span>(<span class="string">&#x27;member/&#123;id&#125;&#x27;</span>, <span class="string">&#x27;MemberController@info&#x27;</span>);</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>get参数中第一个是url路由，第二个是控制器MemberController及控制器中函数info</p>
+</blockquote>
+<h2 id="控制器"><a href="#控制器" class="headerlink" title="控制器"></a>控制器</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title class_">App</span>\<span class="title class_">Http</span>\<span class="title class_">Controllers</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MemberController</span> <span class="keyword">extends</span> <span class="title">Controller</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">info</span>(<span class="params"><span class="variable">$id</span></span>) </span>&#123;</span><br><span class="line">        <span class="comment">//return &#x27;member-info-id-&#x27; . $id;</span></span><br><span class="line">        <span class="comment">//return view(&#x27;welcome&#x27;);</span></span><br><span class="line">        <span class="keyword">return</span> <span class="title function_ invoke__">view</span>(<span class="string">&#x27;info&#x27;</span>, [</span><br><span class="line">            <span class="string">&#x27;name&#x27;</span> =&gt; <span class="string">&#x27;fenlan&#x27;</span>,</span><br><span class="line">            <span class="string">&#x27;age&#x27;</span> =&gt; <span class="number">18</span>,</span><br><span class="line">            <span class="string">&#x27;sex&#x27;</span> =&gt; <span class="string">&#x27;male&#x27;</span></span><br><span class="line">        ]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="视图"><a href="#视图" class="headerlink" title="视图"></a>视图</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">info blade php</span><br><span class="line">&#123;&#123;<span class="variable">$name</span>&#125;&#125;</span><br><span class="line">&#123;&#123;<span class="variable">$age</span>&#125;&#125;</span><br><span class="line">&#123;&#123;<span class="variable">$sex</span>&#125;&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>laravel新建视图完成后需要模块编译(我是这么理解的)</strong><br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">php artisan serve</span><br></pre></td></tr></table></figure></p>
+<h2 id="连接数据库"><a href="#连接数据库" class="headerlink" title="连接数据库"></a>连接数据库</h2><p><strong>在.env文件中修改配置</strong><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">APP_NAME=Laravel</span><br><span class="line">APP_ENV=<span class="built_in">local</span></span><br><span class="line">APP_KEY=</span><br><span class="line">APP_DEBUG=<span class="literal">true</span></span><br><span class="line">APP_LOG_LEVEL=debug</span><br><span class="line">APP_URL=http://localhost</span><br><span class="line"></span><br><span class="line">DB_CONNECTION=mysql</span><br><span class="line">DB_HOST=127.0.0.1</span><br><span class="line">DB_PORT=3306</span><br><span class="line">DB_DATABASE=homestead</span><br><span class="line">DB_USERNAME=homestead</span><br><span class="line">DB_PASSWORD=secret</span><br><span class="line"></span><br><span class="line">BROADCAST_DRIVER=<span class="built_in">log</span></span><br><span class="line">CACHE_DRIVER=file</span><br><span class="line">SESSION_DRIVER=file</span><br><span class="line">QUEUE_DRIVER=<span class="built_in">sync</span></span><br><span class="line"></span><br><span class="line">REDIS_HOST=127.0.0.1</span><br><span class="line">REDIS_PASSWORD=null</span><br><span class="line">REDIS_PORT=6379</span><br><span class="line"></span><br><span class="line">MAIL_DRIVER=smtp</span><br><span class="line">MAIL_HOST=smtp.mailtrap.io</span><br><span class="line">MAIL_PORT=2525</span><br><span class="line">MAIL_USERNAME=null</span><br><span class="line">MAIL_PASSWORD=null</span><br><span class="line">MAIL_ENCRYPTION=null</span><br><span class="line"></span><br><span class="line">PUSHER_APP_ID=</span><br><span class="line">PUSHER_APP_KEY=</span><br><span class="line">PUSHER_APP_SECRET=</span><br></pre></td></tr></table></figure><br><strong>修改完成后再编译一下，就连接成功</strong></p>
+<h2 id="数据库操作"><a href="#数据库操作" class="headerlink" title="数据库操作"></a>数据库操作</h2><p><strong>1.使用DB facade实现CURD</strong><br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title class_">App</span>\<span class="title class_">Http</span>\<span class="title class_">Controllers</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">use</span> <span class="title">Illuminate</span>\<span class="title">Support</span>\<span class="title">Facades</span>\<span class="title">DB</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">StudentController</span> <span class="keyword">extends</span> <span class="title">Controller</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">test1</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="variable">$student</span> = DB::<span class="title function_ invoke__">select</span>(<span class="string">&#x27;SELECT * FROM student&#x27;</span>);</span><br><span class="line">        <span class="title function_ invoke__">dd</span>(<span class="variable">$student</span>);</span><br><span class="line">        <span class="comment">// $bool = DB::insert(&#x27;INSERT INTO student(name, ID) VALUES(?, ?)&#x27;, [&#x27;fenlan&#x27;, &#x27;15130110067&#x27;]);</span></span><br><span class="line">        <span class="comment">// $num = DB::update(&#x27;UPDATE student SET in_time = ? WHERE ID = ?&#x27;, [&#x27;2015&#x27;, &#x27;15130110067&#x27;]);</span></span><br><span class="line">        <span class="comment">// $num = DB::delete(&#x27;DELETE FROM student WHERE id &gt; ?&#x27;, [&#x27;15130110067&#x27;]);</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br><strong>这种方法属于原始方法，接下来有更酷的操作数据库方法</strong></p>
+<p><strong>2.查询构造器及新增数据</strong><br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">test2</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="variable">$bool</span> = DB::<span class="title function_ invoke__">table</span>(<span class="string">&#x27;student&#x27;</span>)-&gt;<span class="title function_ invoke__">insert</span>([</span><br><span class="line">            [<span class="string">&#x27;ID&#x27;</span> =&gt; <span class="string">&#x27;15130110098&#x27;</span>, <span class="string">&#x27;name&#x27;</span> =&gt; <span class="string">&#x27;小淳&#x27;</span>, <span class="string">&#x27;sex&#x27;</span> =&gt; <span class="string">&#x27;female&#x27;</span>, <span class="string">&#x27;class&#x27;</span> =&gt; <span class="string">&#x27;1513011&#x27;</span>,</span><br><span class="line">            <span class="string">&#x27;in_time&#x27;</span> =&gt; <span class="string">&#x27;2015&#x27;</span>, <span class="string">&#x27;status&#x27;</span> =&gt; <span class="string">&#x27;stay_in&#x27;</span>]</span><br><span class="line">            [<span class="string">&#x27;ID&#x27;</span> =&gt; <span class="string">&#x27;15130110099&#x27;</span>, <span class="string">&#x27;name&#x27;</span> =&gt; <span class="string">&#x27;小明&#x27;</span>, <span class="string">&#x27;sex&#x27;</span> =&gt; <span class="string">&#x27;female&#x27;</span>, <span class="string">&#x27;class&#x27;</span> =&gt; <span class="string">&#x27;1513011&#x27;</span>,</span><br><span class="line">            <span class="string">&#x27;in_time&#x27;</span> =&gt; <span class="string">&#x27;2015&#x27;</span>, <span class="string">&#x27;status&#x27;</span> =&gt; <span class="string">&#x27;stay_in&#x27;</span>]</span><br><span class="line">        ]);</span><br><span class="line">        <span class="title function_ invoke__">var_dump</span>(<span class="variable">$bool</span>);</span><br><span class="line"></span><br><span class="line">        <span class="variable">$num</span> = DB::<span class="title function_ invoke__">table</span>(<span class="string">&#x27;student&#x27;</span>)-&gt;<span class="title function_ invoke__">where</span>(<span class="string">&#x27;id&#x27;</span>, <span class="string">&#x27;15130110067&#x27;</span>)-&gt;<span class="title function_ invoke__">update</span>(<span class="string">&#x27;in_time&#x27;</span> =&gt; <span class="string">&#x27;2016&#x27;</span>);</span><br><span class="line">        <span class="title function_ invoke__">var_dump</span>(<span class="variable">$num</span>);</span><br><span class="line">        <span class="variable">$num</span> DB::<span class="title function_ invoke__">table</span>(<span class="string">&#x27;student&#x27;</span>)-&gt;<span class="title function_ invoke__">increment</span>(<span class="string">&#x27;class&#x27;</span>, <span class="number">1</span>);</span><br><span class="line">        <span class="title function_ invoke__">var_dump</span>(<span class="variable">$num</span>);</span><br><span class="line">        <span class="variable">$num</span> = DB::<span class="title function_ invoke__">table</span>(<span class="string">&#x27;student&#x27;</span>)-&gt;<span class="title function_ invoke__">where</span>(<span class="string">&#x27;id&#x27;</span>, <span class="string">&#x27;&gt;=&#x27;</span>, <span class="string">&#x27;15130110067&#x27;</span>)-&gt;<span class="title function_ invoke__">delete</span>();</span><br><span class="line">        <span class="title function_ invoke__">var_dump</span>(<span class="variable">$num</span>);</span><br><span class="line">        DB::<span class="title function_ invoke__">table</span>(<span class="string">&#x27;student&#x27;</span>)-&gt;<span class="title function_ invoke__">truncate</span>();   <span class="comment">// delete all data in table</span></span><br><span class="line"></span><br><span class="line">        <span class="variable">$students</span> = DB::<span class="title function_ invoke__">table</span>(<span class="string">&#x27;student&#x27;</span>)-&gt;<span class="title function_ invoke__">get</span>();     <span class="comment">// return all data</span></span><br><span class="line">        <span class="title function_ invoke__">dd</span>(<span class="variable">$students</span>);</span><br><span class="line">        <span class="variable">$student</span> = DB::<span class="title function_ invoke__">table</span>(<span class="string">&#x27;student&#x27;</span>)-&gt;<span class="title function_ invoke__">orderBy</span>(<span class="string">&#x27;id&#x27;</span>, <span class="string">&#x27;desc&#x27;</span>)-&gt;<span class="title function_ invoke__">first</span>();</span><br><span class="line">        <span class="title function_ invoke__">dd</span>(<span class="variable">$student</span>);</span><br><span class="line">        <span class="variable">$names</span> = DB::<span class="title function_ invoke__">table</span>(<span class="string">&#x27;student&#x27;</span>)-&gt;<span class="title function_ invoke__">pluck</span>(<span class="string">&#x27;name&#x27;</span>);    <span class="comment">// return name attrubite</span></span><br><span class="line">        <span class="title function_ invoke__">dd</span>(<span class="variable">$names</span>);</span><br><span class="line">        <span class="variable">$names</span> = DB::<span class="title function_ invoke__">table</span>(<span class="string">&#x27;student&#x27;</span>)-&gt;<span class="title function_ invoke__">lists</span>(<span class="string">&#x27;name&#x27;</span>, <span class="string">&#x27;id&#x27;</span>);  <span class="comment">// return id -&gt; name(now this is removed)</span></span><br><span class="line">        <span class="title function_ invoke__">dd</span>(<span class="variable">$names</span>);</span><br><span class="line">        <span class="variable">$names</span> = DB::<span class="title function_ invoke__">table</span>(<span class="string">&#x27;student&#x27;</span>)-&gt;<span class="title function_ invoke__">select</span>(<span class="string">&#x27;id&#x27;</span>, <span class="string">&#x27;name&#x27;</span>, <span class="string">&#x27;sex&#x27;</span>)-&gt;<span class="title function_ invoke__">get</span>();   <span class="comment">// return attrubites</span></span><br><span class="line">        <span class="title function_ invoke__">dd</span>(<span class="variable">$names</span>);</span><br><span class="line">        <span class="keyword">echo</span> <span class="string">&#x27;&lt;pre&gt;&#x27;</span>;</span><br><span class="line">        DB::<span class="title function_ invoke__">table</span>(<span class="string">&#x27;student&#x27;</span>)-&gt;<span class="title function_ invoke__">chunk</span>(<span class="number">2</span>, function(<span class="variable">$students</span>) &#123;</span><br><span class="line">            <span class="title function_ invoke__">var_dump</span>(<span class="variable">$students</span>);</span><br><span class="line">        &#125;);     <span class="comment">// for big data query, query 2 data every time</span></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure><br><strong>这个方法可以避免sql攻击注入，同时也人性化很多,还有很多内容，具体查看官方文档</strong><br><a target="_blank" rel="noopener" href="https://laravel.com/docs/5.4/queries">database</a></p>
+<p><strong>3.Eloquent ORM</strong><br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="comment">// app\Student.php</span></span><br><span class="line"><span class="keyword">namespace</span> <span class="title class_">App</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">use</span> <span class="title">Illuminate</span>\<span class="title">Database</span>\<span class="title">Eloquent</span>\<span class="title">Model</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Flight</span> <span class="keyword">extends</span> <span class="title">Model</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * The table associated with the model.</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@var</span> string</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">protected</span> <span class="variable">$table</span> = <span class="string">&#x27;student&#x27;</span>;</span><br><span class="line">    <span class="keyword">protected</span> <span class="variable">$primaryKey</span> = <span class="string">&#x27;id&#x27;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// app\Http\Controllers\StudentController.php</span></span><br><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title class_">App</span>\<span class="title class_">Http</span>\<span class="title class_">Controllers</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">use</span> <span class="title">App</span>\<span class="title">Student</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">StudentController</span> <span class="keyword">extends</span> <span class="title">Controller</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="variable">$students</span> = <span class="title class_">Student</span>::<span class="title function_ invoke__">all</span>();</span><br><span class="line">        <span class="variable">$students</span> = <span class="title class_">Student</span>::<span class="title function_ invoke__">find</span>(<span class="string">&#x27;15130110067&#x27;</span>)</span><br><span class="line">        <span class="title function_ invoke__">dd</span>(<span class="variable">$students</span>);</span><br><span class="line"></span><br><span class="line">        <span class="variable">$student</span> = <span class="keyword">new</span> <span class="title class_">Student</span>();</span><br><span class="line">        <span class="variable">$student</span>-&gt;ID = <span class="string">&#x27;15130110070&#x27;</span>;</span><br><span class="line">        <span class="variable">$student</span>-&gt;name = <span class="string">&#x27;小青&#x27;</span>;</span><br><span class="line">        <span class="variable">$student</span>-&gt;sex = <span class="string">&#x27;female&#x27;</span>;</span><br><span class="line">        <span class="variable">$student</span>-&gt;<span class="class"><span class="keyword">class</span> = &#x27;1513011&#x27;;</span></span><br><span class="line"><span class="class">        $<span class="title">student</span>-&gt;<span class="title">in_time</span> = &#x27;2015&#x27;;</span></span><br><span class="line"><span class="class">        $<span class="title">student</span>-&gt;<span class="title">status</span> = &#x27;<span class="title">stay_in</span>&#x27;;</span></span><br><span class="line"><span class="class">        $<span class="title">bool</span> = $<span class="title">student</span>-&gt;<span class="title">save</span>();</span></span><br><span class="line"><span class="class">        <span class="title">dd</span>($<span class="title">bool</span>);</span></span><br><span class="line"><span class="class">    &#125;</span></span><br><span class="line"><span class="class">&#125;</span></span><br></pre></td></tr></table></figure><br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ORM 正则搜索</span></span><br><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">search</span>(<span class="params">Request <span class="variable">$request</span></span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="variable">$keyword</span> = <span class="variable">$request</span>-&gt;keyword;</span><br><span class="line">    <span class="variable">$keyword</span> = <span class="string">&#x27;%&#x27;</span> . <span class="variable">$keyword</span> . <span class="string">&#x27;%&#x27;</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// $books = DB::select(&#x27;SELECT * FROM books WHERE keywords LIKE ?&#x27;, [$keyword]);</span></span><br><span class="line">    <span class="variable">$books</span> = <span class="title class_">Book</span>::<span class="title function_ invoke__">where</span>(<span class="string">&#x27;keywords&#x27;</span>, <span class="string">&#x27;LIKE&#x27;</span>, <span class="variable">$keyword</span>)-&gt;<span class="title function_ invoke__">paginate</span>(<span class="number">12</span>);</span><br><span class="line">    <span class="keyword">if</span> (<span class="variable">$books</span>-&gt;<span class="title function_ invoke__">total</span>()) &#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> <span class="title function_ invoke__">view</span>(<span class="string">&#x27;book.searchResults&#x27;</span>, [</span><br><span class="line">            <span class="string">&#x27;books&#x27;</span> =&gt; <span class="variable">$books</span>,</span><br><span class="line">        ]);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> <span class="title function_ invoke__">view</span>(<span class="string">&#x27;book.searchNoFound&#x27;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br><strong>具体内容查看官方文档</strong><br><a target="_blank" rel="noopener" href="https://laravel.com/docs/5.4/eloquent">ORM</a></p>
+<h2 id="blade模板"><a href="#blade模板" class="headerlink" title="blade模板"></a>blade模板</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// views\layout.blade.php</span></span><br><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=<span class="string">&quot;en&quot;</span>&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=<span class="string">&quot;utf-8&quot;</span>&gt;</span><br><span class="line">    &lt;title&gt;laravel模板继承&lt;/title&gt;</span><br><span class="line">    &lt;style&gt;</span><br><span class="line">        .header &#123;</span><br><span class="line">            width: <span class="number">1000</span>px;</span><br><span class="line">            height: <span class="number">150</span>px;</span><br><span class="line">            margin: <span class="number">0</span> auto;</span><br><span class="line">            background: <span class="comment">#f5f5f5;</span></span><br><span class="line">            border: <span class="number">1</span>px solid <span class="comment">#ddd;</span></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        .main &#123;</span><br><span class="line">            width: <span class="number">1000</span>px;</span><br><span class="line">            height: <span class="number">300</span>px;</span><br><span class="line">            margin: <span class="number">0</span> auto;</span><br><span class="line">            margin-top: <span class="number">15</span>px;</span><br><span class="line">            clear: both;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        .main .sidebar &#123;</span><br><span class="line">            <span class="keyword">float</span>: left;</span><br><span class="line">            width: <span class="number">20</span>%;</span><br><span class="line">            height: inherit;</span><br><span class="line">            background: <span class="comment">#f5f5f5;</span></span><br><span class="line">            border: <span class="number">1</span>px solid <span class="comment">#ddd;</span></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        .main .content &#123;</span><br><span class="line">            <span class="keyword">float</span>: right;</span><br><span class="line">            width: <span class="number">75</span>%;</span><br><span class="line">            height: inherit;</span><br><span class="line">            background: <span class="comment">#f5f5f5;</span></span><br><span class="line">            border: <span class="number">1</span>px solid <span class="comment">#ddd;</span></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        .footer &#123;</span><br><span class="line">            width: <span class="number">1000</span>px;</span><br><span class="line">            height: <span class="number">150</span>px;</span><br><span class="line">            margin: <span class="number">0</span> auto;</span><br><span class="line">            margin-top: <span class="number">15</span>px;</span><br><span class="line">            background: <span class="comment">#f5f5f5;</span></span><br><span class="line">            border: <span class="number">1</span>px solid <span class="comment">#ddd;</span></span><br><span class="line">        &#125;</span><br><span class="line">    &lt;/style&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;div <span class="class"><span class="keyword">class</span>=&#x27;<span class="title">header</span>&#x27;&gt;</span></span><br><span class="line"><span class="class">        @<span class="title">section</span>(&#x27;<span class="title">header</span>&#x27;)</span></span><br><span class="line"><span class="class">        头部</span></span><br><span class="line"><span class="class">        @<span class="title">show</span></span></span><br><span class="line"><span class="class">    &lt;/<span class="title">div</span>&gt;</span></span><br><span class="line"><span class="class"></span></span><br><span class="line"><span class="class">    &lt;<span class="title">div</span> <span class="title">class</span>=&#x27;<span class="title">main</span>&#x27;&gt;</span></span><br><span class="line"><span class="class">        &lt;<span class="title">div</span> <span class="title">class</span>=&#x27;<span class="title">sidebar</span>&#x27;&gt;</span></span><br><span class="line"><span class="class">            @<span class="title">section</span>(&#x27;<span class="title">sidebar</span>&#x27;)</span></span><br><span class="line"><span class="class">            侧边栏</span></span><br><span class="line"><span class="class">            @<span class="title">show</span></span></span><br><span class="line"><span class="class">        &lt;/<span class="title">div</span>&gt;</span></span><br><span class="line"><span class="class">        &lt;<span class="title">div</span> <span class="title">class</span>=&#x27;<span class="title">content</span>&#x27;&gt;</span></span><br><span class="line"><span class="class">            @<span class="title">yield</span>(&#x27;<span class="title">content</span>&#x27;, &#x27;主要内容&#x27;)</span></span><br><span class="line"><span class="class">        &lt;/<span class="title">div</span>&gt;</span></span><br><span class="line"><span class="class">    &lt;/<span class="title">div</span>&gt;</span></span><br><span class="line"><span class="class"></span></span><br><span class="line"><span class="class">    &lt;<span class="title">div</span> <span class="title">class</span>=&quot;<span class="title">footer</span>&quot;&gt;</span></span><br><span class="line"><span class="class">        @<span class="title">section</span>(&#x27;<span class="title">footer</span>&#x27;)</span></span><br><span class="line"><span class="class">        尾部</span></span><br><span class="line"><span class="class">        @<span class="title">show</span></span></span><br><span class="line"><span class="class">    &lt;/<span class="title">div</span>&gt;</span></span><br><span class="line"><span class="class"></span></span><br><span class="line"><span class="class">&lt;/<span class="title">body</span>&gt;</span></span><br><span class="line"><span class="class">&lt;/<span class="title">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// views\student\test.php</span></span><br><span class="line">@<span class="keyword">extends</span>(<span class="string">&#x27;layout&#x27;</span>)</span><br><span class="line"></span><br><span class="line">@<span class="title function_ invoke__">section</span>(<span class="string">&#x27;header&#x27;</span>)</span><br><span class="line">    @<span class="built_in">parent</span></span><br><span class="line">    header</span><br><span class="line">@stop</span><br><span class="line"></span><br><span class="line">@<span class="title function_ invoke__">section</span>(<span class="string">&#x27;sidebar&#x27;</span>)</span><br><span class="line">    sidebar</span><br><span class="line">@stop</span><br><span class="line"></span><br><span class="line">@<span class="title function_ invoke__">section</span>(<span class="string">&#x27;content&#x27;</span>)</span><br><span class="line">    content</span><br><span class="line"></span><br><span class="line">    &lt;!-- <span class="number">1</span>.模板中输出变量 --&gt;</span><br><span class="line">    &lt;p&gt;&#123;&#123; <span class="variable">$name</span> &#125;&#125;&lt;/p&gt;</span><br><span class="line"></span><br><span class="line">    &lt;!-- <span class="number">2</span>.模板中调用PHP代码 --&gt;</span><br><span class="line">    &lt;p&gt;&#123;&#123; <span class="title function_ invoke__">time</span>() &#125;&#125;&lt;/p&gt;</span><br><span class="line">    &lt;p&gt;&#123;&#123; <span class="title function_ invoke__">date</span>(<span class="string">&#x27;Y-m-d H:i:s&#x27;</span>, <span class="title function_ invoke__">time</span>()) &#125;&#125;&lt;/p&gt;</span><br><span class="line"></span><br><span class="line">    &lt;!-- <span class="number">3</span>.原样输出 --&gt;</span><br><span class="line">    &lt;p&gt;@&#123;&#123; <span class="variable">$name</span> &#125;&#125;&lt;/p&gt;</span><br><span class="line"></span><br><span class="line">    &#123;&#123;-- <span class="number">4</span>.模板中注释 --&#125;&#125;</span><br><span class="line"></span><br><span class="line">    &#123;&#123;-- <span class="number">5</span>.引入子视图 --&#125;&#125;</span><br><span class="line">    @<span class="keyword">include</span>(<span class="string">&#x27;student.commen&#x27;</span>, [<span class="string">&#x27;message&#x27;</span> =&gt; <span class="string">&#x27;我是错误信息&#x27;</span>])</span><br><span class="line"></span><br><span class="line">    @<span class="keyword">if</span> (<span class="variable">$name</span> == <span class="string">&#x27;fenlan&#x27;</span>)</span><br><span class="line">        I<span class="string">&#x27;m fenlan</span></span><br><span class="line"><span class="string">    @elseif ($name == &#x27;</span>hello<span class="string">&#x27;)</span></span><br><span class="line"><span class="string">        I&#x27;</span>m hello</span><br><span class="line">    @<span class="keyword">else</span></span><br><span class="line">        Who am I?</span><br><span class="line">    @<span class="keyword">endif</span></span><br><span class="line"></span><br><span class="line">    &lt;br&gt;</span><br><span class="line">    @<span class="title function_ invoke__">unless</span> (<span class="variable">$name</span> != <span class="string">&#x27;fenlan&#x27;</span>)</span><br><span class="line">        I<span class="string">&#x27;m fenlan</span></span><br><span class="line"><span class="string">    @endunless</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    &lt;br&gt;</span></span><br><span class="line"><span class="string">    @for ($i=0; $i &lt; 10; $i++)</span></span><br><span class="line"><span class="string">        &#123;&#123; $i &#125;&#125;</span></span><br><span class="line"><span class="string">    @endfor</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">@stop</span></span><br></pre></td></tr></table></figure>
+<h2 id="Requests"><a href="#Requests" class="headerlink" title="Requests"></a>Requests</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title class_">App</span>\<span class="title class_">Http</span>\<span class="title class_">Controllers</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">use</span> <span class="title">App</span>\<span class="title">Student</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">Illuminate</span>\<span class="title">Http</span>\<span class="title">Request</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">StudentController</span> <span class="keyword">extends</span> <span class="title">Controller</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params">Request <span class="variable">$request</span></span>) </span>&#123;</span><br><span class="line">        <span class="comment">// 1.取值</span></span><br><span class="line">        <span class="keyword">echo</span> <span class="variable">$request</span>-&gt;<span class="title function_ invoke__">input</span>(<span class="string">&#x27;name&#x27;</span>, <span class="string">&#x27;default&#x27;</span>);</span><br><span class="line">        <span class="keyword">echo</span> <span class="variable">$request</span>-&gt;<span class="title function_ invoke__">has</span>(<span class="string">&#x27;name&#x27;</span>);</span><br><span class="line">        <span class="variable">$res</span> = <span class="variable">$request</span>-&gt;<span class="title function_ invoke__">all</span>();</span><br><span class="line">        <span class="title function_ invoke__">dd</span>(<span class="variable">$res</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 2.判断请求类型</span></span><br><span class="line">        <span class="keyword">echo</span> <span class="variable">$request</span>-&gt;<span class="title function_ invoke__">method</span>();</span><br><span class="line">        <span class="keyword">echo</span> <span class="variable">$request</span>-&gt;<span class="title function_ invoke__">isMethod</span>(<span class="string">&#x27;GET&#x27;</span>);</span><br><span class="line">        <span class="variable">$res</span> = <span class="variable">$request</span>-&gt;<span class="title function_ invoke__">is</span>(<span class="string">&#x27;student/*&#x27;</span>);</span><br><span class="line">        <span class="title function_ invoke__">var_dump</span>(<span class="variable">$res</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="Session"><a href="#Session" class="headerlink" title="Session"></a>Session</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// routes\web.php</span></span><br><span class="line"><span class="title class_">Route</span>::<span class="title function_ invoke__">group</span>([<span class="string">&#x27;middleware&#x27;</span> =&gt; [<span class="string">&#x27;web&#x27;</span>]], function () &#123;</span><br><span class="line">   <span class="title class_">Route</span>::<span class="title function_ invoke__">any</span>(<span class="string">&#x27;session1&#x27;</span>, <span class="string">&#x27;StudentController@session1&#x27;</span>);</span><br><span class="line">   <span class="title class_">Route</span>::<span class="title function_ invoke__">any</span>(<span class="string">&#x27;session2&#x27;</span>, <span class="string">&#x27;StudentController@session2&#x27;</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 1.Http request session();</span></span><br><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">session1</span>(<span class="params">Request <span class="variable">$request</span></span>) </span>&#123;</span><br><span class="line">        <span class="variable">$request</span>-&gt;<span class="title function_ invoke__">session</span>()-&gt;<span class="title function_ invoke__">put</span>(<span class="string">&#x27;key1&#x27;</span>, <span class="string">&#x27;value1&#x27;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">session2</span>(<span class="params">Request <span class="variable">$request</span></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">echo</span> <span class="variable">$request</span>-&gt;<span class="title function_ invoke__">session</span>()-&gt;<span class="title function_ invoke__">get</span>(<span class="string">&#x27;key1&#x27;</span>);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 2.sesson()</span></span><br><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">session1</span>(<span class="params">Request <span class="variable">$request</span></span>) </span>&#123;</span><br><span class="line">        <span class="title function_ invoke__">session</span>()-&gt;<span class="title function_ invoke__">put</span>(<span class="string">&#x27;key2&#x27;</span>, <span class="string">&#x27;value2&#x27;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">session2</span>(<span class="params">Request <span class="variable">$request</span></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">echo</span> <span class="title function_ invoke__">session</span>()-&gt;<span class="title function_ invoke__">get</span>(<span class="string">&#x27;key2&#x27;</span>);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 3.Session class</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">session1</span>(<span class="params">Request <span class="variable">$request</span></span>) </span>&#123;</span><br><span class="line">        <span class="title class_">Session</span>::<span class="title function_ invoke__">put</span>(<span class="string">&#x27;key3&#x27;</span>, <span class="string">&#x27;value3&#x27;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">session2</span>(<span class="params">Request <span class="variable">$request</span></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">echo</span> session::<span class="title function_ invoke__">get</span>(<span class="string">&#x27;key3&#x27;</span>, <span class="string">&#x27;default&#x27;</span>);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">session1</span>(<span class="params">Request <span class="variable">$request</span></span>) </span>&#123;</span><br><span class="line">        <span class="title class_">Session</span>::<span class="title function_ invoke__">push</span>(<span class="string">&#x27;student&#x27;</span>, <span class="string">&#x27;fenlan&#x27;</span>);</span><br><span class="line">        <span class="title class_">Session</span>::<span class="title function_ invoke__">push</span>(<span class="string">&#x27;student&#x27;</span>, <span class="string">&#x27;shirk3&#x27;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">session2</span>(<span class="params">Request <span class="variable">$request</span></span>) </span>&#123;</span><br><span class="line">        <span class="variable">$res</span> = <span class="title class_">Session</span>::<span class="title function_ invoke__">get</span>(<span class="string">&#x27;student&#x27;</span>, <span class="string">&#x27;default&#x27;</span>);</span><br><span class="line">        <span class="title function_ invoke__">dd</span>(<span class="variable">$res</span>);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">session1</span>(<span class="params">Request <span class="variable">$request</span></span>) </span>&#123;</span><br><span class="line">        <span class="title class_">Session</span>::<span class="title function_ invoke__">forget</span>(<span class="string">&#x27;student&#x27;</span>);</span><br><span class="line">        <span class="title class_">Session</span>::<span class="title function_ invoke__">flush</span>(<span class="string">&#x27;key&#x27;</span>, <span class="string">&#x27;default&#x27;</span>);	<span class="comment">// temporary</span></span><br><span class="line">        <span class="title class_">Session</span>::<span class="title function_ invoke__">flush</span>();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">session2</span>(<span class="params">Request <span class="variable">$request</span></span>) </span>&#123;</span><br><span class="line">    	<span class="keyword">echo</span> <span class="title class_">Session</span>::<span class="title function_ invoke__">has</span>(<span class="string">&#x27;student&#x27;</span>);		<span class="comment">// return bool</span></span><br><span class="line">        <span class="variable">$res</span> = <span class="title class_">Session</span>::<span class="title function_ invoke__">pull</span>(<span class="string">&#x27;student&#x27;</span>, <span class="string">&#x27;default&#x27;</span>);</span><br><span class="line">        <span class="title function_ invoke__">dd</span>(<span class="variable">$res</span>);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<h2 id="Response"><a href="#Response" class="headerlink" title="Response"></a>Response</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="comment">// 响应json</span></span><br><span class="line">        <span class="variable">$data</span> = [</span><br><span class="line">          <span class="string">&#x27;errCode&#x27;</span> =&gt; <span class="number">0</span>,</span><br><span class="line">          <span class="string">&#x27;errMsg&#x27;</span> =&gt; <span class="string">&#x27;success&#x27;</span>,</span><br><span class="line">          <span class="string">&#x27;data&#x27;</span> =&gt; <span class="string">&#x27;fenlan&#x27;</span>,</span><br><span class="line">        ];</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> <span class="title function_ invoke__">response</span>()-&gt;<span class="title function_ invoke__">json</span>(<span class="variable">$data</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="comment">// redirect</span></span><br><span class="line">        <span class="keyword">return</span> <span class="title function_ invoke__">redirect</span>(<span class="string">&#x27;session2&#x27;</span>);</span><br><span class="line"><span class="number">9</span>&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="Middleware"><a href="#Middleware" class="headerlink" title="Middleware"></a>Middleware</h2><p><strong>目的：实现一个功能，当访问时间小于活动开始时间，则跳转到宣传页面，当访问时间大于活动开始时间，则跳转到活动界面</strong><br><strong>1.宣传页面和活动页面构造</strong><br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// app\Http\Controller\StudentController.php</span></span><br><span class="line">    <span class="comment">// 宣传页面</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">activity0</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> <span class="string">&#x27;活动快要开始啦，敬请关注&#x27;</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 活动页面</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">activity1</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> <span class="string">&#x27;活动进行中，谢谢您的参与1&#x27;</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 活动页面</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">activity2</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> <span class="string">&#x27;活动进行中，谢谢您的参与2&#x27;</span>;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure><br><strong>2.添加Middleware</strong><br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// app\Http\Middleware\Activity.php</span></span><br><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title class_">App</span>\<span class="title class_">Http</span>\<span class="title class_">Middleware</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">use</span> <span class="title">Closure</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Activity</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">handle</span>(<span class="params"><span class="variable">$request</span>, <span class="built_in">Closure</span> <span class="variable">$next</span></span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (<span class="title function_ invoke__">time</span>() &lt; <span class="title function_ invoke__">strtotime</span>(<span class="string">&#x27;2017-08-03&#x27;</span>)) &#123;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">return</span> <span class="title function_ invoke__">redirect</span>(<span class="string">&#x27;activity0&#x27;</span>);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> <span class="variable">$next</span>(<span class="variable">$request</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// app\Http\Kernel.php 中添加一条Middleware</span></span><br><span class="line"><span class="keyword">protected</span> <span class="variable">$routeMiddleware</span> = [</span><br><span class="line">        <span class="string">&#x27;auth&#x27;</span> =&gt; <span class="title class_">\Illuminate\Auth\Middleware\Authenticate</span>::<span class="variable language_">class</span>,</span><br><span class="line">        <span class="string">&#x27;auth.basic&#x27;</span> =&gt; <span class="title class_">\Illuminate\Auth\Middleware\AuthenticateWithBasicAuth</span>::<span class="variable language_">class</span>,</span><br><span class="line">        <span class="string">&#x27;bindings&#x27;</span> =&gt; <span class="title class_">\Illuminate\Routing\Middleware\SubstituteBindings</span>::<span class="variable language_">class</span>,</span><br><span class="line">        <span class="string">&#x27;can&#x27;</span> =&gt; <span class="title class_">\Illuminate\Auth\Middleware\Authorize</span>::<span class="variable language_">class</span>,</span><br><span class="line">        <span class="string">&#x27;guest&#x27;</span> =&gt; <span class="title class_">\App\Http\Middleware\RedirectIfAuthenticated</span>::<span class="variable language_">class</span>,</span><br><span class="line">        <span class="string">&#x27;throttle&#x27;</span> =&gt; <span class="title class_">\Illuminate\Routing\Middleware\ThrottleRequests</span>::<span class="variable language_">class</span>,</span><br><span class="line">        <span class="string">&#x27;activity&#x27;</span> =&gt; <span class="title class_">\App\Http\Middleware\Activity</span>::<span class="variable language_">class</span>,</span><br><span class="line">    ];</span><br></pre></td></tr></table></figure><br><strong>3.添加路由</strong><br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Route</span>::<span class="title function_ invoke__">group</span>([<span class="string">&#x27;middleware&#x27;</span> =&gt; [<span class="string">&#x27;activity&#x27;</span>]], function () &#123;</span><br><span class="line">    <span class="title class_">Route</span>::<span class="title function_ invoke__">any</span>(<span class="string">&#x27;activity1&#x27;</span>, <span class="string">&#x27;StudentController@activity1&#x27;</span>);</span><br><span class="line">    <span class="title class_">Route</span>::<span class="title function_ invoke__">any</span>(<span class="string">&#x27;activity2&#x27;</span>, <span class="string">&#x27;StudentController@activity2&#x27;</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="title class_">Route</span>::<span class="title function_ invoke__">any</span>(<span class="string">&#x27;activity0&#x27;</span>, <span class="string">&#x27;StudentController@activity0&#x27;</span>);</span><br></pre></td></tr></table></figure><br><strong>4.浏览器访问activity1或者activity2</strong></p>
+<h2 id="File"><a href="#File" class="headerlink" title="File"></a>File</h2><p><strong>项目中遇到一个问题，需要数据库储存图片，网上给出一个好的方式就是将图片的路径存进数据库，laravel中实现过程如下</strong><br><strong>1.提交图片表单</strong><br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;form <span class="class"><span class="keyword">class</span>=&quot;<span class="title">form</span>-<span class="title">horizontal</span>&quot; <span class="title">method</span>=&quot;<span class="title">post</span>&quot; <span class="title">enctype</span>=&quot;<span class="title">multipart</span>/<span class="title">form</span>-<span class="title">data</span>&quot; <span class="title">action</span>=&quot;</span>&#123;&#123; <span class="title function_ invoke__">url</span>(<span class="string">&#x27;test2&#x27;</span>) &#125;&#125;<span class="string">&quot;&gt;</span></span><br><span class="line"><span class="string">    &#123;&#123; csrf_field() &#125;&#125;</span></span><br><span class="line"><span class="string">&lt;input type=&quot;</span>file<span class="string">&quot; name=&quot;</span>photo<span class="string">&quot;&gt;</span></span><br><span class="line"><span class="string">&lt;div class=&quot;</span>form-group<span class="string">&quot;&gt;</span></span><br><span class="line"><span class="string">    &lt;div class=&quot;</span>col-sm-offset-<span class="number">2</span> col-sm-<span class="number">10</span><span class="string">&quot;&gt;</span></span><br><span class="line"><span class="string">        &lt;button type=&quot;</span>submit<span class="string">&quot; class=&quot;</span>btn btn-primary<span class="string">&quot;&gt;提交&lt;/button&gt;</span></span><br><span class="line"><span class="string">    &lt;/div&gt;</span></span><br><span class="line"><span class="string">&lt;/div&gt;</span></span><br><span class="line"><span class="string">&lt;/form&gt;</span></span><br></pre></td></tr></table></figure><br><strong>2.显示图片页面</strong><br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;img height=<span class="string">&quot;150&quot;</span> width=<span class="string">&quot;150px&quot;</span> src=<span class="string">&quot;&#123;&#123;url(&#x27;/images/&#x27;.<span class="subst">$image</span>)&#125;&#125;&quot;</span>/&gt;</span><br></pre></td></tr></table></figure><br><strong>3.控制器实现</strong><br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">test2</span>(<span class="params">Request <span class="variable">$request</span></span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="variable">$img</span> = <span class="title function_ invoke__">time</span>() . <span class="string">&#x27;.&#x27;</span> . <span class="variable">$request</span>-&gt;photo-&gt;<span class="title function_ invoke__">getClientOriginalExtension</span>();</span><br><span class="line">    <span class="variable">$path</span> = <span class="variable">$request</span>-&gt;photo-&gt;<span class="title function_ invoke__">move</span>(<span class="title function_ invoke__">public_path</span>(<span class="string">&#x27;images&#x27;</span>),<span class="variable">$img</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="title function_ invoke__">view</span>(<span class="string">&#x27;student.test2&#x27;</span>, [</span><br><span class="line">        <span class="string">&#x27;image&#x27;</span> =&gt; <span class="variable">$img</span>,</span><br><span class="line">    ]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br><strong>最后图片存进了laravel项目下的public/images</strong></p>
+<h2 id="踩坑总结"><a href="#踩坑总结" class="headerlink" title="踩坑总结"></a>踩坑总结</h2><ol>
+<li><code>TokenMismatchException in VerifyCsrfToken.php line 68</code><br><strong>laravel 默认开启了 csrf验证 ，post请求需要验证csrf,所以要在表单里 加个隐藏域</strong><br><strong>解决方案：</strong><br><img src="/images/laravel_problem_1.png" alt=""></li>
+<li><code>MassAssignmentException in Model.php line 232:</code><br><strong>在添加学生的时候选择<code>action</code>为空时，会出现这个错误，解释为<code>new Student</code>时复制不能批量操作，因此要在<code>Model</code>中添加</strong><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">protected</span> <span class="variable">$fillable</span> = [<span class="string">&#x27;name&#x27;</span>, <span class="string">&#x27;age&#x27;</span>, <span class="string">&#x27;sex&#x27;</span>];</span><br></pre></td></tr></table></figure></li>
+<li><code>ErrorException in HasAttributes.php line 403:
+Relationship method must return an object of type Illuminate\Database\Eloquent\Relations\Relation</code><br><strong>在写<code>Student</code>模型的时候，将一个方法命名为<code>sex</code>，但<code>Student</code>又有一个属性是<code>sex</code>，两者相冲突了，因此需要将<code>sex</code>方法重新命名以解决冲突</strong></li>
+<li><code>无法修改和删除数据</code><br><strong>这是我遇到的巨坑的一次，原因在于<code>Student Model</code>中将主码写错了，原本应该是<code>id</code>，被我写成了<code>ID</code>，然后一直被找出来，之前就有预感是<code>Student Model</code>错了，但是我检查了很多遍都没注意，吐血。。。</strong></li>
+<li><code>PDOException in Connector.php line 55:could not find driver</code><br><strong>就像报错说的没有找到<code>driver(驱动)</code>，所以少了什么呢，少了<code>php</code>连接<code>mysql</code>的<code>module(组件)</code>，组件名字<code>pdo_mysql</code>，安装组件后重启<code>php-fpm</code>和<code>nginx</code></strong><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install php70w-mysql</span><br></pre></td></tr></table></figure></li>
+<li><code>Laravel sessions not working on server</code><br><strong>这个问题困扰我两天吧，然后先说遇到的问题，就是在浏览器中修改数据或者添加数据等操作后，应该在页面有一个提示消息，我单独分离出来用<code>Session</code>实现，在<code>php</code>内带服务器上可以正常工作，但是在我的<code>server</code>中却无法实现。解决方法是修改文件<code>model</code></strong><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">chmod</span> -R a+rw storage/</span><br></pre></td></tr></table></figure></li>
+<li><code>ErrorException in e4e354417ec7f106982a7198b9ad5688b9936b71.php line 1:
+Undefined variable: errors</code><br><strong>这个跟中间件有关系，主要实在5.2版本中会遇到，解决方案是将<code>Kernel.php</code>中的<code>$middlewareGroups</code>的内容移到<code>$middleware</code>中</strong></li>
+<li><code>No supported encrypter found. The cipher and / or key length are invalid.</code><br><strong>执行<code>php artisan key:generate</code>就 ok</strong></li>
+</ol>
+<h2 id="项目源码"><a href="#项目源码" class="headerlink" title="项目源码"></a>项目源码</h2><p><a target="_blank" rel="noopener" href="https://github.com/fenlan/laravel-ubuntu">laravel-ubuntu</a></p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/laravel/" rel="tag"><i class="fa fa-tag"></i> laravel</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2017/06/16/centos/" rel="prev" title="CentOS">
+      <i class="fa fa-chevron-left"></i> CentOS
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2017/08/22/zabbix/" rel="next" title="zabbix安装配置">
+      zabbix安装配置 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    
+  <div class="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+  </div>
+  
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%B7%AF%E7%94%B1"><span class="nav-number">1.</span> <span class="nav-text">路由</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8E%A7%E5%88%B6%E5%99%A8"><span class="nav-number">2.</span> <span class="nav-text">控制器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%86%E5%9B%BE"><span class="nav-number">3.</span> <span class="nav-text">视图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%9E%E6%8E%A5%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="nav-number">4.</span> <span class="nav-text">连接数据库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%BA%93%E6%93%8D%E4%BD%9C"><span class="nav-number">5.</span> <span class="nav-text">数据库操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#blade%E6%A8%A1%E6%9D%BF"><span class="nav-number">6.</span> <span class="nav-text">blade模板</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Requests"><span class="nav-number">7.</span> <span class="nav-text">Requests</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Session"><span class="nav-number">8.</span> <span class="nav-text">Session</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Response"><span class="nav-number">9.</span> <span class="nav-text">Response</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Middleware"><span class="nav-number">10.</span> <span class="nav-text">Middleware</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#File"><span class="nav-number">11.</span> <span class="nav-text">File</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%B8%A9%E5%9D%91%E6%80%BB%E7%BB%93"><span class="nav-number">12.</span> <span class="nav-text">踩坑总结</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A1%B9%E7%9B%AE%E6%BA%90%E7%A0%81"><span class="nav-number">13.</span> <span class="nav-text">项目源码</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Gao Jie"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">Gao Jie</p>
+  <div class="site-description" itemprop="description">Everything gonna be fine in the end</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">51</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">17</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">75</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/fenlan" title="GitHub → https://github.com/fenlan" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/fenlan96" title="Twitter → https://twitter.com/fenlan96" rel="noopener" target="_blank"><i class="fab fa-twitter fa-fw"></i>Twitter</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.facebook.com/lan.fen.104" title="Facebook → https://www.facebook.com/lan.fen.104" rel="noopener" target="_blank"><i class="fab fa-facebook-f fa-fw"></i>Facebook</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="http://23.83.230.171" title="http://23.83.230.171" rel="noopener" target="_blank">bookshop</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://github.com/fenlan/ChatTool" title="https://github.com/fenlan/ChatTool" rel="noopener" target="_blank">ChatTool</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://github.com/fenlan/cloudcourse-web" title="https://github.com/fenlan/cloudcourse-web" rel="noopener" target="_blank">cloudcourse</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://github.com/fenlan/storm-nginx-log" title="https://github.com/fenlan/storm-nginx-log" rel="noopener" target="_blank">nginx实时日志统计</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 2016 – 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Gao Jie</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+<script>
+  function loadCount() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://fenlan1.disqus.com/count.js';
+    s.id = 'dsq-count-scr';
+    (d.head || d.body).appendChild(s);
+  }
+  // defer loading until the whole page loading is completed
+  window.addEventListener('load', loadCount, false);
+</script>
+<script>
+  var disqus_config = function() {
+    this.page.url = "http://fenlan.github.io/2017/07/30/laravel/";
+    this.page.identifier = "2017/07/30/laravel/";
+    this.page.title = "laravel学习之旅";
+    };
+  NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
+    if (window.DISQUS) {
+      DISQUS.reset({
+        reload: true,
+        config: disqus_config
+      });
+    } else {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://fenlan1.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', '' + +new Date());
+      (d.head || d.body).appendChild(s);
+    }
+  });
+</script>
+
+</body>
+</html>
