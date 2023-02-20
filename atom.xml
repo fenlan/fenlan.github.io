@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://fenlan.github.io/"/>
-  <updated>2023-02-13T13:46:42.129Z</updated>
+  <updated>2023-02-20T15:17:10.126Z</updated>
   <id>http://fenlan.github.io/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Apache Flink</title>
+    <link href="http://fenlan.github.io/2023/02/20/Apache-Flink/"/>
+    <id>http://fenlan.github.io/2023/02/20/Apache-Flink/</id>
+    <published>2023-02-20T12:18:23.000Z</published>
+    <updated>2023-02-20T15:17:10.126Z</updated>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;持续更新中….&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;Flink-集群安装&quot;&gt;&lt;a href=&quot;#Flink-集群安装&quot; class=&quot;headerlink&quot; title=&quot;Flink 集群安装&quot;&gt;&lt;/a&gt;Flink 集群安装&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;印象中Flink集群安装非常简单，很久没有操作了，现在用空再来了解Flink，发现参考网上的教程安装了半天都没成功，莫名其妙的报错。索性直接去Apache Flink官方文档看看怎么安装的，参考文档几分钟就安装呢成功了。&lt;br&gt;经历这个过程，非常想吐槽网上乱七八糟的安装教程，充满着复制粘贴，所以以后想要了解一些技术，先尝试看看官方文档，大部分官方文档写的非常清晰和完善。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&quot;下载Flink&quot;&gt;&lt;a href=&quot;#下载Flink&quot; class=&quot;headerlink&quot; title=&quot;下载Flink&quot;&gt;&lt;/a&gt;下载Flink&lt;/h3&gt;&lt;p&gt;直接从Apache Flink官方下载非常慢，推荐使用清华的开源库下载，速度还是很可观&lt;br&gt;&lt;a href=&quot;https://mirrors.tuna.tsinghua.edu.cn/&quot;&gt;清华大学开源软件镜像站&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;通过tar命令解压下载下来的压缩包&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Flink" scheme="http://fenlan.github.io/categories/Flink/"/>
+    
+    
+      <category term="Flink" scheme="http://fenlan.github.io/tags/Flink/"/>
+    
+  </entry>
   
   <entry>
     <title>Spring 笔记</title>
@@ -644,32 +671,6 @@
       <category term="nginx" scheme="http://fenlan.github.io/tags/nginx/"/>
     
       <category term="Shadowsocks" scheme="http://fenlan.github.io/tags/Shadowsocks/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>分布式计算</title>
-    <link href="http://fenlan.github.io/2017/11/30/%E5%88%86%E5%B8%83%E5%BC%8F%E8%AE%A1%E7%AE%97/"/>
-    <id>http://fenlan.github.io/2017/11/30/分布式计算/</id>
-    <published>2017-11-30T07:44:18.000Z</published>
-    <updated>2023-01-18T08:50:41.343Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;大数据知识图谱&quot;&gt;&lt;a href=&quot;#大数据知识图谱&quot; class=&quot;headerlink&quot; title=&quot;大数据知识图谱&quot;&gt;&lt;/a&gt;大数据知识图谱&lt;/h1&gt;&lt;p&gt;&lt;img src=&quot;http://angelof7.github.io/album/bigdata.gif&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="分布式计算" scheme="http://fenlan.github.io/categories/%E5%88%86%E5%B8%83%E5%BC%8F%E8%AE%A1%E7%AE%97/"/>
-    
-    
-      <category term="Kafka" scheme="http://fenlan.github.io/tags/Kafka/"/>
-    
-      <category term="hadoop" scheme="http://fenlan.github.io/tags/hadoop/"/>
-    
-      <category term="storm" scheme="http://fenlan.github.io/tags/storm/"/>
-    
-      <category term="spark" scheme="http://fenlan.github.io/tags/spark/"/>
     
   </entry>
   
